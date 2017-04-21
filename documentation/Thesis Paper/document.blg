@@ -1,0 +1,13 @@
+This is BibTeX, Version 0.99dThe top-level auxiliary file: document.aux
+The style file: plain.bst
+Database file #1: document.bib
+I was expecting a `,' or a `}'---line 19 of file document.bib
+ :  
+ :  author={Faros}
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+"}" immediately follows an entry type---line 21 of file document.bib
+ :  publisher={info@faros.be
+ :                          }
+I'm skipping whatever remains of this entry
+(There were 2 error messages)

@@ -1,0 +1,18 @@
+\contentsline {section}{\numberline {1}Project Objective}{3}
+\contentsline {subsection}{\numberline {1.1}Proposal}{3}
+\contentsline {subsection}{\numberline {1.2}Concept}{3}
+\contentsline {section}{\numberline {2}Project Requirements}{4}
+\contentsline {subsection}{\numberline {2.1}Constraints}{4}
+\contentsline {subsection}{\numberline {2.2}Design focus}{4}
+\contentsline {section}{\numberline {3}Case study: Online cash register}{4}
+\contentsline {subsection}{\numberline {3.1}Introduction}{4}
+\contentsline {subsection}{\numberline {3.2}Use Cases}{4}
+\contentsline {subsection}{\numberline {3.3}Must-haves and nice-to haves}{4}
+\contentsline {subsection}{\numberline {3.4}Technology choices}{4}
+\contentsline {subsubsection}{\numberline {3.4.1}Application type}{4}
+\contentsline {subsubsection}{\numberline {3.4.2}Framework choices}{4}
+\contentsline {subsection}{\numberline {3.5}Design Choices}{4}
+\contentsline {subsubsection}{\numberline {3.5.1}Client}{4}
+\contentsline {subsubsection}{\numberline {3.5.2}Employee}{4}
+\contentsline {subsubsection}{\numberline {3.5.3}Manager}{4}
+\contentsline {subsubsection}{\numberline {3.5.4}Remarks and challenges}{4}
