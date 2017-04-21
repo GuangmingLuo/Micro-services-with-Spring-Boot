@@ -7,13 +7,13 @@
 * Documentation and code for the online cash register project 
 * coordinated by professional JAVA consultancy group Faros
 * commissioned by KULeuven, faculty Industrial engineering @ GroepT
-* v1
+* v2
 
 
 ### Where can I find more documentation? ###
 
 * Documentation is available in the 'documentation' folder
-* This documentation includes the reasoning behind technological choices (wip),
+* This documentation includes the reasoning behind technological choices
 * the working principles of the project (wip)
 * and in-depth explaination of how the program functions (wip)
 
