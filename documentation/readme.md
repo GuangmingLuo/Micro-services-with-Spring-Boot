@@ -5,3 +5,5 @@
 * **Faros OCR.pdf** -> *depricated* interactive pdf document that shows the different parts of the application and describes our technology choices
 
 * **Technological Requirements.pdf** -> interactive pdf document that describes the requirements for each actor and the corresponding technology choices
+
+* **Navigational model.pdf** -> The model that shows the various pages of our web application and how they are connected
