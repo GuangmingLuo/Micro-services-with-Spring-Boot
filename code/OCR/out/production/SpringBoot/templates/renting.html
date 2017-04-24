@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <title>Getting Started: Renting Page</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<!--/*@thymesVar id="name" type="String"*/-->
+<p style="text-align: center" th:text="'Welcome to ' + ${name} + '!'" > </p>
+<h2 th:inline="text" style="text-align: center">Hello [[${#httpServletRequest.remoteUser}]]!</h2>
+<p style="text-align: center">Here are the available vehicles you can rent:</p>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6" style="background-color:lavender;">
+            <h3 class="title">Cars</h3>
+            <div th:each="p : ${availableCars}">
+                <form th:action="@{/renting}" th:object="${p}" method="post" role="form">
+                    <span th:text="${p.getIdVehicle()}"></span>
+                    <span th:text="${p.getVendor()}"></span>
+                    <span th:text="${p.getLicenseNumber()}"></span>
+                    <span th:text="${p.getColor()}"></span>
+                    <span th:text="${p.getPricePerHour()}"></span>
+                    <button type="submit" class="btn btn-primary btn-block">Rent</button>
+                </form>
+            </div>
+        </div>
+        <div class="col-md-6" style="background-color:lavenderblush;">
+            <h3 class="title">Bikes</h3>
+            <div th:each="p : ${availableBikes}">
+                <form th:action="@{/renting}" th:object="${p}" method="post" role="form">
+                    <span th:text="${p.getIdVehicle()}"></span>
+                    <span th:text="${p.getVendor()}"></span>
+                    <span th:text="${p.getLicenseNumber()}"></span>
+                    <span th:text="${p.getColor()}"></span>
+                    <span th:text="${p.getPricePerHour()}"></span>
+                    <span th:text="${p.getIsLockProvided() ? 'With Lock' : 'Without Lock'}"></span>
+                    <button type="submit" class="btn btn-primary btn-block">Rent</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<form th:action="@{/logout}" method="post" style="text-align: center;margin: 20px">
+    <button type="submit">Sign Out</button>
+</form>
+
+<footer th:fragment="site-footer" style="text-align: center">
+    &copy; Spring Boot - Distributed Application, 2017
+</footer>
+</body>
+</html>
