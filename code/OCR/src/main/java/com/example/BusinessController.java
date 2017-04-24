@@ -27,7 +27,7 @@ public class BusinessController {
     @Autowired
     private RestaurantService restaurantService;
     @RequestMapping("/restaurant")
-    public String restaurant(@PathVariable(value = "name")String name, Model model){
+    public String restaurant(@RequestParam(value="name",defaultValue = "null")String name, Model model){
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         if(!(auth.getPrincipal().equals("anonymousUser"))){
             org.springframework.security.core.userdetails.User user = (org.springframework.security.core.userdetails.User)auth.getPrincipal();
