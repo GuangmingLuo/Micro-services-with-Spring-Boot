@@ -28,7 +28,7 @@
                 <span th:text="${menu.getName()}"></span>
                 <div th:each="food:${menu.getFoods()}">
                     <span th:text="${food.getName()}"></span>
-                    <span th:text="${food.getPrice()}"></span>
+                    <span th:text="${'$'+food.getPrice()}"></span>
                 </div>
             </div>
         </div>

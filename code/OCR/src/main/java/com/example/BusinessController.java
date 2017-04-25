@@ -53,11 +53,9 @@ public class BusinessController {
         model.addAttribute("introduction",rest.getIntroduction());
         List<Menu> menus = menuService.findMenuByRestaurantId(rest.getId());
         model.addAttribute("menus",menus);
-        List<List<Food>> foodsList = new ArrayList<>();
         for (Menu menu:menus){
             menu.setFoods(foodService.findFoodsByMenuId(menu.getId()));
         }
-        //model.addAttribute("foodsList",foodsList);
         return "restaurant";
     }
 
