@@ -12,7 +12,6 @@ public class Menu {
     private int id;
     private String name;
     private int restaurantId;
-    private int restaurantUserId;
 
     @Id
     @Column(name = "id", nullable = false)
@@ -44,15 +43,6 @@ public class Menu {
         this.restaurantId = restaurantId;
     }
 
-    @Id
-    @Column(name = "restaurant_user_id", nullable = false)
-    public int getRestaurantUserId() {
-        return restaurantUserId;
-    }
-
-    public void setRestaurantUserId(int restaurantUserId) {
-        this.restaurantUserId = restaurantUserId;
-    }
 
     @Override
     public boolean equals(Object o) {
@@ -63,7 +53,6 @@ public class Menu {
 
         if (id != menu.id) return false;
         if (restaurantId != menu.restaurantId) return false;
-        if (restaurantUserId != menu.restaurantUserId) return false;
         if (name != null ? !name.equals(menu.name) : menu.name != null) return false;
 
         return true;
@@ -74,7 +63,6 @@ public class Menu {
         int result = id;
         result = 31 * result + (name != null ? name.hashCode() : 0);
         result = 31 * result + restaurantId;
-        result = 31 * result + restaurantUserId;
         return result;
     }
 }
