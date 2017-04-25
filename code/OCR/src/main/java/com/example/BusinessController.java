@@ -1,7 +1,9 @@
 package com.example;
 
+import com.example.entities.Food;
 import com.example.entities.Menu;
 import com.example.entities.Restaurant;
+import com.example.services.FoodService;
 import com.example.services.MenuService;
 import com.example.services.RestaurantService;
 import com.example.services.UserService;
@@ -31,6 +33,8 @@ public class BusinessController {
     private RestaurantService restaurantService;
     @Autowired
     private MenuService menuService;
+    @Autowired
+    private FoodService foodService;
     @RequestMapping("/restaurant")
     public String restaurant(@RequestParam(value="name",defaultValue = "null")String name, Model model){
         Restaurant rest;
@@ -47,6 +51,7 @@ public class BusinessController {
         model.addAttribute("introduction",rest.getIntroduction());
         List<Menu> menus = menuService.findMenuByRestaurantId(rest.getId());
         model.addAttribute("menus",menus);
+        //List<Food> foods = foodService.findFoodsByMenuId()
         return "restaurant";
     }
 

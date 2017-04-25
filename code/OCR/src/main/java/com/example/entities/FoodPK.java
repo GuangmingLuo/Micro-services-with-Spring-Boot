@@ -10,8 +10,7 @@ import java.io.Serializable;
 public class FoodPK implements Serializable {
     private int id;
     private int menuId;
-    private int menuRestaurantId;
-    private int menuRestaurantUserId;
+    private float price;
 
     @Column(name = "id", nullable = false)
     @Id
@@ -33,25 +32,9 @@ public class FoodPK implements Serializable {
         this.menuId = menuId;
     }
 
-    @Column(name = "menu_restaurant_id", nullable = false)
-    @Id
-    public int getMenuRestaurantId() {
-        return menuRestaurantId;
-    }
-
-    public void setMenuRestaurantId(int menuRestaurantId) {
-        this.menuRestaurantId = menuRestaurantId;
-    }
-
-    @Column(name = "menu_restaurant_user_id", nullable = false)
-    @Id
-    public int getMenuRestaurantUserId() {
-        return menuRestaurantUserId;
-    }
-
-    public void setMenuRestaurantUserId(int menuRestaurantUserId) {
-        this.menuRestaurantUserId = menuRestaurantUserId;
-    }
+    @Column(name = "price", nullable = false)
+    public float getPrice(){return price;}
+    public void setPrice(float price){this.price=price;}
 
     @Override
     public boolean equals(Object o) {
@@ -62,9 +45,6 @@ public class FoodPK implements Serializable {
 
         if (id != foodPK.id) return false;
         if (menuId != foodPK.menuId) return false;
-        if (menuRestaurantId != foodPK.menuRestaurantId) return false;
-        if (menuRestaurantUserId != foodPK.menuRestaurantUserId) return false;
-
         return true;
     }
 
@@ -72,8 +52,6 @@ public class FoodPK implements Serializable {
     public int hashCode() {
         int result = id;
         result = 31 * result + menuId;
-        result = 31 * result + menuRestaurantId;
-        result = 31 * result + menuRestaurantUserId;
         return result;
     }
 }
