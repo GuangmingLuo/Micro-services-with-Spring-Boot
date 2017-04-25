@@ -10,7 +10,6 @@ import java.io.Serializable;
 public class MenuPK implements Serializable {
     private int id;
     private int restaurantId;
-    private int restaurantUserId;
 
     @Column(name = "id", nullable = false)
     @Id
@@ -32,16 +31,6 @@ public class MenuPK implements Serializable {
         this.restaurantId = restaurantId;
     }
 
-    @Column(name = "restaurant_user_id", nullable = false)
-    @Id
-    public int getRestaurantUserId() {
-        return restaurantUserId;
-    }
-
-    public void setRestaurantUserId(int restaurantUserId) {
-        this.restaurantUserId = restaurantUserId;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -51,7 +40,6 @@ public class MenuPK implements Serializable {
 
         if (id != menuPK.id) return false;
         if (restaurantId != menuPK.restaurantId) return false;
-        if (restaurantUserId != menuPK.restaurantUserId) return false;
 
         return true;
     }
@@ -60,7 +48,6 @@ public class MenuPK implements Serializable {
     public int hashCode() {
         int result = id;
         result = 31 * result + restaurantId;
-        result = 31 * result + restaurantUserId;
         return result;
     }
 }
