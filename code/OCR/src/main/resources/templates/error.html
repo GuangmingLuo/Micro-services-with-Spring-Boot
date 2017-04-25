@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <title>ERROR OCCURRED</title>
+</head>
+<body>
+    <div style="text-align: center">
+        <h1>A <strong th:text="${errorNumber}"></strong> error has occurred</h1>
+        <p th:text="${errorType}"></p>
+        <p th:text="${stackTrace}"></p>
+        <h2><a th:href="@{/}" href="#" >Back to home page</a></h2>
+    </div>
+</body>
+</html>
