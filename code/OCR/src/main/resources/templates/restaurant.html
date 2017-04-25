@@ -25,6 +25,13 @@
             <!--/*@thymesVar id="menus" type="java.util.List"*/-->
             <div th:each="menu : ${menus}">
                 <span th:text="${menu.getName()}"></span>
+                <form>
+                    <input type="hidden" name="id" th:value="${menu.getId()}"/>
+                    <button type="submit" class="btn btn-primary">Show Menu</button>
+                </form>
+                <div th:each="food:${foods}">
+                    <span th:text="${food.getName()}"></span>
+                </div>
             </div>
         </div>
     </div>
