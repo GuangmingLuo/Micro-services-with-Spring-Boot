@@ -18,6 +18,17 @@
 <!--/*@thymesVar id="introduction" type="String"*/-->
 <p style="text-align: center" th:text="'Introduction: ' + ${introduction} + '!'" > </p>
 
+<p style="text-align: center; margin-top: 30px">Here are the available menu you can select:</p>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12" style="background-color:lavender;text-align: center">
+            <!--/*@thymesVar id="menus" type="java.util.List"*/-->
+            <div th:each="menu : ${menus}">
+                <span th:text="${menu.getName()}"></span>
+            </div>
+        </div>
+    </div>
+</div>
 
 <form th:action="@{/logout}" method="post" style="text-align: center;margin: 20px">
     <button type="submit">Sign Out</button>

@@ -5,6 +5,8 @@ import com.example.entities.MenuRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * Created by guang on 2017/4/25.
  */
@@ -14,7 +16,7 @@ public class MenuServiceImpl implements MenuService {
     @Autowired
     private MenuRepository menuRepository;
     @Override
-    public Menu findMenuByRestaurantId(int restaurantId) {
+    public List<Menu> findMenuByRestaurantId(int restaurantId) {
         return menuRepository.findMenuByRestaurantId(restaurantId);
     }
 }

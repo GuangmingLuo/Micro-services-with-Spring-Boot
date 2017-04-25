@@ -1,6 +1,8 @@
 package com.example;
 
+import com.example.entities.Menu;
 import com.example.entities.Restaurant;
+import com.example.services.MenuService;
 import com.example.services.RestaurantService;
 import com.example.services.UserService;
 import org.slf4j.Logger;
@@ -12,6 +14,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import java.util.List;
 
 /**
  * Created by guang on 2017/4/24.
@@ -25,24 +29,26 @@ public class BusinessController {
     private UserService userService;
     @Autowired
     private RestaurantService restaurantService;
+    @Autowired
+    private MenuService menuService;
     @RequestMapping("/restaurant")
     public String restaurant(@RequestParam(value="name",defaultValue = "null")String name, Model model){
+        Restaurant rest;
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         if(!(auth.getPrincipal().equals("anonymousUser"))){
             org.springframework.security.core.userdetails.User user = (org.springframework.security.core.userdetails.User)auth.getPrincipal();
             com.example.entities.User userExists = userService.findByUsername(user.getUsername());
-            Restaurant rest = restaurantService.findRestaurantById(userExists.getRestaurantId());
-            model.addAttribute("restaurantName",rest.getName());
-            model.addAttribute("address",rest.getAddress());
-            model.addAttribute("introduction",rest.getIntroduction());
+            rest = restaurantService.findRestaurantById(userExists.getRestaurantId());
         }else{
-            model.addAttribute("restaurantName",name);
-            Restaurant rest = restaurantService.findRestaurantByName(name);
-            model.addAttribute("address",rest.getAddress());
-            model.addAttribute("introduction",rest.getIntroduction());
+            rest = restaurantService.findRestaurantByName(name);
         }
+        model.addAttribute("restaurantName",rest.getName());
+        model.addAttribute("address",rest.getAddress());
+        model.addAttribute("introduction",rest.getIntroduction());
+        List<Menu> menus = menuService.findMenuByRestaurantId(rest.getId());
+        model.addAttribute("menus",menus);
         return "restaurant";
     }
-    
+
 
 }
