@@ -34,6 +34,11 @@ public class ActuatorController implements ErrorController{
         return "error";
     }
 
+    @RequestMapping("/")
+    public String index(){
+        return "index";
+    }
+
     @Override
     public String getErrorPath() {
         return "/error";

@@ -1,10 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8"/>
     <title>Title</title>
 </head>
 <body>
+<div th:fragment="navbar">
+    <!-- Always shows a header, even in smaller screens. -->
+    <header class="mdl-layout__header">
+        <div class="mdl-layout__header-row">
+            <!-- Title -->
+            <span class="mdl-layout-title">Online Cash Register</span>
+            <!-- Add spacer, to align navigation to the right -->
+            <div class="mdl-layout-spacer"></div>
+            <!-- Navigation. We hide it in small screens. -->
+            <nav class="mdl-navigation mdl-layout--large-screen-only">
+                <a th:href="@{/}" class="mdl-navigation__link" href="#">Home</a>
+                <a th:href="@{/login}" class="mdl-navigation__link" href="">Login</a>
+                <a th:href="@{/restaurant}" class="mdl-navigation__link" href="">Restaurant</a>
+                <a th:href="@{/admin/register}" class="mdl-navigation__link" href="">Admin</a>
+            </nav>
+        </div>
+    </header>
+    <div class="mdl-layout__drawer">
+        <span class="mdl-layout-title">Navigation</span>
+        <nav class="mdl-navigation">
+            <a th:href="@{/}" class="mdl-navigation__link" href="#">Home</a>
+            <a th:href="@{/login}" class="mdl-navigation__link" href="">Login</a>
+            <a th:href="@{/restaurant}" class="mdl-navigation__link" href="">Restaurant</a>
+            <a th:href="@{/admin/register}" class="mdl-navigation__link" href="">Admin</a>
+        </nav>
+    </div>
+</div>
 
 </body>
 </html>
