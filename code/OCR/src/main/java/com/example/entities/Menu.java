@@ -1,6 +1,7 @@
 package com.example.entities;
 
 import javax.persistence.*;
+import java.util.List;
 
 /**
  * Created by guang on 2017/4/21.
@@ -12,7 +13,7 @@ public class Menu {
     private int id;
     private String name;
     private int restaurantId;
-
+    private List<Food> foods;
     @Id
     @Column(name = "id", nullable = false)
     public int getId() {
@@ -43,6 +44,10 @@ public class Menu {
         this.restaurantId = restaurantId;
     }
 
+
+    @Transient
+    public List<Food> getFoods(){ return foods;}
+    public void setFoods(List<Food> foods){this.foods =foods;}
 
     @Override
     public boolean equals(Object o) {

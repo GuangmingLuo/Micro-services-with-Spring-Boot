@@ -23,14 +23,12 @@
     <div class="row">
         <div class="col-md-12" style="background-color:lavender;text-align: center">
             <!--/*@thymesVar id="menus" type="java.util.List"*/-->
+            <!--/*@thymesVar id="foodsList" type="java.util.List"*/-->
             <div th:each="menu : ${menus}">
                 <span th:text="${menu.getName()}"></span>
-                <form>
-                    <input type="hidden" name="id" th:value="${menu.getId()}"/>
-                    <button type="submit" class="btn btn-primary">Show Menu</button>
-                </form>
-                <div th:each="food:${foods}">
+                <div th:each="food:${menu.getFoods()}">
                     <span th:text="${food.getName()}"></span>
+                    <span th:text="${food.getPrice()}"></span>
                 </div>
             </div>
         </div>
