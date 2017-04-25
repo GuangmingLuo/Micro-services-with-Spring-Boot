@@ -44,18 +44,5 @@ public class UserController {
         return "login";
     }
 
-//    @RequestMapping(value="/register",method= RequestMethod.POST)
-//    public String registerPost(@Valid User user,@Valid int restaurant_id, Model model) {
-//        user.setRestaurantId(restaurant_id);
-//        log.info("username is {} and password is {}, restaurant id is {}",user.getUsername(),user.getPassword(),user.getRestaurantId());
-//        User userExists = userService.findByUsername(user.getUsername());
-//        if(userExists !=null){
-//            model.addAttribute("message"," This username has been registered!");
-//        }else{
-//            model.addAttribute("message"," Success!");
-//            userService.saveUser(user);
-//        }
-//        return "register";
-//    }
 
 }

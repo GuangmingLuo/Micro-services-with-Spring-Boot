@@ -10,4 +10,5 @@ import java.util.List;
 public interface RestaurantService {
     public List<Restaurant> findAll();
     public Restaurant findRestaurantById(int id);
+    public Restaurant findRestaurantByName(String name);
 }

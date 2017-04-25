@@ -12,6 +12,11 @@
 
 <!--/*@thymesVar id="restaurantName" type="String"*/-->
 <p style="text-align: center" th:text="'Welcome to ' + ${restaurantName} + '!'" > </p>
+<!--/*@thymesVar id="address" type="String"*/-->
+<p style="text-align: center" th:text="'Address: ' + ${address} + '!'" > </p>
+
+<!--/*@thymesVar id="introduction" type="String"*/-->
+<p style="text-align: center" th:text="'Introduction: ' + ${introduction} + '!'" > </p>
 
 
 <form th:action="@{/logout}" method="post" style="text-align: center;margin: 20px">
@@ -19,7 +24,7 @@
 </form>
 
 <footer th:fragment="site-footer" style="text-align: center">
-    &copy; Spring Boot - Distributed Application, 2017
+    &copy; Spring Boot Application - Faros, 2017
 </footer>
 </body>
 </html>

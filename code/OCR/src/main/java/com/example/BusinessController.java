@@ -10,7 +10,6 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -21,7 +20,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 public class BusinessController {
 
-    private static final Logger log = LoggerFactory.getLogger(BusinessController.class);
+    //private static final Logger log = LoggerFactory.getLogger(BusinessController.class);
     @Autowired
     private UserService userService;
     @Autowired
@@ -33,26 +32,17 @@ public class BusinessController {
             org.springframework.security.core.userdetails.User user = (org.springframework.security.core.userdetails.User)auth.getPrincipal();
             com.example.entities.User userExists = userService.findByUsername(user.getUsername());
             Restaurant rest = restaurantService.findRestaurantById(userExists.getRestaurantId());
-            //log.info(rest.toString());
             model.addAttribute("restaurantName",rest.getName());
+            model.addAttribute("address",rest.getAddress());
+            model.addAttribute("introduction",rest.getIntroduction());
         }else{
             model.addAttribute("restaurantName",name);
+            Restaurant rest = restaurantService.findRestaurantByName(name);
+            model.addAttribute("address",rest.getAddress());
+            model.addAttribute("introduction",rest.getIntroduction());
         }
         return "restaurant";
     }
-
-//    @RequestMapping("/")
-//    public String Home(Model model){
-//        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-//        log.info("Principle is {}",auth.getPrincipal());
-//        if(!(auth.getPrincipal().equals("anonymousUser"))){
-//            org.springframework.security.core.userdetails.User user = (org.springframework.security.core.userdetails.User)auth.getPrincipal();
-//            com.example.entities.User userExists = userService.findByUsername(user.getUsername());
-//            Restaurant rest = restaurantService.findRestaurantById(userExists.getRestaurantId());
-//            log.info(rest.toString());
-//            model.addAttribute("name",rest.getName());
-//        }
-//        return "index";
-//    }
+    
 
 }
