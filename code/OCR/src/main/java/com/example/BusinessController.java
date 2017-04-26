@@ -14,6 +14,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -37,16 +38,22 @@ public class BusinessController {
     private MenuService menuService;
     @Autowired
     private FoodService foodService;
-    @RequestMapping(value="/restaurant", method= RequestMethod.GET)
-    public String restaurant(@RequestParam(value="name",defaultValue = "null")String name, Model model){
+    @RequestMapping(value="/restaurant/{name}", method= RequestMethod.GET)
+    public String restaurant(@PathVariable String name, Model model){
         Restaurant rest;
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         if(!(auth.getPrincipal().equals("anonymousUser"))){
             org.springframework.security.core.userdetails.User user = (org.springframework.security.core.userdetails.User)auth.getPrincipal();
             com.example.entities.User userExists = userService.findByUsername(user.getUsername());
             rest = restaurantService.findRestaurantById(userExists.getRestaurantId());
+            if(!rest.getName().equals(name)){
+                return "redirect:/restaurant/"+rest.getName();
+            }
         }else{
             rest = restaurantService.findRestaurantByName(name);
+            if(rest ==null){
+                return "/error";
+            }
         }
         model.addAttribute("restaurantName",rest.getName());
         model.addAttribute("address",rest.getAddress());

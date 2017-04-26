@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.w3.org/1999/xhtml">
+<html xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
     <title>Getting Started: Online Cash Register</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -16,7 +16,9 @@
             <div class="mdl-cell mdl-cell--8-col">
                 <h2>Welcome to OCR website landing page!</h2>
                 <p>Go to admin <a href="/admin/register">here</a></p>
-                <p>Go to your restaurant  <a href="/restaurant">here</a></p>
+                <div th:if="${logged}">
+                    <p>Go to your restaurant  <a href="/restaurant">here</a></p>
+                </div>
                 <p>Go to the login page  <a href="/login">here</a></p>
             </div>
         </div>
