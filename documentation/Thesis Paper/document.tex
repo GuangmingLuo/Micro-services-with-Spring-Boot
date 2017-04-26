@@ -46,7 +46,18 @@ As soon as we are sufficiently proficient with our chosen tools, we will start w
 \subsubsection{Front-end and Styling}
 \section{Case study: Online cash register}
 \subsection{Introduction}
+The goal of this case study is to create a service that can be used at events and in restaurants to process orders made by customers, relay these orders to the waiters and chefs and handle the payment. This service should include an application that clients can use to view the menu and order items from it. Waiters also have their own application that can place and acknowledge orders. These orders will be send to a central system that manages all the required information.
 \subsection{Use Cases}
+In this case study we can identify several distinct actors that will interact differently with the application.
+\paragraph{Customer}
+The customer is the primary user of this application. They access the menu of a specified restaurant or event. They can place orders, either via the application itself or from a waiter with their own device. Finally, they can pay for the orders that they placed. Again, either via the application or a waiter.
+\paragraph{Waiter}
+Like the customers, the waiter can access the menu of their restaurant and place orders for their clients. In addition to this they can display an overview of the currently queued orders, with the corresponding table numbers or location. They will also handle payments from customers through the application, or accept payment in other forms of currency.
+\paragraph{Chef}
+The chef can access similar functions as the waiter.
+\paragraph{Manager}
+
+
 \subsection{Must-haves and nice-to haves}
 \subsection{Technology choices}
 \subsubsection{Application type}
@@ -56,7 +67,7 @@ As soon as we are sufficiently proficient with our chosen tools, we will start w
 \subsubsection{Employee}
 \subsubsection{Manager}
 \subsubsection{Remarks and challenges}
-\subsection{Major problems and their solutions}
+\subsection{Major issues and their solutions}
 
 
 

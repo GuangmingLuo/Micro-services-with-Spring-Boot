@@ -15,6 +15,7 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 /**
  * Created by guang on 2017/4/12.
  */
+@SuppressWarnings("SpringJavaAutowiringInspection")
 @Configuration
 @EnableWebSecurity//(debug = true)
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
