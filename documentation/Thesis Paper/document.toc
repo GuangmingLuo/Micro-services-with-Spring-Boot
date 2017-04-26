@@ -23,3 +23,4 @@
 \contentsline {subsubsection}{\numberline {3.5.2}Employee}{5}
 \contentsline {subsubsection}{\numberline {3.5.3}Manager}{5}
 \contentsline {subsubsection}{\numberline {3.5.4}Remarks and challenges}{5}
+\contentsline {subsection}{\numberline {3.6}Major problems and their solutions}{5}
