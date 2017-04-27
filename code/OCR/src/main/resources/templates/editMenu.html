@@ -36,25 +36,25 @@
                     </div>
 
                     <div th:each="menu : ${menus}" class="mdl-tabs__panel" th:id="${menu.getName()}">
-                            <ul th:each="food:${menu.getFoods()}" class="demo-list-control mdl-list">
-                                <li class="mdl-list__item">
+                        <ul th:each="food:${menu.getFoods()}" class="demo-list-control mdl-list">
+                            <li class="mdl-list__item">
                                     <span class="mdl-list__item-primary-content">
                                         <i class="material-icons  mdl-list__item-avatar">person</i>
                                         <span th:text="${food.getName()}"></span>
                                         <span th:text="${'- $'+food.getPrice()}"></span>
                                     </span>
-                                    <span class="mdl-list__item-secondary-action">
+                                <span class="mdl-list__item-secondary-action">
                                         <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" th:for="${food.getName()}">
                                             <input type="checkbox" th:id="${food.getName()}" class="mdl-checkbox__input" />
                                         </label>
                                     </span>
-                                </li>
+                            </li>
 
                         </ul>
                     </div>
                     <div th:if="${isAdmin}">
-                        <form th:action="@{edit/}" method="post" style="text-align: center;margin: 20px">
-                            <button class="mdl-button" type="submit">Edit Your Menu</button>
+                        <form th:action="@{create/}" method="post" style="text-align: center;margin: 20px">
+                            <button class="mdl-button" type="submit">Create a new Category</button>
                         </form>
                     </div>
                 </div>

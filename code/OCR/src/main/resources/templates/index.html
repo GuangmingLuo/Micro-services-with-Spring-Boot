@@ -17,9 +17,12 @@
                 <h2>Welcome to OCR website landing page!</h2>
                 <p>Go to admin <a href="/admin/register">here</a></p>
                 <div th:if="${logged}">
-                    <p>Go to your restaurant  <a href="/restaurant/name">here</a></p>
+                    <p>Go to your restaurant  <a href="/restaurant/name/">here</a></p>
                 </div>
                 <p>Go to the login page  <a href="/login">here</a></p>
+                <div th:if="${logged}">
+                    <a th:href="@{/logout}">Log out</a>
+                </div>
             </div>
         </div>
     </main>

@@ -11,6 +11,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -29,7 +31,7 @@ import java.util.List;
 
 public class BusinessController {
 
-    //private static final Logger log = LoggerFactory.getLogger(BusinessController.class);
+    private static final Logger log = LoggerFactory.getLogger(BusinessController.class);
     @Autowired
     private UserService userService;
     @Autowired
@@ -38,22 +40,29 @@ public class BusinessController {
     private MenuService menuService;
     @Autowired
     private FoodService foodService;
-    @RequestMapping(value="/restaurant/{name}", method= RequestMethod.GET)
+    @RequestMapping(value="/restaurant/{name}/", method= RequestMethod.GET)
     public String restaurant(@PathVariable String name, Model model){
         Restaurant rest;
+        final SimpleGrantedAuthority AUTHORITY_ADMIN = new SimpleGrantedAuthority("ADMIN");
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         if(!(auth.getPrincipal().equals("anonymousUser"))){
             org.springframework.security.core.userdetails.User user = (org.springframework.security.core.userdetails.User)auth.getPrincipal();
             com.example.entities.User userExists = userService.findByUsername(user.getUsername());
             rest = restaurantService.findRestaurantById(userExists.getRestaurantId());
             if(!rest.getName().equals(name)){
-                return "redirect:/restaurant/"+rest.getName();
+                return "redirect:/restaurant/"+rest.getName()+"/";
             }
+            log.info("User content is {}",user.toString());
+            if(user.getAuthorities().contains(AUTHORITY_ADMIN)){
+                model.addAttribute("isAdmin",true);
+            }
+            log.info("ADMIN ? {}",user.getAuthorities().contains(AUTHORITY_ADMIN));
         }else{
             rest = restaurantService.findRestaurantByName(name);
             if(rest ==null){
                 return "/error";
             }
+            model.addAttribute("isAdmin",false);
         }
         model.addAttribute("restaurantName",rest.getName());
         model.addAttribute("address",rest.getAddress());
@@ -66,6 +75,9 @@ public class BusinessController {
         return "restaurant";
     }
 
-
+    @RequestMapping(value="/restaurant/{name}/edit", method= RequestMethod.GET)
+    public String createCategory(@PathVariable String name, Model model){
+        return "editMenu";
+    }
 
 }
