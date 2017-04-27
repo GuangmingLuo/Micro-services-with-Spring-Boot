@@ -11,7 +11,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -19,9 +18,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -43,7 +39,7 @@ public class BusinessController {
     @RequestMapping(value="/restaurant/{name}/", method= RequestMethod.GET)
     public String restaurant(@PathVariable String name, Model model){
         Restaurant rest;
-        final SimpleGrantedAuthority AUTHORITY_ADMIN = new SimpleGrantedAuthority("ADMIN");
+        final SimpleGrantedAuthority AUTHORITY_MANAGER = new SimpleGrantedAuthority("MANAGER");
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         if(!(auth.getPrincipal().equals("anonymousUser"))){
             org.springframework.security.core.userdetails.User user = (org.springframework.security.core.userdetails.User)auth.getPrincipal();
@@ -53,16 +49,16 @@ public class BusinessController {
                 return "redirect:/restaurant/"+rest.getName()+"/";
             }
             log.info("User content is {}",user.toString());
-            if(user.getAuthorities().contains(AUTHORITY_ADMIN)){
-                model.addAttribute("isAdmin",true);
+            if(user.getAuthorities().contains(AUTHORITY_MANAGER)){
+                model.addAttribute("isManager",true);
             }
-            log.info("ADMIN ? {}",user.getAuthorities().contains(AUTHORITY_ADMIN));
+            log.info("MANAGER ? {}",user.getAuthorities().contains(AUTHORITY_MANAGER));
         }else{
             rest = restaurantService.findRestaurantByName(name);
             if(rest ==null){
                 return "/error";
             }
-            model.addAttribute("isAdmin",false);
+            model.addAttribute("isManager",false);
         }
         model.addAttribute("restaurantName",rest.getName());
         model.addAttribute("address",rest.getAddress());

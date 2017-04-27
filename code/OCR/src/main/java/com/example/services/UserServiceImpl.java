@@ -41,7 +41,7 @@ public class UserServiceImpl implements UserService {
     public void setUserRole(int userId) {
         UserRole userRole = new UserRole();
         userRole.setUserId(userId);
-        userRole.setRoleId(1);//default
+        userRole.setRoleId(3);//3->manager
         log.info("The UserId is {}, the roleId is {}", userRole.getUserId(),userRole.getRoleId());
         userRoleRepository.save(userRole);
     }
