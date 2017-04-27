@@ -102,4 +102,14 @@ public class BusinessController {
         return "redirect:/restaurant/"+rest.getName()+"/edit";
     }
 
+    @RequestMapping(value="/addMenu", method = RequestMethod.POST)
+    public String addMenuItem(@Valid Menu menu){
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        org.springframework.security.core.userdetails.User user = (org.springframework.security.core.userdetails.User)auth.getPrincipal();
+        com.example.entities.User userExists = userService.findByUsername(user.getUsername());
+        Restaurant rest = restaurantService.findRestaurantById(userExists.getRestaurantId());
+        menu.setRestaurantId(rest.getId());
+        menuService.addMenu(menu);
+        return "redirect:/restaurant/"+rest.getName()+"/edit";
+    }
 }
