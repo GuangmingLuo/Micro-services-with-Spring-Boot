@@ -22,6 +22,11 @@
                     <a th:href="@{/logout}">Log out</a>
                 </div>
                 <br/>
+                <div sec:authorize="isAuthenticated()">
+                    This content is only shown to authenticated users.
+                </div>
+
+                <br/>
                 <span>List of restaurants:</span>
                 <div th:each="restaurant :${restaurants}">
                     <a th:href="'restaurant/'+${restaurant.getName()+'/'}" th:text="${restaurant.getName()}"></a>
