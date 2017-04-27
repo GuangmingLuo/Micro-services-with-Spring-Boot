@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8"/>
     <title>Title</title>
@@ -16,6 +16,7 @@
             <div class="mdl-layout-spacer"></div>
             <!-- Navigation. We hide it in small screens. -->
             <nav class="mdl-navigation mdl-layout--large-screen-only">
+                <a sec:authentication="name">Bob</a>
                 <a th:href="@{/}" class="mdl-navigation__link" href="#">Home</a>
                 <a th:href="@{/login}" class="mdl-navigation__link" href="">Login</a>
                 <a th:href="@{/restaurant/name/}" class="mdl-navigation__link" href="">Restaurant</a>
