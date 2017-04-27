@@ -43,7 +43,7 @@
                                 </li>
                         </ul>
                     </div>
-                    <div th:if="${isAdmin}" style="text-align: center">
+                    <div th:if="${isManager}" style="text-align: center">
                         <br/>
                         <form th:action="@{~/restaurant/}+${restaurantName}+'/edit/'" method="get" style="text-align: center;margin: 20px">
                             <button class="mdl-button" type="submit">Edit Menu</button>
