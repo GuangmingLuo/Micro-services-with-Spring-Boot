@@ -21,6 +21,11 @@
                 <div th:if="${logged}">
                     <a th:href="@{/logout}">Log out</a>
                 </div>
+                <br/>
+                <span>List of restaurants:</span>
+                <div th:each="restaurant :${restaurants}">
+                    <a th:href="'restaurant/'+${restaurant.getName()+'/'}" th:text="${restaurant.getName()}"></a>
+                </div>
             </div>
         </div>
     </main>

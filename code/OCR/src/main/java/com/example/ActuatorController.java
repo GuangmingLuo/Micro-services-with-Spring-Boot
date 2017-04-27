@@ -1,5 +1,7 @@
 package com.example;
 
+import com.example.entities.Restaurant;
+import com.example.services.RestaurantService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.web.ErrorController;
 import org.springframework.security.core.Authentication;
@@ -13,6 +15,7 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -24,6 +27,9 @@ public class ActuatorController implements ErrorController{
 
     @Autowired
     private ErrorAttributes errorAttributes;
+
+    @Autowired
+    private RestaurantService restaurantService;
 
     @RequestMapping("/error")
     public String error(HttpServletRequest request, HttpServletResponse response, Model model) {
@@ -39,6 +45,8 @@ public class ActuatorController implements ErrorController{
     @RequestMapping("/")
     public String index(Model model){
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        List<Restaurant> list =  restaurantService.findAll();
+        model.addAttribute("restaurants",list);
         if(auth.getPrincipal().equals("anonymousUser")){
             model.addAttribute("logged",false);
         }else{
