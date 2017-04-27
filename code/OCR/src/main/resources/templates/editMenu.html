@@ -43,10 +43,22 @@
                                         </label>
                                     </span>
                             </li>
-
                         </ul>
                     </div>
                 </div>
+                <br/><br/>
+                <form action="#">
+                    <p>Add a new menu item:</p>
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <input class="mdl-textfield__input" type="text" id="newName"/>
+                        <label class="mdl-textfield__label" for="newName">Name...</label>
+                    </div>
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <input class="mdl-textfield__input" type="text" id="newPrice"/>
+                        <label class="mdl-textfield__label" for="newPrice">Price...</label>
+                    </div>
+                    <button class="mdl-button mdl-js-button mdl-button--raised" type="submit">Add menu item</button>
+                </form>
 
                 <form th:action="@{/logout}" method="post" style="text-align: center;margin: 20px">
                     <button class="mdl-button" type="submit">Sign Out</button>
