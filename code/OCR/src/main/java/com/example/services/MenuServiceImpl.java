@@ -19,4 +19,9 @@ public class MenuServiceImpl implements MenuService {
     public List<Menu> findMenuByRestaurantId(int restaurantId) {
         return menuRepository.findMenuByRestaurantId(restaurantId);
     }
+
+    @Override
+    public void addMenu(Menu menu) {
+        menuRepository.save(menu);
+    }
 }

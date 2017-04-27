@@ -8,5 +8,6 @@ import java.util.List;
  * Created by guang on 2017/4/25.
  */
 public interface MenuService {
-    public List<Menu> findMenuByRestaurantId(int restaurantId);
+    List<Menu> findMenuByRestaurantId(int restaurantId);
+    void addMenu(Menu menu);
 }

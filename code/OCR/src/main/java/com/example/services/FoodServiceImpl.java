@@ -18,4 +18,9 @@ public class FoodServiceImpl implements FoodService {
     public List<Food> findFoodsByMenuId(int menuId) {
         return foodRepository.findFoodsByMenuId(menuId);
     }
+
+    @Override
+    public void addFood(Food food) {
+        foodRepository.save(food);
+    }
 }

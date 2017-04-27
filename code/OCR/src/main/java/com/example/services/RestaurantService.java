@@ -8,7 +8,7 @@ import java.util.List;
  * Created by guang on 2017/4/24.
  */
 public interface RestaurantService {
-    public List<Restaurant> findAll();
-    public Restaurant findRestaurantById(int id);
-    public Restaurant findRestaurantByName(String name);
+    List<Restaurant> findAll();
+    Restaurant findRestaurantById(int id);
+    Restaurant findRestaurantByName(String name);
 }
