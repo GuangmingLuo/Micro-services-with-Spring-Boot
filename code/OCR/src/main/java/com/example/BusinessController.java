@@ -40,7 +40,7 @@ public class BusinessController {
     private MenuService menuService;
     @Autowired
     private FoodService foodService;
-    @RequestMapping(value="/restaurant/{name}/", method= RequestMethod.GET)
+    @RequestMapping(value="/restaurant/{name}", method= RequestMethod.GET)
     public String restaurant(@PathVariable String name, Model model){
         Restaurant rest;
         final SimpleGrantedAuthority AUTHORITY_ADMIN = new SimpleGrantedAuthority("ADMIN");
@@ -60,7 +60,7 @@ public class BusinessController {
         }else{
             rest = restaurantService.findRestaurantByName(name);
             if(rest ==null){
-                return "/error";
+                return "redirect:/login/";
             }
             model.addAttribute("isAdmin",false);
         }

@@ -44,11 +44,14 @@
                         </ul>
                     </div>
                     <div th:if="${isAdmin}" style="text-align: center">
-                        <a href="edit" class="mdl-button" style="text-align: center;margin: 20px">Edit Your Menu</a>
+                        <br/>
+                        <form th:action="@{~/restaurant/}+${restaurantName}+'/edit/'" method="get" style="text-align: center;margin: 20px">
+                            <button class="mdl-button" type="submit">Edit Menu</button>
+                        </form>
                     </div>
                 </div>
 
-                <form th:action="@{/logout}" method="post" style="text-align: center;margin: 20px">
+                <form th:action="@{/logout}" method="get" style="text-align: center;margin: 20px">
                     <button class="mdl-button" type="submit">Sign Out</button>
                 </form>
 
