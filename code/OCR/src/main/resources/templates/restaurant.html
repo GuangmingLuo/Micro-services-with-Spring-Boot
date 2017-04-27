@@ -43,10 +43,8 @@
                                 </li>
                         </ul>
                     </div>
-                    <div th:if="${isAdmin}">
-                        <form th:action="@{edit/}" method="post" style="text-align: center;margin: 20px">
-                            <button class="mdl-button" type="submit">Edit Your Menu</button>
-                        </form>
+                    <div th:if="${isAdmin}" style="text-align: center">
+                        <a href="edit" class="mdl-button" style="text-align: center;margin: 20px">Edit Your Menu</a>
                     </div>
                 </div>
 

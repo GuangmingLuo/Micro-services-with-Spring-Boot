@@ -77,6 +77,15 @@ public class BusinessController {
 
     @RequestMapping(value="/restaurant/{name}/edit", method= RequestMethod.GET)
     public String createCategory(@PathVariable String name, Model model){
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        org.springframework.security.core.userdetails.User user = (org.springframework.security.core.userdetails.User)auth.getPrincipal();
+        com.example.entities.User userExists = userService.findByUsername(user.getUsername());
+        Restaurant rest = restaurantService.findRestaurantById(userExists.getRestaurantId());
+        List<Menu> menus = menuService.findMenuByRestaurantId(rest.getId());
+        model.addAttribute("menus",menus);
+        for (Menu menu:menus){
+            menu.setFoods(foodService.findFoodsByMenuId(menu.getId()));
+        }
         return "editMenu";
     }
 
