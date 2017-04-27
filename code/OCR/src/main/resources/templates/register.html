@@ -9,41 +9,53 @@
     <th:block th:include="fragments/include :: include"></th:block>
 </head>
 <body>
-<form th:action="@{/login}" method="get">
-    <button class="btn btn-md btn-warning btn-block" type="Submit">Go To Login Page</button>
-</form>
+<div class="mdl-layout mdl-layout--fixed-header mdl-js-layout mdl-color--grey-100 is-upgraded">
+    <th:block th:include="fragments/navbar :: navbar">test</th:block>
+    <main class="mdl-layout__content">
+        <div class="mdl-grid">
+            <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
+            <div class="mdl-cell mdl-cell--8-col">
+                <form th:action="@{/login}" method="get">
+                    <button class="btn btn-md btn-warning btn-block" type="Submit">Go To Login Page</button>
+                </form>
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-6 col-md-offset-3">
-            <form autocomplete="off" action="#" th:action="@{/admin/register}"
-                  th:object="${user}" method="post" class="form-horizontal" role="form">
-                <h2>Registration Form</h2>
-                <div class="form-group">
-                    <div class="col-sm-9">
-                        <label>Username: <input type="text" id="username" name="username"/></label>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6 col-md-offset-3">
+                            <form autocomplete="off" action="#" th:action="@{/admin/register}"
+                                  th:object="${user}" method="post" class="form-horizontal" role="form">
+                                <h2>Registration Form</h2>
+                                <div class="form-group">
+                                    <div class="col-sm-9">
+                                        <label>Username: <input type="text" id="username" name="username"/></label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-9">
+                                        <label>Password: <input type="password" id="password" name="password"/></label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <select class="form-control" id="restaurant_id" name="restaurant_id">>
+                                        <!--<option value="0">select restaurant</option>-->
+                                        <option th:each="restaurant : ${restaurants}" th:value="${restaurant.id}" th:text="${restaurant.name}"></option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-9">
+                                        <button type="submit" class="btn btn-primary btn-block">Register</button>
+                                    </div>
+                                </div>
+                            </form>
+                            <span th:utext="${message}"></span>
+                        </div>
                     </div>
                 </div>
-                <div class="form-group">
-                    <div class="col-sm-9">
-                        <label>Password: <input type="password" id="password" name="password"/></label>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <select class="form-control" id="restaurant_id" name="restaurant_id">>
-                        <!--<option value="0">select restaurant</option>-->
-                        <option th:each="restaurant : ${restaurants}" th:value="${restaurant.id}" th:text="${restaurant.name}"></option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <div class="col-sm-9">
-                        <button type="submit" class="btn btn-primary btn-block">Register</button>
-                    </div>
-                </div>
-            </form>
-            <span th:utext="${message}"></span>
+            </div>
         </div>
-    </div>
+    </main>
 </div>
+
+
 </body>
 </html>
