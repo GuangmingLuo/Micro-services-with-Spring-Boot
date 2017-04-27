@@ -1,5 +1,22 @@
 \begin{thebibliography}{1}
 
+\bibitem{farosProposal}
+Faros master thesis proposal.
+
+\bibitem{JavaTool10:online}
+Java tools and technologies landscape report 2016 | zeroturnaround.com
+  zeroturnaround.com.
+\newblock
+  \url{https://zeroturnaround.com/rebellabs/java-tools-and-technologies-landscape-2016/}.
+\newblock (Accessed on 04/27/2017).
+
+\bibitem{SpringPopular1:online}
+What is good about the spring framework that made it among the most popular
+  java web frameworks in 2014? - quora.
+\newblock
+  \url{https://www.quora.com/What-is-good-about-the-Spring-Framework-that-made-it-among-the-most-popular-Java-web-frameworks-in-2014}.
+\newblock (Accessed on 04/27/2017).
+
 \bibitem{antonov2015spring}
 Alex Antonov.
 \newblock {\em Spring Boot Cookbook}.
