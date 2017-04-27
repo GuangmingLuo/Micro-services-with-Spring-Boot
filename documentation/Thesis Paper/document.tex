@@ -1,9 +1,12 @@
+% Document formatting and includes
 \documentclass[12pt]{article}
 \usepackage[a4paper,left=3cm,right=2cm,top=2.5cm,bottom=2.5cm]{geometry}
 \usepackage{graphicx}
 \usepackage{subcaption}
 \usepackage[hyphens]{url}
 \usepackage{hyperref}
+\providecommand{\keywords}[1]{\textbf{\textit{Index terms---}} #1}
+
 
 
 
@@ -20,8 +23,9 @@
 
 \begin{abstract}
 \noindent In this report we will explore various Java technologies and analyse what features they offer. The focus of this project is to find which frameworks are most suitable for quick prototyping of a business application.
-Constraints and other requirements will be defined and will then be applied to a specific case study.
+Constraints and other requirements will be defined and are then applied to a specific case study.
 \end{abstract}
+\keywords{JavaEE, Spring, Cash register, Java}
 
 \section{Project Objective}
 \subsection{Proposal}
@@ -44,14 +48,17 @@ As soon as we are sufficiently proficient with our chosen tools, we will start w
 \subsubsection{Constraints}
 
 \subsubsection{Design focus}
+\subsection{Existing systems}
 
-\section{Enterprise Java Research}
-\subsection{Current Landscape}
+\section{Research and Methods}
+\subsection{Approach}
+\subsection{Java EE Landscape}
 \subsection{Comparison of technologies}
 \subsubsection{General framework}
 \subsubsection{Persistence providers}
 \subsubsection{Security}
 \subsubsection{Front-end and Styling}
+\subsection{Implementation}
 \section{Case study: Online cash register}
 \subsection{Introduction}
 The goal of this case study is to create a service that can be used at events and in restaurants to process orders made by customers, relay these orders to the waiters and chefs and handle the payment. This service should include an application that clients can use to view the menu and order items from it. Waiters also have their own application that can place and acknowledge orders. These orders will be send to a central system that manages all the required information. See fig. \ref{fig:usecase} for a use case diagram.
@@ -184,6 +191,11 @@ While a user account for the customer might be desirable to track certain statis
 \subsubsection{Remarks and challenges}
 \subsection{Major issues and their solutions}
 
+\section{Results}
+\subsection{Final Prototype}
+\subsection{User tests}
+
+\section{Conclusion}
 
 
 
@@ -191,6 +203,7 @@ blablabla \cite{greenwade93} \cite{antonov2015spring} \cite{JavaTool10:online} \
 
 
 \newpage
+\section{References}
 \bibliographystyle{plain}
 \bibliography{document}
 

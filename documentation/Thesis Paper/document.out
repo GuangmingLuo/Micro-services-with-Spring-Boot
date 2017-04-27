@@ -1,0 +1,34 @@
+\BOOKMARK [1][-]{section.1}{Project Objective}{}% 1
+\BOOKMARK [2][-]{subsection.1.1}{Proposal}{section.1}% 2
+\BOOKMARK [2][-]{subsection.1.2}{Concept}{section.1}% 3
+\BOOKMARK [2][-]{subsection.1.3}{Project Requirements}{section.1}% 4
+\BOOKMARK [3][-]{subsubsection.1.3.1}{Constraints}{subsection.1.3}% 5
+\BOOKMARK [3][-]{subsubsection.1.3.2}{Design focus}{subsection.1.3}% 6
+\BOOKMARK [2][-]{subsection.1.4}{Existing systems}{section.1}% 7
+\BOOKMARK [1][-]{section.2}{Research and Methods}{}% 8
+\BOOKMARK [2][-]{subsection.2.1}{Approach}{section.2}% 9
+\BOOKMARK [2][-]{subsection.2.2}{Java EE Landscape}{section.2}% 10
+\BOOKMARK [2][-]{subsection.2.3}{Comparison of technologies}{section.2}% 11
+\BOOKMARK [3][-]{subsubsection.2.3.1}{General framework}{subsection.2.3}% 12
+\BOOKMARK [3][-]{subsubsection.2.3.2}{Persistence providers}{subsection.2.3}% 13
+\BOOKMARK [3][-]{subsubsection.2.3.3}{Security}{subsection.2.3}% 14
+\BOOKMARK [3][-]{subsubsection.2.3.4}{Front-end and Styling}{subsection.2.3}% 15
+\BOOKMARK [2][-]{subsection.2.4}{Implementation}{section.2}% 16
+\BOOKMARK [1][-]{section.3}{Case study: Online cash register}{}% 17
+\BOOKMARK [2][-]{subsection.3.1}{Introduction}{section.3}% 18
+\BOOKMARK [2][-]{subsection.3.2}{Use Cases}{section.3}% 19
+\BOOKMARK [2][-]{subsection.3.3}{Must-haves and nice-to haves}{section.3}% 20
+\BOOKMARK [2][-]{subsection.3.4}{Technology choices}{section.3}% 21
+\BOOKMARK [3][-]{subsubsection.3.4.1}{Application type}{subsection.3.4}% 22
+\BOOKMARK [3][-]{subsubsection.3.4.2}{Framework choices}{subsection.3.4}% 23
+\BOOKMARK [2][-]{subsection.3.5}{Design Choices}{section.3}% 24
+\BOOKMARK [3][-]{subsubsection.3.5.1}{Client}{subsection.3.5}% 25
+\BOOKMARK [3][-]{subsubsection.3.5.2}{Employee}{subsection.3.5}% 26
+\BOOKMARK [3][-]{subsubsection.3.5.3}{Manager}{subsection.3.5}% 27
+\BOOKMARK [3][-]{subsubsection.3.5.4}{Remarks and challenges}{subsection.3.5}% 28
+\BOOKMARK [2][-]{subsection.3.6}{Major issues and their solutions}{section.3}% 29
+\BOOKMARK [1][-]{section.4}{Results}{}% 30
+\BOOKMARK [2][-]{subsection.4.1}{Final Prototype}{section.4}% 31
+\BOOKMARK [2][-]{subsection.4.2}{User tests}{section.4}% 32
+\BOOKMARK [1][-]{section.5}{Conclusion}{}% 33
+\BOOKMARK [1][-]{section.6}{References}{}% 34
