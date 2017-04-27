@@ -18,6 +18,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import javax.validation.Valid;
 import java.util.List;
 
 /**
@@ -86,6 +88,18 @@ public class BusinessController {
             menu.setFoods(foodService.findFoodsByMenuId(menu.getId()));
         }
         return "editMenu";
+    }
+
+    @RequestMapping(value="/addMenuItem", method = RequestMethod.POST)
+    public String addMenuItem(@Valid Food food, @Valid int menuId){
+        food.setMenuId(menuId);
+        log.info("Food to be add: {},{},{}",food.getName(),food.getPrice(),food.getMenuId());
+        foodService.addFood(food);
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        org.springframework.security.core.userdetails.User user = (org.springframework.security.core.userdetails.User)auth.getPrincipal();
+        com.example.entities.User userExists = userService.findByUsername(user.getUsername());
+        Restaurant rest = restaurantService.findRestaurantById(userExists.getRestaurantId());
+        return "redirect:/restaurant/"+rest.getName()+"/edit";
     }
 
 }
