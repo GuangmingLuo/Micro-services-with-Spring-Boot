@@ -25,6 +25,9 @@
                 <div sec:authorize="isAuthenticated()">
                     This content is only shown to authenticated users.
                 </div>
+                <div sec:authorize="!isAuthenticated()">
+                    This content is only shown to unauthenticated users.
+                </div>
                 <div sec:authorize="hasAuthority('ADMIN')">
                     This content is only shown to Admins users.
                 </div>
