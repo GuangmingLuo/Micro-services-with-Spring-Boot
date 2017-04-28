@@ -12,6 +12,7 @@ public class Order {
     private String content;
     private int table;
     private String status;
+    private String comments;
 
     @Id
     @Column(name = "id", nullable = false)
@@ -41,6 +42,16 @@ public class Order {
 
     public void setTable(int table) {
         this.table = table;
+    }
+
+    @Basic
+    @Column(name = "comments", nullable = true, length = 225)
+    public String getComments() {
+        return comments;
+    }
+
+    public void setComments(String comments) {
+        this.comments = comments;
     }
 
     @Basic

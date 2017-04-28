@@ -26,10 +26,9 @@ import java.util.List;
  * Created by guang on 2017/4/24.
  */
 @Controller
+public class MenuController {
 
-public class BusinessController {
-
-    private static final Logger log = LoggerFactory.getLogger(BusinessController.class);
+    private static final Logger log = LoggerFactory.getLogger(MenuController.class);
     @Autowired
     private UserService userService;
     @Autowired

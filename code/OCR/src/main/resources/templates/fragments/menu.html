@@ -18,7 +18,7 @@
                     <div class="mdl-tabs__tab-bar">
                         <a th:each="menu : ${menus}" th:href="'#menu'+${menu.getId()}" href="#starks-panel" class="mdl-tabs__tab is-active"><span th:text="${menu.getName()}"></span></a>
                     </div>
-
+                    <form id="orderForm" th:action="@{~/restaurant/}+${restaurantName}+'/createOrder'" action="#" method="post">
                     <div th:each="menu : ${menus}" class="mdl-tabs__panel" th:id="menu+${menu.getId()}">
                         <table class="fullwidth mdl-data-table mdl-js-data-table mdl-shadow--2dp">
                             <thead>
@@ -33,16 +33,21 @@
                             <tr th:each="food:${menu.getFoods()}">
                                 <td>
                                     <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect mdl-data-table__select" th:for="'food'+${food.getId()}">
-                                        <input type="checkbox" th:id="'food'+${food.getId()}" class="mdl-checkbox__input" />
+                                        <input type="checkbox" th:id="'food'+${food.getId()}" name="foods" th:value="${food.getId()}" class="mdl-checkbox__input" />
                                     </label>
                                 </td>
                                 <td class="mdl-data-table__cell--non-numeric" th:text="${food.getName()}">Acrylic (Transparent)</td>
-                                <td>0</td>
+                                <td><input type="number" class="mdl-textfield__input" name="numbers" placeholder="0"/></td>
                                 <td th:text="${'$'+food.getPrice()}">$2.90</td>
                             </tr>
                             </tbody>
                         </table>
                     </div>
+                        <div class="mdl-textfield">
+                            <input autofocus="autofocus" class="mdl-textfield__input" type="number" id="tableId" name="tableId"/>
+                            <label class="mdl-textfield__label" for="tableId">Table Name</label>
+                        </div>
+                    </form>
                     <div class="mdl-grid">
                         <div class="mdl-cell--1-offset mdl-cell--2-col">
                             <div th:if="${isManager}" style="text-align: center">
@@ -56,10 +61,8 @@
                         </div>
                         <div class="mdl-cell--3-col">
                             <br/>
-                            <form action="#">
-                                <button class="mdl-button" type="submit">Place Order</button>
-                                <br/><br/>
-                            </form>
+                            <button class="mdl-button" onclick="document.getElementById('orderForm').submit();">Place Order</button>
+                            <br/><br/>
                         </div>
                     </div>
                 </div>
