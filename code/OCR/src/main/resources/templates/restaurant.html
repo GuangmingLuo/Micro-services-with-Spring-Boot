@@ -11,13 +11,11 @@
     <th:block th:include="fragments/navbar :: navbar">test</th:block>
     <main class="mdl-layout__content">
         <div class="mdl-grid">
-            <div class="mdl-cell mdl-cell--3-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
-            <div class="mdl-cell mdl-cell--6-col">
-                <p style="text-align: center" th:text="'Welcome to ' + ${restaurantName} + '!'" > </p>
-                <p style="text-align: center" th:text="'Address: ' + ${address} " > </p>
-                <p style="text-align: center" th:text="'Introduction: ' + ${introduction}" > </p>
-                <h4 style="text-align: center" > Please select a category:</h4>
-
+            <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
+            <div class="demo-content mdl-color--white mdl-shadow--4dp content mdl-color-text--grey-800 mdl-cell mdl-cell--8-col">
+                <h3 style="text-align: center" th:text="'Welcome to ' + ${restaurantName} + '!'" > </h3>
+                <span style="text-align: center" th:text="'Address: ' + ${address} " > </span><br/>
+                <span style="text-align: center" th:text="'Introduction: ' + ${introduction}" > </span><br/><br/>
 
                 <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
                     <div class="mdl-tabs__tab-bar">
@@ -25,35 +23,55 @@
                     </div>
 
                     <div th:each="menu : ${menus}" class="mdl-tabs__panel" th:id="${menu.getName()}">
-                            <ul th:each="food:${menu.getFoods()}" class="demo-list-control mdl-list">
-                                <li class="mdl-list__item">
-                                    <span class="mdl-list__item-primary-content">
-                                        <i class="material-icons  mdl-list__item-avatar">person</i>
-                                        <span th:text="${food.getName()}"></span>
-                                        <span th:text="${'- $'+food.getPrice()}"></span>
-                                    </span>
-                                    <span class="mdl-list__item-secondary-action">
-                                        <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" th:for="${food.getName()}">
-                                            <input type="checkbox" th:id="${food.getName()}" class="mdl-checkbox__input" />
-                                        </label>
-                                    </span>
-                                </li>
-                        </ul>
+                        <table class="fullwidth mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+                            <thead>
+                            <tr class="fullwidth">
+                                <th></th>
+                                <th class="mdl-data-table__cell--non-numeric" >Name</th>
+                                <th>Quantity</th>
+                                <th>Price</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:each="food:${menu.getFoods()}">
+                                <td>
+                                    <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect mdl-data-table__select" th:for="'food'+${food.getId()}">
+                                        <input type="checkbox" th:id="'food'+${food.getId()}" class="mdl-checkbox__input" />
+                                    </label>
+                                </td>
+                                <td class="mdl-data-table__cell--non-numeric" th:text="${food.getName()}">Acrylic (Transparent)</td>
+                                <td>0</td>
+                                <td th:text="${'$'+food.getPrice()}">$2.90</td>
+                            </tr>
+                            </tbody>
+                        </table>
                     </div>
-                    <div th:if="${isManager}" style="text-align: center">
-                        <br/>
-                        <form th:action="@{~/restaurant/}+${restaurantName}+'/edit/'">
-                            <button class="mdl-button" type="submit">Edit Menu</button>
-                        </form>
+                    <div class="mdl-grid">
+                        <div class="mdl-cell--1-offset mdl-cell--2-col">
+                            <div th:if="${isManager}" style="text-align: center">
+                                <br/>
+                                <form th:action="@{~/restaurant/}+${restaurantName}+'/edit/'">
+                                    <button class="mdl-button" type="submit">Edit Menu</button>
+                                </form><br/>
+                            </div></div>
+                        <div class="mdl-cell--6-col">
+
+                        </div>
+                        <div class="mdl-cell--3-col">
+                            <br/>
+                            <form th:action="@{~/restaurant/}+${restaurantName}+'/edit/'">
+                                <button class="mdl-button" type="submit">Place Order</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
 
-                <br/>
-                <footer th:fragment="site-footer" style="text-align: center">
-                    &copy; Spring Boot Application - Faros, 2017
-                </footer>
             </div>
         </div>
+        <br/>
+        <footer th:fragment="site-footer" style="text-align: center">
+            &copy; Spring Boot Application - Faros, 2017
+        </footer>
     </main>
 </div>
 
