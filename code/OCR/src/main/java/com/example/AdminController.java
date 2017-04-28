@@ -42,19 +42,4 @@ public class AdminController {
         return "register";
     }
 
-    @RequestMapping(value="/register",method= RequestMethod.POST)
-    public String registerPost(@Valid User user, @Valid int restaurant_id, RedirectAttributes redir) {
-        user.setRestaurantId(restaurant_id);
-        log.info("username is {} and password is {}, restaurant id is {}",user.getUsername(),user.getPassword(),user.getRestaurantId());
-        User userExists = userService.findByUsername(user.getUsername());
-        if(userExists !=null){
-            redir.addFlashAttribute("message"," This username is already registered!");
-        }else{
-            redir.addFlashAttribute("message"," Successfully created new manager!");
-            userService.saveUser(user);
-            User myUser = userService.findByUsername(user.getUsername());
-            userService.setUserRole(myUser.getId(),3); //3->manager
-        }
-        return "redirect:/admin/registration";
-    }
 }

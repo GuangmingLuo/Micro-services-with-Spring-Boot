@@ -14,12 +14,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
-
 import javax.validation.Valid;
-
 import java.util.List;
-
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
@@ -57,13 +53,15 @@ public class UserController {
         return "register";
     }
 
+    /*
+    * This post function is shared by manager and admin (registration page)
+    * */
     @RequestMapping(value = "/register",method = POST)
     public String save(@Valid User user, @Valid int restaurant_id, RedirectAttributes redir){
         final SimpleGrantedAuthority AUTHORITY_MANAGER = new SimpleGrantedAuthority("MANAGER");
         final SimpleGrantedAuthority AUTHORITY_ADMIN = new SimpleGrantedAuthority("ADMIN");
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         org.springframework.security.core.userdetails.User me = (org.springframework.security.core.userdetails.User)auth.getPrincipal();
-
         user.setRestaurantId(restaurant_id);
         User userExists = userService.findByUsername(user.getUsername());
         if(userExists !=null){
@@ -78,13 +76,11 @@ public class UserController {
                 userService.setUserRole(myUser.getId(),3); //3->manager
                 redir.addFlashAttribute("message"," Successfully created new manager!");
             }
-
         }
         if(me.getAuthorities().contains(AUTHORITY_ADMIN)){
             return "redirect:/admin/registration";
-        }else{  // else will be manager
+        }else{  // else will be manager in this case
             return "redirect:/registration";
         }
-
     }
 }
