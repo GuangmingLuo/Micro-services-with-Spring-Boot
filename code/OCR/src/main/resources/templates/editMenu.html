@@ -23,11 +23,11 @@
 
                 <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
                     <div class="mdl-tabs__tab-bar">
-                        <a th:each="menu : ${menus}" th:href="'#'+${menu.getName()}" href="#starks-panel"
+                        <a th:each="menu : ${menus}" th:href="'#food'+${menu.getId()}" href="#starks-panel"
                            class="mdl-tabs__tab is-active"><span th:text="${menu.getName()}"></span></a>
                     </div>
 
-                    <div th:each="menu : ${menus}" class="mdl-tabs__panel" th:id="${menu.getName()}">
+                    <div th:each="menu : ${menus}" class="mdl-tabs__panel" th:id="'food'+${menu.getId()}">
                         <ul th:each="food:${menu.getFoods()}" class="demo-list-control mdl-list">
                             <li class="mdl-list__item">
                                     <span class="mdl-list__item-primary-content">
