@@ -50,6 +50,13 @@ As soon as we are sufficiently proficient with our chosen tools, we will start w
 
 \subsubsection{Design focus}
 \subsection{Existing systems}
+Before creating our own Online cash register application we searched for similar systems that already exist. One of such systems is Gloriafood \cite{Gloriafood:online}. This is an online system that allows any restaurant owner to sign up and start receiving orders online. A extensive layout is available where you can add a menu and payment options.
+\\\\
+Similarly, there is ChowNow \cite{Chownow:online}. This service also handles online ordering and payment with no extra input required from the restaurant manager. ChowNow will also create a custom branded mobile application to showcase the brand and food of the restaurant.
+\\\\
+Both of these systems are focused on the online ordering aspect and not so much on allowing people to use their devices to order food on location. In this project we want to put the emphasis on the latter part, creating an application that is ment to be used at the location itself.
+
+
 
 \section{Research and Methods}
 \subsection{Approach}
@@ -96,7 +103,7 @@ As soon as we had the use cases defined, we can specify what features are absolu
 	(\textit{Customer interface})
 	\item An order overview is available for the waiters and chefs. It shows the completed orders and orders which have to be made. 
 	(\textit{Order overview})
-	\item Customers can add comments to certain items. E.g. no tomato
+	\item Customers can add comments to certain orders. E.g. no tomato
 	(\textit{Special requests}) 
 	\item Customers can place their own orders with their mobile device. 
 	(\textit{Customer Mobile ordering})
@@ -155,7 +162,7 @@ Typically, when people eat at a restaurant, they will place multiple orders. Dur
 To be able to interact with customers using this system, the waiters and chefs will need their own version of this application. They will need to get an overview of the current orders placed and they should be able to modify and confirm these orders.
 \\\\
 The order overview will have all the relevant information of the order: The different dishes and drinks ordered by the customer, the table from which the order was placed, the price and the status of the order. Additional information such as a time and date and an order number can be added for statistical purposes.
-The order overview could look something like this:
+The order overview could look something like displayed in fig. \ref{fig:orderview}.
 \begin{figure}[h!]
 	\includegraphics[width=\linewidth]{orderview.PNG}
 	\caption{Example Order Overview}
