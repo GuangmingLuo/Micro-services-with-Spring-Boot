@@ -48,9 +48,9 @@ public class AdminController {
         log.info("username is {} and password is {}, restaurant id is {}",user.getUsername(),user.getPassword(),user.getRestaurantId());
         User userExists = userService.findByUsername(user.getUsername());
         if(userExists !=null){
-            redir.addFlashAttribute("message"," This username has been registered!");
+            redir.addFlashAttribute("message"," This username is already registered!");
         }else{
-            redir.addFlashAttribute("message"," Success!");
+            redir.addFlashAttribute("message"," Successfully created new manager!");
             userService.saveUser(user);
         }
         return "redirect:/admin/registration";
