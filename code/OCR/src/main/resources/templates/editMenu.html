@@ -54,6 +54,10 @@
                                 <input class="mdl-textfield__input" type="text" id="price" name="price"/>
                                 <label class="mdl-textfield__label" for="price">Price...</label>
                             </div>
+                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                <input class="mdl-textfield__input" type="file" id="image" name="image"/>
+                                <label class="mdl-textfield__label" for="image">Image...</label>
+                            </div>
                             <input type="hidden"  id = "menuId" name="menuId" th:value="${menu.getId()}"/>
                             <button class="mdl-button mdl-js-button mdl-button--raised" type="submit">Add menu item</button>
                         </form>

@@ -8,5 +8,5 @@ import com.example.entities.User;
 public interface UserService {
     public User findByUsername(String username);
     public void saveUser(User user);
-    public void setUserRole(int userId);
+    public void setUserRole(int userId, int roleId);
 }

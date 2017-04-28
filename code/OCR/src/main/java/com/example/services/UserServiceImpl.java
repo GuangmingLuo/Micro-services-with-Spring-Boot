@@ -33,16 +33,16 @@ public class UserServiceImpl implements UserService {
     public void saveUser(User user) {
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         userRepository.save(user);
-        User myUser = findByUsername(user.getUsername());
-        setUserRole(myUser.getId());
+        //User myUser = findByUsername(user.getUsername());
+        //setUserRole(myUser.getId());
     }
 
     @Override
-    public void setUserRole(int userId) {
+    public void setUserRole(int userId, int roleId) {
         UserRole userRole = new UserRole();
         userRole.setUserId(userId);
-        userRole.setRoleId(3);//3->manager
-        log.info("The UserId is {}, the roleId is {}", userRole.getUserId(),userRole.getRoleId());
+        userRole.setRoleId(roleId);//1->user,2->admin,3->manager,4->employee
+        //log.info("The UserId is {}, the roleId is {}", userRole.getUserId(),userRole.getRoleId());
         userRoleRepository.save(userRole);
     }
 }

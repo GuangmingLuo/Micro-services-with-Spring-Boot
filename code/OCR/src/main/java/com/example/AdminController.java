@@ -52,6 +52,8 @@ public class AdminController {
         }else{
             redir.addFlashAttribute("message"," Successfully created new manager!");
             userService.saveUser(user);
+            User myUser = userService.findByUsername(user.getUsername());
+            userService.setUserRole(myUser.getId(),3); //3->manager
         }
         return "redirect:/admin/registration";
     }
