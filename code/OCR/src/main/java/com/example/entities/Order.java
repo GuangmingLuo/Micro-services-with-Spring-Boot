@@ -6,15 +6,16 @@ import javax.persistence.*;
  * Created by guang on 2017/4/28.
  */
 @Entity
-@Table(name = "order", schema = "mydb")
+@Table(name = "orders", schema = "mydb")
 public class Order {
     private int id;
     private String content;
-    private int table;
-    private String status;
-    private String comments;
+    private int tableId;
+    private String status = "In queue";
+    private String comments = "null";
 
     @Id
+    @GeneratedValue(strategy=GenerationType.AUTO)
     @Column(name = "id", nullable = false)
     public int getId() {
         return id;
@@ -35,17 +36,17 @@ public class Order {
     }
 
     @Basic
-    @Column(name = "table", nullable = false)
-    public int getTable() {
-        return table;
+    @Column(name = "tableId", nullable = false)
+    public int getTableId() {
+        return tableId;
     }
 
-    public void setTable(int table) {
-        this.table = table;
+    public void setTableId(int tableId) {
+        this.tableId = tableId;
     }
 
     @Basic
-    @Column(name = "comments", nullable = true, length = 225)
+    @Column(name = "comments", length = 225)
     public String getComments() {
         return comments;
     }
@@ -55,7 +56,7 @@ public class Order {
     }
 
     @Basic
-    @Column(name = "status", nullable = false, length = 45)
+    @Column(name = "status", length = 45)
     public String getStatus() {
         return status;
     }
@@ -72,7 +73,7 @@ public class Order {
         Order order = (Order) o;
 
         if (id != order.id) return false;
-        if (table != order.table) return false;
+        if (tableId != order.tableId) return false;
         if (content != null ? !content.equals(order.content) : order.content != null) return false;
         if (status != null ? !status.equals(order.status) : order.status != null) return false;
 
@@ -83,7 +84,7 @@ public class Order {
     public int hashCode() {
         int result = id;
         result = 31 * result + (content != null ? content.hashCode() : 0);
-        result = 31 * result + table;
+        result = 31 * result + tableId;
         result = 31 * result + (status != null ? status.hashCode() : 0);
         return result;
     }

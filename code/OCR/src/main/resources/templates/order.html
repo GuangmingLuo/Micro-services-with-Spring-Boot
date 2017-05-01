@@ -1,11 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" >
 <head>
-    <meta charset="UTF-8"/>
-    <title>Order</title>
+    <title>Getting Started: Order Overview</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <th:block th:include="fragments/include :: include"></th:block>
 </head>
 <body>
-<h2>Order content</h2>
+<div class="mdl-layout mdl-layout--fixed-header mdl-js-layout mdl-color--grey-100 is-upgraded">
+    <th:block th:include="fragments/navbar :: navbar">test</th:block>
+    <main class="mdl-layout__content">
+        <h3 style="text-align: center">The order info is as follow: </h3>
+        <div style="text-align: center" th:text="${message}"></div>
+        <th:block th:include="fragments/footer :: footer"></th:block>
+    </main>
 
+</div>
 </body>
 </html>

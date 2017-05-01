@@ -36,7 +36,7 @@ public class Order {
     }
 
     @Basic
-    @Column(name = "table", nullable = false)
+    @Column(name = "tableId", nullable = false)
     public int getTable() {
         return table;
     }

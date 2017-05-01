@@ -37,7 +37,9 @@
                                     </label>
                                 </td>
                                 <td class="mdl-data-table__cell--non-numeric" th:text="${food.getName()}">Acrylic (Transparent)</td>
-                                <td><input type="number" class="mdl-textfield__input" name="numbers" placeholder="0"/></td>
+                                <td>
+                                    <input type="number" class="mdl-textfield__input" name="numbers" placeholder="0"/>
+                                </td>
                                 <td th:text="${'$'+food.getPrice()}">$2.90</td>
                             </tr>
                             </tbody>
