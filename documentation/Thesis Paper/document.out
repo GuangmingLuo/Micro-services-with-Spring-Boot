@@ -11,24 +11,25 @@
 \BOOKMARK [2][-]{subsection.2.3}{Comparison of technologies}{section.2}% 11
 \BOOKMARK [3][-]{subsubsection.2.3.1}{General framework}{subsection.2.3}% 12
 \BOOKMARK [3][-]{subsubsection.2.3.2}{Persistence providers}{subsection.2.3}% 13
-\BOOKMARK [3][-]{subsubsection.2.3.3}{Security}{subsection.2.3}% 14
-\BOOKMARK [3][-]{subsubsection.2.3.4}{Front-end and Styling}{subsection.2.3}% 15
-\BOOKMARK [2][-]{subsection.2.4}{Implementation}{section.2}% 16
-\BOOKMARK [1][-]{section.3}{Case study: Online cash register}{}% 17
-\BOOKMARK [2][-]{subsection.3.1}{Introduction}{section.3}% 18
-\BOOKMARK [2][-]{subsection.3.2}{Use Cases}{section.3}% 19
-\BOOKMARK [2][-]{subsection.3.3}{Must-haves and nice-to haves}{section.3}% 20
-\BOOKMARK [2][-]{subsection.3.4}{Technology choices}{section.3}% 21
-\BOOKMARK [3][-]{subsubsection.3.4.1}{Application type}{subsection.3.4}% 22
-\BOOKMARK [3][-]{subsubsection.3.4.2}{Framework choices}{subsection.3.4}% 23
-\BOOKMARK [2][-]{subsection.3.5}{Design Choices}{section.3}% 24
-\BOOKMARK [3][-]{subsubsection.3.5.1}{Client}{subsection.3.5}% 25
-\BOOKMARK [3][-]{subsubsection.3.5.2}{Employee}{subsection.3.5}% 26
-\BOOKMARK [3][-]{subsubsection.3.5.3}{Manager}{subsection.3.5}% 27
-\BOOKMARK [3][-]{subsubsection.3.5.4}{Remarks and challenges}{subsection.3.5}% 28
-\BOOKMARK [2][-]{subsection.3.6}{Major issues and their solutions}{section.3}% 29
-\BOOKMARK [1][-]{section.4}{Results}{}% 30
-\BOOKMARK [2][-]{subsection.4.1}{Final Prototype}{section.4}% 31
-\BOOKMARK [2][-]{subsection.4.2}{User tests}{section.4}% 32
-\BOOKMARK [1][-]{section.5}{Conclusion}{}% 33
-\BOOKMARK [1][-]{section.6}{References}{}% 34
+\BOOKMARK [3][-]{subsubsection.2.3.3}{Object relational mapping tools}{subsection.2.3}% 14
+\BOOKMARK [3][-]{subsubsection.2.3.4}{Security systems}{subsection.2.3}% 15
+\BOOKMARK [3][-]{subsubsection.2.3.5}{Front-end and Styling frameworks}{subsection.2.3}% 16
+\BOOKMARK [2][-]{subsection.2.4}{Implementation}{section.2}% 17
+\BOOKMARK [1][-]{section.3}{Case study: Online cash register}{}% 18
+\BOOKMARK [2][-]{subsection.3.1}{Introduction}{section.3}% 19
+\BOOKMARK [2][-]{subsection.3.2}{Use Cases}{section.3}% 20
+\BOOKMARK [2][-]{subsection.3.3}{Must-haves and nice-to haves}{section.3}% 21
+\BOOKMARK [2][-]{subsection.3.4}{Technology choices}{section.3}% 22
+\BOOKMARK [3][-]{subsubsection.3.4.1}{Application type}{subsection.3.4}% 23
+\BOOKMARK [3][-]{subsubsection.3.4.2}{Framework choices}{subsection.3.4}% 24
+\BOOKMARK [2][-]{subsection.3.5}{Design Choices}{section.3}% 25
+\BOOKMARK [3][-]{subsubsection.3.5.1}{Client}{subsection.3.5}% 26
+\BOOKMARK [3][-]{subsubsection.3.5.2}{Employee}{subsection.3.5}% 27
+\BOOKMARK [3][-]{subsubsection.3.5.3}{Manager}{subsection.3.5}% 28
+\BOOKMARK [3][-]{subsubsection.3.5.4}{Remarks and challenges}{subsection.3.5}% 29
+\BOOKMARK [2][-]{subsection.3.6}{Major issues and their solutions}{section.3}% 30
+\BOOKMARK [1][-]{section.4}{Results}{}% 31
+\BOOKMARK [2][-]{subsection.4.1}{Final Prototype}{section.4}% 32
+\BOOKMARK [2][-]{subsection.4.2}{User tests}{section.4}% 33
+\BOOKMARK [1][-]{section.5}{Conclusion}{}% 34
+\BOOKMARK [1][-]{section.6}{References}{}% 35

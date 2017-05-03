@@ -1,40 +1,41 @@
 \contentsline {section}{\numberline {1}Project Objective}{3}{section.1}
 \contentsline {subsection}{\numberline {1.1}Proposal}{3}{subsection.1.1}
 \contentsline {subsection}{\numberline {1.2}Concept}{3}{subsection.1.2}
-\contentsline {subsection}{\numberline {1.3}Project Requirements}{5}{subsection.1.3}
-\contentsline {subsubsection}{\numberline {1.3.1}Constraints}{5}{subsubsection.1.3.1}
-\contentsline {subsubsection}{\numberline {1.3.2}Design focus}{5}{subsubsection.1.3.2}
-\contentsline {subsection}{\numberline {1.4}Existing systems}{5}{subsection.1.4}
+\contentsline {subsection}{\numberline {1.3}Project Requirements}{4}{subsection.1.3}
+\contentsline {subsubsection}{\numberline {1.3.1}Constraints}{4}{subsubsection.1.3.1}
+\contentsline {subsubsection}{\numberline {1.3.2}Design focus}{4}{subsubsection.1.3.2}
+\contentsline {subsection}{\numberline {1.4}Existing systems}{4}{subsection.1.4}
 \contentsline {section}{\numberline {2}Research and Methods}{5}{section.2}
 \contentsline {subsection}{\numberline {2.1}Approach}{5}{subsection.2.1}
 \contentsline {subsection}{\numberline {2.2}Java EE Landscape}{5}{subsection.2.2}
-\contentsline {subsection}{\numberline {2.3}Comparison of technologies}{5}{subsection.2.3}
-\contentsline {subsubsection}{\numberline {2.3.1}General framework}{5}{subsubsection.2.3.1}
-\contentsline {subsubsection}{\numberline {2.3.2}Persistence providers}{5}{subsubsection.2.3.2}
-\contentsline {subsubsection}{\numberline {2.3.3}Security}{5}{subsubsection.2.3.3}
-\contentsline {subsubsection}{\numberline {2.3.4}Front-end and Styling}{5}{subsubsection.2.3.4}
-\contentsline {subsection}{\numberline {2.4}Implementation}{5}{subsection.2.4}
-\contentsline {section}{\numberline {3}Case study: Online cash register}{5}{section.3}
-\contentsline {subsection}{\numberline {3.1}Introduction}{5}{subsection.3.1}
-\contentsline {subsection}{\numberline {3.2}Use Cases}{5}{subsection.3.2}
-\contentsline {paragraph}{Customer}{5}{section*.2}
-\contentsline {paragraph}{Waiter}{5}{section*.3}
+\contentsline {subsection}{\numberline {2.3}Comparison of technologies}{6}{subsection.2.3}
+\contentsline {subsubsection}{\numberline {2.3.1}General framework}{6}{subsubsection.2.3.1}
+\contentsline {subsubsection}{\numberline {2.3.2}Persistence providers}{6}{subsubsection.2.3.2}
+\contentsline {subsubsection}{\numberline {2.3.3}Object relational mapping tools}{6}{subsubsection.2.3.3}
+\contentsline {subsubsection}{\numberline {2.3.4}Security systems}{6}{subsubsection.2.3.4}
+\contentsline {subsubsection}{\numberline {2.3.5}Front-end and Styling frameworks}{6}{subsubsection.2.3.5}
+\contentsline {subsection}{\numberline {2.4}Implementation}{6}{subsection.2.4}
+\contentsline {section}{\numberline {3}Case study: Online cash register}{6}{section.3}
+\contentsline {subsection}{\numberline {3.1}Introduction}{6}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}Use Cases}{6}{subsection.3.2}
+\contentsline {paragraph}{Customer}{6}{section*.2}
+\contentsline {paragraph}{Waiter}{6}{section*.3}
 \contentsline {paragraph}{Chef}{6}{section*.4}
 \contentsline {paragraph}{Manager}{6}{section*.5}
-\contentsline {subsection}{\numberline {3.3}Must-haves and nice-to haves}{6}{subsection.3.3}
-\contentsline {paragraph}{Must-Haves}{6}{section*.7}
-\contentsline {paragraph}{Nice-to-Haves}{7}{section*.8}
-\contentsline {subsection}{\numberline {3.4}Technology choices}{7}{subsection.3.4}
-\contentsline {subsubsection}{\numberline {3.4.1}Application type}{7}{subsubsection.3.4.1}
-\contentsline {subsubsection}{\numberline {3.4.2}Framework choices}{7}{subsubsection.3.4.2}
-\contentsline {subsection}{\numberline {3.5}Design Choices}{7}{subsection.3.5}
-\contentsline {subsubsection}{\numberline {3.5.1}Client}{7}{subsubsection.3.5.1}
-\contentsline {subsubsection}{\numberline {3.5.2}Employee}{8}{subsubsection.3.5.2}
+\contentsline {subsection}{\numberline {3.3}Must-haves and nice-to haves}{7}{subsection.3.3}
+\contentsline {paragraph}{Must-Haves}{7}{section*.7}
+\contentsline {paragraph}{Nice-to-Haves}{8}{section*.8}
+\contentsline {subsection}{\numberline {3.4}Technology choices}{8}{subsection.3.4}
+\contentsline {subsubsection}{\numberline {3.4.1}Application type}{8}{subsubsection.3.4.1}
+\contentsline {subsubsection}{\numberline {3.4.2}Framework choices}{8}{subsubsection.3.4.2}
+\contentsline {subsection}{\numberline {3.5}Design Choices}{8}{subsection.3.5}
+\contentsline {subsubsection}{\numberline {3.5.1}Client}{8}{subsubsection.3.5.1}
+\contentsline {subsubsection}{\numberline {3.5.2}Employee}{9}{subsubsection.3.5.2}
 \contentsline {subsubsection}{\numberline {3.5.3}Manager}{10}{subsubsection.3.5.3}
-\contentsline {subsubsection}{\numberline {3.5.4}Remarks and challenges}{10}{subsubsection.3.5.4}
-\contentsline {subsection}{\numberline {3.6}Major issues and their solutions}{10}{subsection.3.6}
-\contentsline {section}{\numberline {4}Results}{10}{section.4}
-\contentsline {subsection}{\numberline {4.1}Final Prototype}{10}{subsection.4.1}
-\contentsline {subsection}{\numberline {4.2}User tests}{10}{subsection.4.2}
-\contentsline {section}{\numberline {5}Conclusion}{10}{section.5}
-\contentsline {section}{\numberline {6}References}{11}{section.6}
+\contentsline {subsubsection}{\numberline {3.5.4}Remarks and challenges}{11}{subsubsection.3.5.4}
+\contentsline {subsection}{\numberline {3.6}Major issues and their solutions}{11}{subsection.3.6}
+\contentsline {section}{\numberline {4}Results}{11}{section.4}
+\contentsline {subsection}{\numberline {4.1}Final Prototype}{11}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}User tests}{11}{subsection.4.2}
+\contentsline {section}{\numberline {5}Conclusion}{11}{section.5}
+\contentsline {section}{\numberline {6}References}{12}{section.6}

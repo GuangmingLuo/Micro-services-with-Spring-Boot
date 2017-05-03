@@ -1,14 +1,23 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 
 \bibitem{farosProposal}
 Faros master thesis proposal.
 
-\bibitem{JavaTool10:online}
-Java tools and technologies landscape report 2016 | zeroturnaround.com
-  zeroturnaround.com.
+\bibitem{Gloriafood:online}
+Gloriafood - free online ordering system for restaurants.
+\newblock \url{https://www.gloriafood.com/}.
+\newblock (Accessed on 04/28/2017).
+
+\bibitem{Chownow:online}
+Online food ordering system \& app - chownow.
+\newblock \url{https://www.chownow.com/}.
+\newblock (Accessed on 04/28/2017).
+
+\bibitem{SpringBootAdvantages67:online}
+Spring boot tutorial best complete introduction | dinesh on java.
 \newblock
-  \url{https://zeroturnaround.com/rebellabs/java-tools-and-technologies-landscape-2016/}.
-\newblock (Accessed on 04/27/2017).
+  \url{http://www.dineshonjava.com/2016/06/introduction-to-spring-boot-a-spring-boot-complete-guide.html#5}.
+\newblock (Accessed on 04/28/2017).
 
 \bibitem{SpringPopular1:online}
 What is good about the spring framework that made it among the most popular
@@ -16,6 +25,11 @@ What is good about the spring framework that made it among the most popular
 \newblock
   \url{https://www.quora.com/What-is-good-about-the-Spring-Framework-that-made-it-among-the-most-popular-Java-web-frameworks-in-2014}.
 \newblock (Accessed on 04/27/2017).
+
+\bibitem{DeveloperSurvey95:online}
+Stackoverflow developer survey.
+\newblock \url{http://stackoverflow.com/insights/survey/2017}, 2017.
+\newblock (Accessed on 05/03/2017).
 
 \bibitem{antonov2015spring}
 Alex Antonov.
@@ -26,5 +40,21 @@ Alex Antonov.
 George~D. Greenwade.
 \newblock The {C}omprehensive {T}ex {A}rchive {N}etwork ({CTAN}).
 \newblock {\em TUGBoat}, 14(3):342--351, 1993.
+
+\bibitem{JavaEELandscape73:online}
+Simon Maple.
+\newblock Java tools and technologies landscape report 2016.
+\newblock
+  \url{https://zeroturnaround.com/rebellabs/java-tools-and-technologies-landscape-2016/},
+  July 2016.
+\newblock (Accessed on 05/03/2017).
+
+\bibitem{SpringBootIntro23:online}
+Phil Webb.
+\newblock Spring blog - spring boot introduction.
+\newblock
+  \url{https://spring.io/blog/2013/08/06/spring-boot-simplifying-spring-for-everyone},
+  August 2013.
+\newblock (Accessed on 05/03/2017).
 
 \end{thebibliography}

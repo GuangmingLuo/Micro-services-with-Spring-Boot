@@ -10,7 +10,6 @@
 
 
 
-
 %opening
 \title{Kickstarting Application Development\\ with Enterprise Java\\ A Spring Boot Case Study}
 \author{Lennart Cockx\\Guangming Luo}
@@ -23,8 +22,7 @@
 \newpage
 
 \begin{abstract}
-\noindent In this report we will explore various Java technologies and analyse what features they offer. The focus of this project is to find which frameworks are most suitable for quick prototyping of a business application.
-Constraints and other requirements will be defined and are then applied to a specific case study.
+\noindent In this report we will explore various Java technologies and analyse what features they offer. The focus of this project is to find which frameworks are most suitable for quick prototyping of a business application. Constraints and other requirements will be defined and are then applied to a specific case study. At the end of this project we should have an excellent understanding of the technologies involved to make a online cash register application that handles orders and payment in restaurants. [WIP]
 \end{abstract}
 \keywords{JavaEE, Spring, Cash register, Java}
 
@@ -40,33 +38,47 @@ At the start of the project we discuss the key aspects of this project with our 
 \\\\
 After we have a good overview of what aspects must be included in this project (or should be avoided), we can start deciding core features that will determine which technologies will be appropriate for this project. These choices are based on the aspects we think are needed for developing a web application based on the aforementioned requirements. This should give us a list of possible systems and frameworks that could potentially be used during this project.
 \\\\
-Now that we have a list of possible systems, we can start to think about the case study we want to develop. Once we know the general outline of the project, we can begin selecting the the appropriate tools and frameworks that fit this case study. This will shorten the list to technologies specifically applicable to this project. For certain frameworks it will be difficult to obtain a shorter list, as they might all comply with the requirements we set. In this case we will make a selection of items to keep the scope of the project realistic. Usually the most popular frameworks will be selected. If a deviating set is chosen this will be elaborated on in the corresponding chapter.
+Now that we have a list of possible systems, we can start to think about the case study we want to develop. Given the general outline of the project, we can begin selecting the appropriate tools and frameworks that fit this case study. This will shorten the list to technologies specifically applicable to this project. For certain frameworks it will be difficult to obtain a shorter list, as they might all comply with the requirements we set. In this case we will make a selection of items to keep the scope of the project realistic. Usually the most popular frameworks will be selected. If a deviating set is chosen this will be elaborated on in the corresponding chapter.
 \\\\
 Now that the tools are known, the standard procedure for application development will be followed. Relevant documentation will be constructed including a use case analysis, feature description (Nice-to-have versus Must-have), navigational models, hierarchical task analysis, UML diagrams and market research. After this we can start working on getting familiar with the chosen enterprise Java frameworks.
 \\\\
 As soon as we are sufficiently proficient with our chosen tools, we will start working on a case study where we use the knowledge we obtained to build a functional prototype for a realistic use case scenario. During the project we might come to the conclusion that certain choices we made were suboptimal or simply do not allow further progression. In such cases, we will adjust our trajectory and change to the appropriate tools. Any time such a decision is made we will mention it in this report and provide the matching argumentation as to why we made the switch.
 \subsection{Project Requirements}
 \subsubsection{Constraints}
-
+As this project is appointed by Faros, there are certain guidelines we will follow during this study. The primary constraint is the usage of Java. As Faros is a Java consultancy company, the technology stack we use should match what the employees there utilize. Within Java we are still free to choose what frameworks will be used. Another constraint is that we should not aim to create a perfectly working application with extensive styling and fail-safes, but rather focus more on experimenting with various different systems to get a better overview of the big picture and compare these systems with each other. There are also certain project-specific constraints that will be detailed in the case study.
 \subsubsection{Design focus}
+
+
 \subsection{Existing systems}
 Before creating our own Online cash register application we searched for similar systems that already exist. One of such systems is Gloriafood \cite{Gloriafood:online}. This is an online system that allows any restaurant owner to sign up and start receiving orders online. A extensive layout is available where you can add a menu and payment options.
 \\\\
 Similarly, there is ChowNow \cite{Chownow:online}. This service also handles online ordering and payment with no extra input required from the restaurant manager. ChowNow will also create a custom branded mobile application to showcase the brand and food of the restaurant.
 \\\\
-Both of these systems are focused on the online ordering aspect and not so much on allowing people to use their devices to order food on location. In this project we want to put the emphasis on the latter part, creating an application that is ment to be used at the location itself.
+Both of these systems are focused on the online ordering aspect and not so much on allowing people to use their devices to order food on location. In this project we want to put the emphasis on the latter part, creating an application that is meant to be used at the location itself.
 
 
 
 \section{Research and Methods}
 \subsection{Approach}
+We will take a quantitative approach in this paper, exploring and comparing frameworks for each of the features required for this project. This includes: General frameworks providing a way to couple web resources to Java code. Persistence providers, SQL or noSQL databases to store customer information. Object relational mapping tools to generate mappings from existing data-stores. Security systems to allow authentication and authorization in a safe way. Front-end frameworks, providing styling options and client side scripting.
 \subsection{Java EE Landscape}
+We will not discuss every existing tool in the Java EE world, but it might be interesting to have a look at the current state of Java EE in the professional world. We will use the numbers from a survey published by Zeroturnaround to do our analysis.\cite{JavaEELandscape73:online} This website has a blog for Java web developers and might display a certain bias. For more general statistics please refer to Stackoverflow's developer survey.\cite{DeveloperSurvey95:online}
+\\\\
+Currently the majority of Java developers work on full-stack web applications (67\%), a smaller group works on back-end code only (18\%) with the rest of the developers divided into batch scripting, mobile apps, desktop applications, etc... This shows us that only in a fragment of the projects specialization is beneficial. Usually developers know and work with both front-end and back-end technologies. This is also what we will do during this project, implementing both the front-end and back-end of the application.
+\\\\
+So which front-end and back-end frameworks are used by developers? The most commonly used web framework is Spring MVC (43\%), followed closely by Spring Boot (29\%). Practically, this means that over 70 percent of respondents use the Spring framework. Spring Boot itself is not really a framework, but rather a streamlined entry point to the Spring ecosystem with a "Opinionated Defaults Configuration" approach. \cite{SpringBootAdvantages67:online}\cite{SpringBootIntro23:online} Other common web frameworks are JavaServer Faces (19\%), Vaadin (13\%) and Struts (7\%). Other frameworks exist but are too numerous to list. For this project we will limit ourselves to analysing the 3 most popular frameworks. This should give us a good idea of the advantages that web frameworks offer, and how they compare. Spring Boot in particular looks promising as it provides autoconfiguration for many properties which will be advantageous for people new to the Java EE platform. It is worth mentioning that 17 percent replied that they do not use any framework. It seems that for certain projects using a framework is not worthwhile.
+
 \subsection{Comparison of technologies}
 \subsubsection{General framework}
 \subsubsection{Persistence providers}
-\subsubsection{Security}
-\subsubsection{Front-end and Styling}
+\subsubsection{Object relational mapping tools}
+\subsubsection{Security systems}
+\subsubsection{Front-end and Styling frameworks}
 \subsection{Implementation}
+
+
+
+
 \section{Case study: Online cash register}
 \subsection{Introduction}
 The goal of this case study is to create a service that can be used at events and in restaurants to process orders made by customers, relay these orders to the waiters and chefs and handle the payment. This service should include an application that clients can use to view the menu and order items from it. Waiters also have their own application that can place and acknowledge orders. These orders will be send to a central system that manages all the required information. See fig. \ref{fig:usecase} for a use case diagram.
@@ -155,7 +167,7 @@ In all three cases the order will be combined into one order for that table. Aft
 \end{itemize}
 
 \noindent
-Typically, when people eat at a restaurant, they will place multiple orders. During the meal additional drinks might be ordered and at the end of the meal some people might want a dessert or coffee. We have to design the application so it can accept multiple orders and display the sum of these orders at the end of the meal.
+Typically, when people eat at a restaurant, they will place multiple orders. During the meal additional drinks might be ordered and at the end of the meal some people might want a dessert or coffee. We must design the application so it can accept multiple orders and display the sum of these orders at the end of the meal.
 
 
 \subsubsection{Employee}
@@ -196,6 +208,9 @@ While a user account for the customer might be desirable to track certain statis
 
 
 \subsubsection{Manager}
+The manager will be able to create new accounts for employees that work in their restaurant. They can modify properties of the restaurant and alter the menu and prices. 
+\\\\
+One of the most important aspects to consider here is multi-tenancy. The application should not only provide an interface for a certain restaurant but should be usable by different managers who own different restaurants. In other words the application should be generic and allow for customization for each restaurant separately.
 \subsubsection{Remarks and challenges}
 \subsection{Major issues and their solutions}
 
