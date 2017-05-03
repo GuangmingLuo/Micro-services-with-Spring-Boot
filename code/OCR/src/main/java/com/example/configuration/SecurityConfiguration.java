@@ -49,7 +49,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http.
                 authorizeRequests()
                 .antMatchers("/").permitAll()
-                .antMatchers("/login").permitAll()
+                .antMatchers("/login","/api/**").permitAll()
                 .antMatchers("/restaurant/*/","/restaurant/*/order","/restaurant/*/createOrder").permitAll()
                 .antMatchers("/restaurant/*/edit","registration").hasAuthority("MANAGER")
                // .antMatchers("/restaurant/*/order").permitAll()
