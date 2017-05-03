@@ -1,23 +1,11 @@
 This is BibTeX, Version 0.99dThe top-level auxiliary file: document.aux
 The style file: plain.bst
 Database file #1: document.bib
-I was expecting a `,' or a `}'---line 19 of file document.bib
- :  
- :  author={Faros}
-(Error may have been on previous line)
-I'm skipping whatever remains of this entry
-"}" immediately follows an entry type---line 21 of file document.bib
- :  publisher={info@faros.be
- :                          }
-I'm skipping whatever remains of this entry
 Warning--I didn't find a database entry for "JavaTool10:online"
 Warning--to sort, need author or key in Gloriafood:online
 Warning--to sort, need author or key in Chownow:online
 Warning--to sort, need author or key in DeveloperSurvey95:online
 Warning--to sort, need author or key in SpringBootAdvantages67:online
-Warning--to sort, need author or key in farosProposal
 Warning--to sort, need author or key in SpringPopular1:online
-Warning--empty author in farosProposal
 Warning--empty journal in farosProposal
-Warning--empty year in farosProposal
-(There were 2 error messages)
+(There were 7 warnings)

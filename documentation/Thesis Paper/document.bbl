@@ -1,8 +1,5 @@
 \begin{thebibliography}{10}
 
-\bibitem{farosProposal}
-Faros master thesis proposal.
-
 \bibitem{Gloriafood:online}
 Gloriafood - free online ordering system for restaurants.
 \newblock \url{https://www.gloriafood.com/}.
@@ -35,6 +32,11 @@ Stackoverflow developer survey.
 Alex Antonov.
 \newblock {\em Spring Boot Cookbook}.
 \newblock Packt Publishing Ltd, 2015.
+
+\bibitem{farosProposal}
+Faros.
+\newblock Faros master thesis proposal.
+\newblock 2016.
 
 \bibitem{greenwade93}
 George~D. Greenwade.
