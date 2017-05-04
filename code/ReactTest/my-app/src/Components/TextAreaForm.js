@@ -8,7 +8,7 @@ class TextAreaForm extends Component{
     constructor(props) {
         super(props);
         this.state = {
-            value: 'Please write an essay about your favorite DOM element.'
+            value: 'Please write some lines here'
         };
 
         this.handleChange = this.handleChange.bind(this);
