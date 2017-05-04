@@ -3,30 +3,30 @@
 \bibitem{Gloriafood:online}
 Gloriafood - free online ordering system for restaurants.
 \newblock \url{https://www.gloriafood.com/}.
-\newblock (Accessed on 04/28/2017).
+\newblock (Accessed on 28/04/2017).
 
 \bibitem{Chownow:online}
 Online food ordering system \& app - chownow.
 \newblock \url{https://www.chownow.com/}.
-\newblock (Accessed on 04/28/2017).
+\newblock (Accessed on 28/04/2017).
 
 \bibitem{SpringBootAdvantages67:online}
 Spring boot tutorial best complete introduction | dinesh on java.
 \newblock
   \url{http://www.dineshonjava.com/2016/06/introduction-to-spring-boot-a-spring-boot-complete-guide.html#5}.
-\newblock (Accessed on 04/28/2017).
+\newblock (Accessed on 28/04/2017).
 
 \bibitem{SpringPopular1:online}
 What is good about the spring framework that made it among the most popular
   java web frameworks in 2014? - quora.
 \newblock
   \url{https://www.quora.com/What-is-good-about-the-Spring-Framework-that-made-it-among-the-most-popular-Java-web-frameworks-in-2014}.
-\newblock (Accessed on 04/27/2017).
+\newblock (Accessed on 27/04/2017).
 
 \bibitem{DeveloperSurvey95:online}
 Stackoverflow developer survey.
 \newblock \url{http://stackoverflow.com/insights/survey/2017}, 2017.
-\newblock (Accessed on 05/03/2017).
+\newblock (Accessed on 03/05/2017).
 
 \bibitem{antonov2015spring}
 Alex Antonov.
@@ -49,7 +49,7 @@ Kitty Gupta.
 \newblock
   \url{https://www.freelancinggig.com/blog/2017/01/25/microservices-getting-popular-now-days/},
   January 2017.
-\newblock (Accessed on 05/03/2017).
+\newblock (Accessed on 03/05/2017).
 
 \bibitem{JavaEELandscape73:online}
 Simon Maple.
@@ -57,7 +57,7 @@ Simon Maple.
 \newblock
   \url{https://zeroturnaround.com/rebellabs/java-tools-and-technologies-landscape-2016/},
   July 2016.
-\newblock (Accessed on 05/03/2017).
+\newblock (Accessed on 03/05/2017).
 
 \bibitem{SpringBootIntro23:online}
 Phil Webb.
@@ -65,6 +65,6 @@ Phil Webb.
 \newblock
   \url{https://spring.io/blog/2013/08/06/spring-boot-simplifying-spring-for-everyone},
   August 2013.
-\newblock (Accessed on 05/03/2017).
+\newblock (Accessed on 03/05/2017).
 
 \end{thebibliography}
