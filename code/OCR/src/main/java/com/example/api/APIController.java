@@ -6,6 +6,7 @@ package com.example.api;
  */
 import com.example.entities.Menu;
 import com.example.entities.Restaurant;
+import com.example.services.FoodService;
 import com.example.services.MenuService;
 import com.example.services.RestaurantService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +24,8 @@ public class APIController {
     private RestaurantService restaurantService;
     @Autowired
     private MenuService menuService;
+    @Autowired
+    private FoodService foodService;
 
     /*
     * This api returns a restaurant entity by a restaurant name
@@ -36,6 +39,10 @@ public class APIController {
     * */
     @RequestMapping("/menu")
     public List<Menu> menu(@RequestParam(value="restaurantId") int restaurantId) {
-        return menuService.findMenuByRestaurantId(restaurantId);
+        List<Menu> menus = menuService.findMenuByRestaurantId(restaurantId);
+        for (Menu menu:menus){
+            menu.setFoods(foodService.findFoodsByMenuId(menu.getId()));
+        }
+        return menus;
     }
 }

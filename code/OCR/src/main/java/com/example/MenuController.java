@@ -65,10 +65,10 @@ public class MenuController {
         model.addAttribute("address",rest.getAddress());
         model.addAttribute("introduction",rest.getIntroduction());
         List<Menu> menus = menuService.findMenuByRestaurantId(rest.getId());
-        model.addAttribute("menus",menus);
         for (Menu menu:menus){
             menu.setFoods(foodService.findFoodsByMenuId(menu.getId()));
         }
+        model.addAttribute("menus",menus);
         return "restaurant";
     }
 
