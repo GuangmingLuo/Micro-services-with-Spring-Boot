@@ -6,6 +6,7 @@ import Toggle from './Components/Toggle';
 import LoginControl from './Components/LoginControl';
 import NameForm from './Components/NameForm';
 import TextAreaForm from './Components/TextAreaForm';
+import Dropdown from './Components/Dropdown';
 
 const comment = {
     date: new Date(),
@@ -35,6 +36,7 @@ class App extends Component {
           <NumberList numbers={numbers}/>
           <NameForm/>
           <TextAreaForm/>
+          <Dropdown/>
       </div>
     );
   }
