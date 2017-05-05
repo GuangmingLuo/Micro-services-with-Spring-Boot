@@ -32,25 +32,21 @@ public class NetworkUtils {
     final static String MENU_URL =//"http://10.1.15.101/api/menu"; //physical android device.
             "http://10.0.2.2/api/menu";   //virtual device
 
+    final static String RESTS_URL = //"http://10.1.15.101/api/restaurants"; //physical android device.
+            "http://10.0.2.2/api/restaurants";   //virtual device
+
     final static String MENU_PARAM_QUERY = "restaurantId";
 
-    /*
-     * The sort field. One of stars, forks, or updated.
-     * Default: results are sorted by best match if no field is specified.
-     */
-    //final static String PARAM_SORT = "sort";
-    //final static String sortBy = "stars";
 
     /**
-     * Builds the URL used to query GitHub.
+     * Builds the URL used to query Menu.
      *
      * @param menuSearchQuery The keyword that will be queried for.
-     * @return The URL to use to query the GitHub.
+     * @return The URL to use to query the Menu.
      */
-    public static URL buildUrl(String menuSearchQuery) {
+    public static URL buildUrlForMenu(String menuSearchQuery) {
         Uri builtUri = Uri.parse(MENU_URL).buildUpon()
                 .appendQueryParameter(MENU_PARAM_QUERY, menuSearchQuery)
-               // .appendQueryParameter(PARAM_SORT, sortBy)
                 .build();
 
         URL url = null;
@@ -63,6 +59,22 @@ public class NetworkUtils {
         return url;
     }
 
+    /**
+     * Builds the URL used to query restaurants.
+     * @return The URL to use to query the restaurants.
+     */
+    public static URL buildUrlForRests() {
+        Uri builtUri = Uri.parse(RESTS_URL).buildUpon()
+                .build();
+        URL url = null;
+        try {
+            url = new URL(builtUri.toString());
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+
+        return url;
+    }
     /**
      * This method returns the entire result from the HTTP response.
      *

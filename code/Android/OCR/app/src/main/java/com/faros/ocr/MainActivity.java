@@ -1,123 +1,110 @@
 package com.faros.ocr;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+import android.support.annotation.IdRes;
+import android.util.Log;
 import android.view.View;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.widget.ExpandableListView;
-
-import com.faros.ocr.model.Food;
+import android.view.ViewGroup.LayoutParams;
+import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import com.faros.ocr.util.NetworkUtils;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
-import static android.R.id.list;
+import static com.faros.ocr.R.id.restaurants;
+import static com.faros.ocr.R.layout.restaurant;
 
-public class MainActivity extends AppCompatActivity {
 
-    ExpandableListAdapter listAdapter;
-    ExpandableListView expListView;
-    List<String> listDataHeader = new ArrayList<>();
-    HashMap<String, List<Food>> listDataChild = new HashMap<>();
+/**
+ * Created by guang on 2017/5/5.
+ */
 
+public class MainActivity extends Activity {
+
+    List<String> restaurantNames = new ArrayList<>();
+    List<String> restaurantIds = new ArrayList<>();
+    boolean finished = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        // load data
-        loadWeatherData();
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_scrolling);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        setContentView(R.layout.home);
+        loadData();
+        //LinearLayout linearLayout = (LinearLayout) findViewById(R.id.restaurants);
+//        for(String name:restaurantNames){
+//            LayoutParams lparams = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+//            TextView tv=new TextView(this);
+//            tv.setLayoutParams(lparams);
+//            tv.setText(name);
+//            int id = 1;
+//            tv.setId(id);
+//            linearLayout.addView(tv);
+//        }
+        while(!finished){
+            int i = 0;
+            i++;i--;
+        }
+        //Text redirect.
+        final TextView[] restaurants = new TextView[3];
+        restaurants[0] = (TextView)findViewById(R.id.restaurant1);
+        restaurants[0].setText(restaurantNames.get(0));
+        restaurants[1] = (TextView)findViewById(R.id.restaurant2);
+        restaurants[1].setText(restaurantNames.get(1));
+        restaurants[2] = (TextView)findViewById(R.id.restaurant3);
+        restaurants[2].setText(restaurantNames.get(2));
+        for(int i=0;i<restaurantNames.size();i++){
+            //final TextView restaurant=(TextView)findViewById(i);
+            final int finalI = i;
+            restaurants[i].setOnClickListener(new View.OnClickListener() {
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+                @Override
+                public void onClick(View v1) {
+                    Intent launchActivity1= new Intent(MainActivity.this,MenuActivity.class);
+                    //Create a bundle object
+                    Bundle b = new Bundle();
+                    b.putString("id", restaurantIds.get(finalI));
+                    //Add the bundle to the intent.
+                    launchActivity1.putExtras(b);
+                    startActivity(launchActivity1);
+                }
+            });
+        }
 
-        // get the listview
-        expListView = (ExpandableListView) findViewById(R.id.lvExp);
-
-        // setting list adapter
-        listAdapter = new ExpandableListAdapter(this, listDataHeader, listDataChild);
-        expListView.setAdapter(listAdapter);
-        expListView.setTranscriptMode(ExpandableListView.TRANSCRIPT_MODE_ALWAYS_SCROLL);
     }
 
-    private void loadWeatherData(){
-        String restaurantId = "1";
-        new FetchMenuTask().execute(restaurantId);
+    private void loadData(){
+        new FetchRestsTask().execute("myTask");
     }
-    /*
-     * Preparing the list data
-     */
-    private void prepareListData(String jstring) throws JSONException {
+    private void prepareRestsData(String jstring)throws JSONException{
         JSONArray arr = new JSONArray(jstring);
         for (int i = 0; i < arr.length(); i++) { // Walk through the Array.
-            JSONObject obj1 = arr.getJSONObject(i);
-            listDataHeader.add(obj1.getString("name"));
-            List<Food> foods = new ArrayList<>();
-            JSONArray arr2 = obj1.getJSONArray("foods");
-            for (int j = 0; j < arr2.length(); j++){
-                JSONObject obj2 = arr2.getJSONObject(j);
-                foods.add(new Food(obj2.getString("name"),(float)obj2.getDouble("price"),(float)obj2.getDouble("discount")));
-            }
-            listDataChild.put(obj1.getString("name"),foods);
+            JSONObject obj = arr.getJSONObject(i);
+            restaurantNames.add(obj.getString("name"));
+            restaurantIds.add(obj.getString("id"));
         }
+        finished = true;
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_scrolling, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
-    public class FetchMenuTask extends AsyncTask<String, Void, String[]>{
+    public class FetchRestsTask extends AsyncTask<String, Void, String[]> {
 
         @Override
         protected String[] doInBackground(String... params) {
-            /* If there's no zip code, there's nothing to look up. */
-            if (params.length == 0) {
-                return null;
-            }
 
-            String menuQuery = params[0];
-            URL menuSearchUrl = NetworkUtils.buildUrl(menuQuery);
+            URL restsSearchUrl = NetworkUtils.buildUrlForRests();
 
             try {
-                String menuSearchResults = NetworkUtils.getResponseFromHttpUrl(menuSearchUrl);
+                String restSearchResults = NetworkUtils.getResponseFromHttpUrl(restsSearchUrl);
+                Log.d("SearchResults",restSearchResults);
+                prepareRestsData(restSearchResults);
                 String[] result = new String[1];
-                result[0] = menuSearchResults;
+                result[0] = restSearchResults;
                 return result;
 
             } catch (Exception e) {
@@ -128,14 +115,15 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(String[] resultData) {
+            Log.d("onPost","come here");
             if (resultData != null) {
                 try {
-                    prepareListData(resultData[0]);
+                    prepareRestsData(resultData[0]);
+                    Log.d("SearchResults onPost",resultData[0]);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
             }
         }
     }
-
 }

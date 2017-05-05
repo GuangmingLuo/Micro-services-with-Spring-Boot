@@ -8,9 +8,13 @@
     android:layout_height="fill_parent"
     android:orientation="vertical"
     android:background="#f4f4f4">
+    <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
         <ExpandableListView
             android:id="@+id/lvExp"
             android:layout_width="match_parent"
-            android:layout_height="400dip" />
+            android:layout_height="match_parent" />
+    </ScrollView>
 </LinearLayout>
