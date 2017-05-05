@@ -10,6 +10,7 @@ import LoginControl from './LoginControl';
 import NameForm from './NameForm';
 import TextAreaForm from './TextAreaForm';
 import Dropdown from './Dropdown';
+import axios from 'axios';
 
 const comment = {
     date: new Date(),
@@ -26,7 +27,12 @@ class TestingControl extends Component{
         super(props);
         this.handleTestClick = this.handleTestClick.bind(this);
         this.handleRestClick = this.handleRestClick.bind(this);
-        this.state = {isTesting: false};
+        this.handleGetClick = this.handleGetClick.bind(this);
+        this.handleClearClick = this.handleClearClick.bind(this);
+        this.state = {isTesting: false,response:'',hasReceived:false};
+
+
+
     }
     handleTestClick() {
         this.setState({isTesting: true});
@@ -35,12 +41,30 @@ class TestingControl extends Component{
     handleRestClick() {
         this.setState({isTesting: false});
     }
+    handleClearClick() {
+        this.setState({hasReceived: false});
+    }
+
+    handleGetClick() {
+        let url = "http://localhost/api/menu?restaurantId=1";
+        let self = this;
+        axios.get(url).then(function(result) {
+            // we got it!
+            // axios also returns other header information
+            // we can make the distinction by using .data or .status, etc...
+            self.setState({response:result.data});
+            // data = result.data;
+            // alert(JSON.stringify(result));
+        });
+        this.setState({hasReceived:true})
+    }
 
 
 
     render(){
         const isTesting = this.state.isTesting;
         let content = null;
+
         if (isTesting) {
             content = (
                 <div>
@@ -56,11 +80,34 @@ class TestingControl extends Component{
                 </div>
             );
         } else {
-            content = (
-                <div>
-                    <h1>REST interface: WIP</h1>
-                </div>
-            );
+
+            if(this.state.hasReceived){
+                content = (
+                    <div>
+                        <h1>REST interface: WIP</h1>
+                        <h2>Requesting menu from Restaurant with id=1</h2>
+                        <Toggle label="Show JSON Response" body={JSON.stringify(this.state.response)}/>
+                        <h2>There are {this.state.response.length} menus:</h2>
+                        <h3>{JSON.stringify(this.state.response[0].name)}, has {this.state.response[0].foods.length} items:</h3>
+                        <h4>{JSON.stringify(this.state.response[0].foods[0].name)}</h4>
+                        <h4>{JSON.stringify(this.state.response[0].foods[1].name)}</h4>
+                        <h4>{JSON.stringify(this.state.response[0].foods[2].name)}</h4>
+                        <h3>{JSON.stringify(this.state.response[1].name)}, has {this.state.response[1].foods.length} items:</h3>
+                        <h4>{JSON.stringify(this.state.response[1].foods[0].name)}</h4>
+                        <h4>{JSON.stringify(this.state.response[1].foods[1].name)}</h4>
+                        <h4>{JSON.stringify(this.state.response[1].foods[2].name)}</h4>
+                        {/*<h3>{JSON.stringify(data[0])}</h3>*/}
+                    </div>
+                );
+            }else{
+                content = (
+                    <div>
+                        <h1>REST interface: WIP</h1>
+
+                    </div>
+                );
+            }
+
         }
 
 
@@ -68,6 +115,8 @@ class TestingControl extends Component{
             <div>
                 <button disabled={this.state.isTesting} onClick={this.handleTestClick}>Test Mode</button>
                 <button disabled={!this.state.isTesting} onClick={this.handleRestClick}>REST Mode</button>
+                <button disabled={this.state.isTesting} onClick={this.handleGetClick}>Do GET request</button>
+                <button disabled={this.state.isTesting} onClick={this.handleClearClick}>Clear request</button>
                 <hr/>
                 {content}
 
@@ -82,7 +131,9 @@ function ToggleTest(props) {
     return (
         <div>
             <h2>Try out these buttons made from 1 component</h2>
-            <Toggle/><Toggle/><Toggle/><Toggle/><Toggle/>
+            <Toggle label="ON" body="OFF"/><Toggle label="ON" body="OFF"/>
+            <Toggle label="ON" body="OFF"/><Toggle label="ON" body="OFF"/>
+            <Toggle label="ON" body="OFF"/><Toggle label="ON" body="OFF"/>
         </div>
     );
 }
