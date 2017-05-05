@@ -53,10 +53,13 @@ class TestingControl extends Component{
             // axios also returns other header information
             // we can make the distinction by using .data or .status, etc...
             self.setState({response:result.data});
+            self.setState({hasReceived:true});
             // data = result.data;
             // alert(JSON.stringify(result));
+        }).catch(function(error){
+            console.log(error.description);
         });
-        this.setState({hasReceived:true})
+
     }
 
 
