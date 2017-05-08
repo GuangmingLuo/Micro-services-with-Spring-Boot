@@ -29,9 +29,13 @@ public class APIController {
     /*
     * This api returns a restaurant entity by a restaurant name
     * */
-    @RequestMapping("/restaurant")
-    public Restaurant restaurant(@RequestParam(value="name") String name) {
+    @RequestMapping("/restaurantByName")
+    public Restaurant restaurantByName(@RequestParam(value="name") String name) {
         return restaurantService.findRestaurantByName(name);
+    }
+    @RequestMapping("/restaurantById")
+    public Restaurant restaurantById(@RequestParam(value="id") String id) {
+        return restaurantService.findRestaurantByName(id);
     }
     /*
     * This api returns all restaurant entities

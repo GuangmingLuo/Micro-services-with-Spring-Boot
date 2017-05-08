@@ -44,8 +44,8 @@
                     <tbody>
                     <tr th:each="restaurant :${restaurants}">
                         <td class="mdl-data-table__cell--non-numeric"><a
-                                th:href="'restaurant/'+${restaurant.getName()+'/'}"
-                                th:text="${restaurant.getName()}"></a></td>
+                                th:href="'restaurant/'+${restaurant.name+'/'}"
+                                th:text="${restaurant.name}"></a></td>
                     </tr>
                     </tbody>
                 </table>
