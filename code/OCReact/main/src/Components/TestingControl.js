@@ -92,13 +92,9 @@ class TestingControl extends Component{
                         <Toggle label="Show JSON Response" body={JSON.stringify(this.state.response)}/>
                         <h2>There are {this.state.response.length} menus:</h2>
                         <h3>{JSON.stringify(this.state.response[0].name)}, has {this.state.response[0].foods.length} items:</h3>
-                        <h4>{JSON.stringify(this.state.response[0].foods[0].name)}</h4>
-                        <h4>{JSON.stringify(this.state.response[0].foods[1].name)}</h4>
-                        <h4>{JSON.stringify(this.state.response[0].foods[2].name)}</h4>
+                        <ListView value={this.state.response[0].foods}/>
                         <h3>{JSON.stringify(this.state.response[1].name)}, has {this.state.response[1].foods.length} items:</h3>
-                        <h4>{JSON.stringify(this.state.response[1].foods[0].name)}</h4>
-                        <h4>{JSON.stringify(this.state.response[1].foods[1].name)}</h4>
-                        <h4>{JSON.stringify(this.state.response[1].foods[2].name)}</h4>
+                        <ListView value={this.state.response[1].foods}/>
                         {/*<h3>{JSON.stringify(data[0])}</h3>*/}
                     </div>
                 );
@@ -130,6 +126,21 @@ class TestingControl extends Component{
 
 }
 
+
+function ListView(props){
+    const itemlist = props.value;
+    return(
+        <div>
+            {itemlist.map((item) =>
+                <MenuItem key={item.id}
+                          value={item.name} />
+            )}
+        </div>
+    );
+}
+function MenuItem(props) {
+    return <h4>{JSON.stringify(props.value)}</h4>;
+}
 function ToggleTest(props) {
     return (
         <div>
