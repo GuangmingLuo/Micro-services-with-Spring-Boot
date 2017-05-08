@@ -1,0 +1,46 @@
+package com.faros.services;
+
+import com.faros.entities.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.stereotype.Service;
+
+/*
+ * Created by guang on 2017/4/12.
+ * Implementation for user service
+ */
+@Service("userService")
+public class UserServiceImpl implements UserService {
+
+    @Autowired
+    private UserRepository userRepository;
+    @Autowired
+    private UserRoleRepository userRoleRepository;
+    @Autowired
+    private BCryptPasswordEncoder bCryptPasswordEncoder;
+
+    private static final Logger log = LoggerFactory.getLogger(UserServiceImpl.class);
+    @Override
+    public User findByUsername(String username) {
+        return userRepository.findByUsername(username);
+    }
+
+    @Override
+    public void saveUser(User user) {
+        user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+        userRepository.save(user);
+        //User myUser = findByUsername(user.getUsername());
+        //setUserRole(myUser.getId());
+    }
+
+    @Override
+    public void setUserRole(int userId, int roleId) {
+        UserRole userRole = new UserRole();
+        userRole.setUserId(userId);
+        userRole.setRoleId(roleId);//1->user,2->admin,3->manager,4->employee
+        //log.info("The UserId is {}, the roleId is {}", userRole.getUserId(),userRole.getRoleId());
+        userRoleRepository.save(userRole);
+    }
+}
