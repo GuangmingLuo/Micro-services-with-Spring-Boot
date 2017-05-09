@@ -27,11 +27,6 @@ public class APIController {
     * */
     @RequestMapping("/menu")
     public List<Menu> menu(@RequestParam(value="restaurantId") int restaurantId) {
-        List<Menu> menus = menuService.findMenuByRestaurantId(restaurantId);
-        for (Menu menu:menus){
-            //List<JSONObject> foods = foodService.findFoodsByMenuId(menu.getId());
-            //menu.setFoods(foods);
-        }
-        return menus;
+        return menuService.findMenuByRestaurantId(restaurantId);
     }
 }

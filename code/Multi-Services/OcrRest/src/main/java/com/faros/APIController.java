@@ -46,13 +46,25 @@ public class APIController {
     }
 
     @RequestMapping("/create")
-    public Restaurant create(){
-        Restaurant restaurant = new Restaurant();
-        restaurant.setId(1);
-        restaurant.setName("KFC");
-        restaurant.setAddress("Leuven");
-        restaurant.setIntroduction("blablabla");
-        restaurantService.save(restaurant);
-        return restaurant;
+    public String create(){
+        Restaurant restaurant1 = new Restaurant();
+        restaurant1.setId(1);
+        restaurant1.setName("KFC");
+        restaurant1.setAddress("Blijd-Inkomststraat 155, 3000 Leuven");
+        restaurant1.setIntroduction("blablabla");
+        restaurantService.save(restaurant1);
+        Restaurant restaurant2 = new Restaurant();
+        restaurant2.setId(2);
+        restaurant2.setName("PizzaHut");
+        restaurant2.setAddress("Korenmarkt 34, 9000 Gent");
+        restaurant2.setIntroduction("blablabla");
+        restaurantService.save(restaurant2);
+        Restaurant restaurant3 = new Restaurant();
+        restaurant3.setId(3);
+        restaurant3.setName("MacHome");
+        restaurant3.setAddress("Tijstrat 11, 3001 Hevelee");
+        restaurant3.setIntroduction("blablabla");
+        restaurantService.save(restaurant3);
+        return "success!";
     }
 }

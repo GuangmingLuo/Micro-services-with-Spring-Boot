@@ -24,7 +24,7 @@ public class APIController {
     * This api returns a list of menu entities by a restaurant id
     * */
     @RequestMapping("/food")
-    public List<Food> menu(@RequestParam(value="menuId") int menuId) {
+    public List<Food> foods(@RequestParam(value="menuId") int menuId) {
         return foodService.findFoodsByMenuId(menuId);
     }
 }

@@ -2,6 +2,7 @@ package com.faros.services;
 
 import net.minidev.json.JSONObject;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
 
@@ -11,10 +12,11 @@ import java.util.List;
 @Service("FoodService")
 public class FoodServiceImpl implements FoodService {
 
+    final String foodsById = "http://localhost:83/api/food?menuId={menuId}";
     @Override
     public List<JSONObject> findFoodsByMenuId(String menuId) {
-        return null;
-        //return foodRepository.findFoodsByMenuId(menuId);
+        RestTemplate restTemplate = new RestTemplate();
+        return restTemplate.getForObject(foodsById, List.class,menuId);
     }
 
     @Override
