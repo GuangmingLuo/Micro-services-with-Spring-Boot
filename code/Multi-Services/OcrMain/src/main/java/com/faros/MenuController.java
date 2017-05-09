@@ -18,6 +18,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.validation.Valid;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -62,9 +64,14 @@ public class MenuController {
         model.addAttribute("restaurantName",rest.getAsString("name"));
         model.addAttribute("address",rest.getAsString("address"));
         model.addAttribute("introduction",rest.getAsString("introduction"));
-        List<JSONObject> menus = menuService.findMenuByRestaurantId(rest.getAsString("id"));
+        List<JSONObject> menus = null;
+        try {
+            menus = menuService.findMenuByRestaurantId(rest.getAsString("id"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         for (JSONObject menu:menus){
-            menu.put("foods",foodService.findFoodsByMenuId(menu.getAsString("id")));
+            //menu.put("foods",foodService.findFoodsByMenuId(menu.getAsString("id")));
         }
         model.addAttribute("menus",menus);
         return "restaurant";
@@ -79,7 +86,12 @@ public class MenuController {
         if(!rest.getAsString("name").equals(name)){
             return "redirect:/error";         //if this manager is not bounded to this restaurant.
         }
-        List<JSONObject> menus = menuService.findMenuByRestaurantId(rest.getAsString("id"));
+        List<JSONObject> menus = null;
+        try {
+            menus = menuService.findMenuByRestaurantId(rest.getAsString("id"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         model.addAttribute("menus",menus);
         for (JSONObject menu:menus){
             menu.put("foods",foodService.findFoodsByMenuId(rest.getAsString("id")));

@@ -6,6 +6,7 @@ import net.minidev.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -17,7 +18,7 @@ public class MenuServiceImpl implements MenuService {
     @Autowired
     private MenuRepository menuRepository;
     @Override
-    public List<Menu> findMenuByRestaurantId(int restaurantId) {
+    public ArrayList<Menu> findMenuByRestaurantId(int restaurantId) {
         return menuRepository.findMenuByRestaurantId(restaurantId);
     }
 
