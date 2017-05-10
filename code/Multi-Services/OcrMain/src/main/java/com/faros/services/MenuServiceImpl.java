@@ -5,6 +5,8 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import net.minidev.json.JSONObject;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -19,6 +21,7 @@ import java.util.List;
 public class MenuServiceImpl implements MenuService {
 
     final String menuUrl = "http://localhost:82/api/menu?restaurantId={restaurantId}";
+    final String addMenuUrl = "http://localhost:82/api/addMenu";
     @Override
     public ArrayList<JSONObject> findMenuByRestaurantId(String restaurantId) throws IOException {
         RestTemplate restTemplate = new RestTemplate();
@@ -33,6 +36,8 @@ public class MenuServiceImpl implements MenuService {
 
     @Override
     public void addMenu(Menu menu) {
-        //menuRepository.save(menu);
+        RestTemplate restTemplate = new RestTemplate();
+        HttpEntity<Menu> request = new HttpEntity<>(menu);
+        restTemplate.postForObject(addMenuUrl, request, Menu.class);
     }
 }

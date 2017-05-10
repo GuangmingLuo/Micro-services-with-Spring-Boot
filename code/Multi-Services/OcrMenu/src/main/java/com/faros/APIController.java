@@ -8,10 +8,11 @@ import com.faros.entity.Menu;
 import com.faros.service.MenuService;
 import net.minidev.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,6 +30,17 @@ public class APIController {
     @RequestMapping("/menu")
     public ArrayList<Menu> menu(@RequestParam(value="restaurantId") int restaurantId) {
         return menuService.findMenuByRestaurantId(restaurantId);
+    }
+    /*
+    * This api provide post api to add a new menu entity
+    * */
+    @RequestMapping(value = "/addMenu",method = RequestMethod.POST)
+    public ResponseEntity<?> addMenu(@RequestBody Menu menu) {
+        Menu result = menuService.addMenu(menu);
+        URI location = ServletUriComponentsBuilder
+                .fromCurrentRequest().path("/{id}")
+                .buildAndExpand(result.getId()).toUri();
+        return ResponseEntity.created(location).build();
     }
     /*
     * This api is used to create test data for developer

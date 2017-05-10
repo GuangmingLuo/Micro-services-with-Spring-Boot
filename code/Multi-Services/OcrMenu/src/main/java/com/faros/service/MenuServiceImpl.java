@@ -23,7 +23,9 @@ public class MenuServiceImpl implements MenuService {
     }
 
     @Override
-    public void addMenu(Menu menu) {
-        menuRepository.save(menu);
+    public Menu addMenu(Menu menu) {
+        int id = (int)menuRepository.count()+1;
+        menu.setId(id);
+        return menuRepository.save(menu);
     }
 }

@@ -12,5 +12,5 @@ import java.util.List;
  */
 public interface MenuService {
     ArrayList<Menu> findMenuByRestaurantId(int restaurantId);
-    void addMenu(Menu menu);
+    Menu addMenu(Menu menu);
 }
