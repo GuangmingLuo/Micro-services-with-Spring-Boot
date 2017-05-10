@@ -37,6 +37,7 @@ public class MenuController {
     private MenuService menuService;
     @Autowired
     private FoodService foodService;
+    String errorMessage = null;
     @RequestMapping(value="/restaurant/{name}", method= RequestMethod.GET)
     public String restaurant(@PathVariable String name, Model model){
         JSONObject rest;
@@ -64,16 +65,9 @@ public class MenuController {
         model.addAttribute("restaurantName",rest.getAsString("name"));
         model.addAttribute("address",rest.getAsString("address"));
         model.addAttribute("introduction",rest.getAsString("introduction"));
-        List<JSONObject> menus = null;
-        try {
-            menus = menuService.findMenuByRestaurantId(rest.getAsString("id"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        for (JSONObject menu:menus){
-            //menu.put("foods",foodService.findFoodsByMenuId(menu.getAsString("id")));
-        }
+        List<JSONObject> menus = apiErrorHandle(rest);
         model.addAttribute("menus",menus);
+        model.addAttribute("errorMessage",errorMessage);
         return "restaurant";
     }
 
@@ -86,16 +80,9 @@ public class MenuController {
         if(!rest.getAsString("name").equals(name)){
             return "redirect:/error";         //if this manager is not bounded to this restaurant.
         }
-        List<JSONObject> menus = null;
-        try {
-            menus = menuService.findMenuByRestaurantId(rest.getAsString("id"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        List<JSONObject> menus = apiErrorHandle(rest);
         model.addAttribute("menus",menus);
-        for (JSONObject menu:menus){
-            menu.put("foods",foodService.findFoodsByMenuId(rest.getAsString("id")));
-        }
+        model.addAttribute("errorMessage",errorMessage);
         return "editMenu";
     }
 
@@ -120,5 +107,24 @@ public class MenuController {
         menu.put("restaurantId",rest.getAsString("id"));
         menuService.addMenu(menu);
         return "redirect:/restaurant/"+rest.getAsString("name")+"/edit";
+    }
+
+    private List<JSONObject> apiErrorHandle(JSONObject rest){
+        List<JSONObject> menus = null; errorMessage = "";
+        try {
+            menus = menuService.findMenuByRestaurantId(rest.getAsString("id"));
+            for (JSONObject menu:menus){
+                try {
+                    menu.put("foods",foodService.findFoodsByMenuId(menu.getAsString("id")));
+                } catch (Exception e) {
+                    errorMessage = "The foodService is down!";
+                    e.printStackTrace();
+                }
+            }
+        } catch (IOException e) {
+            errorMessage += "The menuService is down! \n";
+            e.printStackTrace();
+        }
+        return menus;
     }
 }

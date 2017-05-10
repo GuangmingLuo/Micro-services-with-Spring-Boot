@@ -28,7 +28,6 @@ public class MenuServiceImpl implements MenuService {
                 new TypeReference<List<JSONObject>>(){}
         );
         return menuList;
-        //return restTemplate.getForObject(menuUrl, ArrayList.class,restaurantId);
     }
 
     @Override

@@ -11,6 +11,7 @@
     <th:block th:include="fragments/navbar :: navbar">test</th:block>
     <main class="mdl-layout__content">
         <th:block th:include="fragments/menu :: menu"></th:block>
+        <div style="text-align: center;color: red" th:text="${errorMessage}"></div>
         <th:block th:include="fragments/footer :: footer"></th:block>
     </main>
 
