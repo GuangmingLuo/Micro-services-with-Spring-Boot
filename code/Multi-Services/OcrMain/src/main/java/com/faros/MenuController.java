@@ -1,5 +1,7 @@
 package com.faros;
 
+import com.faros.entities.Food;
+import com.faros.entities.Menu;
 import com.faros.services.FoodService;
 import com.faros.services.MenuService;
 import com.faros.services.RestaurantService;
@@ -87,9 +89,9 @@ public class MenuController {
     }
 
     @RequestMapping(value="/addMenuItem", method = RequestMethod.POST)
-    public String addMenuItem(@Valid JSONObject food, @Valid int menuId){
-        food.put("menuId",menuId);
-        //log.info("Food to be add: {},{},{}",food.getName(),food.getPrice(),food.getMenuId());
+    public String addMenuItem(@Valid Food food, @Valid int menuId){
+        food.setMenuId(menuId);
+        log.info("Food to be add: {},{},{}",food.getName(),food.getPrice(),food.getMenuId());
         foodService.addFood(food);
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         org.springframework.security.core.userdetails.User user = (org.springframework.security.core.userdetails.User)auth.getPrincipal();
@@ -99,12 +101,13 @@ public class MenuController {
     }
 
     @RequestMapping(value="/addMenu", method = RequestMethod.POST)
-    public String addMenuItem(@Valid JSONObject menu){
+    public String addMenuItem(@Valid Menu menu){
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         org.springframework.security.core.userdetails.User user = (org.springframework.security.core.userdetails.User)auth.getPrincipal();
         com.faros.entities.User userExists = userService.findByUsername(user.getUsername());
         JSONObject rest = restaurantService.findRestaurantById(userExists.getRestaurantId());
-        menu.put("restaurantId",rest.getAsString("id"));
+        //menu.put("restaurantId",rest.getAsString("id"));
+        menu.setRestaurantId(Integer.parseInt(rest.getAsString("id")));
         menuService.addMenu(menu);
         return "redirect:/restaurant/"+rest.getAsString("name")+"/edit";
     }

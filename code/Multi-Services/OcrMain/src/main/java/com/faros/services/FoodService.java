@@ -1,5 +1,6 @@
 package com.faros.services;
 
+import com.faros.entities.Food;
 import net.minidev.json.JSONObject;
 
 import java.io.IOException;
@@ -10,5 +11,5 @@ import java.util.List;
  */
 public interface FoodService {
     List<JSONObject> findFoodsByMenuId(String menuId) throws IOException, Exception;
-    void addFood(JSONObject food);
+    void addFood(Food food);
 }

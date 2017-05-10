@@ -1,6 +1,7 @@
 package com.faros.services;
 
 
+import com.faros.entities.Menu;
 import net.minidev.json.JSONObject;
 
 import java.io.IOException;
@@ -11,5 +12,5 @@ import java.util.List;
  */
 public interface MenuService {
     List<JSONObject> findMenuByRestaurantId(String restaurantId) throws IOException;
-    void addMenu(JSONObject menu);
+    void addMenu(Menu menu);
 }

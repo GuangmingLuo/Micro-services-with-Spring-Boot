@@ -10,5 +10,5 @@ import java.util.List;
  */
 public interface FoodService {
     List<Food> findFoodsByMenuId(int menuId);
-    void addFood(Food food);
+    Food addFood(Food food);
 }

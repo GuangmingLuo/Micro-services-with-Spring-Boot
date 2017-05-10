@@ -1,16 +1,12 @@
-package com.faros.entity;
+package com.faros.entities;
 
-import org.springframework.boot.autoconfigure.web.ResourceProperties;
-import org.springframework.data.annotation.Id;
-
-import javax.annotation.Generated;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Arrays;
 
 /**
  * Created by guang on 2017/4/21.
  */
-
 public class Food implements Serializable{
     private int id;
     private float price;
@@ -19,10 +15,6 @@ public class Food implements Serializable{
     private byte[] image;
     private int menuId;
 
-//    public Food(int id,String name,float price,Integer discount,int menuId){
-//        this.id=id;this.name=name;this.price=price;this.discount=discount;this.menuId=menuId;
-//    }
-    @Id
     public int getId() {
         return id;
     }
@@ -30,7 +22,6 @@ public class Food implements Serializable{
     public void setId(int id) {
         this.id = id;
     }
-
 
     public String getName() {
         return name;
@@ -51,6 +42,7 @@ public class Food implements Serializable{
         this.discount = discount;
     }
 
+
     public byte[] getImage() {
         return image;
     }
@@ -58,7 +50,6 @@ public class Food implements Serializable{
     public void setImage(byte[] image) {
         this.image = image;
     }
-
 
     public int getMenuId() {
         return menuId;

@@ -85,4 +85,18 @@ public class UserController {
             return "redirect:/registration";
         }
     }
+//    /*
+//    * This is only used to create the super user/admin
+//    * add .antMatchers("/admin/registration","/register").permitAll() in config
+//    * */
+//    public String save(@Valid User user, @Valid int restaurant_id, RedirectAttributes redir){
+//        user.setRestaurantId(restaurant_id);
+//        userService.saveUser(user);
+//        User myUser = userService.findByUsername(user.getUsername());
+//        userService.setUserRole(myUser.getId(),2); //2->admin
+//        redir.addFlashAttribute("message"," Successfully created new admin!");
+//        return "redirect:/admin/registration";
+//    }
+
+
 }

@@ -1,5 +1,6 @@
 package com.faros.services;
 
+import com.faros.entities.Menu;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -31,7 +32,7 @@ public class MenuServiceImpl implements MenuService {
     }
 
     @Override
-    public void addMenu(JSONObject menu) {
+    public void addMenu(Menu menu) {
         //menuRepository.save(menu);
     }
 }
