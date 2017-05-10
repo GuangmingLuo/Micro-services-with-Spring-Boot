@@ -47,9 +47,9 @@ public class UserController {
     /*
     * This register page is used for manager to register a employee account
     * */
-    @RequestMapping(value= "/registration",method= RequestMethod.GET)
+    @RequestMapping(value= "/employees",method= RequestMethod.GET)
     public String register(@ModelAttribute("message") final String message, Model model) {
-        model.addAttribute("message",message);
+        model.addAttribute("message1",message);
         List<JSONObject> restaurants = restaurantService.findAll();
         model.addAttribute("restaurants",restaurants);
         return "register";

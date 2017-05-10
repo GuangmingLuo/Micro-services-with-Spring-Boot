@@ -1,6 +1,7 @@
 package com.faros;
 
 
+import com.faros.entities.Restaurant;
 import com.faros.services.UserService;
 import com.faros.services.RestaurantService;
 import net.minidev.json.JSONObject;
@@ -12,7 +13,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.validation.Valid;
 import java.util.List;
 
 /*
@@ -30,11 +33,18 @@ public class AdminController {
     private static final Logger log = LoggerFactory.getLogger(AdminController.class);
 
     @RequestMapping(value= "/registration",method= RequestMethod.GET)
-    public String register(@ModelAttribute("message") final String message, Model model) {
-        model.addAttribute("message",message);
+    public String register(@ModelAttribute("message") final String message1,@ModelAttribute("messageRest") final String message2, Model model) {
+        model.addAttribute("message1",message1);
+        model.addAttribute("message2",message2);
         List<JSONObject> restaurants = restaurantService.findAll();
         model.addAttribute("restaurants",restaurants);
         return "register";
     }
 
+    @RequestMapping(value= "/addRestaurant",method= RequestMethod.POST)
+    public String addRestaurant(@Valid Restaurant restaurant, RedirectAttributes redir){
+        restaurantService.addRestaurant(restaurant);
+        redir.addFlashAttribute("messageRest"," Succeed to create a Restaurant!");
+        return "redirect:/admin/registration";
+    }
 }

@@ -1,4 +1,4 @@
-package com.faros.entity;
+package com.faros.entities;
 
 /**
  * Created by guang on 2017/4/21.

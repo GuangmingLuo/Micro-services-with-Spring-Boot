@@ -31,7 +31,9 @@ public class RestaurantServiceImpl implements RestaurantService {
     }
 
     @Override
-    public void save(Restaurant restaurant) {
-        restaurantRepository.save(restaurant);
+    public Restaurant save(Restaurant restaurant) {
+        int id = (int) restaurantRepository.count()+1;
+        restaurant.setId(id);
+        return  restaurantRepository.save(restaurant);
     }
 }

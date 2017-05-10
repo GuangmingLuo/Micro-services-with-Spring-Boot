@@ -7,10 +7,11 @@ package com.faros;
 import com.faros.entity.Restaurant;
 import com.faros.service.RestaurantService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import java.net.URI;
 import java.util.List;
 
 @RestController
@@ -37,6 +38,18 @@ public class APIController {
     public Restaurant restaurantById(@RequestParam(value="id") String id) {
         return restaurantService.findRestaurantById(id);
     }
+    /*
+    * This api provide post api to add a new restaurant entity
+    * */
+    @RequestMapping(value = "/addRestaurant",method = RequestMethod.POST)
+    public ResponseEntity<?> addRestaurant(@RequestBody Restaurant restaurant) {
+        Restaurant result = restaurantService.save(restaurant);
+        URI location = ServletUriComponentsBuilder
+                .fromCurrentRequest().path("/{id}")
+                .buildAndExpand(result.getId()).toUri();
+        return ResponseEntity.created(location).build();
+    }
+
     /*
     * This api returns all restaurant entities
     * */
