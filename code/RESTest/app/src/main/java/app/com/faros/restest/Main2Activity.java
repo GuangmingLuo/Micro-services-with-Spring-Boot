@@ -14,6 +14,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.Map;
 
 import static android.graphics.Color.rgb;
@@ -32,7 +34,7 @@ public class Main2Activity extends AppCompatActivity {
     private JSONArray res=null;
     private GridLayout foodLayout;
     private ArrayList<JSONArray> menuItems= new ArrayList<>();
-    private Map<Integer,JSONArray> items;
+    private HashMap<Integer,JSONArray> items = new HashMap<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -102,7 +104,7 @@ public class Main2Activity extends AppCompatActivity {
             public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
                 // called when response HTTP status is "200 OK"
                 res=response;
-                menuItems.clear();
+//                menuItems.clear();
                 items.clear();
                 for(int i=0;i<=response.length();i++) {
                     menuItems.add(new JSONArray());
@@ -171,7 +173,12 @@ public class Main2Activity extends AppCompatActivity {
 
     private void createItem(final String name) {
         Button myButton = new Button(getApplicationContext());
-        myButton.setText(name);
+        String[] partial = name.split(" ");
+        String shortened = "";
+        for(int j=0;j<partial.length;j++){
+            shortened = shortened.concat(Character.toString(partial[j].charAt(0)));
+        }
+        myButton.setText(shortened);
 //        myButton.setBackgroundColor(rgb(150,150,150));
         ViewGroup.LayoutParams params;
         int dps = 65;
@@ -187,6 +194,15 @@ public class Main2Activity extends AppCompatActivity {
             }
         });
         foodLayout.addView(myButton);
+
+        myButton.setOnLongClickListener(new View.OnLongClickListener(){
+
+            @Override
+            public boolean onLongClick(View v) {
+                restaurantName.setText(name);
+                return true;
+            }
+        });
     }
 
 
@@ -197,7 +213,7 @@ public class Main2Activity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                restaurantName.append("getting at Id="+id);
+//                restaurantName.append("getting at Id="+id);
 
                 for (int i=0;i<menuItems.size();i++) {
                     JSONArray items = menuItems.get(i);
@@ -219,12 +235,8 @@ public class Main2Activity extends AppCompatActivity {
                     }
                     try {
                         final String food = test.getString("name");
-                        String[] partial = food.split(" ");
-                        String shortened = "";
-                        for(int j=0;j<partial.length;j++){
-                            shortened = shortened.concat(Character.toString(partial[j].charAt(0)));
-                        }
-                        createItem(shortened);
+
+                        createItem(food);
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
