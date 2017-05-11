@@ -24,7 +24,12 @@ public class APIController {
 
     @RequestMapping
     public String info() {
-        return "/menu?restaurantId=X";
+        String info = "Available api under ip:81/api: <br />";
+        info += "/restaurantByName?name=xxx <br />";
+        info += "/restaurantById?id=xxx <br />";
+        info += "/addRestaurant (POST: @RequestBody Restaurant r) <br />";
+        info += "/restaurants <br />";
+        return info;
     }
 
     /*

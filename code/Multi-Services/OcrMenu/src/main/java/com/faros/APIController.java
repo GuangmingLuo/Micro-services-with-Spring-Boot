@@ -6,15 +6,12 @@ package com.faros;
  */
 import com.faros.entity.Menu;
 import com.faros.service.MenuService;
-import net.minidev.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
-
 import java.net.URI;
 import java.util.ArrayList;
-import java.util.List;
 
 @RestController
 @RequestMapping("/api")
@@ -24,6 +21,13 @@ public class APIController {
     private MenuService menuService;
 
 
+    @RequestMapping
+    public String info() {
+        String info = "Available api under ip:82/api: <br />";
+        info += "/menu?restaurantId=xxx <br />";
+        info += "/addMenu (POST: @RequestBody Menu m) <br />";
+        return info;
+    }
     /*
     * This api returns a list of menu entities by a restaurant id
     * */

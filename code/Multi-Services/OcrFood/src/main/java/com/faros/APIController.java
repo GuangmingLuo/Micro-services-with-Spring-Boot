@@ -22,6 +22,13 @@ public class APIController {
     @Autowired
     private FoodService foodService;
 
+    @RequestMapping
+    public String info() {
+        String info = "Available api under ip:83/api: <br />";
+        info += "/food?menuId=xxx <br />";
+        info += "/addFood (POST: @RequestBody Food f) <br />";
+        return info;
+    }
     /*
     * This api returns a list of menu entities by a restaurant id
     * */
