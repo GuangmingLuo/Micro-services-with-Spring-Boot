@@ -1,8 +1,8 @@
 package com.faros;
 
-import com.faros.entities.Food;
-import com.faros.entities.Menu;
 import com.faros.services.*;
+import my.faros.model.Food;
+import my.faros.model.Menu;
 import net.minidev.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

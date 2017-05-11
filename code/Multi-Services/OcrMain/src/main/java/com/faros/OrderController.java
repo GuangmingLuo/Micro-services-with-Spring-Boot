@@ -1,9 +1,9 @@
 package com.faros;
 
-import com.faros.entities.Order;
 import com.faros.services.OrderService;
 import com.faros.services.RestaurantService;
 import com.faros.services.UserService;
+import my.faros.model.Order;
 import net.minidev.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

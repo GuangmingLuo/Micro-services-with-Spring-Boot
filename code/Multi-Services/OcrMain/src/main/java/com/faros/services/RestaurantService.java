@@ -1,6 +1,6 @@
 package com.faros.services;
 
-import com.faros.entities.Restaurant;
+import my.faros.model.Restaurant;
 import net.minidev.json.JSONObject;
 
 import java.util.List;

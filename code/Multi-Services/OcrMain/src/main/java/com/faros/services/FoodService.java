@@ -1,6 +1,5 @@
 package com.faros.services;
 
-//import com.faros.entities.Food;
 import my.faros.model.Food;
 import net.minidev.json.JSONObject;
 import java.util.List;
