@@ -1,0 +1,7 @@
+my\faros\model\Role.class
+my\faros\model\Order.class
+my\faros\model\Menu.class
+my\faros\model\User.class
+my\faros\model\UserRole.class
+my\faros\model\Food.class
+my\faros\model\Restaurant.class
