@@ -1,9 +1,7 @@
 package com.faros.entity;
 
-import org.springframework.boot.autoconfigure.web.ResourceProperties;
-import org.springframework.data.annotation.Id;
 
-import javax.annotation.Generated;
+import org.springframework.data.annotation.Id;
 import java.io.Serializable;
 import java.util.Arrays;
 

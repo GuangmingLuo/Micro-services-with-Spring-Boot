@@ -10,8 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
-
-import javax.validation.Valid;
 import java.net.URI;
 import java.util.List;
 
@@ -30,7 +28,7 @@ public class APIController {
         return info;
     }
     /*
-    * This api returns a list of menu entities by a restaurant id
+    * This api returns a list of food entities by a menu id
     * */
     @RequestMapping("/food")
     public List<Food> foods(@RequestParam(value="menuId") int menuId) {
@@ -38,7 +36,7 @@ public class APIController {
     }
 
     /*
-    * This api returns a list of menu entities by a restaurant id
+    * This api do a post to database
     * */
     @RequestMapping(value = "/addFood",method = RequestMethod.POST)
     public ResponseEntity<?> addFood(@RequestBody Food food) {
