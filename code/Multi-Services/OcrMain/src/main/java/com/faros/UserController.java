@@ -4,6 +4,8 @@ import com.faros.entities.User;
 import com.faros.services.RestaurantService;
 import com.faros.services.UserService;
 import net.minidev.json.JSONObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -31,7 +33,7 @@ public class UserController {
     private UserService userService;
     @Autowired
     private RestaurantService restaurantService;
-
+    private static final Logger log = LoggerFactory.getLogger(UserController.class);
     @RequestMapping(value= "/login",method=GET)
     public String login() {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
@@ -49,10 +51,21 @@ public class UserController {
     * */
     @RequestMapping(value= "/employees",method= RequestMethod.GET)
     public String register(@ModelAttribute("message") final String message, Model model) {
-        model.addAttribute("message1",message);
-        List<JSONObject> restaurants = restaurantService.findAll();
-        model.addAttribute("restaurants",restaurants);
-        return "register";
+        model.addAttribute("message",message);
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        final SimpleGrantedAuthority AUTHORITY_MANAGER = new SimpleGrantedAuthority("MANAGER");
+        //log.info("the auth is :{}",auth.getPrincipal());
+        if((auth.getAuthorities().contains(AUTHORITY_MANAGER))) {
+            org.springframework.security.core.userdetails.User user = (org.springframework.security.core.userdetails.User) auth.getPrincipal();
+            User userExists = userService.findByUsername(user.getUsername());
+            JSONObject rest = restaurantService.findRestaurantById(userExists.getRestaurantId());
+            log.info(rest.toString());
+            model.addAttribute("restaurantName",rest.getAsString("name"));
+            model.addAttribute("restaurantId",rest.getAsNumber("id"));
+            List<User> users = userService.findEmployeesByRestaurantId(userExists.getRestaurantId());
+            model.addAttribute("employees",users);
+        }
+        return "employees";
     }
 
     /*
@@ -82,7 +95,7 @@ public class UserController {
         if(me.getAuthorities().contains(AUTHORITY_ADMIN)){
             return "redirect:/admin/registration";
         }else{  // else will be manager in this case
-            return "redirect:/registration";
+            return "redirect:/employees";
         }
     }
 //    /*

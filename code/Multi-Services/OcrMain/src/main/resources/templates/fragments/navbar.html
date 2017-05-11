@@ -16,9 +16,7 @@
             <div class="mdl-layout-spacer"></div>
             <!-- Navigation. We hide it in small screens. -->
             <nav class="mdl-navigation mdl-layout--large-screen-only">
-
                 <a th:href="@{/}" class="mdl-navigation__link" href="#">Home</a>
-
                 <a th:href="@{/restaurant/name/}" class="mdl-navigation__link" href="">Restaurant</a>
                 <a sec:authorize="hasAuthority('ADMIN')" th:href="@{/admin/registration}" class="mdl-navigation__link" href="">Admin</a>
                 <a sec:authorize="hasAuthority('MANAGER')" th:href="@{/employees}" class="mdl-navigation__link" href="">Employees</a>
@@ -26,9 +24,6 @@
                 <a sec:authorize="isAuthenticated()" style="text-decoration:none" href="/logout" sec:authentication="name" id="account">Bob</a>
                 <div sec:authorize="isAuthenticated()" class="mdl-tooltip mdl-tooltip--large" for="account">Logout</div>
                 <a sec:authorize="!isAuthenticated()" th:href="@{/login}" class="mdl-navigation__link" href="">Login</a>
-
-
-
             </nav>
         </div>
     </header>

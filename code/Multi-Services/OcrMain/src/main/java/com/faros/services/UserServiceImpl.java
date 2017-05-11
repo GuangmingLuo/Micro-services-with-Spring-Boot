@@ -7,6 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /*
  * Created by guang on 2017/4/12.
  * Implementation for user service
@@ -42,5 +45,34 @@ public class UserServiceImpl implements UserService {
         userRole.setRoleId(roleId);//1->user,2->admin,3->manager,4->employee
         //log.info("The UserId is {}, the roleId is {}", userRole.getUserId(),userRole.getRoleId());
         userRoleRepository.save(userRole);
+    }
+
+    @Override
+    public List<User> findUsersByRestaurantId(int restaurantId) {
+        List<User> users = userRepository.findAll();
+        List<User> results = null;
+        for(User user:users){
+            if(user.getRestaurantId()==restaurantId)
+                results.add(user);
+        }
+        return results;
+    }
+
+    @Override
+    public List<User> findEmployeesByRestaurantId(int restaurantId) {
+        List<User> users = userRepository.findAll();
+        List<UserRole> userRoles = userRoleRepository.findAll();
+        List<User> results = new ArrayList<>();
+        for(User user:users){
+            if(user.getRestaurantId()==restaurantId){ //if this user belongs to the given restaurant
+                UserRole userRole = new UserRole();
+                userRole.setUserId(user.getId());
+                userRole.setRoleId(4);
+                if(userRoles.contains(userRole)){ //if user has role of 4->employee
+                    results.add(user);
+                }
+            }
+        }
+        return results;
     }
 }
