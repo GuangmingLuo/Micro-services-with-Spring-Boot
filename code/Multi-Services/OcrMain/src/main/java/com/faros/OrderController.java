@@ -1,5 +1,6 @@
 package com.faros;
 
+import com.faros.entities.Order;
 import com.faros.services.OrderService;
 import com.faros.services.RestaurantService;
 import com.faros.services.UserService;
@@ -32,7 +33,7 @@ public class OrderController {
     @Autowired
     private OrderService orderService;
 
-    @RequestMapping(value="/restaurant/{name}/createOrder", method= RequestMethod.POST) //accessible by user with role "manager"
+    @RequestMapping(value="/restaurant/{name}/createOrder", method= RequestMethod.POST)
     public String createOrder(@PathVariable String name, @Valid String[] foods, @Valid String[] numbers, @Valid int tableId
             , RedirectAttributes redir){
         String order = "Table id: "+tableId;
@@ -46,9 +47,9 @@ public class OrderController {
         }
         log.info(order);
         redir.addFlashAttribute("redir",order);
-        JSONObject newOrder = new JSONObject();
-        newOrder.put("content",order);
-        newOrder.put("tableId",tableId);
+        Order newOrder = new Order();
+        newOrder.setContent(order);
+        newOrder.setTableId(tableId);
         orderService.save(newOrder);
         return "redirect:/restaurant/"+name+"/order";
     }

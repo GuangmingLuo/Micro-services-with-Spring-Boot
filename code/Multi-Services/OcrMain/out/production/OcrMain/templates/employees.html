@@ -20,9 +20,7 @@
             </thead>
             <tbody>
             <tr th:each="employee :${employees}">
-
-                    <th class="mdl-data-table__cell--non-numeric" th:text="${employee.getUsername()}"></th>
-                
+                <th class="mdl-data-table__cell--non-numeric" th:text="${employee.getUsername()}"></th>
             </tr>
             </tbody>
         </table>

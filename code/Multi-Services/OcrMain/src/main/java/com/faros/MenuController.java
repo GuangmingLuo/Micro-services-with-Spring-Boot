@@ -2,10 +2,7 @@ package com.faros;
 
 import com.faros.entities.Food;
 import com.faros.entities.Menu;
-import com.faros.services.FoodService;
-import com.faros.services.MenuService;
-import com.faros.services.RestaurantService;
-import com.faros.services.UserService;
+import com.faros.services.*;
 import net.minidev.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -39,6 +36,8 @@ public class MenuController {
     private MenuService menuService;
     @Autowired
     private FoodService foodService;
+    @Autowired
+    private OrderService orderService;
     String errorMessage = null;
     @RequestMapping(value="/restaurant/{name}", method= RequestMethod.GET)
     public String restaurant(@PathVariable String name, Model model){
@@ -120,12 +119,18 @@ public class MenuController {
                 try {
                     menu.put("foods",foodService.findFoodsByMenuId(menu.getAsString("id")));
                 } catch (Exception e) {
-                    errorMessage = "The foodService is down!";
+                    errorMessage = "The foodService is down! \n";
                     e.printStackTrace();
                 }
             }
         } catch (IOException e) {
             errorMessage += "The menuService is down! \n";
+            e.printStackTrace();
+        }
+        try {
+            orderService.checkStatus();
+        }catch (Exception e){
+            errorMessage += "The OrderService is down! \n";
             e.printStackTrace();
         }
         return menus;

@@ -25,6 +25,7 @@ public class APIController {
     @RequestMapping
     public String info() {
         String info = "Available api under ip:84/api: <br />";
+        info += "/status (To check if the server in on)<br />";
         info += "/orders <br />";
         info += "/addOrder (POST: @RequestBody Order o) <br />";
         return info;
@@ -36,6 +37,14 @@ public class APIController {
     @RequestMapping("/orders")
     public List<Order> orders(){
         return orderService.findAllOrders();
+    }
+
+    /*
+    * This api returns true if server is on
+    * */
+    @RequestMapping("/status")
+    public boolean status(){
+        return true;
     }
 
     /*
