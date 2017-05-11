@@ -9,7 +9,7 @@ import java.util.List;
  */
 public interface RestaurantService {
     List<Restaurant> findAll();
-    Restaurant findRestaurantById(int id);
+    Restaurant findRestaurantById(String id);
     Restaurant findRestaurantByName(String name);
-    void save(Restaurant restaurant);
+    Restaurant save(Restaurant restaurant);
 }

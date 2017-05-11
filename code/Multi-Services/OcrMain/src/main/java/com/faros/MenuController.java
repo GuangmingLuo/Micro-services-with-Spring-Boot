@@ -1,9 +1,8 @@
 package com.faros;
 
-import com.faros.services.FoodService;
-import com.faros.services.MenuService;
-import com.faros.services.RestaurantService;
-import com.faros.services.UserService;
+import com.faros.entities.Food;
+import com.faros.entities.Menu;
+import com.faros.services.*;
 import net.minidev.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,6 +17,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.validation.Valid;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -35,6 +36,9 @@ public class MenuController {
     private MenuService menuService;
     @Autowired
     private FoodService foodService;
+    @Autowired
+    private OrderService orderService;
+    String errorMessage = null;
     @RequestMapping(value="/restaurant/{name}", method= RequestMethod.GET)
     public String restaurant(@PathVariable String name, Model model){
         JSONObject rest;
@@ -62,11 +66,9 @@ public class MenuController {
         model.addAttribute("restaurantName",rest.getAsString("name"));
         model.addAttribute("address",rest.getAsString("address"));
         model.addAttribute("introduction",rest.getAsString("introduction"));
-        List<JSONObject> menus = menuService.findMenuByRestaurantId(rest.getAsString("id"));
-        for (JSONObject menu:menus){
-            menu.put("foods",foodService.findFoodsByMenuId(menu.getAsString("id")));
-        }
+        List<JSONObject> menus = apiErrorHandle(rest);
         model.addAttribute("menus",menus);
+        model.addAttribute("errorMessage",errorMessage);
         return "restaurant";
     }
 
@@ -79,18 +81,16 @@ public class MenuController {
         if(!rest.getAsString("name").equals(name)){
             return "redirect:/error";         //if this manager is not bounded to this restaurant.
         }
-        List<JSONObject> menus = menuService.findMenuByRestaurantId(rest.getAsString("id"));
+        List<JSONObject> menus = apiErrorHandle(rest);
         model.addAttribute("menus",menus);
-        for (JSONObject menu:menus){
-            menu.put("foods",foodService.findFoodsByMenuId(rest.getAsString("id")));
-        }
+        model.addAttribute("errorMessage",errorMessage);
         return "editMenu";
     }
 
     @RequestMapping(value="/addMenuItem", method = RequestMethod.POST)
-    public String addMenuItem(@Valid JSONObject food, @Valid int menuId){
-        food.put("menuId",menuId);
-        //log.info("Food to be add: {},{},{}",food.getName(),food.getPrice(),food.getMenuId());
+    public String addMenuItem(@Valid Food food, @Valid int menuId){
+        food.setMenuId(menuId);
+        log.info("Food to be add: {},{},{}",food.getName(),food.getPrice(),food.getMenuId());
         foodService.addFood(food);
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         org.springframework.security.core.userdetails.User user = (org.springframework.security.core.userdetails.User)auth.getPrincipal();
@@ -100,13 +100,39 @@ public class MenuController {
     }
 
     @RequestMapping(value="/addMenu", method = RequestMethod.POST)
-    public String addMenuItem(@Valid JSONObject menu){
+    public String addMenuItem(@Valid Menu menu){
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         org.springframework.security.core.userdetails.User user = (org.springframework.security.core.userdetails.User)auth.getPrincipal();
         com.faros.entities.User userExists = userService.findByUsername(user.getUsername());
         JSONObject rest = restaurantService.findRestaurantById(userExists.getRestaurantId());
-        menu.put("restaurantId",rest.getAsString("id"));
+        //menu.put("restaurantId",rest.getAsString("id"));
+        menu.setRestaurantId(Integer.parseInt(rest.getAsString("id")));
         menuService.addMenu(menu);
         return "redirect:/restaurant/"+rest.getAsString("name")+"/edit";
+    }
+
+    private List<JSONObject> apiErrorHandle(JSONObject rest){
+        List<JSONObject> menus = null; errorMessage = "";
+        try {
+            menus = menuService.findMenuByRestaurantId(rest.getAsString("id"));
+            for (JSONObject menu:menus){
+                try {
+                    menu.put("foods",foodService.findFoodsByMenuId(menu.getAsString("id")));
+                } catch (Exception e) {
+                    errorMessage = "The foodService is down! \n";
+                    e.printStackTrace();
+                }
+            }
+        } catch (IOException e) {
+            errorMessage += "The menuService is down! \n";
+            e.printStackTrace();
+        }
+        try {
+            orderService.checkStatus();
+        }catch (Exception e){
+            errorMessage += "The OrderService is down! \n";
+            e.printStackTrace();
+        }
+        return menus;
     }
 }

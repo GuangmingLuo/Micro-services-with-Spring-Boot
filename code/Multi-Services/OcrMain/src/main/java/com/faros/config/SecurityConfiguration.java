@@ -49,10 +49,11 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
         http.
                 authorizeRequests()
-                .antMatchers("/").permitAll()
+                .antMatchers("/","/restaurant/*/").permitAll()
                 .antMatchers("/login","/api/**").permitAll()
-                .antMatchers("/restaurant/*/","/restaurant/*/order","/restaurant/*/createOrder").permitAll()
-                .antMatchers("/restaurant/*/edit","registration").hasAuthority("MANAGER")
+                .antMatchers("/restaurant/*/order","/restaurant/*/createOrder").permitAll()
+                .antMatchers("/restaurant/*/edit","employees").hasAuthority("MANAGER")
+                .antMatchers("/register").hasAnyAuthority("MANAGER","ADMIN")
                 .antMatchers("/admin/**").hasAuthority("ADMIN").anyRequest()
                 .authenticated().and().csrf().disable().formLogin()
                 .loginPage("/login").failureUrl("/login?error=true")

@@ -67,4 +67,9 @@ public class Restaurant {
         result = 31 * result + (introduction != null ? introduction.hashCode() : 0);
         return result;
     }
+
+    @Override
+    public String toString(){
+        return "id: "+id+" name: "+name+" address: "+address+" introduction: "+introduction;
+    }
 }
