@@ -4,6 +4,7 @@ import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.*;
@@ -47,6 +48,7 @@ public class Main2Activity extends AppCompatActivity {
         restaurantName = (TextView) findViewById(R.id.restaurantName);
         restaurantName.setText(getIntent().getStringExtra("RESTAURANT_NAME"));
         getSupportActionBar().setTitle(getIntent().getStringExtra("RESTAURANT_NAME"));
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         text1 = (TextView) findViewById(R.id.text1);
 
@@ -124,6 +126,8 @@ public class Main2Activity extends AppCompatActivity {
 
                 }
 
+
+
             }
 
             @Override
@@ -153,6 +157,7 @@ public class Main2Activity extends AppCompatActivity {
                 // called when response HTTP status is "200 OK"
 //                menuItems.add(response);
                 items.put(id,response);
+
                 }
 
 
@@ -207,6 +212,7 @@ public class Main2Activity extends AppCompatActivity {
 
 
     private void createButton(final String name, final int id) {
+
         Button myButton = new Button(getApplicationContext());
         myButton.setText(name);
         myButton.setOnClickListener(new View.OnClickListener() {
@@ -246,6 +252,18 @@ public class Main2Activity extends AppCompatActivity {
             }
         });
         menuLayout.addView(myButton);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                // do something useful
+                finish();
+                return(true);
+        }
+
+        return(super.onOptionsItemSelected(item));
     }
 
 }
