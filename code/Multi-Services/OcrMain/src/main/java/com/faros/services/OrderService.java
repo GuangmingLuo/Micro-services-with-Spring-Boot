@@ -1,6 +1,6 @@
 package com.faros.services;
 
-import com.faros.entities.Order;
+import my.faros.model.Order;
 import net.minidev.json.JSONObject;
 
 import java.util.List;

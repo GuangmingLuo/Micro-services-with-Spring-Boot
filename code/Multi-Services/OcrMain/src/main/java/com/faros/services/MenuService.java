@@ -1,7 +1,7 @@
 package com.faros.services;
 
 
-import com.faros.entities.Menu;
+import my.faros.model.Menu;
 import net.minidev.json.JSONObject;
 
 import java.io.IOException;

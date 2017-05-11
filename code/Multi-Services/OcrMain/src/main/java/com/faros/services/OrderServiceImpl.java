@@ -1,6 +1,6 @@
 package com.faros.services;
 
-import com.faros.entities.Order;
+import my.faros.model.Order;
 import net.minidev.json.JSONObject;
 import org.springframework.http.HttpEntity;
 import org.springframework.stereotype.Service;
