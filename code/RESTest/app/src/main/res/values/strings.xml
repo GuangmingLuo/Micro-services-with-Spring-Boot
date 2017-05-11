@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">RESTest</string>
+    <string name="server_ip">http://10.1.15.20</string>
+</resources>
