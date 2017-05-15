@@ -15,25 +15,25 @@
 \contentsline {subsubsection}{\numberline {2.4.3}Persistence providers}{9}{subsubsection.2.4.3}
 \contentsline {subsubsection}{\numberline {2.4.4}Object relational mapping tools}{9}{subsubsection.2.4.4}
 \contentsline {subsubsection}{\numberline {2.4.5}Security systems}{9}{subsubsection.2.4.5}
-\contentsline {subsubsection}{\numberline {2.4.6}Front-end and Styling frameworks}{9}{subsubsection.2.4.6}
-\contentsline {subsection}{\numberline {2.5}Implementation}{9}{subsection.2.5}
-\contentsline {section}{\numberline {3}Case study: Online cash register}{9}{section.3}
-\contentsline {subsection}{\numberline {3.1}Introduction}{9}{subsection.3.1}
-\contentsline {subsection}{\numberline {3.2}Use Cases}{9}{subsection.3.2}
-\contentsline {paragraph}{Customer}{9}{section*.2}
-\contentsline {paragraph}{Waiter}{9}{section*.3}
-\contentsline {paragraph}{Chef}{9}{section*.4}
-\contentsline {paragraph}{Manager}{9}{section*.5}
+\contentsline {subsubsection}{\numberline {2.4.6}Front-end and Styling frameworks}{10}{subsubsection.2.4.6}
+\contentsline {subsection}{\numberline {2.5}Implementation}{10}{subsection.2.5}
+\contentsline {section}{\numberline {3}Case study: Online cash register}{10}{section.3}
+\contentsline {subsection}{\numberline {3.1}Introduction}{10}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}Use Cases}{10}{subsection.3.2}
+\contentsline {paragraph}{Customer}{10}{section*.2}
+\contentsline {paragraph}{Waiter}{10}{section*.3}
+\contentsline {paragraph}{Chef}{10}{section*.4}
+\contentsline {paragraph}{Manager}{10}{section*.5}
 \contentsline {subsection}{\numberline {3.3}Must-haves and nice-to haves}{10}{subsection.3.3}
-\contentsline {paragraph}{Must-Haves}{10}{section*.7}
+\contentsline {paragraph}{Must-Haves}{11}{section*.7}
 \contentsline {paragraph}{Nice-to-Haves}{11}{section*.8}
-\contentsline {subsection}{\numberline {3.4}Technology choices}{11}{subsection.3.4}
-\contentsline {subsubsection}{\numberline {3.4.1}Application type}{11}{subsubsection.3.4.1}
-\contentsline {subsubsection}{\numberline {3.4.2}Framework choices}{11}{subsubsection.3.4.2}
-\contentsline {subsection}{\numberline {3.5}Design Choices}{11}{subsection.3.5}
-\contentsline {subsubsection}{\numberline {3.5.1}Client}{11}{subsubsection.3.5.1}
-\contentsline {subsubsection}{\numberline {3.5.2}Employee}{12}{subsubsection.3.5.2}
-\contentsline {subsubsection}{\numberline {3.5.3}Manager}{13}{subsubsection.3.5.3}
+\contentsline {subsection}{\numberline {3.4}Technology choices}{12}{subsection.3.4}
+\contentsline {subsubsection}{\numberline {3.4.1}Application type}{12}{subsubsection.3.4.1}
+\contentsline {subsubsection}{\numberline {3.4.2}Framework choices}{12}{subsubsection.3.4.2}
+\contentsline {subsection}{\numberline {3.5}Design Choices}{12}{subsection.3.5}
+\contentsline {subsubsection}{\numberline {3.5.1}Client}{12}{subsubsection.3.5.1}
+\contentsline {subsubsection}{\numberline {3.5.2}Employee}{13}{subsubsection.3.5.2}
+\contentsline {subsubsection}{\numberline {3.5.3}Manager}{14}{subsubsection.3.5.3}
 \contentsline {subsubsection}{\numberline {3.5.4}Remarks and challenges}{14}{subsubsection.3.5.4}
 \contentsline {subsection}{\numberline {3.6}Major issues and their solutions}{14}{subsection.3.6}
 \contentsline {section}{\numberline {4}Results}{14}{section.4}
