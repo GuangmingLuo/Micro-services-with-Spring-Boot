@@ -104,6 +104,11 @@ Security is something that is expected in a web application that stores informat
 Java EE provides various modules to secure a web application, but many of these modules still require quite a bit of configuration and certain features need to be implemented by the developers themselves. Things like encryption of passwords and https authentication might need to be created manually. Spring offers more extensive systems for securing a web application, available for use in any supporting framework. Spring security is a system that can be added to an existing project and enables a secure login and protection for specific pages and information with minimal configuration. The biggest hurdle that we will likely face is implementing these security features in a multiservices architecture. We will likely have to implement a separate service that handles security for all other services. In the case of Spring, this could be achieved by making an OAuth2 server.
 
 \subsubsection{Front-end and Styling frameworks}
+For styling our web application, we can make use of several Front-end frameworks and libraries. Usually the general web frameworks allow the serving of static web pages in the form of HTML and CSS pages. While making a beautiful interface is not the main focus of this project, we can still make use of a styling library such as Bootstrap or MDL to speed up and improve the design of our pages.
+\\\\
+Another trend in web development are responsive and reactive web pages. With the increase in mobile devices around the world, it cannot be assumed that people will visit a website on a large pc screen. Rather, most users will access web services from their phones or tablet devices. This means that when building a website we should try to make the interface scale properly for any size of device. Going even further than that, it is possible to improve performance by only reloading separate elements of the page and not redirecting to a new page each click. For this we will look at popular front-end modules like AngularJS and React. 
+
+
 \subsection{Implementation}\label{sec:implementation}
 
 
