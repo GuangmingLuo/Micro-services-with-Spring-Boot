@@ -38,6 +38,12 @@ Faros.
 \newblock Faros master thesis proposal.
 \newblock 2016.
 
+\bibitem{GradleVsMaven48:online}
+Gradle.
+\newblock Gradle vs maven, feature comparison.
+\newblock \url{https://gradle.org/maven-vs-gradle}.
+\newblock (Accessed on 15/05/2017).
+
 \bibitem{greenwade93}
 George~D. Greenwade.
 \newblock The {C}omprehensive {T}ex {A}rchive {N}etwork ({CTAN}).
@@ -58,6 +64,12 @@ Simon Maple.
   \url{https://zeroturnaround.com/rebellabs/java-tools-and-technologies-landscape-2016/},
   July 2016.
 \newblock (Accessed on 03/05/2017).
+
+\bibitem{JavaEESecurity29:online}
+Oracle.
+\newblock Security mechanics in java ee 6.
+\newblock \url{http://docs.oracle.com/javaee/6/tutorial/doc/bnbwy.html}, 2013.
+\newblock (Accessed on 15/05/2017).
 
 \bibitem{SpringBootIntro23:online}
 Phil Webb.

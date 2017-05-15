@@ -9,29 +9,30 @@
 \contentsline {subsection}{\numberline {2.1}Approach}{5}{subsection.2.1}
 \contentsline {subsection}{\numberline {2.2}Java EE Landscape}{5}{subsection.2.2}
 \contentsline {subsection}{\numberline {2.3}Comparison of technologies}{7}{subsection.2.3}
-\contentsline {subsubsection}{\numberline {2.3.1}General framework}{7}{subsubsection.2.3.1}
-\contentsline {subsubsection}{\numberline {2.3.2}Persistence providers}{7}{subsubsection.2.3.2}
-\contentsline {subsubsection}{\numberline {2.3.3}Object relational mapping tools}{7}{subsubsection.2.3.3}
-\contentsline {subsubsection}{\numberline {2.3.4}Security systems}{7}{subsubsection.2.3.4}
-\contentsline {subsubsection}{\numberline {2.3.5}Front-end and Styling frameworks}{7}{subsubsection.2.3.5}
-\contentsline {subsection}{\numberline {2.4}Implementation}{7}{subsection.2.4}
-\contentsline {section}{\numberline {3}Case study: Online cash register}{7}{section.3}
-\contentsline {subsection}{\numberline {3.1}Introduction}{7}{subsection.3.1}
-\contentsline {subsection}{\numberline {3.2}Use Cases}{7}{subsection.3.2}
-\contentsline {paragraph}{Customer}{7}{section*.2}
-\contentsline {paragraph}{Waiter}{7}{section*.3}
-\contentsline {paragraph}{Chef}{7}{section*.4}
-\contentsline {paragraph}{Manager}{7}{section*.5}
+\contentsline {subsubsection}{\numberline {2.3.1}IDE's and build tools}{7}{subsubsection.2.3.1}
+\contentsline {subsubsection}{\numberline {2.3.2}General framework}{8}{subsubsection.2.3.2}
+\contentsline {subsubsection}{\numberline {2.3.3}Persistence providers}{8}{subsubsection.2.3.3}
+\contentsline {subsubsection}{\numberline {2.3.4}Object relational mapping tools}{8}{subsubsection.2.3.4}
+\contentsline {subsubsection}{\numberline {2.3.5}Security systems}{8}{subsubsection.2.3.5}
+\contentsline {subsubsection}{\numberline {2.3.6}Front-end and Styling frameworks}{8}{subsubsection.2.3.6}
+\contentsline {subsection}{\numberline {2.4}Implementation}{8}{subsection.2.4}
+\contentsline {section}{\numberline {3}Case study: Online cash register}{8}{section.3}
+\contentsline {subsection}{\numberline {3.1}Introduction}{8}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}Use Cases}{8}{subsection.3.2}
+\contentsline {paragraph}{Customer}{8}{section*.2}
+\contentsline {paragraph}{Waiter}{8}{section*.3}
+\contentsline {paragraph}{Chef}{8}{section*.4}
+\contentsline {paragraph}{Manager}{8}{section*.5}
 \contentsline {subsection}{\numberline {3.3}Must-haves and nice-to haves}{8}{subsection.3.3}
-\contentsline {paragraph}{Must-Haves}{8}{section*.7}
+\contentsline {paragraph}{Must-Haves}{9}{section*.7}
 \contentsline {paragraph}{Nice-to-Haves}{9}{section*.8}
-\contentsline {subsection}{\numberline {3.4}Technology choices}{9}{subsection.3.4}
-\contentsline {subsubsection}{\numberline {3.4.1}Application type}{9}{subsubsection.3.4.1}
-\contentsline {subsubsection}{\numberline {3.4.2}Framework choices}{9}{subsubsection.3.4.2}
-\contentsline {subsection}{\numberline {3.5}Design Choices}{9}{subsection.3.5}
-\contentsline {subsubsection}{\numberline {3.5.1}Client}{9}{subsubsection.3.5.1}
-\contentsline {subsubsection}{\numberline {3.5.2}Employee}{10}{subsubsection.3.5.2}
-\contentsline {subsubsection}{\numberline {3.5.3}Manager}{11}{subsubsection.3.5.3}
+\contentsline {subsection}{\numberline {3.4}Technology choices}{10}{subsection.3.4}
+\contentsline {subsubsection}{\numberline {3.4.1}Application type}{10}{subsubsection.3.4.1}
+\contentsline {subsubsection}{\numberline {3.4.2}Framework choices}{10}{subsubsection.3.4.2}
+\contentsline {subsection}{\numberline {3.5}Design Choices}{10}{subsection.3.5}
+\contentsline {subsubsection}{\numberline {3.5.1}Client}{10}{subsubsection.3.5.1}
+\contentsline {subsubsection}{\numberline {3.5.2}Employee}{11}{subsubsection.3.5.2}
+\contentsline {subsubsection}{\numberline {3.5.3}Manager}{12}{subsubsection.3.5.3}
 \contentsline {subsubsection}{\numberline {3.5.4}Remarks and challenges}{12}{subsubsection.3.5.4}
 \contentsline {subsection}{\numberline {3.6}Major issues and their solutions}{12}{subsection.3.6}
 \contentsline {section}{\numberline {4}Results}{12}{section.4}

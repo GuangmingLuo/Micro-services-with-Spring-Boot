@@ -62,7 +62,7 @@ Both of these systems are focused on the online ordering aspect and not so much 
 \subsection{Approach}
 We will take a quantitative approach in this paper, exploring and comparing frameworks for each of the features required for this project. This includes: General frameworks providing a way to couple web resources to Java code. Persistence providers, SQL or noSQL databases to store customer information. Object relational mapping tools to generate mappings from existing data-stores. Security systems to allow authentication and authorization in a safe way. Front-end frameworks, providing styling options and client side scripting.
 \subsection{Java EE Landscape}
-We will not discuss every existing tool in the Java environment, but it might be interesting to have a look at the current state of Java EE in the professional world. We will use the numbers from a survey published by Zeroturnaround to do our analysis.\cite{JavaEELandscape73:online} This website has a blog for Java web developers and might display a certain bias. For more general statistics please refer to Stackoverflow's developer survey.\cite{DeveloperSurvey95:online}
+We will not discuss every existing tool in the Java environment, but it might be interesting to have a look at the current state of Java EE in the professional world. We will use the numbers from a survey published by Zeroturnaround to do our analysis.\cite{JavaEELandscape73:online} This website has a blog for Java web developers and will display a certain bias towards this usergroup. For more general statistics please refer to Stackoverflow's developer survey.\cite{DeveloperSurvey95:online}
 \\\\
 Currently the majority of Java developers work on full-stack web applications (67\%), a smaller group works on back-end code only (18\%) with the rest of the developers divided into batch scripting, mobile apps, desktop applications, etc... This shows us that only in a fragment of the projects specialization is beneficial. Usually developers know and work with both front-end and back-end technologies. This is also what we will do during this project, implementing both the front-end and back-end of the application.
 \\\\
@@ -74,19 +74,27 @@ To deploy the application, an application server is needed. For production, Tomc
 \\\\
 While not directly related to specific technologies, the survey also asked participants to indicate whether they have adopted a microservices architecture. This is interesting for us to look into as it was mentioned by our coaches at the company. It seems that microservices have become quite popular in recent year for a variety of reasons.\cite{WhyMicroservices48:online} Although it differs from the usual approach we learned during our education, trying to use this architecture in our application might provide valuable insights if we succeed.  
 \\\\
-n/a % talk about front-end framework and security, both not mentioned in survey.
+Something that is not mentioned in the survey is security. Basic security is expected in any web application, but implementing a secure system is difficult. Java EE already provides the building block for securing a web application, but part of the design is still up to the developers themselves.\cite{JavaEESecurity29:online} Modern Java web frameworks go a step further however, giving developers a production ready security system out of the box. E.g. with Spring boot using Spring Security offers a system with built-in authentication and authorization. Safety and resilience are key factors that have to be taken into account when developing our application.
+\\\\
+Another aspect not discussed in the survey is front-end frameworks. Commonly, the interface of a web application is designed using HTML, CSS and Javascript. On top of this CSS and javascript libraries like Bootstrap and JQuery can be used to speed up development by giving access to pre-made modules for frequently used interface elements. Front-end frameworks such as AngularJS and libraries like React can be used to speed up development even further. They offer tools and design guidelines to make designing interactive interfaces efficient and fast. Although we will also discuss these frameworks in this paper, priority will be given to technologies related to the back-end while styling will take a back seat.
 \\\\
 Finally, what types of databases are used to store information? The most used database are OracleDB (39\%), MySQL (38\%) and PostgreSQL (29\%). All three are relational databases. The most used NoSQL databases are MongoDB (15\%) and Redis (8\%). Note that these results are multiple choice, as some projects use multiple databases simultaneously. For the case study, the selection of database will depend on the type of data we want to store. Most of our experience is with relational databases, so trying out a NoSQL database will be valuable experience.
 \\\\
 Hopefully this section gave some insight into the technologies used in Enterprise Java Development and how we will approach them in our project. We want to try out various technologies and determine those most suitable for the use case and our development style. In the next section a more detailed explanation of the technologies will be given. During the exploration of these frameworks we will already create a prototype for the case study. This will give us a better idea of which features would be beneficial for this specific project.
 
+
 \subsection{Comparison of technologies}
+Even before we specify the case study for our project we can already try out the different technologies discussed in the previous subsection and make a selection of those we deem appropriate for this master thesis. These choices should not be affected by our specific case study, but it will be kept in mind.
+\subsubsection{IDE's and build tools}
+While the development environment and build tools are essential in application development. The choice itself is based on the preferences of the individual programmer. This project started out with the Netbeans environment and Maven for dependency management. When we started using Spring we tried out the Spring Tool Suite based on Eclipse, but we finally settled on IntelliJ IDEA and Gradle. IDEA offers many tools often needed during development such as a database editor, gradle/maven task execution, ORM modules, bitbucket plugin support, REST client for testing, superior auto-completion and built-in support for many frameworks. There are several other advantages to using IDEA, but these were the most determining factors causing us to switch environment. For the build tool, Maven is actually not inferior to Gradle. Both support the dependency injection that we need for this project. The primary reason we decided to try it out was curiosity. Gradle is currently the default build tool in Android development with android studio, and it is also utilized in Grails and Netflix OSS. When comparing them directly, Gradle seems to offer a much richer feature set. \cite{GradleVsMaven48:online} When using this build tool in the project, we came to the conclusion that these extra features were not really a necessity for our specific application. We did stick to Gradle in the end though, as the DSL syntax that it uses makes for a much more readable build file in comparison to the XML notation that Maven uses. We did stumble upon some issues while using Gradle. It also uses the Maven repositories for its dependencies, which means that if you want to add your own dependency to the local Maven repository, you will need to enable the maven-publish plugin within Gradle and add the relevant build code to bundle it correctly. Compare this to Maven, where executing the install task achieves the same result. In general, the choices we made for this section are based on our own preferences and experiences during the project.
 \subsubsection{General framework}
+The general framework will be the decisive element in the case study we develop. It will determine what modules we can use during development and what the general architecture looks like. Once we choose a certain framework, it will be difficult to convert to another. Our first iteration of this project started off as a plain Java EE project which served pages with the JSF framework.
 \subsubsection{Persistence providers}
 \subsubsection{Object relational mapping tools}
 \subsubsection{Security systems}
 \subsubsection{Front-end and Styling frameworks}
 \subsection{Implementation}
+
 
 
 
@@ -231,10 +239,6 @@ One of the most important aspects to consider here is multi-tenancy. The applica
 \subsection{User tests}
 
 \section{Conclusion}
-
-
-
-blablabla \cite{greenwade93} \cite{antonov2015spring} \cite{JavaTool10:online} \cite{farosProposal} \cite{SpringPopular1:online}
 
 
 \newpage
