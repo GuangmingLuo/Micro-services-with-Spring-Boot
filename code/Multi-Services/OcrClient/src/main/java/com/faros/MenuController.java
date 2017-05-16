@@ -45,8 +45,8 @@ public class MenuController {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         if(!(auth.getPrincipal().equals("anonymousUser"))){
             org.springframework.security.core.userdetails.User user = (org.springframework.security.core.userdetails.User)auth.getPrincipal();
-            com.faros.entities.User userExists = userService.findByUsername(user.getUsername());
-            rest = restaurantService.findRestaurantById(userExists.getRestaurantId());
+            JSONObject userExists = userService.findByUsername(user.getUsername());
+            rest = restaurantService.findRestaurantById(Integer.parseInt(userExists.getAsString("restaurantId")));
             if(!rest.getAsString("name").equals(name)){
                 return "redirect:/restaurant/"+rest.getAsString("name")+"/";
             }
@@ -75,8 +75,8 @@ public class MenuController {
     public String createCategory(@PathVariable String name, Model model){
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         org.springframework.security.core.userdetails.User user = (org.springframework.security.core.userdetails.User)auth.getPrincipal();
-        com.faros.entities.User userExists = userService.findByUsername(user.getUsername());
-        JSONObject rest = restaurantService.findRestaurantById(userExists.getRestaurantId());
+        JSONObject userExists = userService.findByUsername(user.getUsername());
+        JSONObject rest = restaurantService.findRestaurantById(Integer.parseInt(userExists.getAsString("restaurantId")));
         if(!rest.getAsString("name").equals(name)){
             return "redirect:/error";         //if this manager is not bounded to this restaurant.
         }
@@ -93,8 +93,8 @@ public class MenuController {
         foodService.addFood(food);
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         org.springframework.security.core.userdetails.User user = (org.springframework.security.core.userdetails.User)auth.getPrincipal();
-        com.faros.entities.User userExists = userService.findByUsername(user.getUsername());
-        JSONObject rest = restaurantService.findRestaurantById(userExists.getRestaurantId());
+        JSONObject userExists = userService.findByUsername(user.getUsername());
+        JSONObject rest = restaurantService.findRestaurantById(Integer.parseInt(userExists.getAsString("restaurantId")));
         return "redirect:/restaurant/"+rest.getAsString("name")+"/edit";
     }
 
@@ -102,8 +102,8 @@ public class MenuController {
     public String addMenuItem(@Valid Menu menu){
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         org.springframework.security.core.userdetails.User user = (org.springframework.security.core.userdetails.User)auth.getPrincipal();
-        com.faros.entities.User userExists = userService.findByUsername(user.getUsername());
-        JSONObject rest = restaurantService.findRestaurantById(userExists.getRestaurantId());
+        JSONObject userExists = userService.findByUsername(user.getUsername());
+        JSONObject rest = restaurantService.findRestaurantById(Integer.parseInt(userExists.getAsString("restaurantId")));
         //menu.put("restaurantId",rest.getAsString("id"));
         menu.setRestaurantId(Integer.parseInt(rest.getAsString("id")));
         menuService.addMenu(menu);

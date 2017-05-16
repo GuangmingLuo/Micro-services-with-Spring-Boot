@@ -1,4 +1,4 @@
-package com.faros;
+package com.faros.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

@@ -1,8 +1,8 @@
 package com.faros;
 
-import com.faros.entities.User;
 import com.faros.services.RestaurantService;
 import com.faros.services.UserService;
+import my.faros.model.User;
 import net.minidev.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -39,8 +39,8 @@ public class UserController {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         if(!(auth.getPrincipal().equals("anonymousUser"))) {
             org.springframework.security.core.userdetails.User user = (org.springframework.security.core.userdetails.User) auth.getPrincipal();
-            User userExists = userService.findByUsername(user.getUsername());
-            JSONObject rest = restaurantService.findRestaurantById(userExists.getRestaurantId());
+            JSONObject userExists = userService.findByUsername(user.getUsername());
+            JSONObject rest = restaurantService.findRestaurantById(Integer.parseInt(userExists.getAsString("restaurantId")));
             return "redirect:/restaurant/"+rest.getAsString("name")+"/";
         }
         return "login";
@@ -57,12 +57,12 @@ public class UserController {
         //log.info("the auth is :{}",auth.getPrincipal());
         if((auth.getAuthorities().contains(AUTHORITY_MANAGER))) {
             org.springframework.security.core.userdetails.User user = (org.springframework.security.core.userdetails.User) auth.getPrincipal();
-            User userExists = userService.findByUsername(user.getUsername());
-            JSONObject rest = restaurantService.findRestaurantById(userExists.getRestaurantId());
+            JSONObject userExists = userService.findByUsername(user.getUsername());
+            JSONObject rest = restaurantService.findRestaurantById(Integer.parseInt(userExists.getAsString("restaurantId")));
             log.info(rest.toString());
             model.addAttribute("restaurantName",rest.getAsString("name"));
             model.addAttribute("restaurantId",rest.getAsNumber("id"));
-            List<User> users = userService.findEmployeesByRestaurantId(userExists.getRestaurantId());
+            List<JSONObject> users = userService.findEmployeesByRestaurantId(Integer.parseInt(userExists.getAsString("restaurantId")));
             model.addAttribute("employees",users);
         }
         return "employees";
@@ -78,17 +78,17 @@ public class UserController {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         org.springframework.security.core.userdetails.User me = (org.springframework.security.core.userdetails.User)auth.getPrincipal();
         user.setRestaurantId(restaurant_id);
-        User userExists = userService.findByUsername(user.getUsername());
+        JSONObject userExists = userService.findByUsername(user.getUsername());
         if(userExists !=null){
             redir.addFlashAttribute("message"," This username is already registered!");
         }else{
             userService.saveUser(user);
-            User myUser = userService.findByUsername(user.getUsername());
+            JSONObject myUser = userService.findByUsername(user.getUsername());
             if(me.getAuthorities().contains(AUTHORITY_MANAGER)){
-                userService.setUserRole(myUser.getId(),4); //4->employee
-                redir.addFlashAttribute("message"," Successfully created new employee!");
+                userService.setUserRole(Integer.parseInt(myUser.getAsString("id")),4); //4->employee
+                redir.addFlashAttribute("mInteger.parseInt(userExists.getAsString(\"id\"))essage"," Successfully created new employee!");
             }else if(me.getAuthorities().contains(AUTHORITY_ADMIN)){
-                userService.setUserRole(myUser.getId(),3); //3->manager
+                userService.setUserRole(Integer.parseInt(myUser.getAsString("id")),3); //3->manager
                 redir.addFlashAttribute("message"," Successfully created new manager!");
             }
         }

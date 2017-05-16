@@ -13,4 +13,5 @@ public interface UserService {
     void setUserRole(int userId, int roleId);
     List<User> findUsersByRestaurantId(int restaurantId);
     List<User> findEmployeesByRestaurantId(int restaurantId);
+    List<User> findAll();
 }
