@@ -32,6 +32,12 @@ public class APIController {
     public String info() {
         String info = "Available api under ip:85/api: <br />";
         info += "/addUser (POST: @RequestBody User u) <br />";
+        info += "/allUser <br />";
+        info += "/allUserRole <br />";
+        info += "/saveUserRole (POST: @RequestBody UserRole ur)<br />";
+        info += "/usersByRestId?restaurantId={id} <br />";
+        info += "/employeesByRestId?restaurantId={id} <br />";
+        info +="/deleteUser";
         return info;
     }
 

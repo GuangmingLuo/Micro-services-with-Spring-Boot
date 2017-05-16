@@ -38,9 +38,7 @@ public class FoodServiceImpl implements FoodService {
     @Override
     public void addFood(Food food){
         RestTemplate restTemplate = new RestTemplate();
-
         HttpEntity<Food> request = new HttpEntity<>(food);
         restTemplate.postForObject(addFoodUrl, request, Food.class);
-        //foodRepository.save(food);
     }
 }
