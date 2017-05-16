@@ -1,12 +1,11 @@
 package com.faros;
 
-import com.faros.entity.Restaurant;
-import com.faros.entity.RestaurantRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 @SpringBootApplication
+@EnableDiscoveryClient
 public class OcrRestApplication {
 
 
@@ -15,3 +14,4 @@ public class OcrRestApplication {
 		SpringApplication.run(OcrRestApplication.class, args);
 	}
 }
+
