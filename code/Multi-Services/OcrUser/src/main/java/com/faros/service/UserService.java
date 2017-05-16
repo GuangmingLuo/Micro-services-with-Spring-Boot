@@ -14,4 +14,5 @@ public interface UserService {
     List<User> findUsersByRestaurantId(int restaurantId);
     List<User> findEmployeesByRestaurantId(int restaurantId);
     List<User> findAll();
+    void deleteUser(long id);
 }

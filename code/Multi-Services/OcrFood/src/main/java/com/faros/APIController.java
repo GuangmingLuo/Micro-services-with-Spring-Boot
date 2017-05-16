@@ -46,6 +46,14 @@ public class APIController {
                 .buildAndExpand(result.getId()).toUri();
         return ResponseEntity.created(location).build();
     }
+
+    /*
+    * This api delete a food item from database
+    * */
+    @DeleteMapping("/deleteFood")
+    public void deleteFood(@RequestParam(value = "id") long id) {
+        foodService.deleteFood(id);
+    }
     /*
     * This api is used to create test data for developer
     * */

@@ -80,4 +80,9 @@ public class UserServiceImpl implements UserService {
     public List<User> findAll() {
         return userRepository.findAll();
     }
+
+    @Override
+    public void deleteUser(long id) {
+        userRepository.delete(id);
+    }
 }

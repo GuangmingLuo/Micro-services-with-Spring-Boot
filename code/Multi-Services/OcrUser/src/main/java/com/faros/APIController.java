@@ -3,6 +3,7 @@ package com.faros;
 import com.faros.model.User;
 import com.faros.model.UserRole;
 import com.faros.model.UserRoleRepository;
+import com.faros.service.UserRoleService;
 import com.faros.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -26,7 +27,7 @@ public class APIController {
     private UserService userService;
 
     @Autowired
-    private UserRoleRepository userRoleRepository;
+    private UserRoleService userRoleService;
     @RequestMapping
     public String info() {
         String info = "Available api under ip:85/api: <br />";
@@ -66,7 +67,7 @@ public class APIController {
     * */
     @RequestMapping(value = "/allUserRole",method = RequestMethod.GET)
     public List<UserRole> findAllUserRole() {
-        return userRoleRepository.findAll();
+        return userRoleService.findAll();
     }
 
     /*
@@ -78,7 +79,7 @@ public class APIController {
         userRole.setUserId(userId);
         userRole.setRoleId(roleId);//1->user,2->admin,3->manager,4->employee
         //log.info("The UserId is {}, the roleId is {}", userRole.getUserId(),userRole.getRoleId());
-        UserRole result = userRoleRepository.save(userRole);
+        UserRole result = userRoleService.save(userRole);
         URI location = ServletUriComponentsBuilder
                 .fromCurrentRequest().path("/{id}")
                 .buildAndExpand(result).toUri();
@@ -119,5 +120,11 @@ public class APIController {
     @RequestMapping(value = "/userByName",method = RequestMethod.GET)
     public User findUsersByRestaurantId(@RequestParam(value="name") String name) {
         return userService.findByUsername(name);
+    }
+
+    @DeleteMapping("/deleteUser")
+    public void deleteUser(@RequestParam(value = "id") long id) {
+        userRoleService.delete(id);
+        userService.deleteUser(id);
     }
 }

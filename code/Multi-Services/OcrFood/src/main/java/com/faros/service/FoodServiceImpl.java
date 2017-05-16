@@ -30,4 +30,12 @@ public class FoodServiceImpl implements FoodService {
         food.setDiscount(1);
         return foodRepository.save(food);
     }
+
+    @Override
+    public void deleteFood(long id) {
+        Food food = foodRepository.findFoodById(id);
+        if(food != null){
+            foodRepository.delete(food);
+        }
+    }
 }

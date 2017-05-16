@@ -11,4 +11,5 @@ import java.util.List;
 public interface FoodService {
     List<Food> findFoodsByMenuId(int menuId);
     Food addFood(Food food);
+    void deleteFood(long id);
 }

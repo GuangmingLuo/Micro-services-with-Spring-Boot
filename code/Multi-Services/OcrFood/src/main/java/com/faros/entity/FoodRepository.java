@@ -9,4 +9,5 @@ import java.util.List;
  */
 public interface FoodRepository extends MongoRepository<Food, String> {
     List<Food> findFoodsByMenuId(int menuId);
+    Food findFoodById(long id);
 }
