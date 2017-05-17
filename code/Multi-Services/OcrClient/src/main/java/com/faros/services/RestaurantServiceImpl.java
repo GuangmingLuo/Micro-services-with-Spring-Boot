@@ -16,10 +16,9 @@ import java.util.List;
 @Service("RestaurantService")
 public class RestaurantServiceImpl implements RestaurantService {
 
-    @Autowired        // NO LONGER auto-created by Spring Cloud (see below)
+    @Autowired
     @LoadBalanced
     protected RestTemplate restTemplate;
-
 
     protected String serviceUrl = "http://restaurant-api-server/api";
 

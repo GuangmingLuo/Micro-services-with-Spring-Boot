@@ -23,7 +23,7 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
-    @Autowired        // NO LONGER auto-created by Spring Cloud (see below)
+    @Autowired
     @LoadBalanced
     protected RestTemplate restTemplate;
 

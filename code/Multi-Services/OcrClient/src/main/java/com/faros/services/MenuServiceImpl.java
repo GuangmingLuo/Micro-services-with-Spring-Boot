@@ -5,6 +5,8 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import my.faros.model.Menu;
 import net.minidev.json.JSONObject;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.http.HttpEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -19,13 +21,15 @@ import java.util.List;
 @Service("MenuService")
 public class MenuServiceImpl implements MenuService {
 
-    final String menuUrl = "http://localhost:82/api/menu?restaurantId={restaurantId}";
-    final String addMenuUrl = "http://localhost:82/api/addMenu";
+    @Autowired
+    @LoadBalanced
+    protected RestTemplate restTemplate;
+
+    protected String serviceUrl = "http://menu-api-server/api";
     @Override
     public ArrayList<JSONObject> findMenuByRestaurantId(String restaurantId) throws IOException {
-        RestTemplate restTemplate = new RestTemplate();
         ObjectMapper mapper = new ObjectMapper();
-        JsonNode menus = restTemplate.getForObject(menuUrl, JsonNode.class,restaurantId);
+        JsonNode menus = restTemplate.getForObject(serviceUrl+"/menu?restaurantId={restaurantId}", JsonNode.class,restaurantId);
         ArrayList<JSONObject> menuList = mapper.readValue(
                 mapper.treeAsTokens(menus),
                 new TypeReference<List<JSONObject>>(){}
@@ -35,8 +39,7 @@ public class MenuServiceImpl implements MenuService {
 
     @Override
     public void addMenu(Menu menu) {
-        RestTemplate restTemplate = new RestTemplate();
         HttpEntity<Menu> request = new HttpEntity<>(menu);
-        restTemplate.postForObject(addMenuUrl, request, Menu.class);
+        restTemplate.postForObject(serviceUrl+"/addMenu", request, Menu.class);
     }
 }

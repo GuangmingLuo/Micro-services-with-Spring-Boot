@@ -5,12 +5,11 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import my.faros.model.Food;
 import net.minidev.json.JSONObject;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.http.HttpEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,14 +19,15 @@ import java.util.List;
 @Service("FoodService")
 public class FoodServiceImpl implements FoodService {
 
-    final String foodsById = "http://localhost:83/api/food?menuId={menuId}";
-    final String addFoodUrl = "http://localhost:83/api/addFood";
-    private static final Logger log = LoggerFactory.getLogger(FoodServiceImpl.class);
+    @Autowired
+    @LoadBalanced
+    protected RestTemplate restTemplate;
+
+    protected String serviceUrl = "http://food-api-server/api";
     @Override
     public List<JSONObject> findFoodsByMenuId(String menuId) throws Exception{
-        RestTemplate restTemplate = new RestTemplate();
         ObjectMapper mapper = new ObjectMapper();
-        JsonNode menus = restTemplate.getForObject(foodsById, JsonNode.class,menuId);
+        JsonNode menus = restTemplate.getForObject(serviceUrl+"/food?menuId={menuId}", JsonNode.class,menuId);
         ArrayList<JSONObject> foodList = mapper.readValue(
                 mapper.treeAsTokens(menus),
                 new TypeReference<List<JSONObject>>(){}
@@ -37,8 +37,7 @@ public class FoodServiceImpl implements FoodService {
 
     @Override
     public void addFood(Food food){
-        RestTemplate restTemplate = new RestTemplate();
         HttpEntity<Food> request = new HttpEntity<>(food);
-        restTemplate.postForObject(addFoodUrl, request, Food.class);
+        restTemplate.postForObject(serviceUrl+"/addFood", request, Food.class);
     }
 }
