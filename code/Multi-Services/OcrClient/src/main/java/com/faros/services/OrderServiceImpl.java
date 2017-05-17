@@ -20,7 +20,7 @@ public class OrderServiceImpl implements OrderService {
     @LoadBalanced
     protected RestTemplate restTemplate;
 
-    protected String serviceUrl = "http://menu-api-server/api";
+    protected String serviceUrl = "http://order-api-server/api";
     @Override
     public boolean checkStatus() {
         String status = restTemplate.getForObject(serviceUrl+"/status", Boolean.class).toString();
