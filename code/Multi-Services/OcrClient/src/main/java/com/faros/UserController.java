@@ -34,6 +34,7 @@ public class UserController {
     @Autowired
     private RestaurantService restaurantService;
     private static final Logger log = LoggerFactory.getLogger(UserController.class);
+
     @RequestMapping(value= "/login",method=GET)
     public String login() {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();

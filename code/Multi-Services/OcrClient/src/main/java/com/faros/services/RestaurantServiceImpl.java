@@ -2,6 +2,8 @@ package com.faros.services;
 
 import my.faros.model.Restaurant;
 import net.minidev.json.JSONObject;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.http.HttpEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -14,32 +16,31 @@ import java.util.List;
 @Service("RestaurantService")
 public class RestaurantServiceImpl implements RestaurantService {
 
-    final String restaurants = "http://localhost:81/api/restaurants";
-    final String restaurantById = "http://localhost:81/api/restaurantById?id={id}";
-    final String restaurantByName = "http://localhost:81/api/restaurantByName?name={name}";
-    final String addRestaurantUrl = "http://localhost:81/api/addRestaurant";
+    @Autowired        // NO LONGER auto-created by Spring Cloud (see below)
+    @LoadBalanced
+    protected RestTemplate restTemplate;
+
+
+    protected String serviceUrl = "http://restaurant-api-server/api";
+
     @Override
     public List<JSONObject> findAll() {
-        RestTemplate restTemplate = new RestTemplate();
-        return restTemplate.getForObject(restaurants, List.class);
+        return restTemplate.getForObject(serviceUrl+"/restaurants", List.class);
     }
 
     @Override
     public JSONObject findRestaurantById(int id) {
-        RestTemplate restTemplate = new RestTemplate();
-        return restTemplate.getForObject(restaurantById,JSONObject.class,id);
+        return restTemplate.getForObject(serviceUrl+"/restaurantById?id={id}",JSONObject.class,id);
     }
 
     @Override
     public JSONObject findRestaurantByName(String name) {
-        RestTemplate restTemplate = new RestTemplate();
-        return restTemplate.getForObject(restaurantByName,JSONObject.class,name);
+        return restTemplate.getForObject(serviceUrl+"/restaurantByName?name={name}",JSONObject.class,name);
     }
 
     @Override
     public void addRestaurant(Restaurant restaurant) {
-        RestTemplate restTemplate = new RestTemplate();
         HttpEntity<Restaurant> request = new HttpEntity<>(restaurant);
-        restTemplate.postForObject(addRestaurantUrl, request, Restaurant.class);
+        restTemplate.postForObject(serviceUrl+"/addRestaurant", request, Restaurant.class);
     }
 }

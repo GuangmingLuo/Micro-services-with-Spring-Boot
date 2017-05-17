@@ -38,6 +38,7 @@ public class MenuController {
     @Autowired
     private OrderService orderService;
     String errorMessage = null;
+
     @RequestMapping(value="/restaurant/{name}", method= RequestMethod.GET)
     public String restaurant(@PathVariable String name, Model model){
         JSONObject rest;
