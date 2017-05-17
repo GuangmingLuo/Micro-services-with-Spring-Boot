@@ -9,5 +9,7 @@ invoke-expression 'cmd /c start powershell -Command {$Host.UI.RawUI.WindowTitle 
 invoke-expression 'cmd /c start powershell -Command {$Host.UI.RawUI.WindowTitle = "OcrRest";cd ".\OcrRest\build\libs";java -jar OcrRest-0.0.1-SNAPSHOT.jar}'
 invoke-expression 'cmd /c start powershell -Command {$Host.UI.RawUI.WindowTitle = "OcrMenu";cd ".\OcrMenu\build\libs";java -jar OcrMenu-0.0.1-SNAPSHOT.jar}'
 invoke-expression 'cmd /c start powershell -Command {$Host.UI.RawUI.WindowTitle = "OcrOrder";cd ".\OcrOrder\build\libs";java -jar OcrOrder-0.0.1-SNAPSHOT.jar}'
-pause
-Get-Process | Where-Object {$_.MainWindowTitle -ne "OcrGateWay"} | stop-process
+invoke-expression 'cmd /c start powershell -Command {$Host.UI.RawUI.WindowTitle = "OcrFood";cd ".\OcrFood\build\libs";java -jar OcrFood-0.0.1-SNAPSHOT.jar}'
+invoke-expression 'cmd /c start powershell -Command {$Host.UI.RawUI.WindowTitle = "OcrUser";cd ".\OcrUser\build\libs";java -jar OcrUser-0.0.1-SNAPSHOT.jar}'
+#pause
+#Get-Process | Where-Object {$_.MainWindowTitle -ne "OcrGateWay"} | stop-process
