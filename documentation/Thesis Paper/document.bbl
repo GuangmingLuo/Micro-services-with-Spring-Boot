@@ -21,6 +21,13 @@ Spring boot tutorial best complete introduction | dinesh on java.
   \url{http://www.dineshonjava.com/2016/06/introduction-to-spring-boot-a-spring-boot-complete-guide.html#5}.
 \newblock (Accessed on 28/04/2017).
 
+\bibitem{ComponentAnnotationDifferences34:online}
+Difference between spring @component, @service, @repository, @controller.
+\newblock
+  \url{http://latest-tutorial.com/2015/01/19/difference-spring-component-service-repository-controller/#ixzz3PFFZtOsj},
+  January 2015.
+\newblock (Accessed on 17/05/2017).
+
 \bibitem{DeveloperSurvey95:online}
 Stackoverflow developer survey.
 \newblock \url{http://stackoverflow.com/insights/survey/2017}, 2017.
@@ -47,6 +54,13 @@ Kitty Gupta.
   \url{https://www.freelancinggig.com/blog/2017/01/25/microservices-getting-popular-now-days/},
   January 2017.
 \newblock (Accessed on 03/05/2017).
+
+\bibitem{ServiceAnnotationSpring48:online}
+Juergen Hoeller.
+\newblock @service annotation - spring api.
+\newblock
+  \url{http://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/stereotype/Service.html}.
+\newblock (Accessed on 17/05/2017).
 
 \bibitem{JavaEELandscape73:online}
 Simon Maple.

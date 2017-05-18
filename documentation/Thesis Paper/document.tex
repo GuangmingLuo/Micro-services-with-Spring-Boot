@@ -34,6 +34,7 @@ The following case study was proposed by Faros: designing an online cash registe
 \\\\
 This project is an opportunity for us to learn about the frameworks and technologies used for the development of rich, interactive web applications. Additionally, we want to explore the best methods to quickly build a web application from scratch. Some key aspects that we will look out for are: Documentation availability, speed of new project setup, customizability, integration with other frameworks and security features. When given the corresponding documentation, it should be possible to reproduce this application. During the design and development of this project we want to describe the problems we faced and how we solved them. This will give other students the option to learn from our mistakes and hopefully help them increase their understanding of Java EE concepts. 
 \subsection{Concept}
+%TODO if possible, shorten this section
 At the start of the project we discuss the key aspects of this project with our coaches at Faros. Based on the requirements provided by them, combined with our own interests, we will define the general field we will be working in. 
 \\\\
 After we have a good overview of what aspects must be included in this project (or should be avoided), we can start deciding core features that will determine which technologies will be appropriate for this project. These choices are based on the aspects we think are needed for developing a web application based on the aforementioned requirements. This should give us a list of possible systems and frameworks that could potentially be used during this project.
@@ -47,9 +48,10 @@ As soon as we are sufficiently proficient with our chosen tools, we will start w
 \subsubsection{Constraints}
 As this project is appointed by Faros, there are certain guidelines we will follow during this study. The primary constraint is the usage of Java. As Faros is a Java consultancy company, the technology stack we use should match what the employees there utilize. Within Java we are still free to choose what frameworks will be used. Another constraint is that we should not aim to create a perfectly working application with extensive styling and fail-safes, but rather focus more on experimenting with various different systems to get a better overview of the big picture and compare these systems with each other. There are also certain project-specific constraints that will be detailed in the case study.
 \subsubsection{Design focus}
-%Explain here that we want to focus on a microservices design. and that this is the most defining part of this thesis.
+%TODO Explain here that we want to focus on a microservices design. and that this is the most defining part of this thesis.
 
 \subsection{Existing systems}
+%TODO More detail needs to be added.
 Before creating our own Online cash register application we searched for similar systems that already exist. One of such systems is Gloriafood \cite{Gloriafood:online}. This is an online system that allows any restaurant owner to sign up and start receiving orders online. A extensive layout is available where you can add a menu and payment options.
 \\\\
 Similarly, there is ChowNow \cite{Chownow:online}. This service also handles online ordering and payment with no extra input required from the restaurant manager. ChowNow will also create a custom branded mobile application to showcase the brand and food of the restaurant.
@@ -112,13 +114,31 @@ Another trend in web development are responsive and reactive web pages. With the
 %Possibly move to after the Case study explaination.
 In this subsection, the actual process for the implementation of the project will be laid out. We will present a chronological progression of the project and discuss what we implemented and what roadblocks we encountered.
 \\\\
-As mentioned in section \ref{sec:idebuild}, we initially started out with a project made in Netbeans using Java EE serving JSP pages. This was a monolithic application that included client, business logic and database. This was our first experience with Enterprise java development. We used a locally hosted Payara server which we used to deploy our enterprise application archive. A simple SQL datastructure was running on an external MySQL server. %insert picture of original schematic. 
-
-
-
-
-
-
+As mentioned in section \ref{sec:idebuild}, we initially started out with a project made in Netbeans using Java EE serving JSP pages. This was a monolithic application that included client, business logic and database. This was our first experience with Enterprise java development. We used a locally hosted Payara server which we used to deploy our enterprise application archive. A simple SQL datastructure was running on an external MySQL server, which can been seen on figure \ref{fig:sqldiagram} %insert picture of original schematic.
+\begin{figure}[h!]
+	\centering
+	%\includegraphics[width=0.75\linewidth]{usecase.jpg}
+	\caption{Original MySQL datastructure: This image shows the prototype relational model we used while working with a single SQL database}
+	\label{fig:sqldiagram}
+\end{figure}
+\\\\
+After our initial research we switched over to Spring Boot and recreated the original project. We still kept the previous database. The Payara server was replaced by the internal server that Spring Boot uses. This is a tomcat server that is packaged together with the resources and java code into a single executable .jar. This is great for testing as we just have to execute this one file to start our application server, deploy the project files to it and launch the server on the port we specified.
+\\\\
+For this application we used hibernate to generate Java entities from the database model we designed. There was also a basic version of Spring security running in this project that only allowed access to certain pages based on the role assigned to the account you logged in with. When logged in, users could access the restaurant page they were assigned to. At this time the page was a blank template on which the corresponding restaurant's name was shown. From the start we chose to split up the functionality of the program into different modules, we hoped that this would enable us to more easily divide the project when changing to a microservices architecture.
+\\\\
+Now that we have a functional Spring Boot application, we can start adding the services we need for our case study. The final application should have the following services:
+\begin{itemize}
+	\item \textbf{Restaurant service} - Provides the name, address and a description of each restaurant registered with our webapplication.
+	\item \textbf{Menu service} - Holds the menu categories for a specific restaurant.
+	\item \textbf{Food service} - Has a list of food items associated with a category and registers their price.
+	\item \textbf{User service} - Manages everything related to the login and authorization of employees and managers.
+	\item \textbf{Order service} - Takes and stores orders made by customers.
+\end{itemize} 
+Implementing these services went smoothly as we can avoid writing a lot of boilerplate code by using the autoconfiguration from Spring Boot. When creating the various services, they are configured with the \textit{@Service} annotation. Functionally this annotation works the same as \textit{@Component}, and allows this class to be used with automatic bean detection on the application classpath. When used, these classes will be instantiated as a singleton beans. The primary reason the \textit{@Service} annotation is used instead is to indicate what type of component we are creating as defined in Domain-driven design.\cite{ComponentAnnotationDifferences34:online}\cite{ServiceAnnotationSpring48:online} We purposefully make a distinction between presentation, service and data access modules to make classification easier.
+\\\\
+Currently, the services use entities to access relevant data from one MySQL database. The process used to generate these entities is as follows: First, a UML diagram was created including all tables and relations required, seen on figure \ref{fig:sqldiagram}. This diagram was then forward-engineered into a local database and filled manually with sample data. Then, the Hibernate provider for Java EE persistence was used to generate Java entities based on this database. This gives us entities which can be retrieved and persisted on the SQL server. To do queries on the database, e.g. to search for users or restaurants, we would have to write our own queries. Luckily Spring Data gives us a \textit{JpaRepository} class that we can extend to generate the queries automatically. By extending this class, we immediately have access to all basic operations to create, modify and remove entries from the database. A simplified notation can be used to create the necessary queries. For example, we need a way to find restaurants based on ID or name. The only thing we have to do is create a class that extends \textit{JpaRepository} and declare 2 methods: \textit{Restaurant findRestaurantByID(int id);} and \textit{Restaurant findRestaurantByName(String name);}. Spring Data will configure the rest.
+\\\\
+Once we specified these services with the correct annotation, they can be used in the business logic.
 
 \section{Case study: Online cash register}
 \subsection{Introduction}
@@ -267,4 +287,13 @@ One of the most important aspects to consider here is multi-tenancy. The applica
 \bibliographystyle{plain}
 \bibliography{document}
 
+
+\newpage
+\section{Appendix}
+\subsection{List of technologies used}
+Underneath, a list of technologies used during this project can be found. Technologies present in the final application will be indicated in \textbf{bold}.
+\begin{itemize}
+	\item \textbf{Thymeleaf} - Templating engine for web pages.
+	\item \textbf{Spring Boot} - Bootstrapper used on top of Spring MVC
+\end{itemize}
 \end{document}
