@@ -10,26 +10,23 @@
 <div class="mdl-layout mdl-layout--fixed-header mdl-js-layout mdl-color--grey-100 is-upgraded">
     <th:block th:include="fragments/navbar :: navbar">test</th:block>
     <main class="mdl-layout__content">
-        <div class="mdl-grid">
-            <h3 style="text-align: center">The order info is as follow: </h3>
-            <div style="text-align: center;margin-bottom: 1%" th:text="${content}"></div>
-            <form id="orderForm" th:action="@{/restaurant/saveOrder}" action="#" method="post"
-                  style="margin-left:25%; margin-right: 25%; text-align:center">
-                <input type="hidden" id="content" name="content" th:value="${content}"/>
-                <input type="hidden" id="restaurantName" name="restaurantName" th:value="${restaurantName}"/>
-                <input type="hidden" id="tableId" name="tableId" th:value="${tableId}"/>
-                <input autofocus="autofocus" class="mdl-textfield__input" type="text" id="comment" name="comment" placeholder="Add comments here !"/>
-            </form>
-            <div style="text-align: center;margin: 2% 25%;">
-                <!-- Raised button -->
-                <button onclick="javascript:history.back()" class="mdl-button mdl-js-button mdl-button--raised" style="float: left">
-                    Go back to Menu Page
-                </button>
-                <button onclick="document.getElementById('orderForm').submit();" class="mdl-button mdl-js-button mdl-button--raised" style="float: right">
-                    Submit Order
-                </button>
-            </div>
-
+        <h3 style="text-align: center">The order info is as follow: </h3>
+        <div style="text-align: center;margin-bottom: 1%" th:text="${content}"></div>
+        <form id="orderForm" th:action="@{/restaurant/saveOrder}" action="#" method="post"
+              style="margin-left:25%; margin-right: 25%; text-align:center">
+            <input type="hidden" id="content" name="content" th:value="${content}"/>
+            <input type="hidden" id="restaurantName" name="restaurantName" th:value="${restaurantName}"/>
+            <input type="hidden" id="tableId" name="tableId" th:value="${tableId}"/>
+            <input autofocus="autofocus" class="mdl-textfield__input" type="text" id="comment" name="comment" placeholder="Add comments here !"/>
+        </form>
+        <div style="text-align: center;margin: 2% 25%;">
+            <!-- Raised button -->
+            <button onclick="javascript:history.back()" class="mdl-button mdl-js-button mdl-button--raised" style="float: left">
+                Go back to Menu Page
+            </button>
+            <button onclick="document.getElementById('orderForm').submit();" class="mdl-button mdl-js-button mdl-button--raised" style="float: right">
+                Submit Order
+            </button>
         </div>
         <br/><br/><br/>
         <th:block th:include="fragments/footer :: footer"></th:block>
