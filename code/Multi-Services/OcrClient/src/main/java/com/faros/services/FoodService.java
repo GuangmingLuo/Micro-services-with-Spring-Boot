@@ -10,5 +10,6 @@ import java.util.List;
  */
 public interface FoodService {
     List<JSONObject> findFoodsByMenuId(String menuId) throws Exception;
+    Food findFoodById(String foodId) throws Exception;
     void addFood(Food food);
 }

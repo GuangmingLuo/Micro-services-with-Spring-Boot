@@ -27,12 +27,17 @@ public class FoodServiceImpl implements FoodService {
     @Override
     public List<JSONObject> findFoodsByMenuId(String menuId) throws Exception{
         ObjectMapper mapper = new ObjectMapper();
-        JsonNode menus = restTemplate.getForObject(serviceUrl+"/food?menuId={menuId}", JsonNode.class,menuId);
+        JsonNode foods = restTemplate.getForObject(serviceUrl+"/foods?menuId={menuId}", JsonNode.class,menuId);
         ArrayList<JSONObject> foodList = mapper.readValue(
-                mapper.treeAsTokens(menus),
+                mapper.treeAsTokens(foods),
                 new TypeReference<List<JSONObject>>(){}
         );
         return foodList;
+    }
+
+    @Override
+    public Food findFoodById(String foodId) throws Exception {
+        return restTemplate.getForObject(serviceUrl+"/food?foodId={foodId}", Food.class,foodId);
     }
 
     @Override

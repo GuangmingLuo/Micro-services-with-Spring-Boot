@@ -23,16 +23,25 @@ public class APIController {
     @RequestMapping
     public String info() {
         String info = "Available api under ip:83/api: <br />";
-        info += "/food?menuId=xxx <br />";
+        info += "/foods?menuId=xxx <br />";
+        info += "/food?foodId=xxx <br />";
         info += "/addFood (POST: @RequestBody Food f) <br />";
         return info;
     }
     /*
     * This api returns a list of food entities by a menu id
     * */
-    @RequestMapping("/food")
+    @RequestMapping("/foods")
     public List<Food> foods(@RequestParam(value="menuId") int menuId) {
         return foodService.findFoodsByMenuId(menuId);
+    }
+
+    /*
+        * This api returns a list of food entities by a menu id
+        * */
+    @RequestMapping("/food")
+    public Food food(@RequestParam(value="foodId") int foodId) {
+        return foodService.findFoodById(foodId);
     }
 
     /*

@@ -4,6 +4,7 @@ import com.faros.services.FoodService;
 import com.faros.services.OrderService;
 import com.faros.services.RestaurantService;
 import com.faros.services.UserService;
+import my.faros.model.Food;
 import my.faros.model.Order;
 import net.minidev.json.JSONObject;
 import org.slf4j.Logger;
@@ -41,7 +42,7 @@ public class OrderController {
 
     @RequestMapping(value = "/restaurant/{name}/createOrder", method = RequestMethod.POST)
     public String createOrder(@PathVariable String name, @Valid String[] foods, @Valid String[] numbers, @Valid int tableId
-            , RedirectAttributes redir) {
+            , RedirectAttributes redir) throws Exception {
         String order = "";
         ArrayList<String> list = new ArrayList<String>();
         for (String s : numbers) {
@@ -49,8 +50,8 @@ public class OrderController {
                 list.add(s);
         }
         for (int i = 0; i < foods.length; i++) {
-            //JSONObject food = foodService.findFoodById(foods[i]);
-            order += " name: " + foods[i] + " number: " + list.get(i);
+            Food food = foodService.findFoodById(foods[i]);
+            order += " name: " + food.getName() + " number: " + list.get(i);
         }
         log.info(order);
         redir.addFlashAttribute("content", order);

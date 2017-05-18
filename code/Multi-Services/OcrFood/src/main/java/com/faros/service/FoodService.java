@@ -10,6 +10,7 @@ import java.util.List;
  */
 public interface FoodService {
     List<Food> findFoodsByMenuId(int menuId);
+    Food findFoodById(long foodId);
     Food addFood(Food food);
     void deleteFood(long id);
 }

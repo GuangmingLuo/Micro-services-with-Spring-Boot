@@ -23,6 +23,11 @@ public class FoodServiceImpl implements FoodService {
     }
 
     @Override
+    public Food findFoodById(long foodId) {
+        return foodRepository.findFoodById(foodId);
+    }
+
+    @Override
     public Food addFood(Food food) {
         log.info("food is: {}",food.toString());
         int id = (int)foodRepository.count() + 1;
