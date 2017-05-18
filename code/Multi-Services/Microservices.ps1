@@ -187,6 +187,14 @@ function kill-All{
 	kill-OcrGateway
 }
 
+
+# Other functions
+function install-entities{
+	$cmd = "Write-Host ' :: Updating Entities in local Maven repository'"
+	invoke-expression 'cmd /c start powershell -Command {cd ./Entities;mvn package;mvn install}' 
+}
+
+
 # Interface code
 
 $quit = $false
@@ -250,7 +258,30 @@ Do{
 		"build rest" {build-OcrRest}
 		"build all"{build-All}
 
-		"run" {$cmd = 'echo " :: Please specify which module to run"'}
+
+		"run" {
+			$cmd = '
+			Write-Host " :: Please specify which module to run:";
+			Write-Host " run " -nonewline;
+			Write-Host "all" -foreground green;
+			Write-Host " run " -nonewline;
+			Write-Host "user" -foreground yellow;
+			Write-Host " run " -nonewline;
+			Write-Host "client" -foreground yellow;
+			Write-Host " run " -nonewline;
+			Write-Host "eureka" -foreground yellow;
+			Write-Host " run " -nonewline;
+			Write-Host "food" -foreground yellow;
+			Write-Host " run " -nonewline;
+			Write-Host "gateway" -foreground yellow;
+			Write-Host " run " -nonewline;
+			Write-Host "menu" -foreground yellow;
+			Write-Host " run " -nonewline;
+			Write-Host "order" -foreground yellow;
+			Write-Host " run " -nonewline;
+			Write-Host "rest" -foreground yellow;
+			'
+		}
 		"run eureka" {run-OcrEurekaServer}
 		"run food" {run-OcrFood}
 		"run gateway" {run-OcrGateway}
@@ -261,7 +292,29 @@ Do{
 		"run client" {run-OcrClient}
 		"run all" {run-All}
 
-		"kill" {$cmd = 'echo " :: Please specify which module to kill"'}
+		"kill" {
+			$cmd = '
+			Write-Host " :: Please specify which module to kill:";
+			Write-Host " kill " -nonewline;
+			Write-Host "all" -foreground green;
+			Write-Host " kill " -nonewline;
+			Write-Host "user" -foreground yellow;
+			Write-Host " kill " -nonewline;
+			Write-Host "client" -foreground yellow;
+			Write-Host " kill " -nonewline;
+			Write-Host "eureka" -foreground yellow;
+			Write-Host " kill " -nonewline;
+			Write-Host "food" -foreground yellow;
+			Write-Host " kill " -nonewline;
+			Write-Host "gateway" -foreground yellow;
+			Write-Host " kill " -nonewline;
+			Write-Host "menu" -foreground yellow;
+			Write-Host " kill " -nonewline;
+			Write-Host "order" -foreground yellow;
+			Write-Host " kill " -nonewline;
+			Write-Host "rest" -foreground yellow;
+			'
+		}
 		"kill eureka" {kill-OcrEurekaServer;kill-OcrEurekaServer}
 		"kill food" {kill-OcrFood;kill-OcrFood}
 		"kill gateway" {kill-OcrGateway;kill-OcrGateway}
@@ -272,7 +325,11 @@ Do{
 		"kill client" {kill-OcrClient;kill-OcrClient}
 		"kill all" {kill-All;kill-All}
 
+
+
 		"find window" {find-window}
+		"install entities" {install-entities}
+
 		"quit" {$quit=$true}
 		"stop" {$quit=$true}
 		
