@@ -7,6 +7,7 @@ public class Order {
     private int id;
     private String content;
     private int tableId;
+    private int restaurantId;
     private String status = "In queue";
     private String comments = "null";
 
@@ -77,5 +78,13 @@ public class Order {
         result = 31 * result + tableId;
         result = 31 * result + (status != null ? status.hashCode() : 0);
         return result;
+    }
+
+    public int getRestaurantId() {
+        return restaurantId;
+    }
+
+    public void setRestaurantId(int restaurantId) {
+        this.restaurantId = restaurantId;
     }
 }

@@ -5,6 +5,7 @@ import com.faros.entity.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -16,11 +17,20 @@ public class OrderServiceImpl implements OrderService {
     private OrderRepository orderRepository;
     @Override
     public Order addOrder(Order newOrder) {
+        int id = (int)orderRepository.count()+1;
+        newOrder.setId(id);
         return orderRepository.save(newOrder);
     }
 
     @Override
-    public List<Order> findAllOrders() {
-        return orderRepository.findAll();
+    public List<Order> findAllOrders(int restaurantId) {
+        List<Order> orders= orderRepository.findAll();
+        List<Order> result= new ArrayList<>();
+        for(Order order:orders){
+            if(order.getRestaurantId()==restaurantId){
+                result.add(order);
+            }
+        }
+        return result;
     }
 }

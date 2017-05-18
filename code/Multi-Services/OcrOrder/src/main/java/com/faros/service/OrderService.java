@@ -9,5 +9,5 @@ import java.util.List;
  */
 public interface OrderService {
     Order addOrder(Order newOrder);
-    List<Order> findAllOrders();
+    List<Order> findAllOrders(int restaurantId);
 }

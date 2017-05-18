@@ -11,5 +11,5 @@ import java.util.List;
 public interface OrderService {
     void save(Order order);
     boolean checkStatus();
-    List<JSONObject> findAll();
+    List<JSONObject> findAll(int restaurantId);
 }

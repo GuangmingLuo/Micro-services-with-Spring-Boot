@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <title>ERROR OCCURRED</title>
+    <th:block th:include="fragments/include :: include"></th:block>
+</head>
+<body>
+
+<div class="mdl-layout mdl-layout--fixed-header mdl-js-layout mdl-color--grey-100 is-upgraded">
+    <th:block th:include="fragments/navbar :: navbar">test</th:block>
+    <main class="mdl-layout__content">
+        <div class="mdl-grid">
+            <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
+            <div class="mdl-cell mdl-cell--8-col">
+                <div style="text-align: center">
+                    <h1>A <strong th:text="${errorNumber}"></strong> error has occurred</h1>
+                    <p th:text="${errorType}"></p>
+                    <p th:text="${stackTrace}"></p>
+                    <h2><a th:href="@{/}" href="#" >Back to home page</a></h2>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+
+
+</body>
+</html>

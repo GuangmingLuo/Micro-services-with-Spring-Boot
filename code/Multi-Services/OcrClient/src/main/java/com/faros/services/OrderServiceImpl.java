@@ -38,7 +38,7 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public List<JSONObject> findAll() {
-        return restTemplate.getForObject(serviceUrl+"/orders", List.class);
+    public List<JSONObject> findAll(int restaurantId) {
+        return restTemplate.getForObject(serviceUrl+"/orders?restaurantId={restaurantId}", List.class,restaurantId);
     }
 }

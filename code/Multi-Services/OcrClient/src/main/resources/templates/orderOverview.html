@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Order Overview</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <th:block th:include="fragments/include :: include"></th:block>
+</head>
+<body>
+<div class="mdl-layout mdl-layout--fixed-header mdl-js-layout mdl-color--grey-100 is-upgraded">
+    <th:block th:include="fragments/navbar :: navbar">test</th:block>
+    <main class="mdl-layout__content">
+        <div style="text-align: center;margin-top: 5%">
+            <table class=" mdl-shadow--2dp mdl-cell mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+                <thead>
+                <tr>
+                    <th class="mdl-data-table__cell--non-numeric" th:text="'Restaurant name: '+${restaurantName}"> </th>
+                </tr>
+                <tr>
+                    <th class="mdl-data-table__cell--non-numeric">Order Overview</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="order:${orders}">
+                    <th class="mdl-data-table__cell--non-numeric" th:text="${order.content}"></th>
+                    <th class="mdl-data-table__cell--non-numeric" th:text="${order.status}"></th>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+</div>
+
+</body>
+</html>

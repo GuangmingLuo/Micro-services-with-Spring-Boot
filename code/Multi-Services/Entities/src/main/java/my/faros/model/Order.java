@@ -6,6 +6,7 @@ package my.faros.model;
 public class Order {
     private int id;
     private String content;
+    private int restaurantId;
     private int tableId;
     private String status = "In queue";
     private String comments = "null";
@@ -81,5 +82,13 @@ public class Order {
     @Override
     public String toString(){
         return "id: "+id+" tableId: "+tableId+" content: "+content+" status: "+status;
+    }
+
+    public int getRestaurantId() {
+        return restaurantId;
+    }
+
+    public void setRestaurantId(int restaurantId) {
+        this.restaurantId = restaurantId;
     }
 }
