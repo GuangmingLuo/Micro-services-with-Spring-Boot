@@ -46,7 +46,7 @@ public class OrderController {
         String order = "";
         ArrayList<String> list = new ArrayList<String>();
         for (String s : numbers) {
-            if (!s.isEmpty())
+            if (!s.isEmpty() && !s.equals("0"))
                 list.add(s);
         }
         for (int i = 0; i < foods.length; i++) {
