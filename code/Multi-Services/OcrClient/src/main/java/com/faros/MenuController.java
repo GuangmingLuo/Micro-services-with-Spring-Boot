@@ -59,7 +59,7 @@ public class MenuController {
         }else{
             rest = restaurantService.findRestaurantByName(name);
             if(rest ==null){
-                return "redirect:/login/";
+                return "redirect:/";
             }
             model.addAttribute("isManager",false);
         }

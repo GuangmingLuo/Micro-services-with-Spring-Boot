@@ -49,9 +49,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
         http.
                 authorizeRequests()
-                .antMatchers("/","/restaurant/*/").permitAll()
+                .antMatchers("/","/restaurant/*/","/restaurant/*").permitAll()
                 .antMatchers("/login","/api/**").permitAll()
-                .antMatchers("/restaurant/*/order","/restaurant/*/createOrder").permitAll()
+                .antMatchers("/restaurant/*/order","/restaurant/*/createOrder","/restaurant/saveOrder").permitAll()
                 .antMatchers("/restaurant/*/edit","/employees","/restaurant/orderOverview").hasAuthority("MANAGER")
                 .antMatchers("/register").hasAnyAuthority("MANAGER","ADMIN")
                 .antMatchers("/admin/**").hasAuthority("ADMIN").anyRequest()
