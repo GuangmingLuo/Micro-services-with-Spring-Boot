@@ -41,7 +41,7 @@ public class OrderController {
     private FoodService foodService;
 
     @RequestMapping(value = "/restaurant/{name}/createOrder", method = RequestMethod.POST)
-    public String createOrder(@PathVariable String name, @Valid String[] foods, @Valid String[] numbers, @Valid int tableId
+    public String createOrder(@PathVariable String name, @Valid String[] foods, @Valid String[] numbers, @Valid String tableId
             , RedirectAttributes redir) throws Exception {
         String order = "";
         ArrayList<String> list = new ArrayList<String>();

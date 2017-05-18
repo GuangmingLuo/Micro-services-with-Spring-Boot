@@ -9,32 +9,38 @@
 <div class="mdl-layout mdl-layout--fixed-header mdl-js-layout mdl-color--grey-100 is-upgraded">
     <th:block th:include="fragments/navbar :: navbar">test</th:block>
     <main class="mdl-layout__content">
-        <div style="text-align: center;margin-top: 5%">
-            <table class=" mdl-shadow--2dp mdl-cell mdl-data-table mdl-js-data-table mdl-shadow--2dp">
-                <thead>
-                <tr>
-                    <th class="mdl-data-table__cell--non-numeric" th:text="'Restaurant name: '+${restaurantName}"> </th>
-                </tr>
-                <tr>
-                    <th class="mdl-data-table__cell--non-numeric">Order Overview</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <th class="mdl-data-table__cell--non-numeric" >Table Id</th>
-                    <th class="mdl-data-table__cell--non-numeric" >Order Content</th>
-                    <th class="mdl-data-table__cell--non-numeric" >comments</th>
-                    <th class="mdl-data-table__cell--non-numeric" >Status</th>
-                </tr>
-                <tr th:each="order:${orders}">
-                    <th class="mdl-data-table__cell--non-numeric" th:text="${order.tableId}"></th>
-                    <th class="mdl-data-table__cell--non-numeric" th:text="${order.content}"></th>
-                    <th class="mdl-data-table__cell--non-numeric" th:text="${order.comments}"></th>
-                    <th class="mdl-data-table__cell--non-numeric" th:text="${order.status}"></th>
-                </tr>
-                </tbody>
-            </table>
+        <div class="mdl-grid">
+            <div class="mdl-cell mdl-cell--3-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
+            <div class="mdl-cell mdl-cell--7-col">
+                <div style="text-align: center;margin: 5% 1%">
+                    <table class=" mdl-shadow--2dp mdl-cell mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+                        <thead>
+                        <tr>
+                            <th class="mdl-data-table__cell--non-numeric" th:text="'Restaurant name: '+${restaurantName}"> </th>
+                        </tr>
+                        <tr>
+                            <th class="mdl-data-table__cell--non-numeric">Order Overview</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <th class="mdl-data-table__cell--non-numeric" >Table Id</th>
+                            <th class="mdl-data-table__cell--non-numeric" >Order Content</th>
+                            <th class="mdl-data-table__cell--non-numeric" >comments</th>
+                            <th class="mdl-data-table__cell--non-numeric" >Status</th>
+                        </tr>
+                        <tr th:each="order:${orders}">
+                            <th class="mdl-data-table__cell--non-numeric" th:text="${order.tableId}"></th>
+                            <th class="mdl-data-table__cell--non-numeric" th:text="${order.content}"></th>
+                            <th class="mdl-data-table__cell--non-numeric" th:text="${order.comments}"></th>
+                            <th class="mdl-data-table__cell--non-numeric" th:text="${order.status}"></th>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
+
     </main>
 </div>
 
