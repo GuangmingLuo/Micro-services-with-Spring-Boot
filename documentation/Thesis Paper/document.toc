@@ -24,14 +24,14 @@
 \contentsline {paragraph}{Waiter}{13}{section*.4}
 \contentsline {paragraph}{Chef}{13}{section*.5}
 \contentsline {paragraph}{Manager}{13}{section*.6}
-\contentsline {subsection}{\numberline {3.3}Must-haves and nice-to haves}{13}{subsection.3.3}
+\contentsline {subsection}{\numberline {3.3}Must-haves and nice-to haves}{14}{subsection.3.3}
 \contentsline {paragraph}{Must-Haves}{14}{section*.8}
 \contentsline {paragraph}{Nice-to-Haves}{14}{section*.9}
-\contentsline {subsection}{\numberline {3.4}Technology choices}{14}{subsection.3.4}
-\contentsline {subsubsection}{\numberline {3.4.1}Application type}{14}{subsubsection.3.4.1}
-\contentsline {subsubsection}{\numberline {3.4.2}Framework choices}{14}{subsubsection.3.4.2}
-\contentsline {subsection}{\numberline {3.5}Design Choices}{14}{subsection.3.5}
-\contentsline {subsubsection}{\numberline {3.5.1}Client}{14}{subsubsection.3.5.1}
+\contentsline {subsection}{\numberline {3.4}Technology choices}{15}{subsection.3.4}
+\contentsline {subsubsection}{\numberline {3.4.1}Application type}{15}{subsubsection.3.4.1}
+\contentsline {subsubsection}{\numberline {3.4.2}Framework choices}{15}{subsubsection.3.4.2}
+\contentsline {subsection}{\numberline {3.5}Design Choices}{15}{subsection.3.5}
+\contentsline {subsubsection}{\numberline {3.5.1}Client}{15}{subsubsection.3.5.1}
 \contentsline {subsubsection}{\numberline {3.5.2}Employee}{15}{subsubsection.3.5.2}
 \contentsline {subsubsection}{\numberline {3.5.3}Manager}{17}{subsubsection.3.5.3}
 \contentsline {subsubsection}{\numberline {3.5.4}Remarks and challenges}{17}{subsubsection.3.5.4}
