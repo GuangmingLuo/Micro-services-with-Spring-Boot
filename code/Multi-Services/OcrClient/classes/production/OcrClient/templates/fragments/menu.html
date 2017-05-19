@@ -33,12 +33,12 @@
                             <tr th:each="food:${menu.foods}">
                                 <td>
                                     <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect mdl-data-table__select" th:for="'food'+${food.id}">
-                                        <input type="checkbox" th:id="'food'+${food.id}" name="foods" th:value="${food.id}" class="mdl-checkbox__input" />
+                                        <input type="checkbox" th:id="'food'+${food.id}" onchange="toggleCheckbox(this)" name="foods" th:value="${food.id}" class="mdl-checkbox__input" />
                                     </label>
                                 </td>
                                 <td class="mdl-data-table__cell--non-numeric" th:text="${food.name}">Acrylic (Transparent)</td>
                                 <td>
-                                    <input type="number" class="mdl-textfield__input" th:id="'food'+${food.id}+'number'" name="numbers" placeholder=""/>
+                                    <input type="number" class="mdl-textfield__input" th:id="'food'+${food.id}+'number'" name="numbers" disabled="disabled" placeholder="0"/>
                                 </td>
                                 <td th:text="${'$'+food.price}">$2.90</td>
                             </tr>
@@ -73,6 +73,18 @@
             </div>
         </div>
     <script th:inline="javascript">
+        function toggleCheckbox(obj) {
+            var id = obj.id+"number";
+            var myObj = document.getElementById(id);
+            if(myObj.getAttribute('disabled') == "disabled"){
+                myObj.removeAttribute("disabled");
+                myObj.value=1;
+                myObj.select();
+            }else{
+                myObj.value = '';
+                myObj.setAttribute('disabled','disabled');
+            }
+        }
         function validate() {
             var check = document.getElementById('orderForm').checkValidity(); //check if table id is filled in
             /*<![CDATA[*/
