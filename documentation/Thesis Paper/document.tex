@@ -159,7 +159,15 @@ Changing the output of a controller to is relatively straightforward. We make ne
 	\label{fig:microservicessplit}
 \end{figure}
 \\\\
-Splitting the existing project into modules that can run and function proved to be quite a difficult task. One of the major problems was the database structure. It is possible to have all services connect to one central database, but this conflicts with the microservices concept. There would still be a central point of failure and scaling would still be limited to replicating the database on multiple servers or using application specific sharding. Instead of that we created separate databases for each service.
+Splitting the existing project into modules that can run and function proved to be quite a difficult task. One of the major problems was the database structure. It is possible to have all services connect to one central database, but this conflicts with the microservices concept. There would still be a central point of failure and scaling would still be limited to replicating the database on multiple servers or using application specific sharding. Instead of that we created separate databases for each service. We had to rethink the way we approached our data, as direct relations are not possible any more. 
+% TODO Configure all separate project and make them work with spring boot
+% disadvantage, the initial migration takes quite some time, but a lot of information becomes more similar because of the simplification of the modules.
+% disadvantage, combining technologies, especially security. security by itself is not difficult but combining it with microservices becomes more complex.
+% exception handling when a service is not running.
+% Test if the application server works with these new services
+% Retrieving data is now done using JSON object, but posts are still entities.
+\\\\
+wip
 
 
 %todo implementation

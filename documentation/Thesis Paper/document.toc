@@ -24,9 +24,9 @@
 \contentsline {paragraph}{Waiter}{13}{section*.5}
 \contentsline {paragraph}{Chef}{13}{section*.6}
 \contentsline {paragraph}{Manager}{13}{section*.7}
-\contentsline {subsection}{\numberline {3.3}Must-haves and nice-to haves}{13}{subsection.3.3}
+\contentsline {subsection}{\numberline {3.3}Must-haves and nice-to haves}{14}{subsection.3.3}
 \contentsline {paragraph}{Must-Haves}{14}{section*.9}
-\contentsline {paragraph}{Nice-to-Haves}{14}{section*.10}
+\contentsline {paragraph}{Nice-to-Haves}{15}{section*.10}
 \contentsline {subsection}{\numberline {3.4}Technology choices}{15}{subsection.3.4}
 \contentsline {subsubsection}{\numberline {3.4.1}Application type}{15}{subsubsection.3.4.1}
 \contentsline {subsubsection}{\numberline {3.4.2}Framework choices}{15}{subsubsection.3.4.2}
@@ -34,14 +34,14 @@
 \contentsline {subsubsection}{\numberline {3.5.1}Client}{15}{subsubsection.3.5.1}
 \contentsline {subsubsection}{\numberline {3.5.2}Employee}{16}{subsubsection.3.5.2}
 \contentsline {subsubsection}{\numberline {3.5.3}Manager}{17}{subsubsection.3.5.3}
-\contentsline {subsubsection}{\numberline {3.5.4}Remarks and challenges}{17}{subsubsection.3.5.4}
-\contentsline {subsection}{\numberline {3.6}Major issues and their solutions}{17}{subsection.3.6}
-\contentsline {section}{\numberline {4}Results}{17}{section.4}
-\contentsline {subsection}{\numberline {4.1}Final Prototype}{17}{subsection.4.1}
-\contentsline {subsection}{\numberline {4.2}User tests}{17}{subsection.4.2}
-\contentsline {section}{\numberline {5}Conclusion}{17}{section.5}
-\contentsline {section}{\numberline {6}References}{18}{section.6}
-\contentsline {section}{\numberline {7}Appendix}{20}{section.7}
-\contentsline {subsection}{\numberline {7.1}List of technologies used}{20}{subsection.7.1}
-\contentsline {subsection}{\numberline {7.2}Problems and their solutions}{20}{subsection.7.2}
-\contentsline {subsubsection}{\numberline {7.2.1}Thymeleaf security dialect}{20}{subsubsection.7.2.1}
+\contentsline {subsubsection}{\numberline {3.5.4}Remarks and challenges}{18}{subsubsection.3.5.4}
+\contentsline {subsection}{\numberline {3.6}Major issues and their solutions}{18}{subsection.3.6}
+\contentsline {section}{\numberline {4}Results}{18}{section.4}
+\contentsline {subsection}{\numberline {4.1}Final Prototype}{18}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}User tests}{18}{subsection.4.2}
+\contentsline {section}{\numberline {5}Conclusion}{18}{section.5}
+\contentsline {section}{\numberline {6}References}{19}{section.6}
+\contentsline {section}{\numberline {7}Appendix}{21}{section.7}
+\contentsline {subsection}{\numberline {7.1}List of technologies used}{21}{subsection.7.1}
+\contentsline {subsection}{\numberline {7.2}Problems and their solutions}{21}{subsection.7.2}
+\contentsline {subsubsection}{\numberline {7.2.1}Thymeleaf security dialect}{21}{subsubsection.7.2.1}
