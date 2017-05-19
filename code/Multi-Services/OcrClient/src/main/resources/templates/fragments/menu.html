@@ -73,6 +73,21 @@
             </div>
         </div>
     <script th:inline="javascript">
+        /*<![CDATA[*/
+        var menus = /*[[${menus}]]*/'menus';
+        /*]]>*/
+        function checkboxChecking() {
+            menus.forEach(function(menu) {
+                menu.foods.forEach(function(food) {
+                    var id = "food" + food.id ;
+                    if(document.getElementById(id).checked){
+                        console.log(id+" is checked");
+                        document.getElementById(id+"number").removeAttribute("disabled");
+                    }
+                });
+            });
+        }
+        window.onload=checkboxChecking;
         function toggleCheckbox(obj) {
             var id = obj.id+"number";
             var myObj = document.getElementById(id);
@@ -87,9 +102,6 @@
         }
         function validate() {
             var check = document.getElementById('orderForm').checkValidity(); //check if table id is filled in
-            /*<![CDATA[*/
-            var menus = /*[[${menus}]]*/'menus';
-            /*]]>*/
             var value= 1;
             menus.forEach(function(menu) {
                 menu.foods.forEach(function(food){

@@ -10,4 +10,6 @@ import java.util.List;
 public interface OrderService {
     Order addOrder(Order newOrder);
     List<Order> findAllOrders(int restaurantId);
+    Order findOrderById(long id);
+    Order save(Order order);
 }

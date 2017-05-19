@@ -22,7 +22,7 @@ public class OrderServiceImpl implements OrderService {
 
     protected String serviceUrl = "http://order-api-server/api";
     @Override
-    public boolean checkStatus() {
+    public boolean checkApiStatus() {
         String status = restTemplate.getForObject(serviceUrl+"/status", Boolean.class).toString();
         if(status.equals("true")){
             return true;
@@ -40,5 +40,13 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public List<JSONObject> findAll(int restaurantId) {
         return restTemplate.getForObject(serviceUrl+"/orders?restaurantId={restaurantId}", List.class,restaurantId);
+    }
+
+    @Override
+    public void changeOrderStatus(long id, String newStatus) {
+        Order order = restTemplate.getForObject(serviceUrl+"/orderById?id={id}", Order.class,id);
+        order.setStatus(newStatus);
+        HttpEntity<Order> request = new HttpEntity<>(order);
+        restTemplate.postForObject(serviceUrl+"/saveOrder", request, Order.class);
     }
 }

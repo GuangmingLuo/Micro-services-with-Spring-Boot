@@ -27,10 +27,21 @@ public class OrderServiceImpl implements OrderService {
         List<Order> orders= orderRepository.findAll();
         List<Order> result= new ArrayList<>();
         for(Order order:orders){
-            if(order.getRestaurantId()==restaurantId){
+            if(order.getRestaurantId()==restaurantId && !(order.getStatus().equals("Paid"))){
                 result.add(order);
             }
         }
         return result;
     }
+
+    @Override
+    public Order findOrderById(long id) {
+        return orderRepository.findOne(id);
+    }
+
+    @Override
+    public Order save(Order order) {
+        return orderRepository.save(order);
+    }
+
 }

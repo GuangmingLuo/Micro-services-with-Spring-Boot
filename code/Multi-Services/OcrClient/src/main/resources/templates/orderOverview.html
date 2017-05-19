@@ -3,6 +3,7 @@
 <head>
     <title>Order Overview</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <th:block th:include="fragments/include :: include"></th:block>
 </head>
 <body>
@@ -33,16 +34,40 @@
                             <th class="mdl-data-table__cell--non-numeric" th:text="${order.tableId}"></th>
                             <th class="mdl-data-table__cell--non-numeric" th:text="${order.content}"></th>
                             <th class="mdl-data-table__cell--non-numeric" th:text="${order.comments}"></th>
-                            <th class="mdl-data-table__cell--non-numeric" th:text="${order.status}"></th>
+                            <th class="mdl-data-table__cell--non-numeric" style="cursor: pointer" th:text="${order.status}" th:onclick="'toggleStatus(this,'+${order.id}+')'" ></th>
                         </tr>
                         </tbody>
                     </table>
                 </div>
             </div>
         </div>
-
     </main>
 </div>
+<script>
+    function toggleStatus(obj,id) {
+        switch(obj.innerHTML){
+            case "In queue":
+                obj.innerHTML = 'Processing';
+                break;
+            case "Processing":
+                obj.innerHTML = 'Ready';
+                break;
+            case "Ready":
+                obj.innerHTML = 'Served';
+                break;
+            case "Served":
+                obj.innerHTML = 'Paid';
+                break;
+            default:
+                break;
+        }
 
+        $.ajax({
+            url:"/restaurant/order/changeStatus",
+            type:"post",
+            data:{id:id,status:obj.innerHTML}
+        });
+    }
+</script>
 </body>
 </html>
