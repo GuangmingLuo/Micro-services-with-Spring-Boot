@@ -55,4 +55,18 @@ public class APIController {
                 .buildAndExpand(result.getId()).toUri();
         return ResponseEntity.created(location).build();
     }
+
+    @RequestMapping(value = "/orderById",method = RequestMethod.GET)
+    public Order getOrderById(@RequestParam(value="id") long id){
+        return orderService.findOrderById(id);
+    }
+
+    @RequestMapping(value = "/saveOrder",method = RequestMethod.POST)
+    public ResponseEntity<?> saveOrder(@RequestBody Order order) {
+        Order result = orderService.save(order);
+        URI location = ServletUriComponentsBuilder
+                .fromCurrentRequest().path("/{id}")
+                .buildAndExpand(result.getId()).toUri();
+        return ResponseEntity.created(location).build();
+    }
 }

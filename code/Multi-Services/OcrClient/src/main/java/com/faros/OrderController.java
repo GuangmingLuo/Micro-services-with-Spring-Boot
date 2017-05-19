@@ -10,14 +10,12 @@ import net.minidev.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
@@ -98,4 +96,11 @@ public class OrderController {
         return "orderOverview";
     }
 
+    @RequestMapping(value = "/restaurant/order/changeStatus", method = RequestMethod.POST)
+    @ResponseStatus(value = HttpStatus.OK)
+    //accessible by user with role "manager"
+    public void changeStatus(@Valid long id, String status) {
+        log.info("Here comes in changeStatus:{} and {}",id,status);
+        orderService.changeOrderStatus(id,status);
+    }
 }

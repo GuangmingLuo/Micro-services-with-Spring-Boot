@@ -128,7 +128,7 @@ public class MenuController {
             e.printStackTrace();
         }
         try {
-            orderService.checkStatus();
+            orderService.checkApiStatus();
         }catch (Exception e){
             errorMessage += "The OrderService is down! \n";
             e.printStackTrace();

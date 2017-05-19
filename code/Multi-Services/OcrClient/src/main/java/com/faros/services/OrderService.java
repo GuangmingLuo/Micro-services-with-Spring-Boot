@@ -10,6 +10,7 @@ import java.util.List;
  */
 public interface OrderService {
     void save(Order order);
-    boolean checkStatus();
+    boolean checkApiStatus();
     List<JSONObject> findAll(int restaurantId);
+    void changeOrderStatus(long id, String newStatus);
 }
