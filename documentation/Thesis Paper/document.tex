@@ -23,17 +23,18 @@
 
 \begin{abstract}
 \noindent In this report we will explore various Java technologies and analyse what features they offer. The focus of this project is to find which frameworks are most suitable for quick prototyping of a business application. Constraints and other requirements will be defined and are then applied to a specific case study. At the end of this project we should have an excellent understanding of the technologies involved to make a online cash register application that handles orders and payment in restaurants. [WIP]
+% todo will be changed when the rest of the text is finished
 \end{abstract}
 \keywords{JavaEE, Spring, Cash register, Java}
 
 \section{Project Objective}
 \subsection{Proposal}
-This master thesis is commissioned by Faros, a Cronos group company specialized in the development of Java web applications and primarily focused on designing Rich Internet Applications. Development within Faros is done mainly with Vaadin, Spring, HTML5, ExtJS, JavaScript, JSP, JSF, NoSQL and more. This means that during this thesis, special attention is given to these technologies in regards to design choices. Naturally, comparisons with other possible frameworks will still be done and valid arguments will be set forward to confirm these decisions.
+This master thesis is commissioned by Faros, a Cronos group company specialized in the development of Java web applications and primarily focused on designing Rich Internet Applications. Development within Faros is done mainly with Vaadin, Spring, HTML5, ExtJS, JavaScript, JSP, JSF, NoSQL and more.\cite{farosProposal} This means that during this thesis, special attention is given to these technologies in regards to design choices. Naturally, comparisons with other possible frameworks will still be done and valid arguments will be set forward to confirm these decisions.
 \\\\
 The following case study was proposed by Faros: designing an online cash register that can be used in restaurants or at events. Existing cash register systems are expensive and for smaller establishments or temporary events, this investment is not worth it. The idea is to use existing devices from employees and customers to handle the ordering and payment process.
 \\\\
 This project is an opportunity for us to learn about the frameworks and technologies used for the development of rich, interactive web applications. Additionally, we want to explore the best methods to quickly build a web application from scratch. Some key aspects that we will look out for are: Documentation availability, speed of new project setup, customizability, integration with other frameworks and security features. When given the corresponding documentation, it should be possible to reproduce this application. During the design and development of this project we want to describe the problems we faced and how we solved them. This will give other students the option to learn from our mistakes and hopefully help them increase their understanding of Java EE concepts. 
-\subsection{Concept}
+\subsection{Concept}\label{sec:concept}
 %TODO if possible, shorten this section
 At the start of the project we discuss the key aspects of this project with our coaches at Faros. Based on the requirements provided by them, combined with our own interests, we will define the general field we will be working in. 
 \\\\
@@ -48,10 +49,12 @@ As soon as we are sufficiently proficient with our chosen tools, we will start w
 \subsubsection{Constraints}
 As this project is appointed by Faros, there are certain guidelines we will follow during this study. The primary constraint is the usage of Java. As Faros is a Java consultancy company, the technology stack we use should match what the employees there utilize. Within Java we are still free to choose what frameworks will be used. Another constraint is that we should not aim to create a perfectly working application with extensive styling and fail-safes, but rather focus more on experimenting with various different systems to get a better overview of the big picture and compare these systems with each other. There are also certain project-specific constraints that will be detailed in the case study.
 \subsubsection{Design focus}
-%TODO Explain here that we want to focus on a microservices design. and that this is the most defining part of this thesis.
+During this thesis we will develop a application based on a case study as mentioned in section \ref{sec:concept}. This case study is a device used for guiding development, but it is not the primary goal of this thesis. Instead, it is a way that allows us to explore the technologies used in application development on an enterprise level. In particular, we want to look at the microservices architecture and what advantages or disadvantages this has over more traditional web development. We will explore the microservices architecture in detail and research all related technologies and principles such as discovery, load balancing and security.
+%TODO maybe add some more information.
+
 
 \subsection{Existing systems}
-%TODO More detail needs to be added.
+%TODO More detail needs to be added. also move this to research and methods
 Before creating our own Online cash register application we searched for similar systems that already exist. One of such systems is Gloriafood \cite{Gloriafood:online}. This is an online system that allows any restaurant owner to sign up and start receiving orders online. A extensive layout is available where you can add a menu and payment options.
 \\\\
 Similarly, there is ChowNow \cite{Chownow:online}. This service also handles online ordering and payment with no extra input required from the restaurant manager. ChowNow will also create a custom branded mobile application to showcase the brand and food of the restaurant.
@@ -62,7 +65,7 @@ Both of these systems are focused on the online ordering aspect and not so much 
 
 \section{Research and Methods}
 \subsection{Approach}
-We will take a quantitative approach in this paper, exploring and comparing frameworks for each of the features required for this project. This includes: General frameworks providing a way to couple web resources to Java code. Persistence providers, SQL or noSQL databases to store customer information. Object relational mapping tools to generate mappings from existing data-stores. Security systems to allow authentication and authorization in a safe way. Front-end frameworks, providing styling options and client side scripting.
+We will take a quantitative approach in this paper, exploring and comparing frameworks for each of the features required for this project. This includes: General frameworks providing a way to couple web resources to Java code. Persistence providers, SQL or noSQL databases to store customer information. Object relational mapping tools to generate mappings from existing data-stores. Security systems to allow authentication and authorization in a safe way. Front-end frameworks, providing styling options and client side scripting. Everything related to the case study is detailed separately in section \ref{sec:casestudy}
 \subsection{Java EE Landscape}
 We will not discuss every existing tool in the Java environment, but it might be interesting to have a look at the current state of Java EE in the professional world. We will use the numbers from a survey published by Zeroturnaround to do our analysis.\cite{JavaEELandscape73:online} This website has a blog for Java web developers and will display a certain bias towards this usergroup. For more general statistics please refer to Stackoverflow's developer survey.\cite{DeveloperSurvey95:online}
 \\\\
@@ -138,9 +141,18 @@ Implementing these services went smoothly as we can avoid writing a lot of boile
 \\\\
 Currently, the services use entities to access relevant data from one MySQL database. The process used to generate these entities is as follows: First, a UML diagram was created including all tables and relations required, seen on figure \ref{fig:sqldiagram}. This diagram was then forward-engineered into a local database and filled manually with sample data. Then, the Hibernate provider for Java EE persistence was used to generate Java entities based on this database. This gives us entities which can be retrieved and persisted on the SQL server. To do queries on the database, e.g. to search for users or restaurants, we would have to write our own queries. Luckily Spring Data gives us a \textit{JpaRepository} class that we can extend to generate the queries automatically. By extending this class, we immediately have access to all basic operations to create, modify and remove entries from the database. A simplified notation can be used to create the necessary queries. For example, we need a way to find restaurants based on ID or name. The only thing we have to do is create a class that extends \textit{JpaRepository} and declare 2 methods: \textit{Restaurant findRestaurantByID(int id);} and \textit{Restaurant findRestaurantByName(String name);}. Spring Data will configure the rest.
 \\\\
-Once we specified these services with the correct annotation, they can be used in the business logic.
+Once we specified these services with the correct annotation, they can be used in the business logic. Using \textit{@Autowired} allows us to refer to a registered component or service. At this stage the services are utilized from within the controllers that we use to map the webpages served by our application. \textit{@RequestMapping} is used to map certain addresses to their corresponding HTML pages. These pages are parsed with the Thymeleaf templating engine to include the data we receive from the services. At the start we only used Thymeleaf to pass database information to the web pages. We soon had multiple pages, often with duplicate code. This made us look into Thymeleaf fragments. All commonly used interface elements were added on a general file, where the content was filled in with fragments depending on the purpose of that page. A good example of this is the navigation bar, which should be visible on every page.
+\\\\
+At this point we have a functional web application that has pages to display restaurant information from the database. These pages are protected by a basic Spring Security system. Users can only access the restaurant they are assigned to. An administrator account can create new users and bind them to a specific restaurant. To limit the amount of similar pages, we wanted to show or hide certain parts of a page depending on the authorization of the current user. While this is easily implemented by using the controller model parsing from Spring MVC, this would require us to pass security configuration in all controllers. A more streamlined solution would be preferable. This lead us to the Spring Security dialect for Thymeleaf. Including this dependency allows the usage of Spring security entities directly in the HTML code, which prevents a significant amount of redundancy in the controllers.
+\\\\
+When certain errors occur during authentication or on our pages in general, it can be useful to have an error page to display what went wrong. We used the Spring Boot Actuator package to create a default error page. This page does not use any styling and has a limited amount of information, so we implemented a custom \textit{ErrorController} that can show stack trace information and matches the design of our other pages. During this time we finished much of the business logic and static pages for the case study. However, It was still a monolithic application running on a single SQL server. The next step would be to start switching to a microservices architecture.
+\\\\
+td
+%todo implementation
 
-\section{Case study: Online cash register}
+%todo add issues: 
+
+\section{Case study: Online cash register}\label{sec:casestudy}
 \subsection{Introduction}
 The goal of this case study is to create a service that can be used at events and in restaurants to process orders made by customers, relay these orders to the waiters and chefs and handle the payment. This service should include an application that clients can use to view the menu and order items from it. Waiters also have their own application that can place and acknowledge orders. These orders will be send to a central system that manages all the required information. See fig. \ref{fig:usecase} for a use case diagram.
 \subsection{Use Cases}
@@ -296,4 +308,7 @@ Underneath, a list of technologies used during this project can be found. Techno
 	\item \textbf{Thymeleaf} - Templating engine for web pages.
 	\item \textbf{Spring Boot} - Bootstrapper used on top of Spring MVC
 \end{itemize}
+\subsection{Problems and their solutions}
+\subsubsection{Thymeleaf security dialect}
+\keywords{Thymeleaf}
 \end{document}

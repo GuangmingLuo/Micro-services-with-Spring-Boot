@@ -37,3 +37,5 @@
 \BOOKMARK [1][-]{section.6}{References}{}% 37
 \BOOKMARK [1][-]{section.7}{Appendix}{}% 38
 \BOOKMARK [2][-]{subsection.7.1}{List of technologies used}{section.7}% 39
+\BOOKMARK [2][-]{subsection.7.2}{Problems and their solutions}{section.7}% 40
+\BOOKMARK [3][-]{subsubsection.7.2.1}{Thymeleaf security dialect}{subsection.7.2}% 41
