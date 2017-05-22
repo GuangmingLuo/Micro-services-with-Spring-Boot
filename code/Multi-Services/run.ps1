@@ -4,7 +4,7 @@ invoke-expression 'cmd /c start powershell -Command {$Host.UI.RawUI.WindowTitle 
 invoke-expression 'cmd /c start powershell -Command {$Host.UI.RawUI.WindowTitle = "MongoDB-27012-Menu";cd ".\MongoDB";.\mongo2.bat}'
 invoke-expression 'cmd /c start powershell -Command {$Host.UI.RawUI.WindowTitle = "MongoDB-27013-Food";cd ".\MongoDB";.\mongo3.bat}'
 invoke-expression 'cmd /c start powershell -Command {$Host.UI.RawUI.WindowTitle = "MongoDB-27014-Order";cd ".\MongoDB";.\mongo4.bat}'
-start-sleep -s 3
+start-sleep -s 8
 invoke-expression 'cmd /c start powershell -Command {$Host.UI.RawUI.WindowTitle = "OcrGateWay";cd ".\OcrGateWay\build\libs";java -jar OcrGateway-0.0.1-SNAPSHOT.jar}'
 invoke-expression 'cmd /c start powershell -Command {$Host.UI.RawUI.WindowTitle = "OcrRest";cd ".\OcrRest\build\libs";java -jar OcrRest-0.0.1-SNAPSHOT.jar}'
 invoke-expression 'cmd /c start powershell -Command {$Host.UI.RawUI.WindowTitle = "OcrMenu";cd ".\OcrMenu\build\libs";java -jar OcrMenu-0.0.1-SNAPSHOT.jar}'

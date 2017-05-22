@@ -1,5 +1,8 @@
 package com.faros.services;
 
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import my.faros.model.Order;
 import net.minidev.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +11,8 @@ import org.springframework.http.HttpEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -38,8 +43,15 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public List<JSONObject> findAll(int restaurantId) {
-        return restTemplate.getForObject(serviceUrl+"/orders?restaurantId={restaurantId}", List.class,restaurantId);
+    public List<JSONObject> findAll(int restaurantId) throws IOException {
+        //return restTemplate.getForObject(serviceUrl+"/orders?restaurantId={restaurantId}", List.class,restaurantId);
+        ObjectMapper mapper = new ObjectMapper();
+        JsonNode orders = restTemplate.getForObject(serviceUrl+"/orders?restaurantId={restaurantId}", JsonNode.class,restaurantId);
+        ArrayList<JSONObject> orderList = mapper.readValue(
+                mapper.treeAsTokens(orders),
+                new TypeReference<List<JSONObject>>(){}
+        );
+        return orderList;
     }
 
     @Override

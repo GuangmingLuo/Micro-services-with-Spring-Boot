@@ -1,9 +1,9 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" >
 <head>
-    <title>Order Overview</title>
+    <title>Getting Started: Order Overview</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <th:block th:include="fragments/include :: include"></th:block>
 </head>
 <body>
@@ -20,23 +20,27 @@
                             <th class="mdl-data-table__cell--non-numeric" th:text="'Restaurant name: '+${restaurantName}"> </th>
                         </tr>
                         <tr>
-                            <th class="mdl-data-table__cell--non-numeric">Order Overview</th>
+                            <th class="mdl-data-table__cell--non-numeric" th:text="'Table ID: '+${tableId}"> </th>
+                        </tr>
+                        <tr>
+                            <th class="mdl-data-table__cell--non-numeric" th:text="'Total Price: '+${price}"> </th>
+                        </tr>
+                        <tr>
+                            <th class="mdl-data-table__cell--non-numeric">My Order Overview</th>
                         </tr>
                         </thead>
                         <tbody>
                         <tr>
-                            <th class="mdl-data-table__cell--non-numeric" >Table Id</th>
                             <th class="mdl-data-table__cell--non-numeric" >Order Content</th>
+                            <th class="mdl-data-table__cell--non-numeric" >Price</th>
                             <th class="mdl-data-table__cell--non-numeric" >Comments</th>
-                            <th class="mdl-data-table__cell--non-numeric" >TotalPrice</th>
                             <th class="mdl-data-table__cell--non-numeric" >Status</th>
                         </tr>
                         <tr th:each="order:${orders}">
-                            <th class="mdl-data-table__cell--non-numeric" th:text="${order.tableId}"></th>
                             <th class="mdl-data-table__cell--non-numeric" th:text="${order.content}"></th>
-                            <th class="mdl-data-table__cell--non-numeric" th:text="${order.comments}"></th>
                             <th class="mdl-data-table__cell--non-numeric" th:text="${order.totalPrice}"></th>
-                            <th class="mdl-data-table__cell--non-numeric" style="cursor: pointer" th:text="${order.status}" th:onclick="'toggleStatus(this,'+${order.id}+')'" ></th>
+                            <th class="mdl-data-table__cell--non-numeric" th:text="${order.comments}"></th>
+                            <th class="mdl-data-table__cell--non-numeric" th:text="${order.status}"  ></th>
                         </tr>
                         </tbody>
                     </table>
@@ -45,31 +49,5 @@
         </div>
     </main>
 </div>
-<script>
-    function toggleStatus(obj,id) {
-        switch(obj.innerHTML){
-            case "In queue":
-                obj.innerHTML = 'Processing';
-                break;
-            case "Processing":
-                obj.innerHTML = 'Ready';
-                break;
-            case "Ready":
-                obj.innerHTML = 'Served';
-                break;
-            case "Served":
-                obj.innerHTML = 'Paid';
-                break;
-            default:
-                break;
-        }
-
-        $.ajax({
-            url:"/restaurant/order/changeStatus",
-            type:"post",
-            data:{id:id,status:obj.innerHTML}
-        });
-    }
-</script>
 </body>
 </html>

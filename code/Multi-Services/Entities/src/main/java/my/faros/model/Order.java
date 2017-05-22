@@ -8,6 +8,7 @@ public class Order {
     private String content;
     private int restaurantId;
     private int tableId;
+    private int totalPrice;
     private String status = "In queue";
     private String comments = "null";
 
@@ -90,5 +91,13 @@ public class Order {
 
     public void setRestaurantId(int restaurantId) {
         this.restaurantId = restaurantId;
+    }
+
+    public int getTotalPrice() {
+        return totalPrice;
+    }
+
+    public void setTotalPrice(int totalPrice) {
+        this.totalPrice = totalPrice;
     }
 }

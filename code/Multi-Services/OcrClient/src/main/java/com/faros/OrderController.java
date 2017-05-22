@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -47,45 +48,72 @@ public class OrderController {
             if (!s.isEmpty() && !s.equals("0"))
                 list.add(s);
         }
+        int totalPrice = 0;
         for (int i = 0; i < foods.length; i++) {
             Food food = foodService.findFoodById(foods[i]);
-            order += " name: " + food.getName() + " number: " + list.get(i);
+            order += " " + food.getName() + " × " + list.get(i);
+            totalPrice += food.getPrice();
         }
         log.info(order);
         redir.addFlashAttribute("content", order);
         redir.addFlashAttribute("tableId", tableId);
+        redir.addFlashAttribute("totalPrice", totalPrice);
         return "redirect:/restaurant/" + name + "/order";
     }
 
     @RequestMapping(value = "/restaurant/saveOrder", method = RequestMethod.POST)
-    public String saveOrder(@Valid String content,@Valid String restaurantName,@Valid int tableId,@Valid String comment){
+    public String saveOrder(@Valid String content,@Valid String restaurantName,@Valid int tableId,@Valid int totalPrice,@Valid String comment){
         Order newOrder = new Order();
         newOrder.setContent(content);
         newOrder.setTableId(tableId);
+        newOrder.setTotalPrice(totalPrice);
         JSONObject rest = restaurantService.findRestaurantByName(restaurantName);
         newOrder.setRestaurantId(Integer.parseInt(rest.getAsString("id")));
         newOrder.setComments(comment);
         orderService.save(newOrder);
-        return "redirect:/restaurant/"+ restaurantName;
+        return "redirect:/restaurant/"+ restaurantName+"/orderStatus/"+tableId;
     }
     @RequestMapping(value = "/restaurant/{name}/order", method = RequestMethod.GET)
-    //accessible by user with role "manager"
     public String order(@PathVariable String name, @ModelAttribute("content") final String content,
-                        @ModelAttribute("tableId") final String tableId, Model model) {
+                        @ModelAttribute("tableId") final String tableId,@ModelAttribute("totalPrice") final int totalPrice, Model model) {
         JSONObject rest = restaurantService.findRestaurantByName(name);
         if (rest == null) {
-            return "redirect:/error";         //if this manager is not bounded to this restaurant.
+            return "redirect:/error";
         } else {
             model.addAttribute("content", content);
             model.addAttribute("tableId", tableId);
+            model.addAttribute("totalPrice", totalPrice);
             model.addAttribute("restaurantName", rest.getAsString("name"));
             return "order";
         }
     }
 
+    @RequestMapping(value = "/restaurant/{name}/orderStatus/{tableId}", method = RequestMethod.GET)
+    public String orderStatus(@PathVariable String name, @PathVariable int tableId, Model model) throws IOException {
+        JSONObject rest = restaurantService.findRestaurantByName(name);
+        if (rest == null) {
+            return "redirect:/error";
+        } else {
+            List<JSONObject> orders = orderService.findAll(Integer.parseInt(rest.getAsString("id")));
+            List<JSONObject> myOrders = new ArrayList<>();
+            int price = 0;
+            for(JSONObject order:orders){
+                if(Integer.parseInt(order.getAsString("tableId"))==tableId){
+                    myOrders.add(order);
+                    price += Integer.parseInt(order.getAsString("totalPrice"));
+                }
+            }
+            model.addAttribute("tableId", tableId);
+            model.addAttribute("price", price);
+            model.addAttribute("restaurantName", name);
+            model.addAttribute("orders", myOrders);
+            return "orderStatus";
+        }
+    }
+
     @RequestMapping(value = "/restaurant/orderOverview", method = RequestMethod.GET)
     //accessible by user with role "manager"
-    public String orderOverview(Model model) {
+    public String orderOverview(Model model) throws IOException {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         org.springframework.security.core.userdetails.User user = (org.springframework.security.core.userdetails.User) auth.getPrincipal();
         JSONObject userExists = userService.findByUsername(user.getUsername());

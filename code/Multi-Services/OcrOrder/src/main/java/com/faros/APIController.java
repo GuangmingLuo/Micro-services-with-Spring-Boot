@@ -29,7 +29,7 @@ public class APIController {
     }
 
     /*
-    * This api returns a list of food entities by a menu id
+    * This api returns a list of  available orders
     * */
     @RequestMapping("/orders")
     public List<Order> orders(@RequestParam(value="restaurantId") int restaurantId){

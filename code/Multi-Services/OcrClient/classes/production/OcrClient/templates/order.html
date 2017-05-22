@@ -12,11 +12,13 @@
     <main class="mdl-layout__content">
         <h3 style="text-align: center">The order info is as follow: </h3>
         <div style="text-align: center;margin-bottom: 1%" th:text="${content}"></div>
+        <div style="text-align: center;margin-bottom: 1%" th:text="'Total Price: '+${totalPrice}"></div>
         <form id="orderForm" th:action="@{/restaurant/saveOrder}" action="#" method="post"
               style="margin-left:25%; margin-right: 25%; text-align:center">
             <input type="hidden" id="content" name="content" th:value="${content}"/>
             <input type="hidden" id="restaurantName" name="restaurantName" th:value="${restaurantName}"/>
             <input type="hidden" id="tableId" name="tableId" th:value="${tableId}"/>
+            <input type="hidden" id="totalPrice" name="totalPrice" th:value="${totalPrice}"/>
             <input autofocus="autofocus" class="mdl-textfield__input" type="text" id="comment" name="comment" placeholder="Add comments here !"/>
         </form>
         <div style="text-align: center;margin: 2% 25%;">
