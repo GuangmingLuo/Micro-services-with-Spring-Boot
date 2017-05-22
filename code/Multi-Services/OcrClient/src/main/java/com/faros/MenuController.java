@@ -15,6 +15,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.validation.Valid;
 import java.io.IOException;
@@ -40,7 +41,7 @@ public class MenuController {
     String errorMessage = null;
 
     @RequestMapping(value="/restaurant/{name}", method= RequestMethod.GET)
-    public String restaurant(@PathVariable String name, Model model){
+    public String restaurant(@PathVariable String name, @RequestParam(required = false) String tableId, Model model){
         JSONObject rest;
         final SimpleGrantedAuthority AUTHORITY_MANAGER = new SimpleGrantedAuthority("MANAGER");
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
@@ -68,6 +69,11 @@ public class MenuController {
         model.addAttribute("introduction",rest.getAsString("introduction"));
         List<JSONObject> menus = apiErrorHandle(rest);
         model.addAttribute("menus",menus);
+        if(tableId!=null){
+            model.addAttribute("tableId",tableId);
+        }else{
+            model.addAttribute("",tableId);
+        }
         model.addAttribute("errorMessage",errorMessage);
         return "restaurant";
     }
