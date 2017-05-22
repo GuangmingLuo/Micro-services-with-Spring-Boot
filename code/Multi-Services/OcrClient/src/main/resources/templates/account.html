@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <title>My Account</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <th:block th:include="fragments/include :: include"></th:block>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
+</head>
+<body>
+<div class="mdl-layout mdl-layout--fixed-header mdl-js-layout mdl-color--grey-100 is-upgraded">
+    <th:block th:include="fragments/navbar :: navbar">test</th:block>
+    <main class="mdl-layout__content">
+        <div style="margin: 2% 20%">
+            <h3 >The account info is as follow: </h3>
+            <div th:text="'User name: '+${username}"></div><br/>
+            <div  th:text="'Email Address: '+${email}"></div><br/>
+            <h3 >The info for the restaurant belong to this account is as follow: </h3>
+            <div th:text="'Restaurant Name: ' + ${restaurant.name} + '!'" > </div><br/>
+            <div th:text="'Address: ' + ${restaurant.address} " > </div><br/>
+            <div th:text="'Introduction: ' + ${restaurant.introduction}" > </div><br/>
+            <h3 >Click here to generate QR code for your restaurant URL: </h3>
+            <button onclick="generateQR()">Make QR code</button>
+            <div id="qrcode"></div>
+            <br/><br/><br/>
+            <th:block th:include="fragments/footer :: footer"></th:block>
+        </div>
+    </main>
+
+    <script th:inline="javascript">
+        function generateQR() {
+
+            var url = /*[[${url}]]*/'url';
+            jQuery('#qrcode').qrcode(url);
+
+        }
+    </script>
+</div>
+</body>
+</html>

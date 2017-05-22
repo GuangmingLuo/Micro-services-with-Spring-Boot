@@ -18,6 +18,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
+import java.net.Inet4Address;
+import java.net.UnknownHostException;
 import java.util.List;
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
@@ -69,6 +71,23 @@ public class UserController {
         return "employees";
     }
 
+    /*
+    * This register page is used for manager to register a employee account
+    * */
+    @RequestMapping(value= "/account",method= RequestMethod.GET)
+    public String account(Model model) throws UnknownHostException {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        org.springframework.security.core.userdetails.User user = (org.springframework.security.core.userdetails.User) auth.getPrincipal();
+        JSONObject userExists = userService.findByUsername(user.getUsername());
+        log.info(userExists.toString());
+        JSONObject rest = restaurantService.findRestaurantById(Integer.parseInt(userExists.getAsString("restaurantId")));
+        log.info(rest.toString());
+        model.addAttribute("username",userExists.getAsString("username"));
+        model.addAttribute("email",userExists.getAsString("email"));
+        model.addAttribute("restaurant",rest);
+        model.addAttribute("url", "http://"+Inet4Address.getLocalHost().getHostAddress()+"/restaurant/"+rest.getAsString("name"));
+        return "account";
+    }
     /*
     * This post function is shared by manager and admin (registration page)
     * */
