@@ -113,7 +113,7 @@ Similarly, there is ChowNow \cite{Chownow:online}. This service also handles onl
 \\\\
 Both of these systems are focused on the online ordering aspect and not so much on allowing people to use their devices to order food on location. In this project we want to put the emphasis on the latter part, creating an application that is meant to be used at the location itself.
 \end{multicols}
-\newpage
+%\newpage
 \section{Research and Methods}
 \begin{multicols}{2}
 \subsection{Approach}
@@ -173,7 +173,7 @@ In this subsection, the actual process for the implementation of the project wil
 As mentioned in section \ref{sec:idebuild}, we initially started out with a project made in Netbeans using Java EE serving JSP pages. This was a monolithic application that included client, business logic and database. This was our first experience with Enterprise java development. We had a locally hosted Payara server which we used to deploy our enterprise application archive. A simple SQL datastructure was running on an external MySQL server, which can been seen on figure \ref{fig:sqldiagram}
 \begin{Figure}
 	\centering
-	\includegraphics[width=\linewidth]{illustrations/placeholder.jpg}
+	\includegraphics[width=\linewidth]{illustrations/database.png}
 	\captionof{figure}{Original MySQL datastructure: This image shows the prototype relational model we used while working with a single SQL database}
 	\label{fig:sqldiagram}
 \end{Figure}
@@ -204,22 +204,17 @@ When certain errors occur during authentication or on our pages in general, it c
 Changing the output of a controller to is relatively straightforward. We make new controllers for each service using a \textit{@RestController} annotation instead of \textit{@Controller}. Instead of returning String templates, the mappings should be changed to return the entity classes. In practice this will return a JSON object to the client doing a REST call. Having these REST controllers allows for effortless communication between the various services and the application server. Now we are in a good position to start separating the services into different modules. The result of this separation is shown in figure \ref{fig:microservicessplit}.
 \begin{Figure}
 	\centering
-	\includegraphics[width=\linewidth]{illustrations/placeholder.jpg}
+	\includegraphics[width=0.9\linewidth]{illustrations/placeholder.jpg}
 	\captionof{figure}{Project structure after splitting into separate modules: Instead of the single monolithic application, the project now has a separate module for each service. Each module consists of an REST access point, a service that handles the REST calls and an individual database. This database can use SQL or NoSQL depending on the data it contains.}
 	\label{fig:microservicessplit}
 \end{Figure}
-\noindent Splitting the existing project into modules that can run and function proved to be quite a difficult task. One of the major problems was the database structure. It is possible to have all services connect to one central database, but this conflicts with the microservices concept. There would still be a central point of failure and scaling would still be limited to replicating the database on multiple servers or using application specific sharding. Instead of that we created separate databases for each service. We had to rethink the way we approached our data, as direct relations are not possible any more. Another disadvantage is that the initial migration from a monolithic application takes a significant amount of time. For us it took around one week to translate the single large project into a functioning microservices system. After getting the first few services to work, this process does speed up. Because the services are simplified to their most basic form, implementing additional services after the first one is only a change in the business logic.
+\noindent Splitting the existing project into modules that can run and function proved to be quite a difficult task. One of the major problems was the database structure. It is possible to have all services connect to one central database, but this conflicts with the microservices concept. There would still be a central point of failure and scaling would still be limited to replicating the database on multiple servers or using application specific sharding. Instead of that we created separate databases for each service. We had to rethink the way we approached our data, as direct relations are not possible any more. Another disadvantage is that the initial migration from a monolithic application takes a significant amount of time. For us it took around one week to translate the single large project into a functioning microservices system. After getting the first few services to work, this process does speed up. Because the services are simplified to their most basic form, implementing additional services after the first one is only a change in the business logic. During migration, we also noticed that certain existing systems break when moving to a microservice ecosystem, Spring security in particular. Instead of using the default configuration, an additional services that provides security for all services is required. Similarly, many of the technologies which are easily used in a monolithic application become much more difficult it is split into individually functioning parts. We have to take into account that these services are running on different ports and could be running on completely independent servers.
 \\\\
-During migration, we also noticed that certain existing systems break when moving to a microservice ecosystem, Spring security in particular. Instead of using the default configuration, an additional services that provides security for all services is required. Similarly, many of the technologies which are easily used in a monolithic application become much more difficult it is split into individually functioning parts. We have to take into account that these services are running on different ports and could be running on completely independent servers.
+Although there were several issues changing over to microservices, it did also bring noticeable advantages for development. The different services now have a REST API that returns a JSON object instead of Java entities. This is very convenient when making additional clients for accessing our application. We can do a http \textit{GET} or \textit{POST} to the corresponding services and we will get JSON back that can be immediately used to access the necessary information. We used this to create a native android application to be used by employees at a restaurant. More detail about this here: % put a reference here
+Another interesting aspect of this structure is that we can build modular web pages that get their information from multiple services. If a certain service is down or is experiencing connection problems the page can still be loaded. The missing content is simply not shown and we show a message on screen to indicate that a certain service is having issues. Thanks to the microservices architecture, only basic exception handling is needed to implement this.
 \\\\
-% TODO Configure all separate project and make them work with spring boot
-% disadvantage, the initial migration takes quite some time, but a lot of information becomes more similar because of the simplification of the modules.
-% disadvantage, combining technologies, especially security. security by itself is not difficult but combining it with microservices becomes more complex.
-% exception handling when a service is not running.
-% Test if the application server works with these new services
-% Retrieving data is now done using JSON object, but posts are still entities.
-\\\\
-wip
+We are now at the point where we have a functional application build upon a microservices foundation, but there are still some practical issues with the current structure. Currently, there is one instance of each service running in their own container, each bound to a specific port number. To access an API, the address and port of the service have to be known. For the application server accessed by browser clients these adresses can be hard-coded, although this is not recommended.(See the next paragraph about discovery.) For other clients this is more difficult, they do not know which addresses they can use the access the APIs. Hard-coding this would be detrimental as it would require an update of the application each time infrastructure changes are done. For example when changing the host of a certain service. The solution we used was creating an extra service that functions as a gateway for all the API endpoints. The Spring cloud dependency offers the foundation for this gateway under the form of Zuul, developed by Netflix. \cite{NetflixZuul76:online} Implementing this gateway allows us to accept requests that include the service name and route these requests to the corresponding service by specifying their addresses in the Zuul gateway configuration. The API gateway functions as a reverse proxy, illustrated in figure \ref{fig:apigateway}.
+% todo more information about http benchmarking
 
 
 %todo implementation
@@ -228,7 +223,7 @@ wip
 %todo biggest parts: Security, Spring MVC, Thymeleaf, microservices, discovery, gateway.
 
 \end{multicols}
-\newpage
+%\newpage
 \section{Case study: Online cash register}\label{sec:casestudy}
 \begin{multicols}{2}
 \subsection{Introduction}

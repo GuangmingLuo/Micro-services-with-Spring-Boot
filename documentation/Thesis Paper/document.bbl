@@ -76,6 +76,12 @@ Maple, S. (2016).
   \url{https://zeroturnaround.com/rebellabs/java-tools-and-technologies-landscape-2016/}.
 \newblock (Accessed on 03/05/2017).
 
+\bibitem[Netflix, 2017]{NetflixZuul76:online}
+Netflix (2017).
+\newblock Github - netflix zuul.
+\newblock \url{https://github.com/Netflix/zuul}.
+\newblock (Accessed on 23/05/2017).
+
 \bibitem[Oracle, 2013]{JavaEESecurity29:online}
 Oracle (2013).
 \newblock Security mechanics in java ee 6.

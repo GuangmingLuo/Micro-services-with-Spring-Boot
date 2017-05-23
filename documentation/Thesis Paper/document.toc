@@ -5,43 +5,43 @@
 \contentsline {subsubsection}{\numberline {1.3.1}Constraints}{5}{subsubsection.1.3.1}
 \contentsline {subsubsection}{\numberline {1.3.2}Design focus}{5}{subsubsection.1.3.2}
 \contentsline {subsection}{\numberline {1.4}Existing systems}{5}{subsection.1.4}
-\contentsline {section}{\numberline {2}Research and Methods}{7}{section.2}
-\contentsline {subsection}{\numberline {2.1}Approach}{7}{subsection.2.1}
-\contentsline {subsection}{\numberline {2.2}Java EE Landscape}{7}{subsection.2.2}
-\contentsline {subsection}{\numberline {2.3}Case study summary}{9}{subsection.2.3}
-\contentsline {subsection}{\numberline {2.4}Comparison of technologies}{9}{subsection.2.4}
-\contentsline {subsubsection}{\numberline {2.4.1}IDE's and build tools}{9}{subsubsection.2.4.1}
-\contentsline {subsubsection}{\numberline {2.4.2}General framework}{9}{subsubsection.2.4.2}
-\contentsline {subsubsection}{\numberline {2.4.3}Persistence providers}{10}{subsubsection.2.4.3}
-\contentsline {subsubsection}{\numberline {2.4.4}Object relational mapping tools}{11}{subsubsection.2.4.4}
-\contentsline {subsubsection}{\numberline {2.4.5}Security systems}{11}{subsubsection.2.4.5}
-\contentsline {subsubsection}{\numberline {2.4.6}Front-end and Styling frameworks}{11}{subsubsection.2.4.6}
-\contentsline {subsection}{\numberline {2.5}Implementation}{12}{subsection.2.5}
-\contentsline {section}{\numberline {3}Case study: Online cash register}{16}{section.3}
-\contentsline {subsection}{\numberline {3.1}Introduction}{16}{subsection.3.1}
-\contentsline {subsection}{\numberline {3.2}Use Cases}{16}{subsection.3.2}
-\contentsline {paragraph}{Customer}{16}{subsection.3.2}
-\contentsline {paragraph}{Waiter}{16}{subsection.3.2}
-\contentsline {paragraph}{Chef}{16}{subsection.3.2}
-\contentsline {paragraph}{Manager}{16}{subsection.3.2}
-\contentsline {subsection}{\numberline {3.3}Must-haves and nice-to haves}{16}{subsection.3.3}
-\contentsline {paragraph}{Must-Haves}{16}{subsection.3.3}
-\contentsline {paragraph}{Nice-to-Haves}{17}{subsection.3.3}
-\contentsline {subsection}{\numberline {3.4}Technology choices}{17}{subsection.3.4}
-\contentsline {subsubsection}{\numberline {3.4.1}Application type}{17}{subsubsection.3.4.1}
-\contentsline {subsubsection}{\numberline {3.4.2}Framework choices}{17}{subsubsection.3.4.2}
-\contentsline {subsection}{\numberline {3.5}Design Choices}{17}{subsection.3.5}
-\contentsline {subsubsection}{\numberline {3.5.1}Client}{17}{subsubsection.3.5.1}
-\contentsline {subsubsection}{\numberline {3.5.2}Employee}{18}{subsubsection.3.5.2}
-\contentsline {subsubsection}{\numberline {3.5.3}Manager}{19}{subsubsection.3.5.3}
-\contentsline {subsubsection}{\numberline {3.5.4}Remarks and challenges}{19}{subsubsection.3.5.4}
-\contentsline {subsection}{\numberline {3.6}Major issues and their solutions}{19}{subsection.3.6}
-\contentsline {section}{\numberline {4}Results}{19}{section.4}
-\contentsline {subsection}{\numberline {4.1}Final Prototype}{19}{subsection.4.1}
-\contentsline {subsection}{\numberline {4.2}User tests}{19}{subsection.4.2}
-\contentsline {section}{\numberline {5}Conclusion}{19}{section.5}
-\contentsline {section}{\numberline {6}References}{20}{section.6}
-\contentsline {section}{\numberline {7}Appendix}{22}{section.7}
-\contentsline {subsection}{\numberline {7.1}List of technologies used}{22}{subsection.7.1}
-\contentsline {subsection}{\numberline {7.2}Problems and their solutions}{22}{subsection.7.2}
-\contentsline {subsubsection}{\numberline {7.2.1}Thymeleaf security dialect}{22}{subsubsection.7.2.1}
+\contentsline {section}{\numberline {2}Research and Methods}{6}{section.2}
+\contentsline {subsection}{\numberline {2.1}Approach}{6}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}Java EE Landscape}{6}{subsection.2.2}
+\contentsline {subsection}{\numberline {2.3}Case study summary}{8}{subsection.2.3}
+\contentsline {subsection}{\numberline {2.4}Comparison of technologies}{8}{subsection.2.4}
+\contentsline {subsubsection}{\numberline {2.4.1}IDE's and build tools}{8}{subsubsection.2.4.1}
+\contentsline {subsubsection}{\numberline {2.4.2}General framework}{8}{subsubsection.2.4.2}
+\contentsline {subsubsection}{\numberline {2.4.3}Persistence providers}{9}{subsubsection.2.4.3}
+\contentsline {subsubsection}{\numberline {2.4.4}Object relational mapping tools}{10}{subsubsection.2.4.4}
+\contentsline {subsubsection}{\numberline {2.4.5}Security systems}{10}{subsubsection.2.4.5}
+\contentsline {subsubsection}{\numberline {2.4.6}Front-end and Styling frameworks}{10}{subsubsection.2.4.6}
+\contentsline {subsection}{\numberline {2.5}Implementation}{11}{subsection.2.5}
+\contentsline {section}{\numberline {3}Case study: Online cash register}{15}{section.3}
+\contentsline {subsection}{\numberline {3.1}Introduction}{15}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}Use Cases}{15}{subsection.3.2}
+\contentsline {paragraph}{Customer}{15}{subsection.3.2}
+\contentsline {paragraph}{Waiter}{15}{subsection.3.2}
+\contentsline {paragraph}{Chef}{15}{subsection.3.2}
+\contentsline {paragraph}{Manager}{15}{subsection.3.2}
+\contentsline {subsection}{\numberline {3.3}Must-haves and nice-to haves}{15}{subsection.3.3}
+\contentsline {paragraph}{Must-Haves}{15}{subsection.3.3}
+\contentsline {paragraph}{Nice-to-Haves}{16}{subsection.3.3}
+\contentsline {subsection}{\numberline {3.4}Technology choices}{16}{subsection.3.4}
+\contentsline {subsubsection}{\numberline {3.4.1}Application type}{16}{subsubsection.3.4.1}
+\contentsline {subsubsection}{\numberline {3.4.2}Framework choices}{16}{subsubsection.3.4.2}
+\contentsline {subsection}{\numberline {3.5}Design Choices}{16}{subsection.3.5}
+\contentsline {subsubsection}{\numberline {3.5.1}Client}{16}{subsubsection.3.5.1}
+\contentsline {subsubsection}{\numberline {3.5.2}Employee}{17}{subsubsection.3.5.2}
+\contentsline {subsubsection}{\numberline {3.5.3}Manager}{18}{subsubsection.3.5.3}
+\contentsline {subsubsection}{\numberline {3.5.4}Remarks and challenges}{18}{subsubsection.3.5.4}
+\contentsline {subsection}{\numberline {3.6}Major issues and their solutions}{18}{subsection.3.6}
+\contentsline {section}{\numberline {4}Results}{18}{section.4}
+\contentsline {subsection}{\numberline {4.1}Final Prototype}{18}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}User tests}{18}{subsection.4.2}
+\contentsline {section}{\numberline {5}Conclusion}{18}{section.5}
+\contentsline {section}{\numberline {6}References}{19}{section.6}
+\contentsline {section}{\numberline {7}Appendix}{21}{section.7}
+\contentsline {subsection}{\numberline {7.1}List of technologies used}{21}{subsection.7.1}
+\contentsline {subsection}{\numberline {7.2}Problems and their solutions}{21}{subsection.7.2}
+\contentsline {subsubsection}{\numberline {7.2.1}Thymeleaf security dialect}{21}{subsubsection.7.2.1}
