@@ -113,13 +113,18 @@ public class OrderController {
 
     @RequestMapping(value = "/restaurant/orderOverview", method = RequestMethod.GET)
     //accessible by user with role "manager"
-    public String orderOverview(Model model) throws IOException {
+    public String orderOverview(Model model){
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         org.springframework.security.core.userdetails.User user = (org.springframework.security.core.userdetails.User) auth.getPrincipal();
         JSONObject userExists = userService.findByUsername(user.getUsername());
         JSONObject rest = restaurantService.findRestaurantById(Integer.parseInt(userExists.getAsString("restaurantId")));
         model.addAttribute("restaurantName", rest.getAsString("name"));
-        List<JSONObject> orders =orderService.findAll(Integer.parseInt(rest.getAsString("id")));
+        List<JSONObject> orders = null;
+        try {
+            orders = orderService.findAll(Integer.parseInt(rest.getAsString("id")));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         model.addAttribute("orders", orders);
         return "orderOverview";
     }
@@ -135,6 +140,24 @@ public class OrderController {
     @RequestMapping(value = "/restaurant/now-to-serve", method = RequestMethod.GET)
     //accessible by user with role "manager"
     public String nowToServe(Model model){
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        org.springframework.security.core.userdetails.User user = (org.springframework.security.core.userdetails.User) auth.getPrincipal();
+        JSONObject userExists = userService.findByUsername(user.getUsername());
+        JSONObject rest = restaurantService.findRestaurantById(Integer.parseInt(userExists.getAsString("restaurantId")));
+        model.addAttribute("restaurantName", rest.getAsString("name"));
+        List<JSONObject> orders = new ArrayList<>();
+        List<JSONObject> result = new ArrayList<>();
+        try {
+            orders = orderService.findAll(Integer.parseInt(rest.getAsString("id")));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        for(JSONObject order:orders){
+            if(order.getAsString("status").equals("Ready")){
+                result.add(order);
+            }
+        }
+        model.addAttribute("orders", result);
         return "now-to-serve";
     }
 }
