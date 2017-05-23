@@ -46,10 +46,6 @@
                         </table>
                     </div>
                         <div class="mdl-textfield">
-                            <div th:if="${tableId}"> <!-- if customer is anonymous-->
-                                <div>Welcome, Guest</div>
-                            </div>
-
                             <input autofocus="autofocus" class="mdl-textfield__input" type="number" id="tableId" th:value="${tableId}" name="tableId" required="required"/>
                             <label class="mdl-textfield__label" for="tableId">Table Name</label>
                         </div>

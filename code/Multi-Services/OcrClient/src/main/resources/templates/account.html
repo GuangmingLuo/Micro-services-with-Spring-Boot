@@ -11,26 +11,30 @@
 <div class="mdl-layout mdl-layout--fixed-header mdl-js-layout mdl-color--grey-100 is-upgraded">
     <th:block th:include="fragments/navbar :: navbar">test</th:block>
     <main class="mdl-layout__content">
-        <div style="margin: 2% 20%">
-            <h3 >The account info is as follow: </h3>
-            <div th:text="'User name: '+${username}"></div><br/>
-            <div  th:text="'Email Address: '+${email}"></div><br/>
-            <h3 >The info for the restaurant belong to this account is as follow: </h3>
-            <div th:text="'Restaurant Name: ' + ${restaurant.name} + '!'" > </div><br/>
-            <div th:text="'Address: ' + ${restaurant.address} " > </div><br/>
-            <div th:text="'Introduction: ' + ${restaurant.introduction}" > </div><br/>
-            <h3 >Click here to generate QR code for your restaurant URL: </h3>
-            <button onclick="generateQR()">Make QR code</button>
-            <div id="qrcode"></div>
-            <br/><br/><br/>
-            <th:block th:include="fragments/footer :: footer"></th:block>
+        <div class="mdl-grid">
+            <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
+            <div class="demo-content mdl-color--white mdl-shadow--4dp content mdl-color-text--grey-800 mdl-cell mdl-cell--8-col">
+                <h3 >The account info is as follow: </h3>
+                <div th:text="'User name: '+${username}"></div><br/>
+                <div  th:text="'Email Address: '+${email}"></div><br/>
+                <h3 >The info for the restaurant belong to this account is as follow: </h3>
+                <div th:text="'Restaurant Name: ' + ${restaurant.name} + '!'" > </div><br/>
+                <div th:text="'Address: ' + ${restaurant.address} " > </div><br/>
+                <div th:text="'Introduction: ' + ${restaurant.introduction}" > </div><br/>
+                <h3 >Click here to generate QR code for your restaurant URL: </h3>
+                <input id="tableId" type="text" placeholder="tableId"/> <button onclick="generateQR()">Make QR code</button><br/><br/>
+                <div id="qrcode"></div>
+                <br/><br/>
+                <th:block th:include="fragments/footer :: footer"></th:block>
+            </div>
         </div>
     </main>
 
     <script th:inline="javascript">
         function generateQR() {
-
+            var tableId= document.getElementById("tableId").value;
             var url = /*[[${url}]]*/'url';
+            url += "?tableId="+tableId;
             jQuery('#qrcode').qrcode(url);
 
         }
