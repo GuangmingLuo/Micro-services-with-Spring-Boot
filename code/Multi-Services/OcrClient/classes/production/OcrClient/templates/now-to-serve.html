@@ -1,0 +1,97 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Now-To-Serve-System</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <style th:inline="text">
+        body, html {
+            height: 100%;
+            margin: 0;
+            font: 400 15px/1.8 "Lato", sans-serif;
+            color: #777;
+        }
+
+        .bgimg-1{
+            position: relative;
+            opacity: 0.8;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+        .bgimg-1 {
+            background-image: url([[@{/images/Restaurant-Menu-template-backgrounds.jpg}]]);
+            height: 100%;
+        }
+
+        .caption {
+            position: absolute;
+            left: 23%;
+            top: 16%;
+            width: 100%;
+            color: #000;
+        }
+
+        .caption span.border {
+            background-color: #111;
+            color: #fff;
+            padding: 18px;
+            font-size: 25px;
+            letter-spacing: 10px;
+        }
+        #circle {
+            width: 50px;
+            height: 50px;
+            background-color: red;
+            -moz-border-radius: 50px;
+            -webkit-border-radius: 50px;
+            border-radius: 50px;
+            margin-left: 10%;
+            margin-bottom: 1%;
+        }
+
+        .blink {
+            animation: blink-animation 1s steps(5, start);
+            -webkit-animation: blink-animation 1s steps(5, start);
+        }
+        @keyframes blink-animation {
+            to {
+                visibility: hidden;
+            }
+        }
+        @-webkit-keyframes blink-animation {
+            to {
+                visibility: hidden;
+            }
+        }
+        </style>
+</head>
+<body>
+
+<div class="bgimg-1">
+    <div class="caption">
+        <div id="circle" class="blink" ></div>
+        <span class="border" th:text="'Welcome to '+${restaurantName}+' !'"></span><br/><br/>
+        <div th:each="order:${orders}">
+            <span class="border" th:text="'Table - '+${order.tableId}"></span>
+            <span class="border">Ready</span>
+        </div>
+    </div>
+</div>
+<script>
+    var time = new Date().getTime();
+    $(document.body).bind("mousemove keypress", function(e) {
+        time = new Date().getTime();
+    });
+
+    function refresh() {
+        if(new Date().getTime() - time >= 5000)
+            window.location.reload(true);
+        else
+            setTimeout(refresh, 1000);
+    }
+
+    setTimeout(refresh, 1000);
+</script>
+</body>
+</html>
