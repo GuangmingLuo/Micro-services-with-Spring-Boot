@@ -131,4 +131,10 @@ public class OrderController {
         log.info("Here comes in changeStatus:{} and {}",id,status);
         orderService.changeOrderStatus(id,status);
     }
+
+    @RequestMapping(value = "/restaurant/now-to-serve", method = RequestMethod.GET)
+    //accessible by user with role "manager"
+    public String nowToServe(Model model){
+        return "now-to-serve";
+    }
 }
