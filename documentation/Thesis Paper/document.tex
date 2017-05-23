@@ -1,15 +1,43 @@
+% +==============================================================+
+% |                                                              |
+% |             Document created by Lennart Cockx				 |
+% |                                                              |
+% +==============================================================+
+
+% +==============================================================+
+% |                     Document settings				         |
+% +==============================================================+
+
 % Document formatting and includes
 \documentclass[12pt]{article}
 \usepackage[a4paper,left=3cm,right=2cm,top=2.5cm,bottom=2.5cm]{geometry}
+
+%graphics for loading pictures into the document
 \usepackage{graphicx}
+
+%subcaptions for subfigures
 \usepackage{subcaption}
+
+
 \usepackage[hyphens]{url}
 \usepackage{hyperref}
-\providecommand{\keywords}[1]{\textbf{\textit{Index terms---}} #1}
 \usepackage[none]{hyphenat}
+\providecommand{\keywords}[1]{\textbf{\textit{Index terms---}} #1}
+
 \usepackage{multicol}
+
+% Bibliography should use APA styliing
 \usepackage{apalike}
 \bibliographystyle{apalike}
+
+% Change the gap size between the columns
+\setlength{\columnsep}{15pt}
+
+% This line adds a column separator between columns
+%\setlength{\columnseprule}{0.1pt}
+
+
+\usepackage[raggedright]{titlesec}
 
 \usepackage{enumitem}
 \setlist[itemize]{leftmargin=*}
@@ -26,6 +54,14 @@
 \title{Application development with\\ Microservice Architecture in Enterprise Java\\ A Spring Boot Case Study}
 \author{Lennart Cockx\\Guangming Luo}
 
+% +==============================================================+
+% |                    End of document settings			         |
+% +==============================================================+
+
+
+
+
+
 \begin{document}
 
 \maketitle
@@ -37,11 +73,12 @@
 \noindent In this report we will explore various Java technologies and analyse what features they offer. The focus of this project is to find which frameworks are most suitable for quick prototyping of a business application. Constraints and other requirements will be defined and are then applied to a specific case study. At the end of this project we should have an excellent understanding of the technologies involved to make a online cash register application that handles orders and payment in restaurants. [WIP]
 % todo will be changed when the rest of the text is finished
 \end{abstract}
-\keywords{JavaEE, Spring, Cash register, Java}
+\keywords{JavaEE, Spring framework, Cloud, Microservices}
 
 
-\begin{multicols}{2}
+
 \section{Project Objective}
+\begin{multicols}{2}
 \subsection{Proposal}
 This master thesis is commissioned by Faros, a Cronos group company specialized in the development of Java web applications and primarily focused on designing Rich Internet Applications. Development within Faros is done mainly with Vaadin, Spring, HTML5, ExtJS, JavaScript, JSP, JSF, NoSQL and more.\cite{farosProposal} This means that during this thesis, special attention is given to these technologies in regards to design choices. Naturally, comparisons with other possible frameworks will still be done and valid arguments will be set forward to confirm these decisions.
 \\\\
@@ -75,7 +112,10 @@ Before creating our own Online cash register application we searched for similar
 Similarly, there is ChowNow \cite{Chownow:online}. This service also handles online ordering and payment with no extra input required from the restaurant manager. ChowNow will also create a custom branded mobile application to showcase the brand and food of the restaurant.
 \\\\
 Both of these systems are focused on the online ordering aspect and not so much on allowing people to use their devices to order food on location. In this project we want to put the emphasis on the latter part, creating an application that is meant to be used at the location itself.
+\end{multicols}
+\newpage
 \section{Research and Methods}
+\begin{multicols}{2}
 \subsection{Approach}
 We will take a quantitative approach in this paper, exploring and comparing frameworks for each of the features required for this project. This includes: General frameworks providing a way to couple web resources to Java code. Persistence providers, SQL or noSQL databases to store customer information. Object relational mapping tools to generate mappings from existing data-stores. Security systems to allow authentication and authorization in a safe way. Front-end frameworks, providing styling options and client side scripting. Everything related to the case study is detailed separately in section \ref{sec:casestudy}
 \subsection{Java EE Landscape}
@@ -170,7 +210,7 @@ Changing the output of a controller to is relatively straightforward. We make ne
 \end{Figure}
 \noindent Splitting the existing project into modules that can run and function proved to be quite a difficult task. One of the major problems was the database structure. It is possible to have all services connect to one central database, but this conflicts with the microservices concept. There would still be a central point of failure and scaling would still be limited to replicating the database on multiple servers or using application specific sharding. Instead of that we created separate databases for each service. We had to rethink the way we approached our data, as direct relations are not possible any more. Another disadvantage is that the initial migration from a monolithic application takes a significant amount of time. For us it took around one week to translate the single large project into a functioning microservices system. After getting the first few services to work, this process does speed up. Because the services are simplified to their most basic form, implementing additional services after the first one is only a change in the business logic.
 \\\\
-During migration, we also noticed that certain existing systems break when moving to a microservice ecosystem, Spring security in particular. Instead of using the default configuration, an additional services that provides security for all services is required. Similarly, many of the technologies which are easily used in a monolithic application become much more difficult it is split into individually functioning parts. We have to take into account that these services are running on different ports and could be running on completely different servers.
+During migration, we also noticed that certain existing systems break when moving to a microservice ecosystem, Spring security in particular. Instead of using the default configuration, an additional services that provides security for all services is required. Similarly, many of the technologies which are easily used in a monolithic application become much more difficult it is split into individually functioning parts. We have to take into account that these services are running on different ports and could be running on completely independent servers.
 \\\\
 % TODO Configure all separate project and make them work with spring boot
 % disadvantage, the initial migration takes quite some time, but a lot of information becomes more similar because of the simplification of the modules.
@@ -187,7 +227,10 @@ wip
 %todo add issues: 
 %todo biggest parts: Security, Spring MVC, Thymeleaf, microservices, discovery, gateway.
 
+\end{multicols}
+\newpage
 \section{Case study: Online cash register}\label{sec:casestudy}
+\begin{multicols}{2}
 \subsection{Introduction}
 The goal of this case study is to create a service that can be used at events and in restaurants to process orders made by customers, relay these orders to the waiters and chefs and handle the payment. This service should include an application that clients can use to view the menu and order items from it. Waiters also have their own application that can place and acknowledge orders. These orders will be send to a central system that manages all the required information. See fig. \ref{fig:usecase} for a use case diagram.
 \subsection{Use Cases}
@@ -338,9 +381,26 @@ One of the most important aspects to consider here is multi-tenancy. The applica
 \section{Appendix}
 \subsection{List of technologies used}
 Underneath, a list of technologies used during this project can be found. Technologies present in the final application will be indicated in \textbf{bold}.
-\begin{itemize}
-	\item \textbf{Thymeleaf} - Templating engine for web pages.
+\begin{itemize}[leftmargin=20pt]
+	
 	\item \textbf{Spring Boot} - Bootstrapper used on top of Spring MVC
+	\begin{itemize}[leftmargin=20pt]
+		\item \textbf{Spring MVC} - Java web development framework
+		\item \textbf{Spring Security} - Java web security dependency
+		\item \textbf{Thymeleaf} - Templating engine for web pages.
+		\begin{itemize}[leftmargin=20pt]
+				\item  \textbf{Thymeleaf Security Dialect} - integration module for Spring Security
+		\end{itemize}
+		\item \textbf{Spring Actuator} - Application endpoints for monitoring and management
+		\item \textbf{Spring Data JPA} - Persistence API for database access and Object mapping
+		\item \textbf{Spring Devtools} - Spring-specific tools useful during development. E.g. Hotswapping, auto-disable template caching and automatic restarts.
+	\end{itemize}
+	\item \textbf{HTML} - Markup language used for web pages
+	\item \textbf{CSS} - Markup language for web pages styling
+	\item \textbf{JavaScript} - Scripting language to make web pages dynamic
+	
+	
+	 
 \end{itemize}
 \subsection{Problems and their solutions}
 \subsubsection{Thymeleaf security dialect}
