@@ -8,13 +8,22 @@
 \providecommand{\keywords}[1]{\textbf{\textit{Index terms---}} #1}
 \usepackage[none]{hyphenat}
 \usepackage{multicol}
+\usepackage{apalike}
+\bibliographystyle{apalike}
+
+\usepackage{enumitem}
+\setlist[itemize]{leftmargin=*}
+
+\newenvironment{Figure}
+	{\par\medskip\noindent\minipage{\linewidth}}
+	{\endminipage\par\medskip}
 
 
 % \begin{multicols}{2} % \end{multicols}
 
 
 %opening
-\title{Application development with microservices\\ in Enterprise Java\\ A Spring Boot Case Study}
+\title{Application development with\\ Microservice Architecture in Enterprise Java\\ A Spring Boot Case Study}
 \author{Lennart Cockx\\Guangming Luo}
 
 \begin{document}
@@ -30,9 +39,9 @@
 \end{abstract}
 \keywords{JavaEE, Spring, Cash register, Java}
 
+
+\begin{multicols}{2}
 \section{Project Objective}
-
-
 \subsection{Proposal}
 This master thesis is commissioned by Faros, a Cronos group company specialized in the development of Java web applications and primarily focused on designing Rich Internet Applications. Development within Faros is done mainly with Vaadin, Spring, HTML5, ExtJS, JavaScript, JSP, JSF, NoSQL and more.\cite{farosProposal} This means that during this thesis, special attention is given to these technologies in regards to design choices. Naturally, comparisons with other possible frameworks will still be done and valid arguments will be set forward to confirm these decisions.
 \\\\
@@ -93,7 +102,7 @@ Hopefully this section gave some insight into the technologies used in Enterpris
 \subsection{Case study summary}
 % TODO add section that specifies basic requirements of the case study and explain why these might or might not match what we write down here.
 \subsection{Comparison of technologies}
-Even before we specify the case study for our project we can already try out the different technologies discussed in the previous subsection and make a selection of those we deem appropriate for this master thesis. These choices should not be affected by our specific case study, but it will be kept in mind.
+Even before we specify the case study for our project we can already try out the different technologies discussed in the previous subsection and make a selection of those we deem appropriate for this master thesis. Any choices directly related to our specific case study will be discussed in section \ref{sec:casestudy}.
 \subsubsection{IDE's and build tools}\label{sec:idebuild}
 While the development environment and build tools are essential in application development. The choice itself is based on the preferences of the individual programmer. This project started out with the Netbeans environment and Maven for dependency management. When we started using Spring we tried out the Spring Tool Suite based on Eclipse, but we finally settled on IntelliJ IDEA and Gradle. IDEA offers many tools often needed during development such as a database editor, gradle/maven task execution, ORM modules, bitbucket plugin support, REST client for testing, superior auto-completion and built-in support for many frameworks. There are several other advantages to using IDEA, but these were the most determining factors causing us to switch environment. For the build tool, Maven is actually not inferior to Gradle. Both support the dependency injection that we need for this project. The primary reason we decided to try it out was curiosity. Gradle is currently the default build tool in Android development with android studio, and it is also utilized in Grails and Netflix OSS. When comparing them directly, Gradle seems to offer a much richer feature set. \cite{GradleVsMaven48:online} When using this build tool in the project, we came to the conclusion that these extra features were not really a necessity for our specific application. We did stick to Gradle in the end though, as the DSL syntax that it uses makes for a much more readable build file in comparison to the XML notation that Maven uses. We did stumble upon some issues while using Gradle. It also uses the Maven repositories for its dependencies, which means that if you want to add your own dependency to the local Maven repository, you will need to enable the maven-publish plugin within Gradle and add the relevant build code to bundle it correctly. Compare this to Maven, where executing the install task achieves the same result. In general, the choices we made for this section are based on our own preferences and experiences during the project.
 \subsubsection{General framework}
@@ -121,25 +130,26 @@ Another trend in web development are responsive and reactive web pages. With the
 %Possibly move to after the Case study explaination.
 In this subsection, the actual process for the implementation of the project will be laid out. We will present a chronological progression of the project and discuss what we implemented and what roadblocks we encountered.
 \\\\
-As mentioned in section \ref{sec:idebuild}, we initially started out with a project made in Netbeans using Java EE serving JSP pages. This was a monolithic application that included client, business logic and database. This was our first experience with Enterprise java development. We used a locally hosted Payara server which we used to deploy our enterprise application archive. A simple SQL datastructure was running on an external MySQL server, which can been seen on figure \ref{fig:sqldiagram} %insert picture of original schematic.
-\begin{figure}[h!]
+As mentioned in section \ref{sec:idebuild}, we initially started out with a project made in Netbeans using Java EE serving JSP pages. This was a monolithic application that included client, business logic and database. This was our first experience with Enterprise java development. We had a locally hosted Payara server which we used to deploy our enterprise application archive. A simple SQL datastructure was running on an external MySQL server, which can been seen on figure \ref{fig:sqldiagram}
+\begin{Figure}
 	\centering
-	%\includegraphics[width=0.75\linewidth]{usecase.jpg}
-	\caption{Original MySQL datastructure: This image shows the prototype relational model we used while working with a single SQL database}
+	\includegraphics[width=\linewidth]{illustrations/placeholder.jpg}
+	\captionof{figure}{Original MySQL datastructure: This image shows the prototype relational model we used while working with a single SQL database}
 	\label{fig:sqldiagram}
-\end{figure}
-\\\\
-After our initial research we switched over to Spring Boot and recreated the original project. We still kept the previous database. The Payara server was replaced by the internal server that Spring Boot uses. This is a tomcat server that is packaged together with the resources and java code into a single executable .jar. This is great for testing as we just have to execute this one file to start our application server, deploy the project files to it and launch the server on the port we specified.
+\end{Figure}
+\noindent After our initial research we switched over to Spring Boot and recreated the original project. We still kept the previous database. The Payara server was replaced by the internal server that Spring Boot uses. This is a tomcat server that is packaged together with the resources and java code into a single executable .jar. This is great for testing as we just have to execute this one file to start our application server, deploy the project files to it and launch the server on the port we specified.
 \\\\
 For this application we used hibernate to generate Java entities from the database model we designed. There was also a basic version of Spring security running in this project that only allowed access to certain pages based on the role assigned to the account you logged in with. When logged in, users could access the restaurant page they were assigned to. At this time the page was a blank template on which the corresponding restaurant's name was shown. From the start we chose to split up the functionality of the program into different modules, we hoped that this would enable us to more easily divide the project when changing to a microservices architecture.
 \\\\
 Now that we have a functional Spring Boot application, we can start adding the services we need for our case study. The final application should have the following services:
+
 \begin{itemize}
-	\item \textbf{Restaurant service} - Provides the name, address and a description of each restaurant registered with our webapplication.
-	\item \textbf{Menu service} - Holds the menu categories for a specific restaurant.
-	\item \textbf{Food service} - Has a list of food items associated with a category and registers their price.
-	\item \textbf{User service} - Manages everything related to the login and authorization of employees and managers.
-	\item \textbf{Order service} - Takes and stores orders made by customers.
+	\raggedright
+	\item \textbf{Restaurant service}\\Provides the name, address and a description of each restaurant registered with our webapplication.
+	\item \textbf{Menu service}\\Holds the menu categories for a specific restaurant.
+	\item \textbf{Food service}\\Has a list of food items associated with a category and registers their price.
+	\item \textbf{User service}\\Manages everything related to the login and authorization of employees and managers.
+	\item \textbf{Order service}\\Takes and stores orders made by customers.
 \end{itemize} 
 Implementing these services went smoothly as we can avoid writing a lot of boilerplate code by using the autoconfiguration from Spring Boot. When creating the various services, they are configured with the \textit{@Service} annotation. Functionally this annotation works the same as \textit{@Component}, and allows this class to be used with automatic bean detection on the application classpath. When used, these classes will be instantiated as a singleton beans. The primary reason the \textit{@Service} annotation is used instead is to indicate what type of component we are creating as defined in Domain-driven design.\cite{ComponentAnnotationDifferences34:online}\cite{ServiceAnnotationSpring48:online} We purposefully make a distinction between presentation, service and data access modules to make classification easier.
 \\\\
@@ -152,14 +162,16 @@ At this point we have a functional web application that has pages to display res
 When certain errors occur during authentication or on our pages in general, it can be useful to have an error page to display what went wrong. We used the Spring Boot Actuator package to create a default error page. This page does not use any styling and has a limited amount of information, so we implemented a custom \textit{ErrorController} that can show stack trace information and matches the design of our other pages. During this time we finished much of the business logic and static pages for the case study. However, It was still a monolithic application running on a single SQL server. The next step would be to start creating REST controllers to enable REST requests to the services. This is needed to build a REST API, allowing access to the services after splitting them up in separate modules.
 \\\\
 Changing the output of a controller to is relatively straightforward. We make new controllers for each service using a \textit{@RestController} annotation instead of \textit{@Controller}. Instead of returning String templates, the mappings should be changed to return the entity classes. In practice this will return a JSON object to the client doing a REST call. Having these REST controllers allows for effortless communication between the various services and the application server. Now we are in a good position to start separating the services into different modules. The result of this separation is shown in figure \ref{fig:microservicessplit}.
-\begin{figure}[h!]
+\begin{Figure}
 	\centering
-	%\includegraphics[width=0.75\linewidth]{usecase.jpg}
-	\caption{Project structure after splitting into separate modules: Instead of the single monolithic application, the project now has a separate module for each service. Each module consists of an REST access point, a service that handles the REST calls and an individual database. This database can use SQL or NoSQL depending on the data it contains.}
+	\includegraphics[width=\linewidth]{illustrations/placeholder.jpg}
+	\captionof{figure}{Project structure after splitting into separate modules: Instead of the single monolithic application, the project now has a separate module for each service. Each module consists of an REST access point, a service that handles the REST calls and an individual database. This database can use SQL or NoSQL depending on the data it contains.}
 	\label{fig:microservicessplit}
-\end{figure}
+\end{Figure}
+\noindent Splitting the existing project into modules that can run and function proved to be quite a difficult task. One of the major problems was the database structure. It is possible to have all services connect to one central database, but this conflicts with the microservices concept. There would still be a central point of failure and scaling would still be limited to replicating the database on multiple servers or using application specific sharding. Instead of that we created separate databases for each service. We had to rethink the way we approached our data, as direct relations are not possible any more. Another disadvantage is that the initial migration from a monolithic application takes a significant amount of time. For us it took around one week to translate the single large project into a functioning microservices system. After getting the first few services to work, this process does speed up. Because the services are simplified to their most basic form, implementing additional services after the first one is only a change in the business logic.
 \\\\
-Splitting the existing project into modules that can run and function proved to be quite a difficult task. One of the major problems was the database structure. It is possible to have all services connect to one central database, but this conflicts with the microservices concept. There would still be a central point of failure and scaling would still be limited to replicating the database on multiple servers or using application specific sharding. Instead of that we created separate databases for each service. We had to rethink the way we approached our data, as direct relations are not possible any more. 
+During migration, we also noticed that certain existing systems break when moving to a microservice ecosystem, Spring security in particular. Instead of using the default configuration, an additional services that provides security for all services is required. Similarly, many of the technologies which are easily used in a monolithic application become much more difficult it is split into individually functioning parts. We have to take into account that these services are running on different ports and could be running on completely different servers.
+\\\\
 % TODO Configure all separate project and make them work with spring boot
 % disadvantage, the initial migration takes quite some time, but a lot of information becomes more similar because of the simplification of the modules.
 % disadvantage, combining technologies, especially security. security by itself is not difficult but combining it with microservices becomes more complex.
@@ -190,17 +202,18 @@ The chef can access similar functions as the waiter. Additionally, they can modi
 The manager can modify the menu and change prices. They can also create accounts for employees and give them the corresponding privileges.\\
 
 %should also have some information about multi-tenancy
-\begin{figure}[h!]
+\begin{Figure}
 	\centering
-	\includegraphics[width=0.75\linewidth]{usecase.jpg}
-	\caption{Use Case Diagram}
+	\includegraphics[width=\linewidth]{illustrations/usecase.jpg}
+	\captionof{figure}{Use Case Diagram}
 	\label{fig:usecase}
-\end{figure}
+\end{Figure}
 
 \subsection{Must-haves and nice-to haves}
 As soon as we had the use cases defined, we can specify what features are absolutely essential and which are optional. This was done in collaboration with our coaches at Faros and gave us the following specifications.
 \paragraph{Must-Haves}
 \begin{itemize}
+	\raggedright
 	\item The system can be used by multiple managers or event-organizers simultaneously. 
 	(\textit{Multi-tenancy})
 	\item A central application will handle orders and payment. 
@@ -220,6 +233,7 @@ As soon as we had the use cases defined, we can specify what features are absolu
 \end{itemize}
 \paragraph{Nice-to-Haves}
 \begin{itemize}
+	\raggedright
 	\item Event organizers can run the central application on their own local network. 
 	(\textit{Local network hosting})
 	\item After an order is finished, the completed order number is shown on a big screen. 
@@ -232,9 +246,9 @@ As soon as we had the use cases defined, we can specify what features are absolu
 	(\textit{Easy access})
 	\item Customers can order additional food or drinks. This will be added to the total bill.
 	(\textit{Multiple orders})
-	
 \end{itemize}
 
+% These sections are already handled before
 \subsection{Technology choices}
 \subsubsection{Application type}
 \subsubsection{Framework choices}
@@ -248,15 +262,17 @@ We can differentiate a couple of different scenarios when the customer goes to a
 After (or before) the meal is finished, customers should be able to pay directly from within the application or pay a waiter. When using the application to place an order for multiple people, the customers should have the option to order and pay separately or order together and split the cost. 
 For example: Three people want to place an order, two of which have access to the application. 
 \begin{itemize}
-\item One person can place the order for the entire group.
-\item One person can order for himself and the person without the application. While the third person makes his own choice with his own device.
-\item The two persons with the application order for themselves, while the other person orders something from a waiter.
+	\raggedright
+	\item One person can place the order for the entire group.
+	\item One person can order for himself and the person without the application. While the third person makes his own choice with his own device.
+	\item The two persons with the application order for themselves, while the other person orders something from a waiter.
 \end{itemize}
 
 \noindent 
 In all three cases the order will be combined into one order for that table. After the meal the bill can be paid for.
 
 \begin{itemize}
+	\raggedright
 	\item One person decides to pay for the entire bill. This can be paid to a waiter or with his application.
 	\item Each person pays for the part he ordered separately, with the price corresponding to what they ordered.
 	\item Everyone decides to split up the bill equally, dividing the total cost over three people. 
@@ -271,12 +287,11 @@ To be able to interact with customers using this system, the waiters and chefs w
 \\\\
 The order overview will have all the relevant information of the order: The different dishes and drinks ordered by the customer, the table from which the order was placed, the price and the status of the order. Additional information such as a time and date and an order number can be added for statistical purposes.
 The order overview could look something like displayed in fig. \ref{fig:orderview}.
-\begin{figure}[h!]
-	\includegraphics[width=\linewidth]{orderview.PNG}
-	\caption{Example Order Overview}
+\begin{Figure}
+	\includegraphics[width=\linewidth]{illustrations/orderview.PNG}
+	\captionof{figure}{Example Order Overview}
 	\label{fig:orderview}
-\end{figure}
-\\
+\end{Figure}
 Whenever an order is served, it will be removed from the overview and the next item will be moved up. When the bill is requested, all orders from the corresponding table will be added together. After payment the orders for that table are reset to allow the next customers to place their order.
 \\\\
 In some cases, an order might be wrong or a mistake with the number of dishes is made. The application should be flexible and allow a waiter to make small modifications to the order to correct a mistake.
@@ -284,23 +299,17 @@ Additionally, a customer might make a special request for his order. This can be
 \\\\
 An order might contain a lot of different items. The full names of these items will take a lot of space in the order overview. Typically, a shorthand notation is used by waiters to more efficiently note down and read orders. A similar system could be used for the order overview.
 Also, for showing the menu to the customer we will display a vertical list with the name of every menu item. This list will contain detailed information like the name of the dish, the ingredients, pricing and possibly even a picture. These menu items can be sorted into categories for easy navigation. On the other side, the waiter does not need all the detailed information. Instead a compact and efficient layout is preferred to be able to easily take an order. This could be a grid layout with simple icons or abbreviations for each dish. See fig. \ref{fig:waitercustomer}.
-\begin{figure}[h!]
-	\begin{subfigure}{.5\textwidth}
-		\includegraphics[width=0.9\linewidth]{customermenu.PNG}
-		\caption{Customer Menu Layout}
+\begin{Figure}
+		\includegraphics[width=\linewidth]{illustrations/customermenu.PNG}
+		\captionof{figure}{Customer Menu Layout}
 		\label{fig:menucustomer}
-	\end{subfigure}
-	\begin{subfigure}{.5\textwidth}
-		\includegraphics[width=0.9\linewidth]{waitermenu.PNG}
-		\caption{Waiter Menu Layout}
-		\label{fig:waitercustomer}
-	\end{subfigure}
-	\caption{Menu Layouts}
-	\label{fig:menus}
-\end{figure}
-
-\noindent \\It is possible that certain people with bad intent might try to place orders for ridiculous amounts of food, repeatedly place small orders to fill the system or even place orders for another table. Some of these situations can be prevented with proper programming like limiting the amount of orders one table can make each minute. Another way to prevent some of these issues is to have waiters confirm orders on their device before adding them to the kitchen. In day to day use, these scenarios will be rare, but it’s still important to think about the possible problems that might occur. 
-While a user account for the customer might be desirable to track certain statistics and prevent misuse of the system (like mentioned above), requiring an account might not be interesting, as this can make the process of using the application slow and unintuitive for the customer.
+\end{Figure}
+\begin{Figure}
+	\includegraphics[width=\linewidth]{illustrations/waitermenu.PNG}
+	\captionof{figure}{Waiter Menu Layout}
+	\label{fig:waitercustomer}
+\end{Figure}
+\noindent \\It is possible that certain people with bad intent might try to place orders for ridiculous amounts of food, repeatedly place small orders to fill the system or even place orders for another table. Some of these situations can be prevented with proper programming like limiting the amount of orders one table can make each minute. Another way to prevent some of these issues is to have waiters confirm orders on their device before adding them to the kitchen. In day to day use, these scenarios will be rare, but it’s still important to think about the possible problems that might occur. While a user account for the customer might be desirable to track certain statistics and prevent misuse of the system (like mentioned above), requiring an account might not be interesting, as this can make the process of using the application slow and unintuitive for the customer.
 
 
 \subsubsection{Manager}
@@ -317,9 +326,11 @@ One of the most important aspects to consider here is multi-tenancy. The applica
 \section{Conclusion}
 
 
+\end{multicols}
+
 \newpage
 \section{References}
-\bibliographystyle{plain}
+
 \bibliography{document}
 
 

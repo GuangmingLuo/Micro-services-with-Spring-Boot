@@ -1,100 +1,99 @@
-\begin{thebibliography}{10}
+\begin{thebibliography}{}
 
-\bibitem{Gloriafood:online}
-Gloriafood - free online ordering system for restaurants.
-\newblock \url{https://www.gloriafood.com/}.
-\newblock (Accessed on 28/04/2017).
-
-\bibitem{MongodbVsMySQL92:online}
+\bibitem[Mon, ]{MongodbVsMySQL92:online}
 Mongodb and mysql compared.
 \newblock \url{https://www.mongodb.com/compare/mongodb-mysql}.
 \newblock (Accessed on 15/05/2017).
 
-\bibitem{Chownow:online}
-Online food ordering system \& app - chownow.
-\newblock \url{https://www.chownow.com/}.
-\newblock (Accessed on 28/04/2017).
+\bibitem[Com, 2015]{ComponentAnnotationDifferences34:online}
+ (2015).
+\newblock Difference between spring @component, @service, @repository,
+  @controller.
+\newblock
+  \url{http://latest-tutorial.com/2015/01/19/difference-spring-component-service-repository-controller/#ixzz3PFFZtOsj}.
+\newblock (Accessed on 17/05/2017).
 
-\bibitem{SpringBootAdvantages67:online}
-Spring boot tutorial best complete introduction | dinesh on java.
+\bibitem[Spr, 2016]{SpringBootAdvantages67:online}
+ (2016).
+\newblock Spring boot tutorial best complete introduction | dinesh on java.
 \newblock
   \url{http://www.dineshonjava.com/2016/06/introduction-to-spring-boot-a-spring-boot-complete-guide.html#5}.
 \newblock (Accessed on 28/04/2017).
 
-\bibitem{ComponentAnnotationDifferences34:online}
-Difference between spring @component, @service, @repository, @controller.
-\newblock
-  \url{http://latest-tutorial.com/2015/01/19/difference-spring-component-service-repository-controller/#ixzz3PFFZtOsj},
-  January 2015.
-\newblock (Accessed on 17/05/2017).
+\bibitem[Glo, 2017]{Gloriafood:online}
+ (2017).
+\newblock Gloriafood - free online ordering system for restaurants.
+\newblock \url{https://www.gloriafood.com/}.
+\newblock (Accessed on 28/04/2017).
 
-\bibitem{DeveloperSurvey95:online}
-Stackoverflow developer survey.
-\newblock \url{http://stackoverflow.com/insights/survey/2017}, 2017.
+\bibitem[Cho, 2017]{Chownow:online}
+ (2017).
+\newblock Online food ordering system \& app - chownow.
+\newblock \url{https://www.chownow.com/}.
+\newblock (Accessed on 28/04/2017).
+
+\bibitem[Dev, 2017]{DeveloperSurvey95:online}
+ (2017).
+\newblock Stackoverflow developer survey.
+\newblock \url{http://stackoverflow.com/insights/survey/2017}.
 \newblock (Accessed on 03/05/2017).
 
-\bibitem{MicroservicesFrameworks85:online}
-Cyril Delmas.
+\bibitem[Delmas, 2015]{MicroservicesFrameworks85:online}
+Delmas, C. (2015).
 \newblock Why spring boot?
 \newblock
-  \url{https://cdelmas.github.io/2015/11/01/A-comparison-of-Microservices-Frameworks.html},
-  November 2015.
+  \url{https://cdelmas.github.io/2015/11/01/A-comparison-of-Microservices-Frameworks.html}.
 \newblock (Accessed on 15/05/2017).
 
-\bibitem{farosProposal}
-Faros.
+\bibitem[Faros, 2016]{farosProposal}
+Faros (2016).
 \newblock Faros master thesis proposal.
-\newblock 2016.
 
-\bibitem{GradleVsMaven48:online}
-Gradle.
+\bibitem[Gradle, 2017]{GradleVsMaven48:online}
+Gradle (2017).
 \newblock Gradle vs maven, feature comparison.
 \newblock \url{https://gradle.org/maven-vs-gradle}.
 \newblock (Accessed on 15/05/2017).
 
-\bibitem{WhyMicroservices48:online}
-Kitty Gupta.
+\bibitem[Gupta, 2017]{WhyMicroservices48:online}
+Gupta, K. (2017).
 \newblock Why are microservices getting popular now-a-days?
 \newblock
-  \url{https://www.freelancinggig.com/blog/2017/01/25/microservices-getting-popular-now-days/},
-  January 2017.
+  \url{https://www.freelancinggig.com/blog/2017/01/25/microservices-getting-popular-now-days/}.
 \newblock (Accessed on 03/05/2017).
 
-\bibitem{ServiceAnnotationSpring48:online}
-Juergen Hoeller.
+\bibitem[Hoeller, 2017]{ServiceAnnotationSpring48:online}
+Hoeller, J. (2017).
 \newblock @service annotation - spring api.
 \newblock
   \url{http://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/stereotype/Service.html}.
 \newblock (Accessed on 17/05/2017).
 
-\bibitem{JavaEELandscape73:online}
-Simon Maple.
+\bibitem[Maple, 2016]{JavaEELandscape73:online}
+Maple, S. (2016).
 \newblock Java tools and technologies landscape report 2016.
 \newblock
-  \url{https://zeroturnaround.com/rebellabs/java-tools-and-technologies-landscape-2016/},
-  July 2016.
+  \url{https://zeroturnaround.com/rebellabs/java-tools-and-technologies-landscape-2016/}.
 \newblock (Accessed on 03/05/2017).
 
-\bibitem{JavaEESecurity29:online}
-Oracle.
+\bibitem[Oracle, 2013]{JavaEESecurity29:online}
+Oracle (2013).
 \newblock Security mechanics in java ee 6.
-\newblock \url{http://docs.oracle.com/javaee/6/tutorial/doc/bnbwy.html}, 2013.
+\newblock \url{http://docs.oracle.com/javaee/6/tutorial/doc/bnbwy.html}.
 \newblock (Accessed on 15/05/2017).
 
-\bibitem{SpringMicroservices35:online}
-Oleg Shelajev.
+\bibitem[Shelajev, 2016]{SpringMicroservices35:online}
+Shelajev, O. (2016).
 \newblock Why spring is winning the microservices game.
 \newblock
-  \url{https://zeroturnaround.com/rebellabs/why-spring-is-winning-the-microservices-game/},
-  February 2016.
+  \url{https://zeroturnaround.com/rebellabs/why-spring-is-winning-the-microservices-game/}.
 \newblock (Accessed on 15/05/2017).
 
-\bibitem{SpringBootIntro23:online}
-Phil Webb.
+\bibitem[Webb, 2013]{SpringBootIntro23:online}
+Webb, P. (2013).
 \newblock Spring blog - spring boot introduction.
 \newblock
-  \url{https://spring.io/blog/2013/08/06/spring-boot-simplifying-spring-for-everyone},
-  August 2013.
+  \url{https://spring.io/blog/2013/08/06/spring-boot-simplifying-spring-for-everyone}.
 \newblock (Accessed on 03/05/2017).
 
 \end{thebibliography}
