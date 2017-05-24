@@ -38,7 +38,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void saveUser(User user) {
-        user.setUsername(bCryptPasswordEncoder.encode(user.getPassword()));
+        user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         HttpEntity<User> request = new HttpEntity<>(user);
         restTemplate.postForObject(serviceUrl+"/addUser", request, User.class);
     }

@@ -80,10 +80,8 @@ public class APIController {
     * This api do a post to database
     * */
     @RequestMapping(value = "/saveUserRole",method = RequestMethod.POST)
-    public ResponseEntity<?> setUserRole(@RequestParam int userId,int roleId) {
-        UserRole userRole = new UserRole();
-        userRole.setUserId(userId);
-        userRole.setRoleId(roleId);//1->user,2->admin,3->manager,4->employee
+    public ResponseEntity<?> setUserRole(@RequestBody UserRole userRole) {
+        //1->user,2->admin,3->manager,4->employee
         //log.info("The UserId is {}, the roleId is {}", userRole.getUserId(),userRole.getRoleId());
         UserRole result = userRoleService.save(userRole);
         URI location = ServletUriComponentsBuilder
