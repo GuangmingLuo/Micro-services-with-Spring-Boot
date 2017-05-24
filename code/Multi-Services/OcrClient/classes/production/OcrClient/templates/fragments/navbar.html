@@ -17,7 +17,7 @@
             <!-- Navigation. We hide it in small screens. -->
             <nav class="mdl-navigation mdl-layout--large-screen-only">
                 <a th:href="@{/}" class="mdl-navigation__link" href="#">Home</a>
-                <a sec:authorize="isAuthenticated()" th:href="@{/restaurant/name/}" class="mdl-navigation__link" href="">Restaurant</a>
+                <a sec:authorize="isAuthenticated()" th:href="@{/restaurant/name}" class="mdl-navigation__link" href="">Restaurant</a>
                 <a sec:authorize="hasAuthority('ADMIN')" th:href="@{/admin/registration}" class="mdl-navigation__link" href="">Admin</a>
                 <a sec:authorize="hasAuthority('MANAGER')" th:href="@{/employees}" class="mdl-navigation__link" href="">Employees</a>
                 <a sec:authorize="hasAuthority('MANAGER')" th:href="@{/restaurant/orderOverview}" class="mdl-navigation__link" href="">Order Overview</a>
@@ -47,7 +47,7 @@
         <nav class="mdl-navigation">
             <a th:href="@{/}" class="mdl-navigation__link" href="#">Home</a>
             <a  sec:authorize="!isAuthenticated()" th:href="@{/login}" class="mdl-navigation__link" href="">Login</a>
-            <a sec:authorize="isAuthenticated()" th:href="@{/restaurant/name/}" class="mdl-navigation__link" href="">Restaurant</a>
+            <a sec:authorize="isAuthenticated()" th:href="@{/restaurant/name}" class="mdl-navigation__link" href="">Restaurant</a>
             <a sec:authorize="hasAuthority('ADMIN')" th:href="@{/admin/registration}" class="mdl-navigation__link" href="">Admin</a>
             <a sec:authorize="hasAuthority('MANAGER')" th:href="@{/employees}" class="mdl-navigation__link" href="">Employees</a>
             <a sec:authorize="hasAuthority('MANAGER')" th:href="@{/restaurant/orderOverview}" class="mdl-navigation__link" href="">Order Overview</a>
