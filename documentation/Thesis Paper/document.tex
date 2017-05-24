@@ -80,11 +80,11 @@
 \section{Project Objective}
 \begin{multicols}{2}
 \subsection{Proposal}
-This master thesis is commissioned by Faros, a Cronos group company specialized in the development of Java web applications and primarily focused on designing Rich Internet Applications. Development within Faros is done mainly with Vaadin, Spring, HTML5, ExtJS, JavaScript, JSP, JSF, NoSQL and more.\cite{farosProposal} This means that during this thesis, special attention is given to these technologies in regards to design choices. Naturally, comparisons with other possible frameworks will still be done and valid arguments will be set forward to confirm these decisions.
+This master thesis is commissioned by Faros, a Cronos group company specialized in the development of Java web applications and primarily focused on designing Rich Internet Applications. Development within Faros is done with Vaadin, Spring, HTML5, ExtJS, JavaScript, JSP, JSF, NoSQL and more.\cite{farosProposal} This means that during this thesis, special attention is given to these technologies in regards to design choices. Naturally, comparisons with other possible frameworks will still be done and valid arguments will be set forward to confirm these decisions.
 \\\\
-The following case study was proposed by Faros: designing an online cash register that can be used in restaurants or at events. Existing cash register systems are expensive and for smaller establishments or temporary events, this investment is not worth it. The idea is to use existing devices from employees and customers to handle the ordering and payment process.
+The following case study was proposed by Faros: designing an online cash register that can be used in restaurants or at events. Existing cash register systems can be expensive and for smaller establishments or temporary events, this investment is not worth it. The idea is to use existing devices from employees and customers to handle the ordering and payment process.
 \\\\
-This project is an opportunity for us to learn about the frameworks and technologies used for the development of rich, interactive web applications. Additionally, we want to explore the best methods to quickly build a web application from scratch. Some key aspects that we will look out for are: Documentation availability, speed of new project setup, customizability, integration with other frameworks and security features. When given the corresponding documentation, it should be possible to reproduce this application. During the design and development of this project we want to describe the problems we faced and how we solved them. This will give other students the option to learn from our mistakes and hopefully help them increase their understanding of Java EE concepts. 
+This project is an opportunity for us to learn about the frameworks and technologies used for the development of rich, interactive web applications. Additionally, we want to explore the best methods to  build a web application from scratch. Some key aspects that we will look out for are: Documentation availability, speed of new project setup, customizability, integration with other frameworks and security features. When given the corresponding documentation, it should be possible to reproduce this application. During the design and development of this project we want to describe the problems we faced and how we solved them. This will give other students the option to learn from our mistakes and hopefully help them increase their understanding of Java EE concepts. 
 
 \subsection{Concept}\label{sec:concept}
 %TODO if possible, shorten this section
@@ -214,8 +214,11 @@ Although there were several issues changing over to microservices, it did also b
 Another interesting aspect of this structure is that we can build modular web pages that get their information from multiple services. If a certain service is down or is experiencing connection problems the page can still be loaded. The missing content is simply not shown and we show a message on screen to indicate that a certain service is having issues. Thanks to the microservices architecture, only basic exception handling is needed to implement this.
 \\\\
 We are now at the point where we have a functional application build upon a microservices foundation, but there are still some practical issues with the current structure. Currently, there is one instance of each service running in their own container, each bound to a specific port number. To access an API, the address and port of the service have to be known. For the application server accessed by browser clients these adresses can be hard-coded, although this is not recommended.(See the next paragraph about discovery.) For other clients this is more difficult, they do not know which addresses they can use the access the APIs. Hard-coding this would be detrimental as it would require an update of the application each time infrastructure changes are done. For example when changing the host of a certain service. The solution we used was creating an extra service that functions as a gateway for all the API endpoints. The Spring cloud dependency offers the foundation for this gateway under the form of Zuul, developed by Netflix. \cite{NetflixZuul76:online} Implementing this gateway allows us to accept requests that include the service name and route these requests to the corresponding service by specifying their addresses in the Zuul gateway configuration. The API gateway functions as a reverse proxy, illustrated in figure \ref{fig:apigateway}. The services are now accessible from the android application without the need for specific addresses or ports.
-
-
+\\\\
+\textbf{Service Discovery}\\
+While we have a functional Api gateway system now, we are not yet making use of all the advantages the microservice architecture offers. For example, if we want to run multiple instances of the same service for redundancy or load balancing, how do we determine the addresses of these services? We cannot simply add more routes to the Zuul gateway, this is not scalable. Instead we created yet another service that works with the Eureka system, also part of the Netflix open source software. Eureka provides a discovery service on which other services can register themselves. The Eureka server holds a list of each services registered to it, as well as the amount of instances available and on what addresses they are located. To have a service register itself to this discovery server they have to be instantiated as an Eureka client. On startup they will connect to the server and register themselves with the corresponding information. This opens up a lot of possibilities, we can know host each service multiple times and if one instance crashes or has connection issues the application will still function. Eureka also does basic round-robin load balancing, which means that incoming api calls from clients will be spread over the pool of available services, which helps with performance.
+\\\\
+With the inclusion of a discovery service and Api gateway we now have a fully functional system that makes use of the advantages a microservices architecture brings to web development. 
 
 
 
@@ -349,7 +352,7 @@ Also, for showing the menu to the customer we will display a vertical list with 
 	\captionof{figure}{Waiter Menu Layout}
 	\label{fig:waitercustomer}
 \end{Figure}
-\noindent \\It is possible that certain people with bad intent might try to place orders for ridiculous amounts of food, repeatedly place small orders to fill the system or even place orders for another table. Some of these situations can be prevented with proper programming like limiting the amount of orders one table can make each minute. Another way to prevent some of these issues is to have waiters confirm orders on their device before adding them to the kitchen. In day to day use, these scenarios will be rare, but it’s still important to think about the possible problems that might occur. While a user account for the customer might be desirable to track certain statistics and prevent misuse of the system (like mentioned above), requiring an account might not be interesting, as this can make the process of using the application slow and unintuitive for the customer.
+\noindent \\It is possible that certain people with bad intent might try to place orders for ridiculous amounts of food, repeatedly place small orders to fill the system or even place orders for another table. Some of these situations can be prevented with proper programming, e.g. limiting the amount of orders one table can make each minute. Another way to prevent some of these issues is to have waiters confirm orders on their device before adding them to the kitchen. In day to day use, these scenarios will be rare, but it’s still important to think about the possible problems that might occur. While a user account for the customer might be desirable to track certain statistics and prevent misuse of the system (like mentioned above), requiring an account might not be interesting, as this can make the process of using the application slow and unintuitive for the customer.
 
 
 \subsubsection{Manager}
@@ -389,12 +392,45 @@ Underneath, a list of technologies used during this project can be found. Techno
 				\item  \textbf{Thymeleaf Security Dialect} - integration module for Spring Security
 		\end{itemize}
 		\item \textbf{Spring Actuator} - Application endpoints for monitoring and management
-		\item \textbf{Spring Data JPA} - Persistence API for database access and Object mapping
-		\item \textbf{Spring Devtools} - Spring-specific tools useful during development. E.g. Hotswapping, auto-disable template caching and automatic restarts.
+		\item \textbf{Spring Data} - Persistence APIs for database access
+		\begin{itemize}
+			\item \textbf{Spring Data JPA} - Persistence API for database access and Object mapping
+			\item \textbf{Spring Data MongoDB} - Persistence API for NoSQL database access
+		\end{itemize}
+		\item \textbf{Spring Devtools} - Spring-specific tools useful during development. E.g. Hotswapping, auto-disable template caching and automatic restarts
+		\item \textbf{Spring Cloud} - Provides tools and patterns that assist in building distributed applications
+		\begin{itemize}
+			\item \textbf{Netflix Zuul} - Reverse proxy implementation for Api gateway pattern.
+			\item \textbf{Netflix Eureka} - Discovery server and clients for managing and load balancing services
+		\end{itemize}
 	\end{itemize}
-	\item \textbf{HTML} - Markup language used for web pages
-	\item \textbf{CSS} - Markup language for web pages styling
-	\item \textbf{JavaScript} - Scripting language to make web pages dynamic
+	\item \textit{Web Development}
+	\begin{itemize}
+		\item \textbf{HTML} - Markup language used for web pages
+		\item \textbf{CSS} - Markup language for web pages styling
+		\item \textbf{JavaScript} - Scripting language to make web pages dynamic
+		\item \textit{React} - A component-based Javascript library for building UIs
+		\item \textit{AngularJS} - Structural framework for building dynamic web applications
+	\end{itemize}
+
+	\item \textit{Mobile Development}
+	\begin{itemize}
+		\item \textbf{Android SDK} - Software development kit for android apps
+		\item \textit{PhoneGap} - Multiplatform Mobile application development framework
+	\end{itemize}
+	\item \textbf{Java}
+	\item \textit{Java EE}
+	\item \textit{Development Tools}
+	\begin{itemize}
+		\item \textbf{Intellij IDEA} - Integrated development environment for the Java virtual machine.
+		\item \textbf{Gradle} - Build automation system
+		\item \textbf{Maven} - Build automation system
+		\item \textbf{MongoDB CLI} - Command line interface for managing MongoDB 
+		\item \textbf{MySQL workbench} - Tool for managing MySQL database
+		\item \textbf{Android Studio} - IDE for native android development
+		\item \textbf{Git} - Version control system
+	\end{itemize}
+	
 	
 	
 	 
