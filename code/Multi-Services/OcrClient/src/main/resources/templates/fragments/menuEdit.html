@@ -20,22 +20,21 @@
                     <table class="fullwidth mdl-data-table mdl-js-data-table mdl-shadow--2dp">
                         <thead>
                         <tr class="fullwidth">
-                            <th></th>
+                            <th class="mdl-data-table__cell--non-numeric">Delete</th>
                             <th class="mdl-data-table__cell--non-numeric" >Name</th>
-                            <th>Quantity</th>
-                            <th>Price</th>
+                            <th class="mdl-data-table__cell--non-numeric">Price</th>
                         </tr>
                         </thead>
                         <tbody>
                         <tr th:each="food:${menu.foods}">
-                            <td>
-                                <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect mdl-data-table__select" th:for="'food'+${food.id}">
-                                    <input type="checkbox" th:id="'food'+${food.id}" class="mdl-checkbox__input" />
-                                </label>
+                            <td class="mdl-data-table__cell--non-numeric">
+                                <!-- FAB button with ripple , class "mdl-js-ripple-effect"-->
+                                <button th:onclick="'deleteFood('+${food.id}+')'" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect">
+                                    <i class="material-icons">delete</i>
+                                </button>
                             </td>
-                            <td class="mdl-data-table__cell--non-numeric" th:text="${food.name}">Acrylic (Transparent)</td>
-                            <td>0</td>
-                            <td th:text="${'$'+food.price}">$2.90</td>
+                            <td class="mdl-data-table__cell--non-numeric" th:text="${food.name}">Acrylic</td>
+                            <td class="mdl-data-table__cell--non-numeric" th:text="${'$'+food.price}">$2.90</td>
                         </tr>
                         </tbody>
                     </table>
@@ -48,6 +47,15 @@
             <br/><br/>
         </div>
     </div>
+    <script>
+        function deleteFood(id) {
+            $.ajax({
+                url:"/restaurant/deleteFood/"+id,
+                type:"post",
+            });
+            window.location.reload(true);
+        }
+    </script>
 </div>
 
     <div th:fragment="addmenuitem">

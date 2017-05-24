@@ -26,6 +26,7 @@ public class APIController {
         info += "/foods?menuId=xxx <br />";
         info += "/food?foodId=xxx <br />";
         info += "/addFood (POST: @RequestBody Food f) <br />";
+        info += "/deleteFood/{id}<br />";
         return info;
     }
     /*
@@ -59,8 +60,8 @@ public class APIController {
     /*
     * This api delete a food item from database
     * */
-    @DeleteMapping("/deleteFood")
-    public void deleteFood(@RequestParam(value = "id") long id) {
+    @DeleteMapping("/deleteFood/{id}")
+    public void deleteFood(@PathVariable("id") long id) {
         foodService.deleteFood(id);
     }
     /*

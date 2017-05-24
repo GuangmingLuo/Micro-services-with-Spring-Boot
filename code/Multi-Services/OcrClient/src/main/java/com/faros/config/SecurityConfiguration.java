@@ -52,7 +52,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/","/restaurant/*/","/restaurant/*").permitAll()
                 .antMatchers("/login","/api/**","/account").permitAll()
                 .antMatchers("/restaurant/*/order","/restaurant/*/orderStatus/*","/restaurant/*/createOrder","/restaurant/saveOrder").permitAll()
-                .antMatchers("/restaurant/*/edit","/employees","/restaurant/orderOverview","/restaurant/now-to-serve","/restaurant/order/changeStatus").hasAuthority("MANAGER")
+                .antMatchers("/restaurant/*/edit","/employees","/restaurant/orderOverview","/restaurant/deleteFood/*","/restaurant/now-to-serve","/restaurant/order/changeStatus").hasAuthority("MANAGER")
                 .antMatchers("/register").hasAnyAuthority("MANAGER","ADMIN")
                 .antMatchers("/admin/**").hasAuthority("ADMIN").anyRequest()
                 .authenticated().and().csrf().disable().formLogin()
