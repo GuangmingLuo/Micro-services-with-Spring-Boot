@@ -11,7 +11,9 @@ import org.springframework.http.HttpEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by guang on 2017/4/25.
@@ -44,5 +46,13 @@ public class FoodServiceImpl implements FoodService {
     public void addFood(Food food){
         HttpEntity<Food> request = new HttpEntity<>(food);
         restTemplate.postForObject(serviceUrl+"/addFood", request, Food.class);
+    }
+
+    @Override
+    public void deleteFood(String id) {
+        final String uri = serviceUrl+"/deleteFood/{id}";
+        Map<String, String> params = new HashMap<String, String>();
+        params.put("id", id);
+        restTemplate.delete ( uri,  params );
     }
 }

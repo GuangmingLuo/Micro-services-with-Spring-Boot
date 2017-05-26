@@ -20,13 +20,13 @@
                     </div>
                     <form id="orderForm" th:action="@{~/restaurant/}+${restaurantName}+'/createOrder'" action="#" method="post">
                     <div th:each="menu : ${menus}" class="mdl-tabs__panel" th:id="menu+${menu.id}">
-                        <table class="fullwidth mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+                        <table class="fullwidth mdl-data-table mdl-js-data-table mdl-shadow--2dp" style="table-layout: fixed">
                             <thead>
-                            <tr class="fullwidth">
+                            <tr  class="fullwidth">
                                 <th></th>
-                                <th class="mdl-data-table__cell--non-numeric" >Name</th>
-                                <th>Quantity</th>
-                                <th>Price</th>
+                                <th style="font-size: 2.5vmin" class="mdl-data-table__cell--non-numeric" >Name</th>
+                                <th style="font-size: 2.5vmin">Quantity</th>
+                                <th style="font-size: 2.5vmin">Price</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -36,36 +36,40 @@
                                         <input type="checkbox" th:id="'food'+${food.id}" onchange="toggleCheckbox(this)" name="foods" th:value="${food.id}" class="mdl-checkbox__input" />
                                     </label>
                                 </td>
-                                <td class="mdl-data-table__cell--non-numeric" th:text="${food.name}">Acrylic (Transparent)</td>
-                                <td>
+                                <td class="mdl-data-table__cell--non-numeric" style="font-size: 2.5vmin; word-wrap: break-word" th:text="${food.name}">Acrylic (Transparent)</td>
+                                <td style="font-size: 2.5vmin;">
                                     <input type="number" class="mdl-textfield__input" th:id="'food'+${food.id}+'number'" name="numbers" disabled="disabled" placeholder="0"/>
                                 </td>
-                                <td th:text="${'$'+food.price}">$2.90</td>
+                                <td style="font-size: 2.5vmin" th:text="${'$'+food.price}">$2.90</td>
                             </tr>
                             </tbody>
                         </table>
                     </div>
                         <div class="mdl-textfield">
-                            <input autofocus="autofocus" class="mdl-textfield__input" type="number" id="tableId" th:value="${tableId}" name="tableId" required="required"/>
-                            <label class="mdl-textfield__label" for="tableId">Table Name</label>
+                            <div class="mdl-grid">
+                                <div class="  mdl-cell--12-col">
+                                    <input autofocus="autofocus" class="mdl-textfield__input" type="number" id="tableId" th:value="${tableId}" name="tableId" placeholder="TableId" required="required"/>
+                                    <!--<label class="mdl-textfield__label" for="tableId">Table Name</label>-->
+                                </div>
+                            </div>
                         </div>
                         <p id="table_error" style="color: red"></p>
                     </form>
                     <div class="mdl-grid">
-                        <div class="mdl-cell--1-offset mdl-cell--2-col">
+                        <div  class="mdl-cell--1-offset mdl-cell--2-col mdl-cell--hide-phone">
                             <div th:if="${isManager}" style="text-align: center">
                                 <br/>
                                 <form th:action="@{~/restaurant/}+${restaurantName}+'/edit/'">
                                     <button class="mdl-button" type="submit">Edit Menu</button>
                                 </form><br/>
                             </div></div>
-                        <div class="mdl-cell--6-col">
+                        <div class="mdl-cell--6-col mdl-cell--hide-phone">
 
                         </div>
-                        <div class="mdl-cell--3-col">
+                        <div class="mdl-cell mdl-cell--3-col mdl-cell--0-offset mdl-cell--12-col-phone ">
                             <br/>
                             <button class="mdl-button" onclick="validate()">Place Order</button>
-                            <br/><br/>
+                            <br/>
                         </div>
                     </div>
                 </div>
