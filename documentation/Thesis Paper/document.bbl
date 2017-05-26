@@ -8,36 +8,17 @@
   \url{http://latest-tutorial.com/2015/01/19/difference-spring-component-service-repository-controller/#ixzz3PFFZtOsj}.
 \newblock (Accessed on 17/05/2017).
 
-\bibitem[Spr, 2016]{SpringBootAdvantages67:online}
- (2016).
-\newblock Spring boot tutorial best complete introduction | dinesh on java.
-\newblock
-  \url{http://www.dineshonjava.com/2016/06/introduction-to-spring-boot-a-spring-boot-complete-guide.html#5}.
-\newblock (Accessed on 28/04/2017).
-
-\bibitem[Glo, 2017]{Gloriafood:online}
- (2017).
-\newblock Gloriafood - free online ordering system for restaurants.
-\newblock \url{https://www.gloriafood.com/}.
-\newblock (Accessed on 28/04/2017).
-
 \bibitem[Mon, 2017]{MongodbVsMySQL92:online}
  (2017).
 \newblock Mongodb and mysql compared.
 \newblock \url{https://www.mongodb.com/compare/mongodb-mysql}.
 \newblock (Accessed on 15/05/2017).
 
-\bibitem[Cho, 2017]{Chownow:online}
- (2017).
+\bibitem[Chownow, 2017]{Chownow:online}
+Chownow (2017).
 \newblock Online food ordering system \& app - chownow.
 \newblock \url{https://www.chownow.com/}.
 \newblock (Accessed on 28/04/2017).
-
-\bibitem[Dev, 2017]{DeveloperSurvey95:online}
- (2017).
-\newblock Stackoverflow developer survey.
-\newblock \url{http://stackoverflow.com/insights/survey/2017}.
-\newblock (Accessed on 03/05/2017).
 
 \bibitem[Delmas, 2015]{MicroservicesFrameworks85:online}
 Delmas, C. (2015).
@@ -46,9 +27,22 @@ Delmas, C. (2015).
   \url{https://cdelmas.github.io/2015/11/01/A-comparison-of-Microservices-Frameworks.html}.
 \newblock (Accessed on 15/05/2017).
 
+\bibitem[Dinesh, 2016]{SpringBootAdvantages67:online}
+Dinesh (2016).
+\newblock Spring boot tutorial best complete introduction | dinesh on java.
+\newblock
+  \url{http://www.dineshonjava.com/2016/06/introduction-to-spring-boot-a-spring-boot-complete-guide.html#5}.
+\newblock (Accessed on 28/04/2017).
+
 \bibitem[Faros, 2016]{farosProposal}
 Faros (2016).
 \newblock Faros master thesis proposal.
+
+\bibitem[Gloriafood, 2017]{Gloriafood:online}
+Gloriafood (2017).
+\newblock Gloriafood - free online ordering system for restaurants.
+\newblock \url{https://www.gloriafood.com/}.
+\newblock (Accessed on 28/04/2017).
 
 \bibitem[Gradle, 2017]{GradleVsMaven48:online}
 Gradle (2017).
@@ -77,6 +71,13 @@ Maple, S. (2016).
   \url{https://zeroturnaround.com/rebellabs/java-tools-and-technologies-landscape-2016/}.
 \newblock (Accessed on 03/05/2017).
 
+\bibitem[Narumoto, 2017]{sharding93:online}
+Narumoto, M. (2017).
+\newblock Sharding.
+\newblock
+  \url{https://docs.microsoft.com/en-us/azure/architecture/patterns/sharding}.
+\newblock (Accessed on 26/05/2017).
+
 \bibitem[Netflix, 2017]{NetflixZuul76:online}
 Netflix (2017).
 \newblock Github - netflix zuul.
@@ -89,12 +90,30 @@ Oracle (2013).
 \newblock \url{http://docs.oracle.com/javaee/6/tutorial/doc/bnbwy.html}.
 \newblock (Accessed on 15/05/2017).
 
+\bibitem[Pivotal, 2017]{SpringCloudSecurity52:online}
+Pivotal (2017).
+\newblock Spring cloud security.
+\newblock \url{http://cloud.spring.io/spring-cloud-security/}.
+\newblock (Accessed on 26/05/2017).
+
 \bibitem[Shelajev, 2016]{SpringMicroservices35:online}
 Shelajev, O. (2016).
 \newblock Why spring is winning the microservices game.
 \newblock
   \url{https://zeroturnaround.com/rebellabs/why-spring-is-winning-the-microservices-game/}.
 \newblock (Accessed on 15/05/2017).
+
+\bibitem[Singh, 2013]{ormNosql85:online}
+Singh, A. (2013).
+\newblock Sqlifying nosql – are orm tools relevant to nosql?
+\newblock \url{https://dzone.com/articles/sqlifying-nosql-%E2%80%93-are-orm}.
+\newblock (Accessed on 26/05/2017).
+
+\bibitem[Stackoverflow, 2017]{DeveloperSurvey95:online}
+Stackoverflow (2017).
+\newblock Stackoverflow developer survey.
+\newblock \url{http://stackoverflow.com/insights/survey/2017}.
+\newblock (Accessed on 03/05/2017).
 
 \bibitem[Webb, 2013]{SpringBootIntro23:online}
 Webb, P. (2013).
