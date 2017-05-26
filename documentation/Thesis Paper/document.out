@@ -35,11 +35,3 @@
 \BOOKMARK [1][-]{section.8}{Appendix}{}% 35
 \BOOKMARK [2][-]{subsection.8.1}{List of technologies used}{section.8}% 36
 \BOOKMARK [2][-]{subsection.8.2}{Problems and their solutions}{section.8}% 37
-\BOOKMARK [3][-]{subsubsection.8.2.1}{Problems with database model foreign keys}{subsection.8.2}% 38
-\BOOKMARK [3][-]{subsubsection.8.2.2}{Thymeleaf-related issues}{subsection.8.2}% 39
-\BOOKMARK [3][-]{subsubsection.8.2.3}{HttpRequest POST problems}{subsection.8.2}% 40
-\BOOKMARK [3][-]{subsubsection.8.2.4}{Appending URLs}{subsection.8.2}% 41
-\BOOKMARK [3][-]{subsubsection.8.2.5}{Spring Security role checking on the server side}{subsection.8.2}% 42
-\BOOKMARK [3][-]{subsubsection.8.2.6}{Database issues}{subsection.8.2}% 43
-\BOOKMARK [3][-]{subsubsection.8.2.7}{Creating a custom Maven/Gradle dependency}{subsection.8.2}% 44
-\BOOKMARK [3][-]{subsubsection.8.2.8}{Combining microservices and Spring Security}{subsection.8.2}% 45

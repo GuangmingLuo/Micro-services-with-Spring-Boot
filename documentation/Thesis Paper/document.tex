@@ -236,17 +236,24 @@ Another interesting aspect of this structure is that we can build modular web pa
 \\\\
 We are now at the point where we have a functional application build upon a microservices foundation, but there are still some practical issues with the current structure. Currently, there is one instance of each service running in their own container, each bound to a specific port number. To access an API, the address and port of the service have to be known. For the application server accessed by browser clients these adresses can be hard-coded, although this is not recommended.(See the next paragraph about discovery.) For other clients this is more difficult, they do not know which addresses they can use the access the APIs. Hard-coding this would be detrimental as it would require an update of the application each time infrastructure changes are done. For example when changing the host of a certain service. The solution we used was creating an extra service that functions as a gateway for all the API endpoints. The Spring cloud dependency offers the foundation for this gateway under the form of Zuul, developed by Netflix. \cite{NetflixZuul76:online} Implementing this gateway allows us to accept requests that include the service name and route these requests to the corresponding service by specifying their addresses in the Zuul gateway configuration. The API gateway functions as a reverse proxy, illustrated in figure \ref{fig:apigateway}. The services are now accessible from the android application without the need for specific addresses or ports.
 \\\\
-\textbf{Service Discovery}\label{sub:discovery}\\
-While we have a functional Api gateway system now, we are not yet making use of all the advantages the microservice architecture offers. For example, if we want to run multiple instances of the same service for redundancy or load balancing, how do we determine the addresses of these services? We cannot simply add more routes to the Zuul gateway, this is not scalable. Instead we created yet another service that works with the Eureka system, also part of the Netflix open source software. Eureka provides a discovery service on which other services can register themselves. The Eureka server holds a list of each services registered to it, as well as the amount of instances available and on what addresses they are located. To have a service register itself to this discovery server they have to be instantiated as an Eureka client. On startup they will connect to the server and register themselves with the corresponding information. This opens up a lot of possibilities, we can know host each service multiple times and if one instance crashes or has connection issues the application will still function. Eureka also does basic round-robin load balancing, which means that incoming api calls from clients will be spread over the pool of available services, which helps with performance.
+\noindent While we have a functional Api gateway system now, we are not yet making use of all the advantages the microservice architecture offers. For example, if we want to run multiple instances of the same service for redundancy or load balancing, how do we determine the addresses of these services? We cannot simply add more routes to the Zuul gateway, this is not scalable. Instead we created yet another service that works with the Eureka system, also part of the Netflix open source software. Eureka provides a discovery service on which other services can register themselves. The Eureka server holds a list of each services registered to it, as well as the amount of instances available and on what addresses they are located. To have a service register itself to this discovery server they have to be instantiated as an Eureka client. On startup they will connect to the server and register themselves with the corresponding information. The design we use for service discovery is shown on figure \ref{fig:discovery}.
+\begin{Figure}
+	\centering
+	\includegraphics[width=\linewidth]{illustrations/discoverydesign.png}
+	\captionof{figure}{\textit{Discovery design: Each time a service is started, it will register itself to the Eureka server. This can be do multiple times for the same service. The eureka server can then be consulted to get the addresses of the required services. After getting the information, the service can be addressed directly with REST Api calls. Services will need to send a heartbeat to the discovery server regularly, or they will be unregistered.}}
+	\label{fig:discovery}
+\end{Figure}
+
+\noindent This opens up a lot of possibilities, we can know host each service multiple times and if one instance crashes or has connection issues the application will still function. Eureka also does basic round-robin load balancing, which means that incoming api calls from clients will be spread over the pool of available services, which helps with performance.
 \\\\
-With the inclusion of a discovery service and Api gateway we now have a fully functional system that makes use of the advantages a microservices architecture brings to web development. 
+With the inclusion of a discovery service and Api gateway we now have a fully functional system that makes use of the advantages a microservices architecture brings to web development. The structure of this system is shown in figure \ref{fig:projectstructure3}
 
-
-
-
-% todo more information about http benchmarking
-%todo add issues: 
-%todo biggest parts: Security, Spring MVC, Thymeleaf, microservices, discovery, gateway.
+\begin{Figure}
+	\centering
+	\includegraphics[width=\linewidth]{illustrations/projectstructure3.png}
+	\captionof{figure}{\textit{Final project structure: The application server will now consult the Eureka server to find running instances of the services it needs. Each service can have multiple instances registered on the eureka service.}}
+	\label{fig:projectstructure3}
+\end{Figure}
 
 \end{multicols}
 %\newpage
@@ -256,8 +263,6 @@ With the inclusion of a discovery service and Api gateway we now have a fully fu
 The goal of this case study is to create a service that can be used at events and in restaurants to process orders made by customers, relay these orders to the waiters and chefs and handle the payment. This service should include an application that clients can use to view the menu and order items from it. Waiters also have their own application that can place and acknowledge orders. These orders will be send to a central system that manages all the required information. See fig. \ref{fig:usecase} for a use case diagram.
 \subsection{Existing systems}
 %TODO More detail needs to be added. also move this to research and methods
-
-
 Before creating our own Online cash register application we searched for similar systems that already exist. One of such systems is Gloriafood \cite{Gloriafood:online}. This is an online system that allows any restaurant owner to sign up and start receiving orders online. A extensive layout is available where you can add a menu and payment options.
 \\\\
 Similarly, there is ChowNow \cite{Chownow:online}. This service also handles online ordering and payment with no extra input required from the restaurant manager. ChowNow will also create a custom branded mobile application to showcase the brand and food of the restaurant.
@@ -388,8 +393,11 @@ One of the most important aspects to consider here is multi-tenancy. The applica
 %\subsubsection{Remarks and challenges}
 %\subsection{Major issues and their solutions}
 
+\end{multicols}
+\newpage
 \section{Results}\label{sec:results}
-In this section, an overview of the final application prototype will be given, along with possible improvements that can be done in the future.
+\begin{multicols}{2}
+\noindent In this section, an overview of the final application prototype will be given, along with possible improvements that can be done in the future.
 \subsection{Final Prototype}
 The final version of our application is divided into several modules which can be seen on figure \ref{fig:applicationdiagram}
 
@@ -407,6 +415,23 @@ Employees also have the option to use a native android application. This applica
 
 
 \subsection{Possible Improvements}
+\noindent\textbf{Improving Spring security for micro-services}
+\\
+Configuring security in Micro-services architecture can be a very complex story. We do found some tutorials online, but they try to simply the process by using InMemoryAuthentication which is not what we wanted in this case study. We should use our OcrUser service application to do the JDBC authentication/ authorization and return a custom UserDetails as a token. This token can be further used for API calls to secure our API services. Currently, the JDBC authentication/authorization is implemented in OcrClient web application and the APIs from all the services are public, which means that the web pages are secure but all the APIs can be accessed by anyone.
+\\\\
+\noindent\textbf{Redesign existing models to make use of MongoDB's advantages}
+\\For current version, OcrRestaurant, OcrMenu, OcrFood and OcrOrder use MongoDB, and they all use corresponding entities (Restaurant, Menu, Food, Order) for mapping. When we add/remove/modify properties from those entities, there is no conflict in the database/document. A smarter way can be using JSONObject for mapping, however which needs refactoring code for the whole system. A big advantage is that you can choose whatever properties we want to store while creating the JSONObject.
+Specifically, for OcrMenu, currently the menus are randomly distributed according to the time when they are created. Menus from one restaurant can be found by looping though the whole document with findMenusByRestaurantId. A better way is to create an JSONObject inside OcrMenu database immediately when a new restaurant is instantiated. All menus created for that restaurant can be put into that JSONObject with the right restaurant id. In this case, all menus from one restaurant are put in a concentrated big entity which can be easily exported for future usage. 
+\\\\
+\noindent\textbf{Creating a multi-platform application with Apache Cordova}
+\\
+We started from researching and prototyping with PhoneGap, and we found that we can only make application for Android and Windows users due to the limitation of OS of our laptops. Hence, we decided to make an android application on Android Studio. In the future, if macOS can be used, making a native application with PhoneGap can be a better choice. In this case, you may build applications for mobile devices using CSS3, HTML5, and JavaScript instead of relying on platform-specific APIs like those in Android, iOS, or Windows Phone.
+\\\\
+\noindent\textbf{Implement missing nice-to-have features}
+\begin{itemize}
+	\item implement a real payment system with an existing payment API, so that actual payment and splitting up bills are possible.
+	\item redesign the application so that hosting on a local network is possible.
+\end{itemize}
 
 \section{Conclusion}
 
@@ -453,6 +478,7 @@ Underneath, a list of technologies used during this project can be found. Techno
 		\item \textbf{JavaScript} - Scripting language to make web pages dynamic
 		\item \textbf{jQuery} - Javascript library to simplify and extend JS development
 		\item \textbf{Material Design Lite} - CSS and Javascript library for designing web pages using material design
+		\item \textbf{JSON} - lightweight data-exchange format
 		\item \textit{React} - A component-based Javascript library for building UIs
 		\item \textit{AngularJS} - Structural framework for building dynamic web applications
 		
@@ -461,7 +487,7 @@ Underneath, a list of technologies used during this project can be found. Techno
 	\item \textit{Mobile Development}
 	\begin{itemize}
 		\item \textbf{Android SDK} - Software development kit for android apps
-		\item \textit{PhoneGap} - Multi-platform Mobile application development framework
+		\item \textit{Apache Cordova} - Multi-platform Mobile application development framework
 	\end{itemize}
 	\item \textit{Development Tools}
 	\begin{itemize}
@@ -472,6 +498,10 @@ Underneath, a list of technologies used during this project can be found. Techno
 		\item \textbf{MySQL workbench} - Tool for managing MySQL database
 		\item \textbf{Android Studio} - IDE for native android development
 		\item \textbf{Git} - Version control system
+		\item \textbf{Uwamp, Xampp} - Servers for hosting webpages and databases locally
+		\item \textbf{Powershell} - task automation and configuration management framework for windows
+		\item \textit{Netbeans} - Development environment for Java Applications
+		\item \textit{Spring Tool Suite} - Specialized IDE for development with the Spring framework, based on Eclipse
 	\end{itemize}
 	
 	
@@ -479,7 +509,7 @@ Underneath, a list of technologies used during this project can be found. Techno
 	 
 \end{itemize}
 \subsection{Problems and their solutions}
-\subsubsection{Problems with database model foreign keys}
+\paragraph{Problems with database model foreign keys}
 \begin{itemize}
 	\item When a foreign key is also included as part of primary key, you cannot remove this foreign key or drop the primary key.
 	\item Remove the schema and regenerate all tables; if not necessary, do not include foreign keys as part of primary key.
@@ -487,14 +517,14 @@ Underneath, a list of technologies used during this project can be found. Techno
 	\item When instantiating an entity with a foreign key, errors usually appear when the foreign key doesn't have a valid value or empty.
 \end{itemize}
 
-\subsubsection{Thymeleaf-related issues}
+\paragraph{Thymeleaf-related issues}
 \begin{itemize}
 	\item You cannot give two th:each properties in one div, which means you cannot loop through two lists at the same time.
 	\item You can use Thymeleaf to check if the user is authenticated by adding \textit{sec:authorize = "isAuthenticated()"} to a div, and the div will not show up if it’s false. Same for \textit{sec:authorize = "hasAuthority('ADMIN')"}, the div will only show up when the user has authority of admin. E.g. \textit{<a sec:authorize = "isAuthenticated()" th:href = "@{/restaurant/name/}" class="mdl-navigation  link" href="">Restaurant</a>} (line 50 of navbar.html)
 	\item If you want use model attributes from controller in JavaScript, th:inline = "javascript" has to be added to the script tag and use special format to use the attributes: \textit{var url = /*[[\${url}]]*/'url';} (see line 33-41 of account.html)
 \end{itemize}
 
-\subsubsection{HttpRequest POST problems}
+\paragraph{HttpRequest POST problems}
 \begin{itemize}
 	\item Everything get post to the controller via HTTP is String, it’s up to the server to decide which type you want to decode. If you specify @Valid int tableId, the controller will try to decode the value to int and will introduce an error if it fails.
 	\item Hidden input can be used to submit action where there is no input field. You can also put a hidden input field to normal form.
@@ -506,26 +536,26 @@ Underneath, a list of technologies used during this project can be found. Techno
 		\item You are not restricted to String, but may pass arbitrary objects.
 	\end{itemize}
 \end{itemize}
-\subsubsection{Appending URLs}
+\textbf{Appending URLs}\\
 If you want to go to another base on the current page, you need add an "/"after.
-e.g. current url:"www.mybase.com/home/" \textit{href="edit"} will lead you to "www.mybase.com /home/edit". If you current url is "www.mybase.com/home" \textit{href="edit"} will lead you to “www.mybase.com/edit”.
+e.g. current url:"www.mybase.com/home/" \textit{href="edit"} will lead you to "www.mybase.com /home/edit". If you current url is "www.mybase.com/home" \textit{href="edit"} will lead you to “www.mybase.com/edit”.\\
 
-\subsubsection{Spring Security role checking on the server side}
+\noindent\textbf{Spring Security role checking on the server side}\\
 You may check if the logged in user has a role of admin in controller final:
 \textit{Authentication auth = SecurityContextHolder .getContext().getAuthentication();
 SimpleGrantedAuthority AUTHORITY\_ADMIN = new SimpleGrantedAuthority("ADMIN"); org.springframework. security.core.userdetails.User user = auth.getPrincipal(); if(user.getAuthorities().contains (AUTHORITY\_ADMIN))\{
 	model.addAttribute("isAdmin",true);
-\}}
+\}}\\
 
-\subsubsection{Database issues}
-"table","order" and other similar keywords cannot be used as table name or column name, SQL will fail.
+\noindent\textbf{Database issues}\\
+"table","order" and other similar keywords cannot be used as table name or column name, SQL will fail.\\
 
-\subsubsection{Creating a custom Maven/Gradle dependency}\label{iss:mavenrepo}
+\noindent\textbf{Creating a custom Maven/Gradle dependency}\label{iss:mavenrepo}\\
 Initially, we want to make a jar file and include it in our project, but we failed to use/refer to it. Later, we choose to create a local maven dependency, and compile it in the gradle dependencies.
 How to make a maven dependency with your models?
-Create a maven project with groupId = com.xxx and Artificial Id, under java folder, create pakage: com.xxx.models, put all your java files under that folder. Then do maven build.
+Create a maven project with groupId = com.xxx and Artificial Id, under java folder, create pakage: com.xxx.models, put all your java files under that folder. Then do maven build.\\
 
-\subsubsection{Combining microservices and Spring Security}
+\noindent\textbf{Combining microservices and Spring Security}\\
 According to the tutorial from spring.io/blog, the author disable component scan in the main application and create all beans inside main.
 However, this may cause an issue, because it will also disable the security configuration which is usually a separate config class. In this case, the whole project will use default spring security configuration (all pages need login).
 
