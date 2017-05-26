@@ -1,46 +1,46 @@
 \contentsline {section}{\numberline {1}Master Thesis Objective}{3}{section.1}
 \contentsline {subsection}{\numberline {1.1}Proposal}{3}{subsection.1.1}
-\contentsline {subsection}{\numberline {1.2}Concept}{3}{subsection.1.2}
+\contentsline {subsection}{\numberline {1.2}Concept}{4}{subsection.1.2}
 \contentsline {subsection}{\numberline {1.3}Project Requirements}{4}{subsection.1.3}
 \contentsline {subsubsection}{\numberline {1.3.1}Constraints}{4}{subsubsection.1.3.1}
-\contentsline {subsubsection}{\numberline {1.3.2}Design focus}{4}{subsubsection.1.3.2}
+\contentsline {subsubsection}{\numberline {1.3.2}Design focus}{5}{subsubsection.1.3.2}
 \contentsline {section}{\numberline {2}Research and Methodology}{5}{section.2}
 \contentsline {subsection}{\numberline {2.1}Approach}{5}{subsection.2.1}
 \contentsline {subsection}{\numberline {2.2}Java Enterprise Landscape}{5}{subsection.2.2}
 \contentsline {subsection}{\numberline {2.3}Comparison of technologies}{7}{subsection.2.3}
 \contentsline {subsubsection}{\numberline {2.3.1}IDE's and build tools}{7}{subsubsection.2.3.1}
-\contentsline {subsubsection}{\numberline {2.3.2}General framework}{7}{subsubsection.2.3.2}
-\contentsline {subsubsection}{\numberline {2.3.3}Persistence providers}{8}{subsubsection.2.3.3}
+\contentsline {subsubsection}{\numberline {2.3.2}General framework}{8}{subsubsection.2.3.2}
+\contentsline {subsubsection}{\numberline {2.3.3}Persistence providers}{9}{subsubsection.2.3.3}
 \contentsline {subsubsection}{\numberline {2.3.4}Object relational mapping tools}{9}{subsubsection.2.3.4}
-\contentsline {subsubsection}{\numberline {2.3.5}Security systems}{9}{subsubsection.2.3.5}
+\contentsline {subsubsection}{\numberline {2.3.5}Security systems}{10}{subsubsection.2.3.5}
 \contentsline {subsubsection}{\numberline {2.3.6}Front-end and Styling frameworks}{10}{subsubsection.2.3.6}
 \contentsline {subsubsection}{\numberline {2.3.7}Application architecture and micro-services}{10}{subsubsection.2.3.7}
 \contentsline {section}{\numberline {3}Application Implementation}{11}{section.3}
-\contentsline {subsection}{\numberline {3.1}Case study summary}{11}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.1}Case study summary}{12}{subsection.3.1}
 \contentsline {subsection}{\numberline {3.2}Development Process}{12}{subsection.3.2}
-\contentsline {section}{\numberline {4}Case study: Online cash register}{16}{section.4}
-\contentsline {subsection}{\numberline {4.1}Introduction}{16}{subsection.4.1}
+\contentsline {section}{\numberline {4}Case study: Online cash register}{17}{section.4}
+\contentsline {subsection}{\numberline {4.1}Introduction}{17}{subsection.4.1}
 \contentsline {subsection}{\numberline {4.2}Existing systems}{17}{subsection.4.2}
 \contentsline {subsection}{\numberline {4.3}Use Cases}{17}{subsection.4.3}
 \contentsline {paragraph}{Customer}{17}{subsection.4.3}
-\contentsline {paragraph}{Waiter}{17}{subsection.4.3}
-\contentsline {paragraph}{Chef}{17}{subsection.4.3}
-\contentsline {paragraph}{Manager}{17}{subsection.4.3}
-\contentsline {subsection}{\numberline {4.4}Must-haves and nice-to haves}{17}{subsection.4.4}
+\contentsline {paragraph}{Waiter}{18}{subsection.4.3}
+\contentsline {paragraph}{Chef}{18}{subsection.4.3}
+\contentsline {paragraph}{Manager}{18}{subsection.4.3}
+\contentsline {subsection}{\numberline {4.4}Must-haves and nice-to haves}{18}{subsection.4.4}
 \contentsline {paragraph}{Must-Haves}{18}{subsection.4.4}
 \contentsline {paragraph}{Nice-to-Haves}{18}{subsection.4.4}
-\contentsline {subsection}{\numberline {4.5}Design Choices}{18}{subsection.4.5}
-\contentsline {subsubsection}{\numberline {4.5.1}Client}{18}{subsubsection.4.5.1}
+\contentsline {subsection}{\numberline {4.5}Design Choices}{19}{subsection.4.5}
+\contentsline {subsubsection}{\numberline {4.5.1}Client}{19}{subsubsection.4.5.1}
 \contentsline {subsubsection}{\numberline {4.5.2}Employee}{19}{subsubsection.4.5.2}
-\contentsline {subsubsection}{\numberline {4.5.3}Manager}{20}{subsubsection.4.5.3}
-\contentsline {section}{\numberline {5}Results}{21}{section.5}
-\contentsline {subsection}{\numberline {5.1}Final Prototype}{21}{subsection.5.1}
-\contentsline {subsection}{\numberline {5.2}Possible Improvements}{21}{subsection.5.2}
-\contentsline {section}{\numberline {6}Conclusion}{22}{section.6}
-\contentsline {section}{\numberline {7}References}{23}{section.7}
-\contentsline {section}{\numberline {8}Appendix}{25}{section.8}
-\contentsline {subsection}{\numberline {8.1}List of technologies used}{25}{subsection.8.1}
-\contentsline {subsection}{\numberline {8.2}Problems and their solutions}{26}{subsection.8.2}
-\contentsline {paragraph}{Problems with database model foreign keys}{26}{subsection.8.2}
-\contentsline {paragraph}{Thymeleaf-related issues}{26}{subsection.8.2}
-\contentsline {paragraph}{HttpRequest POST problems}{27}{subsection.8.2}
+\contentsline {subsubsection}{\numberline {4.5.3}Manager}{21}{subsubsection.4.5.3}
+\contentsline {section}{\numberline {5}Results}{22}{section.5}
+\contentsline {subsection}{\numberline {5.1}Final Prototype}{22}{subsection.5.1}
+\contentsline {subsection}{\numberline {5.2}Possible Improvements}{22}{subsection.5.2}
+\contentsline {section}{\numberline {6}Conclusion}{23}{section.6}
+\contentsline {section}{\numberline {7}References}{24}{section.7}
+\contentsline {section}{\numberline {8}Appendix}{26}{section.8}
+\contentsline {subsection}{\numberline {8.1}List of technologies used}{26}{subsection.8.1}
+\contentsline {subsection}{\numberline {8.2}Problems and their solutions}{27}{subsection.8.2}
+\contentsline {paragraph}{Problems with database model foreign keys}{27}{subsection.8.2}
+\contentsline {paragraph}{Thymeleaf-related issues}{27}{subsection.8.2}
+\contentsline {paragraph}{HttpRequest POST problems}{28}{subsection.8.2}
