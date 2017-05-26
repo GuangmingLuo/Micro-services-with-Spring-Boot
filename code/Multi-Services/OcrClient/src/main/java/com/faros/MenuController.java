@@ -14,7 +14,6 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
 import javax.validation.Valid;
 import java.io.IOException;
 import java.util.List;
@@ -109,7 +108,6 @@ public class MenuController {
         org.springframework.security.core.userdetails.User user = (org.springframework.security.core.userdetails.User)auth.getPrincipal();
         JSONObject userExists = userService.findByUsername(user.getUsername());
         JSONObject rest = restaurantService.findRestaurantById(Integer.parseInt(userExists.getAsString("restaurantId")));
-        //menu.put("restaurantId",rest.getAsString("id"));
         menu.setRestaurantId(Integer.parseInt(rest.getAsString("id")));
         menuService.addMenu(menu);
         return "redirect:/restaurant/"+rest.getAsString("name")+"/edit";
