@@ -379,6 +379,10 @@ The final version of our application is divided into several modules which can b
 \end{Figure}
 
 The application can be accessed via a browser client on any device or employees can use our native application on android devices. When using a browser, the user will connect with an application server that serves html pages. Customers will be greeted by a menu page of the restaurant they browsed to. From this page they can make a selection of items and place an order. These features do not require the user to be logged in. Employees and managers can log in to access more functionality. Once logged in, employees can view an overview of the currently placed orders and update their status. They can also modify the menu, creating new menu items or removing them. They can do this only for the restaurant they are assigned to. Managers will have the rights to create and manage employee accounts.
+\\\\
+The HTML pages send by our application server are based on the data returned by the services for each aspect of the system. There is a separate service for storing food items, menu categories, orders, restaurant listing and information and user accounts. The application server finds an instance of these services by consulting the Eureka server, which registers all running service instances. If one of the services is not available, an status message will be shown to users to inform which service is unavailable. Any functionality of the web application that does not require this service will continue functioning.
+\\\\ 
+Employees also have the option to use a native android application. This application provides a specialized interface to make taking orders faster. Instead of showing a scrollable list of food items, this interface displays the items in a grid, using a shorthand notation for the names of the drinks and meals. This application does not need a running application server in the back-end, but instead relies on an API gateway to access the services it needs. Managers can also use this API to develop their own specialized applications, if so desired.
 
 \subsection{Possible Improvements}
 
@@ -502,12 +506,6 @@ Create a maven project with groupId = com.xxx and Artificial Id, under java fold
 \subsubsection{Combining microservices and Spring Security}
 According to the tutorial from spring.io/blog, the author disable component scan in the main application and create all beans inside main.
 However, this may cause an issue, because it will also disable the security configuration which is usually a separate config class. In this case, the whole project will use default spring security configuration (all pages need login).
-
-
-
-
-
-
 
 
 \end{document}
