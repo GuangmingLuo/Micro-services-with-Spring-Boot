@@ -76,73 +76,64 @@
 \keywords{JavaEE, Spring framework, Cloud, Microservices}
 
 
-
-\section{Project Objective}
+%\noindent\hrulefill
+\section{Master Thesis Objective}
 \begin{multicols}{2}
 \subsection{Proposal}
 This master thesis is commissioned by Faros, a Cronos group company specialized in the development of Java web applications and primarily focused on designing Rich Internet Applications. Development within Faros is done with Vaadin, Spring, HTML5, ExtJS, JavaScript, JSP, JSF, NoSQL and more.\cite{farosProposal} This means that during this thesis, special attention is given to these technologies in regards to design choices. Naturally, comparisons with other possible frameworks will still be done and valid arguments will be set forward to confirm these decisions.
 \\\\
-The following case study was proposed by Faros: designing an online cash register that can be used in restaurants or at events. Existing cash register systems can be expensive and for smaller establishments or temporary events, this investment is not worth it. The idea is to use existing devices from employees and customers to handle the ordering and payment process.
+The following case study was proposed by Faros: designing an online cash register that can be used in restaurants or at events. Existing cash register systems can be expensive. For smaller establishments or temporary events, this initial investment could be too high. The idea is to use existing devices from employees and customers to handle the ordering and payment process.
 \\\\
 This project is an opportunity for us to learn about the frameworks and technologies used for the development of rich, interactive web applications. Additionally, we want to explore the best methods to  build a web application from scratch. Some key aspects that we will look out for are: Documentation availability, speed of new project setup, customizability, integration with other frameworks and security features. When given the corresponding documentation, it should be possible to reproduce this application. During the design and development of this project we want to describe the problems we faced and how we solved them. This will give other students the option to learn from our mistakes and hopefully help them increase their understanding of Java EE concepts. 
 
 \subsection{Concept}\label{sec:concept}
 %TODO if possible, shorten this section
-At the start of the project we discuss the key aspects of this project with our coaches at Faros. Based on the requirements provided by them, combined with our own interests, we will define the general field we will be working in. 
+At the start of the project we discuss the key aspects of this project with our coaches at Faros. Based on the requirements provided by them, combined with our own interests and targets, we define the general field we will be working in and the features we should develop. See \textbf{section \ref{sec:constraints}} for the constraints defined together with Faros.
 \\\\
-After we have a good overview of what aspects must be included in this project (or should be avoided), we can start deciding core features that will determine which technologies will be appropriate for this project. These choices are based on the aspects we think are needed for developing a web application based on the aforementioned requirements. This should give us a list of possible systems and frameworks that could potentially be used during this project.
+After we have a good overview of the key aspects for this project, we can start searching for the appropriate technologies. The choices we make here are based on the aspects we think are needed for developing a web application meeting the aforementioned requirements. After doing this we should have a list of tools, systems, frameworks and libraries that could potentially be used during this project. See \textbf{section \ref{sec:javalandscape}} on the Java EE landscape. After defining the subject of our case study, this list can be shortened to technologies specifically applicable to this project.For certain frameworks it will be difficult to obtain a shorter list, as they might all comply with the requirements. In this case we will make a selection of items to keep the scope of the project realistic. Usually the most widely used frameworks will be selected. If a deviating set is chosen this will be elaborated on in the corresponding chapter. 
 \\\\
-Now that we have a list of possible systems, we can start to think about the case study we want to develop. Given the general outline of the project, we can begin selecting the appropriate tools and frameworks that fit this case study. This will shorten the list to technologies specifically applicable to this project. For certain frameworks it will be difficult to obtain a shorter list, as they might all comply with the requirements we set. In this case we will make a selection of items to keep the scope of the project realistic. Usually the most popular frameworks will be selected. If a deviating set is chosen this will be elaborated on in the corresponding chapter.
+The next step is to define the case study in more detail. The standard procedure for application development will be followed. Relevant documentation will be constructed including a use case analysis, feature description ( Nice-to-haves versus Must-haves ), navigational models, UML diagrams and market research. After this we can start working on getting familiar with the chosen enterprise Java frameworks. See \textbf{section \ref{sec:casestudy}} for the full case study. At this stage we will also try out the different technologies we selected to be able to better compare their advantages and disadvantages. See \textbf{section \ref{sec:comparison}} for a comparison of technologies.
 \\\\
-Now that the tools are known, the standard procedure for application development will be followed. Relevant documentation will be constructed including a use case analysis, feature description (Nice-to-have versus Must-have), navigational models, hierarchical task analysis, UML diagrams and market research. After this we can start working on getting familiar with the chosen enterprise Java frameworks.
-\\\\
-As soon as we are sufficiently proficient with our chosen tools, we will start working on a case study where we use the knowledge we obtained to build a functional prototype for a realistic use case scenario. During the project we might come to the conclusion that certain choices we made were suboptimal or simply do not allow further progression. In such cases, we will adjust our trajectory and change to the appropriate tools. Any time such a decision is made we will mention it in this report and provide the matching argumentation as to why we made the switch.
+As soon as we are sufficiently proficient with our chosen tools, we will start implementing the case study and use the knowledge we obtained to build a functional prototype for a realistic use case scenario. During the project we might come to the conclusion that certain choices we made were suboptimal or simply do not allow further progression. In such cases, we will adjust our trajectory and change to the appropriate tools. Any time such a decision is made we will mention it in this report and provide the matching argumentation as to why we made the switch. Apart from the implementation, there will be a separate chapter to showcase the resulting application. See \textbf{sections \ref{sec:implementation} and \ref{sec:results}} for the implementation and results, respectively.
 \subsection{Project Requirements}
-\subsubsection{Constraints}
-As this project is appointed by Faros, there are certain guidelines we will follow during this study. The primary constraint is the usage of Java. As Faros is a Java consultancy company, the technology stack we use should match what the employees there utilize. Within Java we are still free to choose what frameworks will be used. Another constraint is that we should not aim to create a perfectly working application with extensive styling and fail-safes, but rather focus more on experimenting with various different systems to get a better overview of the big picture and compare these systems with each other. There are also certain project-specific constraints that will be detailed in the case study.
+\subsubsection{Constraints}\label{sec:constraints}
+As this project is appointed by Faros, there are certain guidelines we will follow during this study. The primary constraint is the usage of \textbf{Java}. As Faros is a Java consultancy company, the technology stack we use should match what the employees there utilize. Within Java we are still free to choose what frameworks will be used. Another constraint is that we should not aim to create a perfectly working application with extensive styling and fail-safes, but rather focus more on experimenting with various different systems to get a better overview of the big picture and compare these systems with each other. There are also certain project-specific constraints that will be detailed in the case study.
 \subsubsection{Design focus}
-During this thesis we will develop a application based on a case study as mentioned in section \ref{sec:concept}. This case study is a device used for guiding development, but it is not the primary goal of this thesis. Instead, it is a way that allows us to explore the technologies used in application development on an enterprise level. In particular, we want to look at the microservices architecture and what advantages or disadvantages this has over more traditional web development. We will explore the microservices architecture in detail and research all related technologies and principles such as discovery, load balancing and security.
-%TODO maybe add some more information.
+During this thesis we will develop a application based on a case study as mentioned in section \ref{sec:concept}. This case study is a device used for guiding development, but it is not the primary goal of this thesis. Instead, it is a way that allows us to explore the technologies used in application development on an enterprise level. In particular, we want to look at the \textbf{microservices architecture} and what advantages or disadvantages this has over more traditional web development. We will explore the microservices architecture in detail and research all related technologies and principles such as service discovery, routing, load balancing and security.
 
-
-\subsection{Existing systems}
-%TODO More detail needs to be added. also move this to research and methods
-Before creating our own Online cash register application we searched for similar systems that already exist. One of such systems is Gloriafood \cite{Gloriafood:online}. This is an online system that allows any restaurant owner to sign up and start receiving orders online. A extensive layout is available where you can add a menu and payment options.
-\\\\
-Similarly, there is ChowNow \cite{Chownow:online}. This service also handles online ordering and payment with no extra input required from the restaurant manager. ChowNow will also create a custom branded mobile application to showcase the brand and food of the restaurant.
-\\\\
-Both of these systems are focused on the online ordering aspect and not so much on allowing people to use their devices to order food on location. In this project we want to put the emphasis on the latter part, creating an application that is meant to be used at the location itself.
 \end{multicols}
+
 %\newpage
-\section{Research and Methods}
+%\noindent\hrulefill
+\section{Research and Methodology}
 \begin{multicols}{2}
 \subsection{Approach}
-We will take a quantitative approach in this paper, exploring and comparing frameworks for each of the features required for this project. This includes: General frameworks providing a way to couple web resources to Java code. Persistence providers, SQL or noSQL databases to store customer information. Object relational mapping tools to generate mappings from existing data-stores. Security systems to allow authentication and authorization in a safe way. Front-end frameworks, providing styling options and client side scripting. Everything related to the case study is detailed separately in section \ref{sec:casestudy}
-\subsection{Java EE Landscape}
-We will not discuss every existing tool in the Java environment, but it might be interesting to have a look at the current state of Java EE in the professional world. We will use the numbers from a survey published by Zeroturnaround to do our analysis.\cite{JavaEELandscape73:online} This website has a blog for Java web developers and will display a certain bias towards this usergroup. For more general statistics please refer to Stackoverflow's developer survey.\cite{DeveloperSurvey95:online}
+We will take a quantitative approach in this paper, exploring and comparing frameworks for each of the features required for this project. This includes: General frameworks providing a way to couple web resources to Java code. Persistence providers, SQL or noSQL databases to store customer information. Object relational mapping tools to generate mappings from existing data-stores. Security systems to allow authentication and authorization in a safe way. Front-end frameworks, providing styling options and client side scripting. Plus any technologies related to the microservices architecture. Everything related to the case study is detailed separately in \textbf{section \ref{sec:casestudy}}
+\subsection{Java Enterprise Landscape}\label{sec:javalandscape}
+We will not discuss every existing tool in the Java environment, but it might be interesting to have a look at the current state of Java EE in the professional world. We will use the numbers from a survey published by Zeroturnaround to do our analysis.\cite{JavaEELandscape73:online} This website has a blog for Java web developers and will display a certain bias towards this usergroup. For more general statistics please refer to Stackoverflow's developer survey. \cite{DeveloperSurvey95:online}
 \\\\
-Currently the majority of Java developers work on full-stack web applications (67\%), a smaller group works on back-end code only (18\%) with the rest of the developers divided into batch scripting, mobile apps, desktop applications, etc... This shows us that only in a fragment of the projects specialization is beneficial. Usually developers know and work with both front-end and back-end technologies. This is also what we will do during this project, implementing both the front-end and back-end of the application.
+Currently the majority of Java developers work on full-stack web applications (67\%), a smaller group works on back-end code only (18\%) with the rest of the developers divided into batch scripting, mobile apps, desktop applications, etc... This shows us that only in a fragment of the projects specialization is considered beneficial. Usually developers know and work with both front-end and back-end technologies. This is also what we will do during this project, implementing both the front-end and back-end of the application.
 \\\\
-So which front-end and back-end frameworks are used by developers? The most commonly used web framework is Spring MVC (43\%), followed closely by Spring Boot (29\%). Practically, this means that over 70 percent of respondents use the Spring framework. Spring Boot itself is not really a framework, but rather a streamlined entry point to the Spring ecosystem with a "Opinionated Defaults Configuration" approach. \cite{SpringBootAdvantages67:online}\cite{SpringBootIntro23:online} Other common web frameworks are JavaServer Faces (19\%), Vaadin (13\%) and Struts (7\%). Other frameworks exist but are too numerous to list. For this project we will limit ourselves to analysing the 3 most popular frameworks. This should give us a good idea of the advantages that web frameworks offer, and how they compare. Spring Boot in particular looks promising as it provides autoconfiguration for many properties which will be advantageous for people new to the Java EE platform. It is also worth mentioning that 17 percent replied that they do not use any framework. It seems that for certain projects using a framework is not worthwhile. % This could also be a point of discussion for our thesis
+So which front-end and back-end frameworks are used by developers? The most commonly used web framework is Spring MVC (43\%), followed closely by Spring Boot (29\%). Practically, this means that over 70 percent of respondents use the Spring framework. Spring Boot itself is not really a framework, but rather a streamlined entry point to the Spring ecosystem with a "Opinionated Defaults Configuration" approach. \cite{SpringBootAdvantages67:online}\cite{SpringBootIntro23:online} Other common web frameworks are JavaServer Faces (19\%), Vaadin (13\%) and Struts (7\%). Other frameworks exist but are too numerous to list. For this project we will limit ourselves to analysing the most popular frameworks. This should give us a good idea of the advantages that web frameworks offer, and how they compare. Spring Boot in particular looks promising as it provides autoconfiguration for many properties which will be advantageous for people new to the Java EE platform. It is also worth mentioning that 17 percent replied that they do not use any framework. It can be concluded that for certain projects using a framework is not worthwhile. % This could also be a point of discussion for our thesis
 \\\\
-When working with frameworks, developers will make use of build tools to avoid having to manually invoke the steps in the compilation process. The most popular build tools for Java are Apache Maven (68\%), Gradle (16\%) and Apache Ant(11\%). While using a different build tool won't directly affect the result of a project, it is important to make an appropriate choice from the start. This build tool will be shared by all teammates in a project. 
+When working with frameworks, developers will make use of build tools to avoid having to manually invoke the steps in the compilation process. The most popular build tools for Java are Apache Maven (68\%), Gradle (16\%) and Apache Ant(11\%). While using a different build tool won't directly affect the result of a project, it is important to make an appropriate choice from the start, as this build tool will be shared by all teammates in a project. 
 \\\\
 To deploy the application, an application server is needed. For production, Tomcat (42\%) is the primary choices for running Java web applications. The rest of the users are quite evenly distributed over the other application servers with the most popular being Jetty (12\%), Wildfly (10\%) and JBoss EAP (7\%). Developers have the choice of running their own application server and deploying their apps to it or making an application with an embedded server. For us, using an embedded server will get our project up and running faster. We will also run an external server to learn how this changes the development cycle. 
 \\\\
-While not directly related to specific technologies, the survey also asked participants to indicate whether they have adopted a microservices architecture. This is interesting for us to look into as it was mentioned by our coaches at the company. It seems that microservices have become quite popular in recent year for a variety of reasons.\cite{WhyMicroservices48:online} Although it differs from the usual approach we learned during our education, trying to use this architecture in our application might provide valuable insights if we succeed.  
+While not directly related to specific technologies, the survey also asked participants to indicate whether they have adopted a microservices architecture. This is interesting for us to look into as this will be the focus of this project. It seems that microservices have become quite popular in recent year for a variety of reasons, like separation of concerns, natural modular structure and excellent for continuous delivery platforms. \cite{WhyMicroservices48:online} Although it differs from the usual approach we learned during our education, using this architecture in our application might provide valuable insights if we succeed.  
 \\\\
-Something that is not mentioned in the survey is security. Basic security is expected in any web application, but implementing a secure system is difficult. Java EE already provides the building block for securing a web application, but part of the design is still up to the developers themselves.\cite{JavaEESecurity29:online} Modern Java web frameworks go a step further however, giving developers a production ready security system out of the box. E.g. with Spring boot using Spring Security offers a system with built-in authentication and authorization. Safety and resilience are key factors that have to be taken into account when developing our application.
+Something that is not mentioned in the survey is security. Basic security is expected in any web application, but implementing a secure system is difficult. Java EE already provides the building block for securing a web application, but part of the design is still up to the developers themselves.\cite{JavaEESecurity29:online} Modern Java web frameworks go a step further however, giving developers a production ready security system out of the box. E.g. with Spring boot using Spring Security offers a system with built-in authentication and authorization. Safety and resilience are key factors that have to be taken into account when developing our application. The choice for security will largely depend on which framework we work with. 
 \\\\
-Another aspect not discussed in the survey is front-end frameworks. Commonly, the interface of a web application is designed using HTML, CSS and Javascript. On top of this CSS and javascript libraries like Bootstrap and JQuery can be used to speed up development by giving access to pre-made modules for frequently used interface elements. Front-end frameworks such as AngularJS and libraries like React can be used to speed up development even further. They offer tools and design guidelines to make designing interactive interfaces efficient and fast. Although we will also discuss these frameworks in this paper, priority will be given to technologies related to the back-end while styling will take a back seat.
+Another aspect not discussed in the survey is front-end frameworks. Commonly, the interface of a web application is designed using HTML, CSS and Javascript. On top of this CSS and javascript libraries like Bootstrap and JQuery can be used to speed up development by giving access to pre-made modules for frequently used interface elements. Front-end frameworks such as AngularJS and libraries like React can be used to speed up development even further. They offer tools and guidelines to make designing interactive interfaces efficient and fast. Although we will also discuss these frameworks in this paper, priority will be given to technologies related to the back-end.
 \\\\
 Finally, what types of databases are used to store information? The most used database are OracleDB (39\%), MySQL (38\%) and PostgreSQL (29\%). All three are relational databases. The most used NoSQL databases are MongoDB (15\%) and Redis (8\%). Note that these results are multiple choice, as some projects use multiple databases simultaneously. For the case study, the selection of database will depend on the type of data we want to store. Most of our experience is with relational databases, so trying out a NoSQL database will be valuable experience.
 \\\\
-Hopefully this section gave some insight into the technologies used in Enterprise Java Development and how we will approach them in our project. We want to try out various technologies and determine those most suitable for the use case and our development style. In the next section a more detailed explanation of the technologies will be given. During the exploration of these frameworks we will already create a prototype for the case study. This will give us a better idea of which features would be beneficial for this specific project.
+Hopefully this section gave some insight into the technologies used in Enterprise Java Development and how we will approach them in our project. We want to try out various technologies and determine those most suitable for the use case and our development style. In the next section a more detailed explanation of the technologies will be given. During the exploration of these frameworks we will already create a prototype for the case study. This will give us a better idea which features would be beneficial for this specific project.
 
-\subsection{Case study summary}
-% TODO add section that specifies basic requirements of the case study and explain why these might or might not match what we write down here.
-\subsection{Comparison of technologies}
+
+\subsection{Comparison of technologies}\label{sec:comparison}
 Even before we specify the case study for our project we can already try out the different technologies discussed in the previous subsection and make a selection of those we deem appropriate for this master thesis. Any choices directly related to our specific case study will be discussed in section \ref{sec:casestudy}.
+
 \subsubsection{IDE's and build tools}\label{sec:idebuild}
 While the development environment and build tools are essential in application development. The choice itself is based on the preferences of the individual programmer. This project started out with the Netbeans environment and Maven for dependency management. When we started using Spring we tried out the Spring Tool Suite based on Eclipse, but we finally settled on IntelliJ IDEA and Gradle. IDEA offers many tools often needed during development such as a database editor, gradle/maven task execution, ORM modules, bitbucket plugin support, REST client for testing, superior auto-completion and built-in support for many frameworks. There are several other advantages to using IDEA, but these were the most determining factors causing us to switch environment. For the build tool, Maven is actually not inferior to Gradle. Both support the dependency injection that we need for this project. The primary reason we decided to try it out was curiosity. Gradle is currently the default build tool in Android development with android studio, and it is also utilized in Grails and Netflix OSS. When comparing them directly, Gradle seems to offer a much richer feature set. \cite{GradleVsMaven48:online} When using this build tool in the project, we came to the conclusion that these extra features were not really a necessity for our specific application. We did stick to Gradle in the end though, as the DSL syntax that it uses makes for a much more readable build file in comparison to the XML notation that Maven uses. We did stumble upon some issues while using Gradle. It also uses the Maven repositories for its dependencies, which means that if you want to add your own dependency to the local Maven repository, you will need to enable the maven-publish plugin within Gradle and add the relevant build code to bundle it correctly. Compare this to Maven, where executing the install task achieves the same result. In general, the choices we made for this section are based on our own preferences and experiences during the project.
 \subsubsection{General framework}
@@ -165,10 +156,21 @@ Java EE provides various modules to secure a web application, but many of these 
 For styling our web application, we can make use of several Front-end frameworks and libraries. Usually the general web frameworks allow the serving of static web pages in the form of HTML and CSS pages. While making a beautiful interface is not the main focus of this project, we can still make use of a styling library such as Bootstrap or MDL to speed up and improve the design of our pages.
 \\\\
 Another trend in web development are responsive and reactive web pages. With the increase in mobile devices around the world, it cannot be assumed that people will visit a website on a large pc screen. Rather, most users will access web services from their phones or tablet devices. This means that when building a website we should try to make the interface scale properly for any size of device. Going even further than that, it is possible to improve performance by only reloading separate elements of the page and not redirecting to a new page each click. For this we will look at popular front-end modules like AngularJS and React. 
+\subsubsection{Application architecture and microservices}
 
-\subsection{Implementation}\label{sec:implementation}
-%Possibly move to after the Case study explaination.
-In this subsection, the actual process for the implementation of the project will be laid out. We will present a chronological progression of the project and discuss what we implemented and what roadblocks we encountered.
+
+
+\end{multicols}
+%\noindent\hrulefill
+\section{Application Implementation}\label{sec:implementation}
+
+\begin{multicols}{2}
+
+\subsection{Case study summary}
+In this project, a case study is used to define the functional requirements for development. During the implementation, we will keep these requirements in mind. The idea is to showcase a multiservices architecture using a relevant application prototype. Here is a small summary of what this case study entails: We will develop a web application to be used by restaurant owners or event organizers. They can apply for an account, giving them access to a public webpage where they can manage their establishment and employees. They can also create and modify menus for their restaurants or events. Customers coming to these places can use their mobile devices to access the corresponding menus and order food and drinks directly from their device. Employees assigned by the manager can see and process these orders from their own computers or mobile devices. We want to create an ecosystem for these purposes without needing specialized devices, with the necessary infrastructure running in the cloud. For a complete overview of the case study, see \textbf{section \ref{sec:casestudy}}.
+
+\subsection{Development Process}
+\noindent In this section, the actual process for the implementation of the project will be laid out. We will present a chronological progression of the project and discuss what we implemented and what roadblocks we encountered.
 \\\\
 As mentioned in section \ref{sec:idebuild}, we initially started out with a project made in Netbeans using Java EE serving JSP pages. This was a monolithic application that included client, business logic and database. This was our first experience with Enterprise java development. We had a locally hosted Payara server which we used to deploy our enterprise application archive. A simple SQL datastructure was running on an external MySQL server, which can been seen on figure \ref{fig:sqldiagram}
 \begin{Figure}
@@ -215,7 +217,7 @@ Another interesting aspect of this structure is that we can build modular web pa
 \\\\
 We are now at the point where we have a functional application build upon a microservices foundation, but there are still some practical issues with the current structure. Currently, there is one instance of each service running in their own container, each bound to a specific port number. To access an API, the address and port of the service have to be known. For the application server accessed by browser clients these adresses can be hard-coded, although this is not recommended.(See the next paragraph about discovery.) For other clients this is more difficult, they do not know which addresses they can use the access the APIs. Hard-coding this would be detrimental as it would require an update of the application each time infrastructure changes are done. For example when changing the host of a certain service. The solution we used was creating an extra service that functions as a gateway for all the API endpoints. The Spring cloud dependency offers the foundation for this gateway under the form of Zuul, developed by Netflix. \cite{NetflixZuul76:online} Implementing this gateway allows us to accept requests that include the service name and route these requests to the corresponding service by specifying their addresses in the Zuul gateway configuration. The API gateway functions as a reverse proxy, illustrated in figure \ref{fig:apigateway}. The services are now accessible from the android application without the need for specific addresses or ports.
 \\\\
-\textbf{Service Discovery}\\
+\textbf{Service Discovery}\label{sub:discovery}\\
 While we have a functional Api gateway system now, we are not yet making use of all the advantages the microservice architecture offers. For example, if we want to run multiple instances of the same service for redundancy or load balancing, how do we determine the addresses of these services? We cannot simply add more routes to the Zuul gateway, this is not scalable. Instead we created yet another service that works with the Eureka system, also part of the Netflix open source software. Eureka provides a discovery service on which other services can register themselves. The Eureka server holds a list of each services registered to it, as well as the amount of instances available and on what addresses they are located. To have a service register itself to this discovery server they have to be instantiated as an Eureka client. On startup they will connect to the server and register themselves with the corresponding information. This opens up a lot of possibilities, we can know host each service multiple times and if one instance crashes or has connection issues the application will still function. Eureka also does basic round-robin load balancing, which means that incoming api calls from clients will be spread over the pool of available services, which helps with performance.
 \\\\
 With the inclusion of a discovery service and Api gateway we now have a fully functional system that makes use of the advantages a microservices architecture brings to web development. 
@@ -233,6 +235,13 @@ With the inclusion of a discovery service and Api gateway we now have a fully fu
 \begin{multicols}{2}
 \subsection{Introduction}
 The goal of this case study is to create a service that can be used at events and in restaurants to process orders made by customers, relay these orders to the waiters and chefs and handle the payment. This service should include an application that clients can use to view the menu and order items from it. Waiters also have their own application that can place and acknowledge orders. These orders will be send to a central system that manages all the required information. See fig. \ref{fig:usecase} for a use case diagram.
+\subsection{Existing systems}
+%TODO More detail needs to be added. also move this to research and methods
+Before creating our own Online cash register application we searched for similar systems that already exist. One of such systems is Gloriafood \cite{Gloriafood:online}. This is an online system that allows any restaurant owner to sign up and start receiving orders online. A extensive layout is available where you can add a menu and payment options.
+\\\\
+Similarly, there is ChowNow \cite{Chownow:online}. This service also handles online ordering and payment with no extra input required from the restaurant manager. ChowNow will also create a custom branded mobile application to showcase the brand and food of the restaurant.
+\\\\
+Both of these systems are focused on the online ordering aspect and not so much on allowing people to use their devices to order food on location. In this project we want to put the emphasis on the latter part, creating an application that is meant to be used at the location itself.
 \subsection{Use Cases}
 In this case study we can identify several distinct actors that will interact differently with the application.
 \paragraph{Customer}
@@ -291,10 +300,6 @@ As soon as we had the use cases defined, we can specify what features are absolu
 	(\textit{Multiple orders})
 \end{itemize}
 
-% These sections are already handled before
-\subsection{Technology choices}
-\subsubsection{Application type}
-\subsubsection{Framework choices}
 \subsection{Design Choices}
 \subsubsection{Client}
 %Possibly insert pictures we designed
@@ -359,12 +364,23 @@ Also, for showing the menu to the customer we will display a vertical list with 
 The manager will be able to create new accounts for employees that work in their restaurant. They can modify properties of the restaurant and alter the menu and prices. 
 \\\\
 One of the most important aspects to consider here is multi-tenancy. The application should not only provide an interface for a certain restaurant but should be usable by different managers who own different restaurants. In other words the application should be generic and allow for customization for each restaurant separately.
-\subsubsection{Remarks and challenges}
-\subsection{Major issues and their solutions}
+%\subsubsection{Remarks and challenges}
+%\subsection{Major issues and their solutions}
 
-\section{Results}
+\section{Results}\label{sec:results}
+In this section, an overview of the final application prototype will be given, along with possible improvements that can be done in the future.
 \subsection{Final Prototype}
-\subsection{User tests}
+The final version of our application is divided into several modules which can be seen on figure \ref{fig:applicationdiagram}
+
+\begin{Figure}
+	\includegraphics[width=\linewidth]{illustrations/placeholder.jpg}
+	\captionof{figure}{Application diagram}
+	\label{fig:applicationdiagram}
+\end{Figure}
+
+The application can be accessed via a browser client on any device or employees can use our native application on android devices. When using a browser, the user will connect with an application server that serves html pages. Customers will be greeted by a menu page of the restaurant they browsed to. From this page they can make a selection of items and place an order. These features do not require the user to be logged in. Employees and managers can log in to access more functionality. Once logged in, employees can view an overview of the currently placed orders and update their status. They can also modify the menu, creating new menu items or removing them. They can do this only for the restaurant they are assigned to. Managers will have the rights to create and manage employee accounts.
+
+\subsection{Possible Improvements}
 
 \section{Conclusion}
 
@@ -382,7 +398,7 @@ One of the most important aspects to consider here is multi-tenancy. The applica
 \subsection{List of technologies used}
 Underneath, a list of technologies used during this project can be found. Technologies present in the final application will be indicated in \textbf{bold}.
 \begin{itemize}[leftmargin=20pt]
-	
+	\item \textbf{Java + Java EE}
 	\item \textbf{Spring Boot} - Bootstrapper used on top of Spring MVC
 	\begin{itemize}[leftmargin=20pt]
 		\item \textbf{Spring MVC} - Java web development framework
@@ -409,17 +425,18 @@ Underneath, a list of technologies used during this project can be found. Techno
 		\item \textbf{HTML} - Markup language used for web pages
 		\item \textbf{CSS} - Markup language for web pages styling
 		\item \textbf{JavaScript} - Scripting language to make web pages dynamic
+		\item \textbf{jQuery} - Javascript library to simplify and extend JS development
+		\item \textbf{Material Design Lite} - CSS and Javascript library for designing web pages using material design
 		\item \textit{React} - A component-based Javascript library for building UIs
 		\item \textit{AngularJS} - Structural framework for building dynamic web applications
+		
 	\end{itemize}
 
 	\item \textit{Mobile Development}
 	\begin{itemize}
 		\item \textbf{Android SDK} - Software development kit for android apps
-		\item \textit{PhoneGap} - Multiplatform Mobile application development framework
+		\item \textit{PhoneGap} - Multi-platform Mobile application development framework
 	\end{itemize}
-	\item \textbf{Java}
-	\item \textit{Java EE}
 	\item \textit{Development Tools}
 	\begin{itemize}
 		\item \textbf{Intellij IDEA} - Integrated development environment for the Java virtual machine.
@@ -436,6 +453,61 @@ Underneath, a list of technologies used during this project can be found. Techno
 	 
 \end{itemize}
 \subsection{Problems and their solutions}
-\subsubsection{Thymeleaf security dialect}
-\keywords{Thymeleaf}
+\subsubsection{Problems with database model foreign keys}
+\begin{itemize}
+	\item When a foreign key is also included as part of primary key, you cannot remove this foreign key or drop the primary key.
+	\item Remove the schema and regenerate all tables; if not necessary, do not include foreign keys as part of primary key.
+	\item You cannot remove a table when one of the columns is used as foreign keys in other tables. Similarly, you cannot truncate a table when foreign keys in other tables have been instantiated.
+	\item When instantiating an entity with a foreign key, errors usually appear when the foreign key doesn't have a valid value or empty.
+\end{itemize}
+
+\subsubsection{Thymeleaf-related issues}
+\begin{itemize}
+	\item You cannot give two th:each properties in one div, which means you cannot loop through two lists at the same time.
+	\item You can use Thymeleaf to check if the user is authenticated by adding \textit{sec:authorize = "isAuthenticated()"} to a div, and the div will not show up if it’s false. Same for \textit{sec:authorize = "hasAuthority('ADMIN')"}, the div will only show up when the user has authority of admin. E.g. \textit{<a sec:authorize = "isAuthenticated()" th:href = "@{/restaurant/name/}" class="mdl-navigation  link" href="">Restaurant</a>} (line 50 of navbar.html)
+	\item If you want use model attributes from controller in JavaScript, th:inline = "javascript" has to be added to the script tag and use special format to use the attributes: \textit{var url = /*[[\${url}]]*/'url';} (see line 33-41 of account.html)
+\end{itemize}
+
+\subsubsection{HttpRequest POST problems}
+\begin{itemize}
+	\item Everything get post to the controller via HTTP is String, it’s up to the server to decide which type you want to decode. If you specify @Valid int tableId, the controller will try to decode the value to int and will introduce an error if it fails.
+	\item Hidden input can be used to submit action where there is no input field. You can also put a hidden input field to normal form.
+	\item RedirectAttributes can be used to pass data from post function after redirecting. This is specifically for Spring Framework. After initializing, you can use it like this: \textit{redir.addFlashAttribute("message"," This username is already registered!");} and in the redirected GET method, you can get the information by specifying \\\textit{@ModelAttribute("message")} final String message.
+	\begin{itemize}
+		\item Those flash attributes are passed via the session 
+		\item They will be destroyed immediately after being used
+		\item They are not visible in URL
+		\item You are not restricted to String, but may pass arbitrary objects.
+	\end{itemize}
+\end{itemize}
+\subsubsection{Appending URLs}
+If you want to go to another base on the current page, you need add an "/"after.
+e.g. current url:"www.mybase.com/home/" \textit{href="edit"} will lead you to "www.mybase.com /home/edit". If you current url is "www.mybase.com/home" \textit{href="edit"} will lead you to “www.mybase.com/edit”.
+
+\subsubsection{Spring Security role checking on the server side}
+You may check if the logged in user has a role of admin in controller final:
+\textit{Authentication auth = SecurityContextHolder .getContext().getAuthentication();
+SimpleGrantedAuthority AUTHORITY\_ADMIN = new SimpleGrantedAuthority("ADMIN"); org.springframework. security.core.userdetails.User user = auth.getPrincipal(); if(user.getAuthorities().contains (AUTHORITY\_ADMIN))\{
+	model.addAttribute("isAdmin",true);
+\}}
+
+\subsubsection{Database issues}
+"table","order" and other similar keywords cannot be used as table name or column name, SQL will fail.
+
+\subsubsection{Creating a custom Maven/Gradle dependency}
+Initially, we want to make a jar file and include it in our project, but we failed to use/refer to it. Later, we choose to create a local maven dependency, and compile it in the gradle dependencies.
+How to make a maven dependency with your models?
+Create a maven project with groupId = com.xxx and Artificial Id, under java folder, create pakage: com.xxx.models, put all your java files under that folder. Then do maven build.
+
+\subsubsection{Combining microservices and Spring Security}
+According to the tutorial from spring.io/blog, the author disable component scan in the main application and create all beans inside main.
+However, this may cause an issue, because it will also disable the security configuration which is usually a separate config class. In this case, the whole project will use default spring security configuration (all pages need login).
+
+
+
+
+
+
+
+
 \end{document}

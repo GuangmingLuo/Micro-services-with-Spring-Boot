@@ -1,41 +1,45 @@
-\BOOKMARK [1][-]{section.1}{Project Objective}{}% 1
+\BOOKMARK [1][-]{section.1}{Master Thesis Objective}{}% 1
 \BOOKMARK [2][-]{subsection.1.1}{Proposal}{section.1}% 2
 \BOOKMARK [2][-]{subsection.1.2}{Concept}{section.1}% 3
 \BOOKMARK [2][-]{subsection.1.3}{Project Requirements}{section.1}% 4
 \BOOKMARK [3][-]{subsubsection.1.3.1}{Constraints}{subsection.1.3}% 5
 \BOOKMARK [3][-]{subsubsection.1.3.2}{Design focus}{subsection.1.3}% 6
-\BOOKMARK [2][-]{subsection.1.4}{Existing systems}{section.1}% 7
-\BOOKMARK [1][-]{section.2}{Research and Methods}{}% 8
-\BOOKMARK [2][-]{subsection.2.1}{Approach}{section.2}% 9
-\BOOKMARK [2][-]{subsection.2.2}{Java EE Landscape}{section.2}% 10
-\BOOKMARK [2][-]{subsection.2.3}{Case study summary}{section.2}% 11
-\BOOKMARK [2][-]{subsection.2.4}{Comparison of technologies}{section.2}% 12
-\BOOKMARK [3][-]{subsubsection.2.4.1}{IDE's and build tools}{subsection.2.4}% 13
-\BOOKMARK [3][-]{subsubsection.2.4.2}{General framework}{subsection.2.4}% 14
-\BOOKMARK [3][-]{subsubsection.2.4.3}{Persistence providers}{subsection.2.4}% 15
-\BOOKMARK [3][-]{subsubsection.2.4.4}{Object relational mapping tools}{subsection.2.4}% 16
-\BOOKMARK [3][-]{subsubsection.2.4.5}{Security systems}{subsection.2.4}% 17
-\BOOKMARK [3][-]{subsubsection.2.4.6}{Front-end and Styling frameworks}{subsection.2.4}% 18
-\BOOKMARK [2][-]{subsection.2.5}{Implementation}{section.2}% 19
-\BOOKMARK [1][-]{section.3}{Case study: Online cash register}{}% 20
-\BOOKMARK [2][-]{subsection.3.1}{Introduction}{section.3}% 21
-\BOOKMARK [2][-]{subsection.3.2}{Use Cases}{section.3}% 22
-\BOOKMARK [2][-]{subsection.3.3}{Must-haves and nice-to haves}{section.3}% 23
-\BOOKMARK [2][-]{subsection.3.4}{Technology choices}{section.3}% 24
-\BOOKMARK [3][-]{subsubsection.3.4.1}{Application type}{subsection.3.4}% 25
-\BOOKMARK [3][-]{subsubsection.3.4.2}{Framework choices}{subsection.3.4}% 26
-\BOOKMARK [2][-]{subsection.3.5}{Design Choices}{section.3}% 27
-\BOOKMARK [3][-]{subsubsection.3.5.1}{Client}{subsection.3.5}% 28
-\BOOKMARK [3][-]{subsubsection.3.5.2}{Employee}{subsection.3.5}% 29
-\BOOKMARK [3][-]{subsubsection.3.5.3}{Manager}{subsection.3.5}% 30
-\BOOKMARK [3][-]{subsubsection.3.5.4}{Remarks and challenges}{subsection.3.5}% 31
-\BOOKMARK [2][-]{subsection.3.6}{Major issues and their solutions}{section.3}% 32
-\BOOKMARK [1][-]{section.4}{Results}{}% 33
-\BOOKMARK [2][-]{subsection.4.1}{Final Prototype}{section.4}% 34
-\BOOKMARK [2][-]{subsection.4.2}{User tests}{section.4}% 35
-\BOOKMARK [1][-]{section.5}{Conclusion}{}% 36
-\BOOKMARK [1][-]{section.6}{References}{}% 37
-\BOOKMARK [1][-]{section.7}{Appendix}{}% 38
-\BOOKMARK [2][-]{subsection.7.1}{List of technologies used}{section.7}% 39
-\BOOKMARK [2][-]{subsection.7.2}{Problems and their solutions}{section.7}% 40
-\BOOKMARK [3][-]{subsubsection.7.2.1}{Thymeleaf security dialect}{subsection.7.2}% 41
+\BOOKMARK [1][-]{section.2}{Research and Methodology}{}% 7
+\BOOKMARK [2][-]{subsection.2.1}{Approach}{section.2}% 8
+\BOOKMARK [2][-]{subsection.2.2}{Java Enterprise Landscape}{section.2}% 9
+\BOOKMARK [2][-]{subsection.2.3}{Comparison of technologies}{section.2}% 10
+\BOOKMARK [3][-]{subsubsection.2.3.1}{IDE's and build tools}{subsection.2.3}% 11
+\BOOKMARK [3][-]{subsubsection.2.3.2}{General framework}{subsection.2.3}% 12
+\BOOKMARK [3][-]{subsubsection.2.3.3}{Persistence providers}{subsection.2.3}% 13
+\BOOKMARK [3][-]{subsubsection.2.3.4}{Object relational mapping tools}{subsection.2.3}% 14
+\BOOKMARK [3][-]{subsubsection.2.3.5}{Security systems}{subsection.2.3}% 15
+\BOOKMARK [3][-]{subsubsection.2.3.6}{Front-end and Styling frameworks}{subsection.2.3}% 16
+\BOOKMARK [3][-]{subsubsection.2.3.7}{Application architecture and microservices}{subsection.2.3}% 17
+\BOOKMARK [1][-]{section.3}{Application Implementation}{}% 18
+\BOOKMARK [2][-]{subsection.3.1}{Case study summary}{section.3}% 19
+\BOOKMARK [2][-]{subsection.3.2}{Development Process}{section.3}% 20
+\BOOKMARK [1][-]{section.4}{Case study: Online cash register}{}% 21
+\BOOKMARK [2][-]{subsection.4.1}{Introduction}{section.4}% 22
+\BOOKMARK [2][-]{subsection.4.2}{Existing systems}{section.4}% 23
+\BOOKMARK [2][-]{subsection.4.3}{Use Cases}{section.4}% 24
+\BOOKMARK [2][-]{subsection.4.4}{Must-haves and nice-to haves}{section.4}% 25
+\BOOKMARK [2][-]{subsection.4.5}{Design Choices}{section.4}% 26
+\BOOKMARK [3][-]{subsubsection.4.5.1}{Client}{subsection.4.5}% 27
+\BOOKMARK [3][-]{subsubsection.4.5.2}{Employee}{subsection.4.5}% 28
+\BOOKMARK [3][-]{subsubsection.4.5.3}{Manager}{subsection.4.5}% 29
+\BOOKMARK [1][-]{section.5}{Results}{}% 30
+\BOOKMARK [2][-]{subsection.5.1}{Final Prototype}{section.5}% 31
+\BOOKMARK [2][-]{subsection.5.2}{Possible Improvements}{section.5}% 32
+\BOOKMARK [1][-]{section.6}{Conclusion}{}% 33
+\BOOKMARK [1][-]{section.7}{References}{}% 34
+\BOOKMARK [1][-]{section.8}{Appendix}{}% 35
+\BOOKMARK [2][-]{subsection.8.1}{List of technologies used}{section.8}% 36
+\BOOKMARK [2][-]{subsection.8.2}{Problems and their solutions}{section.8}% 37
+\BOOKMARK [3][-]{subsubsection.8.2.1}{Problems with database model foreign keys}{subsection.8.2}% 38
+\BOOKMARK [3][-]{subsubsection.8.2.2}{Thymeleaf-related issues}{subsection.8.2}% 39
+\BOOKMARK [3][-]{subsubsection.8.2.3}{HttpRequest POST problems}{subsection.8.2}% 40
+\BOOKMARK [3][-]{subsubsection.8.2.4}{Appending URLs}{subsection.8.2}% 41
+\BOOKMARK [3][-]{subsubsection.8.2.5}{Spring Security role checking on the server side}{subsection.8.2}% 42
+\BOOKMARK [3][-]{subsubsection.8.2.6}{Database issues}{subsection.8.2}% 43
+\BOOKMARK [3][-]{subsubsection.8.2.7}{Creating a custom Maven/Gradle dependency}{subsection.8.2}% 44
+\BOOKMARK [3][-]{subsubsection.8.2.8}{Combining microservices and Spring Security}{subsection.8.2}% 45

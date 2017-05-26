@@ -1,10 +1,5 @@
 \begin{thebibliography}{}
 
-\bibitem[Mon, ]{MongodbVsMySQL92:online}
-Mongodb and mysql compared.
-\newblock \url{https://www.mongodb.com/compare/mongodb-mysql}.
-\newblock (Accessed on 15/05/2017).
-
 \bibitem[Com, 2015]{ComponentAnnotationDifferences34:online}
  (2015).
 \newblock Difference between spring @component, @service, @repository,
@@ -25,6 +20,12 @@ Mongodb and mysql compared.
 \newblock Gloriafood - free online ordering system for restaurants.
 \newblock \url{https://www.gloriafood.com/}.
 \newblock (Accessed on 28/04/2017).
+
+\bibitem[Mon, 2017]{MongodbVsMySQL92:online}
+ (2017).
+\newblock Mongodb and mysql compared.
+\newblock \url{https://www.mongodb.com/compare/mongodb-mysql}.
+\newblock (Accessed on 15/05/2017).
 
 \bibitem[Cho, 2017]{Chownow:online}
  (2017).
