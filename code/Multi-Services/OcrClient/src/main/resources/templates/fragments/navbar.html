@@ -21,6 +21,7 @@
                 <a sec:authorize="hasAuthority('ADMIN')" th:href="@{/admin/registration}" class="mdl-navigation__link" href="">Admin</a>
                 <a sec:authorize="hasAuthority('MANAGER')" th:href="@{/employees}" class="mdl-navigation__link" href="">Employees</a>
                 <a sec:authorize="hasAuthority('MANAGER')" th:href="@{/restaurant/orderOverview}" class="mdl-navigation__link" href="">Order Overview</a>
+                <a sec:authorize="hasAuthority('EMPLOYEE')" th:href="@{/restaurant/orderOverview}" class="mdl-navigation__link" href="">Order Overview</a>
                 <div sec:authorize="isAuthenticated()" class="material-icons mdl-badge mdl-badge--overlap">account_box</div>
                 <a sec:authorize="isAuthenticated()" style="text-decoration:none" href="/logout" sec:authentication="name" id="account">Bob</a>
                 <div sec:authorize="hasAuthority('ADMIN')">
@@ -51,6 +52,7 @@
             <a sec:authorize="hasAuthority('ADMIN')" th:href="@{/admin/registration}" class="mdl-navigation__link" href="">Admin</a>
             <a sec:authorize="hasAuthority('MANAGER')" th:href="@{/employees}" class="mdl-navigation__link" href="">Employees</a>
             <a sec:authorize="hasAuthority('MANAGER')" th:href="@{/restaurant/orderOverview}" class="mdl-navigation__link" href="">Order Overview</a>
+            <a sec:authorize="hasAuthority('EMPLOYEE')" th:href="@{/restaurant/orderOverview}" class="mdl-navigation__link" href="">Order Overview</a>
             <a sec:authorize="isAuthenticated()" th:href="@{/logout}" class="mdl-navigation__link" href="">Logout</a>
         </nav>
     </div>
