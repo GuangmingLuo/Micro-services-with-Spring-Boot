@@ -17,14 +17,14 @@
 \contentsline {subsubsection}{\numberline {2.3.7}Application architecture and micro-services}{11}{subsubsection.2.3.7}
 \contentsline {section}{\numberline {3}Application Implementation}{12}{section.3}
 \contentsline {subsection}{\numberline {3.1}Case study summary}{12}{subsection.3.1}
-\contentsline {subsection}{\numberline {3.2}Development Process}{12}{subsection.3.2}
+\contentsline {subsection}{\numberline {3.2}Development Process}{13}{subsection.3.2}
 \contentsline {section}{\numberline {4}Case study: Online cash register}{17}{section.4}
 \contentsline {subsection}{\numberline {4.1}Introduction}{17}{subsection.4.1}
 \contentsline {subsection}{\numberline {4.2}Existing systems}{17}{subsection.4.2}
 \contentsline {subsection}{\numberline {4.3}Use Cases}{17}{subsection.4.3}
 \contentsline {paragraph}{Customer}{17}{subsection.4.3}
-\contentsline {paragraph}{Waiter}{17}{subsection.4.3}
-\contentsline {paragraph}{Chef}{17}{subsection.4.3}
+\contentsline {paragraph}{Waiter}{18}{subsection.4.3}
+\contentsline {paragraph}{Chef}{18}{subsection.4.3}
 \contentsline {paragraph}{Manager}{18}{subsection.4.3}
 \contentsline {subsection}{\numberline {4.4}Must-haves and nice-to haves}{18}{subsection.4.4}
 \contentsline {paragraph}{Must-Haves}{18}{subsection.4.4}
