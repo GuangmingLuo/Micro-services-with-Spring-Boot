@@ -70,11 +70,11 @@
 \newpage
 
 \begin{abstract}
-\noindent In this thesis, we will develop an online cash register application for restaurants and events using a case study with Faros, a company part of the Cronos group. This application is a digital version of cash registers found in stores and restaurants. Customers will be able to use their own mobile devices to get an overview of the products available at a location and place orders. Employees will also use computers or their own devices to receive and process these orders. The application should be developed with distribution in mind and should function as a web application running in the cloud. 
+\noindent In this thesis we develop an online cash register application for restaurants and events using a case study proposed by Faros, a company part of the Cronos group. This application is a digital version of cash registers found in stores and restaurants. Customers are able to use their own mobile devices to get an overview of the products available at a location and place orders. Employees  use computers or their own devices to receive and process these orders. The application is developed with distribution in mind and functions as a web application running in the cloud. 
 \\\\
-The core aspect of this project is to explore Java web technologies and analyse what features they offer. We research frameworks and libraries suitable for prototyping the case study, and defined constraints and other requirements with our coaches at Faros. We will focus specifically on distributed applications and the micro-services architecture. Multinational companies such as Netflix, Amazon and eBay are already running on micro-services and it is becoming more popular in the web development world. We will explore the advantages and disadvantages of this kind of architecture by developing the online cash register application. First as a single monolithic application and then rebuilt into a micro-service system which can run as several separate modules on multiple servers.
+The core aspect of this project is exploring Java web technologies and analysing what features they offer. We research frameworks and libraries suitable for prototyping the case study, and define constraints and other requirements with our coaches at Faros. We focus specifically on distributed applications and the micro-services architecture. Multinational companies such as Netflix, Amazon and eBay are already running on micro-services and it is becoming more popular in the web development world. We explore the advantages and disadvantages of this kind of architecture by developing the online cash register application. First as a single monolithic application and then rebuilt into a micro-service system which can run as several separate modules on multiple servers.
 \\\\
-At the end of this project we should have an excellent understanding of the technologies involved to make this online cash register application that handles orders and payment in restaurants. It will also teach us the difficulties and advantages of implementing a micro-services system. 
+At the end of this project we should have an excellent understanding of the technologies involved to make this online cash register. It will also teach us the difficulties and advantages of implementing a micro-services system. 
 % todo will be changed when the rest of the text is finished
 \end{abstract}
 \keywords{JavaEE, Spring framework, Cloud, Microservices}
@@ -291,6 +291,7 @@ The manager can modify the menu and change prices. They can also create accounts
 	\label{fig:usecase}
 \end{Figure}
 
+\label{sec:musthaves}
 \subsection{Must-haves and nice-to haves}
 As soon as we had the use cases defined, we can specify what features are absolutely essential and which are optional. This was done in collaboration with our coaches at Faros and gave us the following specifications.
 \paragraph{Must-Haves}
@@ -398,18 +399,12 @@ One of the most important aspects to consider here is multi-tenancy. The applica
 %\subsection{Major issues and their solutions}
 
 \end{multicols}
-\newpage
+%\newpage
 \section{Results}\label{sec:results}
 \begin{multicols}{2}
 \noindent In this section, an overview of the final application prototype will be given, along with possible improvements that can be done in the future.
 \subsection{Final Prototype}
 The final version of our application is divided into several modules which can be seen on figure \ref{fig:applicationdiagram}
-
-\begin{Figure}
-	\includegraphics[width=\linewidth]{illustrations/placeholder.jpg}
-	\captionof{figure}{Application diagram}
-	\label{fig:applicationdiagram}
-\end{Figure}
 
 \noindent The application can be accessed via a browser client on any device or employees can use our native application on android devices. When using a browser, the user will connect with an application server that serves html pages. Customers will be greeted by a menu page of the restaurant they browsed to. From this page they can make a selection of items and place an order. These features do not require the user to be logged in. Employees and managers can log in to access more functionality. Once logged in, employees can view an overview of the currently placed orders and update their status. They can also modify the menu, creating new menu items or removing them. They can do this only for the restaurant they are assigned to. Managers will have the rights to create and manage employee accounts.
 \\\\
@@ -417,6 +412,13 @@ The HTML pages send by our application server are based on the data returned by 
 \\\\ 
 Employees also have the option to use a native android application. This application provides a specialized interface to make taking orders faster. Instead of showing a scrollable list of food items, this interface displays the items in a grid, using a shorthand notation for the names of the drinks and meals. This application does not need a running application server in the back-end, but instead relies on an API gateway to access the services it needs. Managers can also use this API to develop their own specialized applications, if so desired.
 
+\end{multicols}
+\begin{Figure}
+	\includegraphics[width=\linewidth]{illustrations/Finalapp.png}
+	\captionof{figure}{Application diagram}
+	\label{fig:applicationdiagram}
+\end{Figure}
+\begin{multicols}{2}
 
 \subsection{Possible Improvements}
 \noindent\textbf{Improving Spring security for micro-services}
@@ -438,6 +440,7 @@ We started from researching and prototyping with PhoneGap, and we found that we 
 \end{itemize}
 
 \section{Conclusion}
+We succeeded to develop a working application in enterprise Java with Spring Boot and a micro-service architecture. We implemented all the proposed essential features (Must-haves) and most of optional features (Nice-to-have) mentioned from the case study in section \ref{sec:musthaves}. We now have an excellent understanding of all the technologies  involved to make this Online Cash Register application. (listed in appendix \ref{sec:techlist}) We gained a very clear understanding in regards to the micro-services architecture and what advantages or disadvantages it has over more traditional web development. Additionally, we know how to implement a Eureka discovery server and Zuul gateway within microservices architecture. We also have more knowledge about Spring Security and how to implement it in different situations. Despite some minor drawbacks, the micro-service architecture is a good choice in this context where developers are building a server-side enterprise application. It should support a variety of different clients including desktop browsers, mobile browsers and native mobile applications. We believe with all the advantages, a micro-services system and the Spring Boot framework will be more  widely used in web development and Enterprise Java in the future.
 
 
 \end{multicols}
@@ -450,6 +453,7 @@ We started from researching and prototyping with PhoneGap, and we found that we 
 
 \newpage
 \section{Appendix}
+\label{sec:techlist}
 \subsection{List of technologies used}
 Underneath, a list of technologies used during this project can be found. Technologies present in the final application will be indicated in \textbf{bold}.
 \begin{itemize}[leftmargin=20pt]
