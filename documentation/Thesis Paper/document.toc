@@ -10,13 +10,13 @@
 \contentsline {subsection}{\numberline {2.3}Comparison of technologies}{7}{subsection.2.3}
 \contentsline {subsubsection}{\numberline {2.3.1}IDE's and build tools}{7}{subsubsection.2.3.1}
 \contentsline {subsubsection}{\numberline {2.3.2}General framework}{8}{subsubsection.2.3.2}
-\contentsline {subsubsection}{\numberline {2.3.3}Persistence providers}{9}{subsubsection.2.3.3}
+\contentsline {subsubsection}{\numberline {2.3.3}Persistence providers}{8}{subsubsection.2.3.3}
 \contentsline {subsubsection}{\numberline {2.3.4}Object relational mapping tools}{9}{subsubsection.2.3.4}
 \contentsline {subsubsection}{\numberline {2.3.5}Security systems}{10}{subsubsection.2.3.5}
 \contentsline {subsubsection}{\numberline {2.3.6}Front-end and Styling frameworks}{10}{subsubsection.2.3.6}
 \contentsline {subsubsection}{\numberline {2.3.7}Application architecture and micro-services}{10}{subsubsection.2.3.7}
 \contentsline {section}{\numberline {3}Application Implementation}{11}{section.3}
-\contentsline {subsection}{\numberline {3.1}Case study summary}{12}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.1}Case study summary}{11}{subsection.3.1}
 \contentsline {subsection}{\numberline {3.2}Development Process}{12}{subsection.3.2}
 \contentsline {section}{\numberline {4}Case study: Online cash register}{17}{section.4}
 \contentsline {subsection}{\numberline {4.1}Introduction}{17}{subsection.4.1}
@@ -33,8 +33,8 @@
 \contentsline {subsubsection}{\numberline {4.5.1}Client}{19}{subsubsection.4.5.1}
 \contentsline {subsubsection}{\numberline {4.5.2}Employee}{19}{subsubsection.4.5.2}
 \contentsline {subsubsection}{\numberline {4.5.3}Manager}{21}{subsubsection.4.5.3}
-\contentsline {section}{\numberline {5}Results}{22}{section.5}
-\contentsline {subsection}{\numberline {5.1}Final Prototype}{22}{subsection.5.1}
+\contentsline {section}{\numberline {5}Results}{21}{section.5}
+\contentsline {subsection}{\numberline {5.1}Final Prototype}{21}{subsection.5.1}
 \contentsline {subsection}{\numberline {5.2}Possible Improvements}{22}{subsection.5.2}
 \contentsline {section}{\numberline {6}Conclusion}{23}{section.6}
 \contentsline {section}{\numberline {7}References}{24}{section.7}
