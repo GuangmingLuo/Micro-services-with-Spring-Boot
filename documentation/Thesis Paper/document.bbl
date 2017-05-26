@@ -14,6 +14,13 @@
 \newblock \url{https://www.mongodb.com/compare/mongodb-mysql}.
 \newblock (Accessed on 15/05/2017).
 
+\bibitem[Badola, 2015]{MicroservicesProandCons72:online}
+Badola, V. (2015).
+\newblock Microservices architecture: advantages and drawbacks.
+\newblock
+  \url{http://cloudacademy.com/blog/microservices-architecture-challenge-advantage-drawback/}.
+\newblock (Accessed on 26/05/2017).
+
 \bibitem[Chownow, 2017]{Chownow:online}
 Chownow (2017).
 \newblock Online food ordering system \& app - chownow.
@@ -50,8 +57,14 @@ Gradle (2017).
 \newblock \url{https://gradle.org/maven-vs-gradle}.
 \newblock (Accessed on 15/05/2017).
 
-\bibitem[Gupta, 2017]{WhyMicroservices48:online}
-Gupta, K. (2017).
+\bibitem[Gupta, 2017a]{MicroservicePatterns25:online}
+Gupta, A. (2017a).
+\newblock Microservices design patterns.
+\newblock \url{http://blog.arungupta.me/microservice-design-patterns/}.
+\newblock (Accessed on 26/05/2017).
+
+\bibitem[Gupta, 2017b]{WhyMicroservices48:online}
+Gupta, K. (2017b).
 \newblock Why are microservices getting popular now-a-days?
 \newblock
   \url{https://www.freelancinggig.com/blog/2017/01/25/microservices-getting-popular-now-days/}.
@@ -84,6 +97,12 @@ Netflix (2017).
 \newblock \url{https://github.com/Netflix/zuul}.
 \newblock (Accessed on 23/05/2017).
 
+\bibitem[Nommensen, 2015]{MicroservicesApiGateway87:online}
+Nommensen, P. (2015).
+\newblock Building microservices: Using an api gateway.
+\newblock \url{https://dzone.com/articles/building-microservices-using}.
+\newblock (Accessed on 26/05/2017).
+
 \bibitem[Oracle, 2013]{JavaEESecurity29:online}
 Oracle (2013).
 \newblock Security mechanics in java ee 6.
@@ -94,6 +113,12 @@ Oracle (2013).
 Pivotal (2017).
 \newblock Spring cloud security.
 \newblock \url{http://cloud.spring.io/spring-cloud-security/}.
+\newblock (Accessed on 26/05/2017).
+
+\bibitem[Richardson, 2017]{ApiGateway28:online}
+Richardson, C. (2017).
+\newblock Pattern: Api gateway / backend for front-end.
+\newblock \url{http://microservices.io/patterns/apigateway.html}.
 \newblock (Accessed on 26/05/2017).
 
 \bibitem[Shelajev, 2016]{SpringMicroservices35:online}

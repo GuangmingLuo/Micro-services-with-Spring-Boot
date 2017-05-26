@@ -14,38 +14,38 @@
 \contentsline {subsubsection}{\numberline {2.3.4}Object relational mapping tools}{10}{subsubsection.2.3.4}
 \contentsline {subsubsection}{\numberline {2.3.5}Security systems}{10}{subsubsection.2.3.5}
 \contentsline {subsubsection}{\numberline {2.3.6}Front-end and Styling frameworks}{11}{subsubsection.2.3.6}
-\contentsline {subsubsection}{\numberline {2.3.7}Application architecture and microservices}{11}{subsubsection.2.3.7}
-\contentsline {section}{\numberline {3}Application Implementation}{11}{section.3}
-\contentsline {subsection}{\numberline {3.1}Case study summary}{11}{subsection.3.1}
-\contentsline {subsection}{\numberline {3.2}Development Process}{11}{subsection.3.2}
-\contentsline {section}{\numberline {4}Case study: Online cash register}{16}{section.4}
-\contentsline {subsection}{\numberline {4.1}Introduction}{16}{subsection.4.1}
-\contentsline {subsection}{\numberline {4.2}Existing systems}{16}{subsection.4.2}
-\contentsline {subsection}{\numberline {4.3}Use Cases}{16}{subsection.4.3}
-\contentsline {paragraph}{Customer}{16}{subsection.4.3}
-\contentsline {paragraph}{Waiter}{16}{subsection.4.3}
+\contentsline {subsubsection}{\numberline {2.3.7}Application architecture and micro-services}{11}{subsubsection.2.3.7}
+\contentsline {section}{\numberline {3}Application Implementation}{12}{section.3}
+\contentsline {subsection}{\numberline {3.1}Case study summary}{12}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}Development Process}{12}{subsection.3.2}
+\contentsline {section}{\numberline {4}Case study: Online cash register}{17}{section.4}
+\contentsline {subsection}{\numberline {4.1}Introduction}{17}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}Existing systems}{17}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}Use Cases}{17}{subsection.4.3}
+\contentsline {paragraph}{Customer}{17}{subsection.4.3}
+\contentsline {paragraph}{Waiter}{17}{subsection.4.3}
 \contentsline {paragraph}{Chef}{17}{subsection.4.3}
-\contentsline {paragraph}{Manager}{17}{subsection.4.3}
-\contentsline {subsection}{\numberline {4.4}Must-haves and nice-to haves}{17}{subsection.4.4}
-\contentsline {paragraph}{Must-Haves}{17}{subsection.4.4}
-\contentsline {paragraph}{Nice-to-Haves}{17}{subsection.4.4}
-\contentsline {subsection}{\numberline {4.5}Design Choices}{18}{subsection.4.5}
-\contentsline {subsubsection}{\numberline {4.5.1}Client}{18}{subsubsection.4.5.1}
-\contentsline {subsubsection}{\numberline {4.5.2}Employee}{18}{subsubsection.4.5.2}
-\contentsline {subsubsection}{\numberline {4.5.3}Manager}{20}{subsubsection.4.5.3}
-\contentsline {section}{\numberline {5}Results}{20}{section.5}
-\contentsline {subsection}{\numberline {5.1}Final Prototype}{20}{subsection.5.1}
-\contentsline {subsection}{\numberline {5.2}Possible Improvements}{21}{subsection.5.2}
-\contentsline {section}{\numberline {6}Conclusion}{21}{section.6}
-\contentsline {section}{\numberline {7}References}{22}{section.7}
-\contentsline {section}{\numberline {8}Appendix}{24}{section.8}
-\contentsline {subsection}{\numberline {8.1}List of technologies used}{24}{subsection.8.1}
-\contentsline {subsection}{\numberline {8.2}Problems and their solutions}{25}{subsection.8.2}
-\contentsline {subsubsection}{\numberline {8.2.1}Problems with database model foreign keys}{25}{subsubsection.8.2.1}
-\contentsline {subsubsection}{\numberline {8.2.2}Thymeleaf-related issues}{25}{subsubsection.8.2.2}
-\contentsline {subsubsection}{\numberline {8.2.3}HttpRequest POST problems}{25}{subsubsection.8.2.3}
-\contentsline {subsubsection}{\numberline {8.2.4}Appending URLs}{26}{subsubsection.8.2.4}
-\contentsline {subsubsection}{\numberline {8.2.5}Spring Security role checking on the server side}{26}{subsubsection.8.2.5}
-\contentsline {subsubsection}{\numberline {8.2.6}Database issues}{26}{subsubsection.8.2.6}
-\contentsline {subsubsection}{\numberline {8.2.7}Creating a custom Maven/Gradle dependency}{26}{subsubsection.8.2.7}
-\contentsline {subsubsection}{\numberline {8.2.8}Combining microservices and Spring Security}{26}{subsubsection.8.2.8}
+\contentsline {paragraph}{Manager}{18}{subsection.4.3}
+\contentsline {subsection}{\numberline {4.4}Must-haves and nice-to haves}{18}{subsection.4.4}
+\contentsline {paragraph}{Must-Haves}{18}{subsection.4.4}
+\contentsline {paragraph}{Nice-to-Haves}{18}{subsection.4.4}
+\contentsline {subsection}{\numberline {4.5}Design Choices}{19}{subsection.4.5}
+\contentsline {subsubsection}{\numberline {4.5.1}Client}{19}{subsubsection.4.5.1}
+\contentsline {subsubsection}{\numberline {4.5.2}Employee}{19}{subsubsection.4.5.2}
+\contentsline {subsubsection}{\numberline {4.5.3}Manager}{21}{subsubsection.4.5.3}
+\contentsline {section}{\numberline {5}Results}{21}{section.5}
+\contentsline {subsection}{\numberline {5.1}Final Prototype}{21}{subsection.5.1}
+\contentsline {subsection}{\numberline {5.2}Possible Improvements}{22}{subsection.5.2}
+\contentsline {section}{\numberline {6}Conclusion}{22}{section.6}
+\contentsline {section}{\numberline {7}References}{23}{section.7}
+\contentsline {section}{\numberline {8}Appendix}{25}{section.8}
+\contentsline {subsection}{\numberline {8.1}List of technologies used}{25}{subsection.8.1}
+\contentsline {subsection}{\numberline {8.2}Problems and their solutions}{26}{subsection.8.2}
+\contentsline {subsubsection}{\numberline {8.2.1}Problems with database model foreign keys}{26}{subsubsection.8.2.1}
+\contentsline {subsubsection}{\numberline {8.2.2}Thymeleaf-related issues}{26}{subsubsection.8.2.2}
+\contentsline {subsubsection}{\numberline {8.2.3}HttpRequest POST problems}{26}{subsubsection.8.2.3}
+\contentsline {subsubsection}{\numberline {8.2.4}Appending URLs}{27}{subsubsection.8.2.4}
+\contentsline {subsubsection}{\numberline {8.2.5}Spring Security role checking on the server side}{27}{subsubsection.8.2.5}
+\contentsline {subsubsection}{\numberline {8.2.6}Database issues}{27}{subsubsection.8.2.6}
+\contentsline {subsubsection}{\numberline {8.2.7}Creating a custom Maven/Gradle dependency}{27}{subsubsection.8.2.7}
+\contentsline {subsubsection}{\numberline {8.2.8}Combining microservices and Spring Security}{27}{subsubsection.8.2.8}
