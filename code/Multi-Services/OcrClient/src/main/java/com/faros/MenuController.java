@@ -35,8 +35,14 @@ public class MenuController {
     private FoodService foodService;
     @Autowired
     private OrderService orderService;
+
     String errorMessage = null;
 
+    /*
+    * This method returns a home page for each restaurant
+    * Multi-tenancy technology is used here: web content is different for managers and non-managers
+    * Error correction for restaurant name in the url: redirect to the right url for authenticated user; redirect to home page for anonymousUser.
+    * */
     @RequestMapping(value="/restaurant/{name}", method= RequestMethod.GET)
     public String restaurant(@PathVariable String name, @RequestParam(required = false) String tableId, Model model){
         JSONObject rest;
@@ -49,11 +55,9 @@ public class MenuController {
             if(!rest.getAsString("name").equals(name)){
                 return "redirect:/restaurant/"+rest.getAsString("name")+"/";
             }
-            log.info("User content is {}",user.toString());
             if(user.getAuthorities().contains(AUTHORITY_MANAGER)){
                 model.addAttribute("isManager",true);
             }
-            log.info("MANAGER ? {}",user.getAuthorities().contains(AUTHORITY_MANAGER));
         }else{
             rest = restaurantService.findRestaurantByName(name);
             if(rest ==null){
@@ -75,8 +79,12 @@ public class MenuController {
         return "restaurant";
     }
 
-    @RequestMapping(value="/restaurant/{name}/edit", method= RequestMethod.GET) //accessible by user with role "manager"
-    public String createCategory(@PathVariable String name, Model model){
+    /*
+    * This method returns menu editing page
+    * only accessible by user with role "manager"
+    * */
+    @RequestMapping(value="/restaurant/{name}/edit", method= RequestMethod.GET)
+    public String menuEditing(@PathVariable String name, Model model){
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         org.springframework.security.core.userdetails.User user = (org.springframework.security.core.userdetails.User)auth.getPrincipal();
         JSONObject userExists = userService.findByUsername(user.getUsername());
@@ -90,6 +98,10 @@ public class MenuController {
         return "editMenu";
     }
 
+    /*
+    * This post method is used to add a menu item/food to a menu/category
+    * only accessible by user with role "manager"
+    * */
     @RequestMapping(value="/addMenuItem", method = RequestMethod.POST)
     public String addMenuItem(@Valid Food food, @Valid int menuId){
         food.setMenuId(menuId);
@@ -102,6 +114,10 @@ public class MenuController {
         return "redirect:/restaurant/"+rest.getAsString("name")+"/edit";
     }
 
+    /*
+    * This post method is used to add a menu/category to a restaurant
+    * only accessible by user with role "manager"
+    * */
     @RequestMapping(value="/addMenu", method = RequestMethod.POST)
     public String addMenuItem(@Valid Menu menu){
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
@@ -113,11 +129,20 @@ public class MenuController {
         return "redirect:/restaurant/"+rest.getAsString("name")+"/edit";
     }
 
+    /*
+    * This post method is used to delete a menu item/food to a menu/category
+    * only accessible by user with role "manager"
+    * */
     @RequestMapping(value="/restaurant/deleteFood/{id}",method=RequestMethod.POST)
     @ResponseStatus(value = HttpStatus.OK)
     public void deleteFood(@PathVariable String id){
         foodService.deleteFood(id);
     }
+
+    /*
+    * This is internal method to handle error exception for api calls
+    * Display the corresponding error message in the web page.
+    * */
     private List<JSONObject> apiErrorHandle(JSONObject rest){
         List<JSONObject> menus = null; errorMessage = "";
         try {

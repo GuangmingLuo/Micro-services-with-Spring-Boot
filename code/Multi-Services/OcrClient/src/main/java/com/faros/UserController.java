@@ -37,6 +37,10 @@ public class UserController {
     private RestaurantService restaurantService;
     private static final Logger log = LoggerFactory.getLogger(UserController.class);
 
+    /*
+    * Login page for all the tenants
+    * Authenticated users will be redirect to restaurant home page.
+    * */
     @RequestMapping(value= "/login",method=GET)
     public String login() {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
@@ -57,7 +61,6 @@ public class UserController {
         model.addAttribute("message",message);
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         final SimpleGrantedAuthority AUTHORITY_MANAGER = new SimpleGrantedAuthority("MANAGER");
-        //log.info("the auth is :{}",auth.getPrincipal());
         if((auth.getAuthorities().contains(AUTHORITY_MANAGER))) {
             org.springframework.security.core.userdetails.User user = (org.springframework.security.core.userdetails.User) auth.getPrincipal();
             JSONObject userExists = userService.findByUsername(user.getUsername());
