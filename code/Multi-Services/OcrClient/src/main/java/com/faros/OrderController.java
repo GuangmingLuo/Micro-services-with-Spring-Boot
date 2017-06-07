@@ -39,6 +39,10 @@ public class OrderController {
     @Autowired
     private FoodService foodService;
 
+    /*
+    * This post method is used to create an order
+    * and pass the content to order page after redirection
+    * */
     @RequestMapping(value = "/restaurant/{name}/createOrder", method = RequestMethod.POST)
     public String createOrder(@PathVariable String name, @Valid String[] foods, @Valid String[] numbers, @Valid String tableId
             , RedirectAttributes redir) throws Exception {
@@ -61,18 +65,10 @@ public class OrderController {
         return "redirect:/restaurant/" + name + "/order";
     }
 
-    @RequestMapping(value = "/restaurant/saveOrder", method = RequestMethod.POST)
-    public String saveOrder(@Valid String content,@Valid String restaurantName,@Valid int tableId,@Valid int totalPrice,@Valid String comment){
-        Order newOrder = new Order();
-        newOrder.setContent(content);
-        newOrder.setTableId(tableId);
-        newOrder.setTotalPrice(totalPrice);
-        JSONObject rest = restaurantService.findRestaurantByName(restaurantName);
-        newOrder.setRestaurantId(Integer.parseInt(rest.getAsString("id")));
-        newOrder.setComments(comment);
-        orderService.save(newOrder);
-        return "redirect:/restaurant/"+ restaurantName+"/orderStatus/"+tableId;
-    }
+    /*
+    * This method returns order page with order content and other info;
+    * Error handling for restaurant name error in url path.
+    * */
     @RequestMapping(value = "/restaurant/{name}/order", method = RequestMethod.GET)
     public String order(@PathVariable String name, @ModelAttribute("content") final String content,
                         @ModelAttribute("tableId") final String tableId,@ModelAttribute("totalPrice") final int totalPrice, Model model) {
@@ -88,6 +84,27 @@ public class OrderController {
         }
     }
 
+    /*
+    * This post method is used to save an order with comment to remote server and database
+    * and redirect to orderStatus page corresponding to the tableId
+    * */
+    @RequestMapping(value = "/restaurant/saveOrder", method = RequestMethod.POST)
+    public String saveOrder(@Valid String content,@Valid String restaurantName,@Valid int tableId,@Valid int totalPrice,@Valid String comment){
+        Order newOrder = new Order();
+        newOrder.setContent(content);
+        newOrder.setTableId(tableId);
+        newOrder.setTotalPrice(totalPrice);
+        JSONObject rest = restaurantService.findRestaurantByName(restaurantName);
+        newOrder.setRestaurantId(Integer.parseInt(rest.getAsString("id")));
+        newOrder.setComments(comment);
+        orderService.save(newOrder);
+        return "redirect:/restaurant/"+ restaurantName+"/orderStatus/"+tableId;
+    }
+
+    /*
+    * This method returns orderStatus page with all orders and total price to that tableId
+    * Error handling for restaurant name error in url path.
+    * */
     @RequestMapping(value = "/restaurant/{name}/orderStatus/{tableId}", method = RequestMethod.GET)
     public String orderStatus(@PathVariable String name, @PathVariable int tableId, Model model) throws IOException {
         JSONObject rest = restaurantService.findRestaurantByName(name);
@@ -111,8 +128,11 @@ public class OrderController {
         }
     }
 
+    /*
+    * This method returns orderOverview page with all unfinished orders;
+    * Only accessible by users with role "manager" and "employee"
+    * */
     @RequestMapping(value = "/restaurant/orderOverview", method = RequestMethod.GET)
-    //accessible by user with role "manager"
     public String orderOverview(Model model){
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         org.springframework.security.core.userdetails.User user = (org.springframework.security.core.userdetails.User) auth.getPrincipal();
@@ -129,16 +149,22 @@ public class OrderController {
         return "orderOverview";
     }
 
+    /*
+    * This post method changes an order status and save it to remove server;
+    * Only accessible by users with role "manager" and "employee"
+    * */
     @RequestMapping(value = "/restaurant/order/changeStatus", method = RequestMethod.POST)
     @ResponseStatus(value = HttpStatus.OK)
-    //accessible by user with role "manager"
     public void changeStatus(@Valid long id, String status) {
-        log.info("Here comes in changeStatus:{} and {}",id,status);
+        log.info("Here comes in changeStatus: id {} and new status {}",id,status);
         orderService.changeOrderStatus(id,status);
     }
 
+    /*
+    * This method returns now-to-serve page with all ready orders;
+    * Only accessible by users with role "manager" and "employee"
+    * */
     @RequestMapping(value = "/restaurant/now-to-serve", method = RequestMethod.GET)
-    //accessible by user with role "manager"
     public String nowToServe(Model model){
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         org.springframework.security.core.userdetails.User user = (org.springframework.security.core.userdetails.User) auth.getPrincipal();
