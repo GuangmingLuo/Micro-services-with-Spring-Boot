@@ -8,37 +8,37 @@
 \contentsline {section}{\numberline {2}Research and Methodology}{6}{section.2}
 \contentsline {subsection}{\numberline {2.1}Approach}{6}{subsection.2.1}
 \contentsline {subsection}{\numberline {2.2}Java Enterprise Landscape}{6}{subsection.2.2}
-\contentsline {subsection}{\numberline {2.3}Comparison of technologies}{8}{subsection.2.3}
-\contentsline {subsubsection}{\numberline {2.3.1}IDE's and build tools}{8}{subsubsection.2.3.1}
-\contentsline {subsubsection}{\numberline {2.3.2}General framework}{9}{subsubsection.2.3.2}
-\contentsline {subsubsection}{\numberline {2.3.3}Persistence providers}{10}{subsubsection.2.3.3}
-\contentsline {subsubsection}{\numberline {2.3.4}Object relational mapping tools}{11}{subsubsection.2.3.4}
-\contentsline {subsubsection}{\numberline {2.3.5}Security systems}{11}{subsubsection.2.3.5}
-\contentsline {subsubsection}{\numberline {2.3.6}Front-end and Styling frameworks}{12}{subsubsection.2.3.6}
-\contentsline {subsubsection}{\numberline {2.3.7}Application architecture and micro-services}{13}{subsubsection.2.3.7}
+\contentsline {subsection}{\numberline {2.3}Case study summary}{8}{subsection.2.3}
+\contentsline {subsection}{\numberline {2.4}Comparison of technologies}{9}{subsection.2.4}
+\contentsline {subsubsection}{\numberline {2.4.1}IDE's and build tools}{9}{subsubsection.2.4.1}
+\contentsline {subsubsection}{\numberline {2.4.2}General framework}{9}{subsubsection.2.4.2}
+\contentsline {subsubsection}{\numberline {2.4.3}Persistence providers}{11}{subsubsection.2.4.3}
+\contentsline {subsubsection}{\numberline {2.4.4}Object relational mapping tools}{11}{subsubsection.2.4.4}
+\contentsline {subsubsection}{\numberline {2.4.5}Security systems}{12}{subsubsection.2.4.5}
+\contentsline {subsubsection}{\numberline {2.4.6}Front-end and Styling frameworks}{13}{subsubsection.2.4.6}
+\contentsline {subsubsection}{\numberline {2.4.7}Application architecture and micro-services}{13}{subsubsection.2.4.7}
 \contentsline {section}{\numberline {3}Case study: Online cash register}{14}{section.3}
-\contentsline {subsection}{\numberline {3.1}Case study summary}{14}{subsection.3.1}
-\contentsline {subsection}{\numberline {3.2}Introduction}{14}{subsection.3.2}
-\contentsline {subsection}{\numberline {3.3}Existing systems}{14}{subsection.3.3}
-\contentsline {subsection}{\numberline {3.4}Use Cases}{15}{subsection.3.4}
-\contentsline {paragraph}{Customer}{15}{subsection.3.4}
-\contentsline {paragraph}{Waiter}{15}{subsection.3.4}
-\contentsline {paragraph}{Chef}{15}{subsection.3.4}
-\contentsline {paragraph}{Manager}{15}{subsection.3.4}
-\contentsline {subsection}{\numberline {3.5}Must-haves and nice-to haves}{15}{subsection.3.5}
-\contentsline {paragraph}{Must-Haves}{15}{subsection.3.5}
-\contentsline {paragraph}{Nice-to-Haves}{16}{subsection.3.5}
-\contentsline {subsection}{\numberline {3.6}Design Choices}{16}{subsection.3.6}
-\contentsline {subsubsection}{\numberline {3.6.1}Client}{16}{subsubsection.3.6.1}
-\contentsline {subsubsection}{\numberline {3.6.2}Employee}{17}{subsubsection.3.6.2}
-\contentsline {subsubsection}{\numberline {3.6.3}Manager}{18}{subsubsection.3.6.3}
+\contentsline {subsection}{\numberline {3.1}Introduction}{14}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}Existing systems}{14}{subsection.3.2}
+\contentsline {subsection}{\numberline {3.3}Use Cases}{15}{subsection.3.3}
+\contentsline {paragraph}{Customer}{15}{subsection.3.3}
+\contentsline {paragraph}{Waiter}{15}{subsection.3.3}
+\contentsline {paragraph}{Chef}{15}{subsection.3.3}
+\contentsline {paragraph}{Manager}{15}{subsection.3.3}
+\contentsline {subsection}{\numberline {3.4}Must-haves and nice-to haves}{15}{subsection.3.4}
+\contentsline {paragraph}{Must-Haves}{15}{subsection.3.4}
+\contentsline {paragraph}{Nice-to-Haves}{16}{subsection.3.4}
+\contentsline {subsection}{\numberline {3.5}Design Choices}{16}{subsection.3.5}
+\contentsline {subsubsection}{\numberline {3.5.1}Client}{16}{subsubsection.3.5.1}
+\contentsline {subsubsection}{\numberline {3.5.2}Employee}{17}{subsubsection.3.5.2}
+\contentsline {subsubsection}{\numberline {3.5.3}Manager}{18}{subsubsection.3.5.3}
 \contentsline {section}{\numberline {4}Application Implementation}{18}{section.4}
 \contentsline {subsection}{\numberline {4.1}Development Process}{18}{subsection.4.1}
-\contentsline {section}{\numberline {5}Conclusion}{24}{section.5}
-\contentsline {subsection}{\numberline {5.1}Results}{24}{subsection.5.1}
-\contentsline {subsubsection}{\numberline {5.1.1}Final Prototype}{24}{subsubsection.5.1.1}
-\contentsline {subsubsection}{\numberline {5.1.2}Possible Improvements}{25}{subsubsection.5.1.2}
-\contentsline {subsection}{\numberline {5.2}Closing Statements}{26}{subsection.5.2}
+\contentsline {section}{\numberline {5}Conclusion}{23}{section.5}
+\contentsline {subsection}{\numberline {5.1}Results}{23}{subsection.5.1}
+\contentsline {subsubsection}{\numberline {5.1.1}Final Prototype}{23}{subsubsection.5.1.1}
+\contentsline {subsubsection}{\numberline {5.1.2}Possible Improvements}{24}{subsubsection.5.1.2}
+\contentsline {subsection}{\numberline {5.2}Closing Statements}{25}{subsection.5.2}
 \contentsline {section}{\numberline {6}References}{27}{section.6}
 \contentsline {section}{\numberline {7}Appendix}{29}{section.7}
 \contentsline {subsection}{\numberline {7.1}List of technologies used}{29}{subsection.7.1}

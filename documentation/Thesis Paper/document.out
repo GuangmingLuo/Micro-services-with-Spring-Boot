@@ -7,24 +7,24 @@
 \BOOKMARK [1][-]{section.2}{Research and Methodology}{}% 7
 \BOOKMARK [2][-]{subsection.2.1}{Approach}{section.2}% 8
 \BOOKMARK [2][-]{subsection.2.2}{Java Enterprise Landscape}{section.2}% 9
-\BOOKMARK [2][-]{subsection.2.3}{Comparison of technologies}{section.2}% 10
-\BOOKMARK [3][-]{subsubsection.2.3.1}{IDE's and build tools}{subsection.2.3}% 11
-\BOOKMARK [3][-]{subsubsection.2.3.2}{General framework}{subsection.2.3}% 12
-\BOOKMARK [3][-]{subsubsection.2.3.3}{Persistence providers}{subsection.2.3}% 13
-\BOOKMARK [3][-]{subsubsection.2.3.4}{Object relational mapping tools}{subsection.2.3}% 14
-\BOOKMARK [3][-]{subsubsection.2.3.5}{Security systems}{subsection.2.3}% 15
-\BOOKMARK [3][-]{subsubsection.2.3.6}{Front-end and Styling frameworks}{subsection.2.3}% 16
-\BOOKMARK [3][-]{subsubsection.2.3.7}{Application architecture and micro-services}{subsection.2.3}% 17
-\BOOKMARK [1][-]{section.3}{Case study: Online cash register}{}% 18
-\BOOKMARK [2][-]{subsection.3.1}{Case study summary}{section.3}% 19
-\BOOKMARK [2][-]{subsection.3.2}{Introduction}{section.3}% 20
-\BOOKMARK [2][-]{subsection.3.3}{Existing systems}{section.3}% 21
-\BOOKMARK [2][-]{subsection.3.4}{Use Cases}{section.3}% 22
-\BOOKMARK [2][-]{subsection.3.5}{Must-haves and nice-to haves}{section.3}% 23
-\BOOKMARK [2][-]{subsection.3.6}{Design Choices}{section.3}% 24
-\BOOKMARK [3][-]{subsubsection.3.6.1}{Client}{subsection.3.6}% 25
-\BOOKMARK [3][-]{subsubsection.3.6.2}{Employee}{subsection.3.6}% 26
-\BOOKMARK [3][-]{subsubsection.3.6.3}{Manager}{subsection.3.6}% 27
+\BOOKMARK [2][-]{subsection.2.3}{Case study summary}{section.2}% 10
+\BOOKMARK [2][-]{subsection.2.4}{Comparison of technologies}{section.2}% 11
+\BOOKMARK [3][-]{subsubsection.2.4.1}{IDE's and build tools}{subsection.2.4}% 12
+\BOOKMARK [3][-]{subsubsection.2.4.2}{General framework}{subsection.2.4}% 13
+\BOOKMARK [3][-]{subsubsection.2.4.3}{Persistence providers}{subsection.2.4}% 14
+\BOOKMARK [3][-]{subsubsection.2.4.4}{Object relational mapping tools}{subsection.2.4}% 15
+\BOOKMARK [3][-]{subsubsection.2.4.5}{Security systems}{subsection.2.4}% 16
+\BOOKMARK [3][-]{subsubsection.2.4.6}{Front-end and Styling frameworks}{subsection.2.4}% 17
+\BOOKMARK [3][-]{subsubsection.2.4.7}{Application architecture and micro-services}{subsection.2.4}% 18
+\BOOKMARK [1][-]{section.3}{Case study: Online cash register}{}% 19
+\BOOKMARK [2][-]{subsection.3.1}{Introduction}{section.3}% 20
+\BOOKMARK [2][-]{subsection.3.2}{Existing systems}{section.3}% 21
+\BOOKMARK [2][-]{subsection.3.3}{Use Cases}{section.3}% 22
+\BOOKMARK [2][-]{subsection.3.4}{Must-haves and nice-to haves}{section.3}% 23
+\BOOKMARK [2][-]{subsection.3.5}{Design Choices}{section.3}% 24
+\BOOKMARK [3][-]{subsubsection.3.5.1}{Client}{subsection.3.5}% 25
+\BOOKMARK [3][-]{subsubsection.3.5.2}{Employee}{subsection.3.5}% 26
+\BOOKMARK [3][-]{subsubsection.3.5.3}{Manager}{subsection.3.5}% 27
 \BOOKMARK [1][-]{section.4}{Application Implementation}{}% 28
 \BOOKMARK [2][-]{subsection.4.1}{Development Process}{section.4}% 29
 \BOOKMARK [1][-]{section.5}{Conclusion}{}% 30
