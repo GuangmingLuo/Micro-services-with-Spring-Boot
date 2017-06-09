@@ -36,7 +36,7 @@ Chownow (2017).
 
 \bibitem[Delmas, 2015]{MicroservicesFrameworks85:online}
 Delmas, C. (2015).
-\newblock Why spring boot?
+\newblock A comparison of microservices frameworks.
 \newblock
   \url{https://cdelmas.github.io/2015/11/01/A-comparison-of-Microservices-Frameworks.html}.
 \newblock (Accessed on 15/05/2017).
@@ -77,6 +77,13 @@ Gupta, K. (2017b).
   \url{https://www.freelancinggig.com/blog/2017/01/25/microservices-getting-popular-now-days/}.
 \newblock (Accessed on 03/05/2017).
 
+\bibitem[Hauer, 2015]{VaadinDisadvantages47:online}
+Hauer, P. (2015).
+\newblock Evaluating vaadin: Strengths and weaknesses.
+\newblock
+  \url{https://blog.philipphauer.de/evaluating-vaadin-strengths-weaknesses/#weaknesses}.
+\newblock (Accessed on 26/05/2017).
+
 \bibitem[Hoeller, 2017]{ServiceAnnotationSpring48:online}
 Hoeller, J. (2017).
 \newblock @service annotation - spring api.
@@ -89,7 +96,19 @@ Maple, S. (2016).
 \newblock Java tools and technologies landscape report 2016.
 \newblock
   \url{https://zeroturnaround.com/rebellabs/java-tools-and-technologies-landscape-2016/}.
-\newblock (Accessed on 03/05/2017).
+\newblock (Accessed on 03/05/2017) \textit{note: this survey is specifically
+  targeted at Java web developers}.
+
+\bibitem[Mehta, 2015]{StrutsVsSpring72:online}
+Mehta, M. (2015).
+\newblock Struts 2 vs springmvc: Know the difference and choose the best one
+  based on your requirements.
+\newblock
+  \url{https://dzone.com/articles/struts-2-vs-springmvc-know-the-difference-choose-t}.
+\newblock (Accessed on 26/05/2017) \textit{note: several of the search results
+  found when comparing these frameworks state the exact same points. We're
+  sceptical of this source but our personal experience seems to confirm the
+  aspects we discuss in the thesis }.
 
 \bibitem[Narumoto, 2017]{sharding93:online}
 Narumoto, M. (2017).
