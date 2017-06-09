@@ -1,4 +1,4 @@
-\BOOKMARK [1][-]{section.1}{Master Thesis Objective}{}% 1
+\BOOKMARK [1][-]{section.1}{Master Thesis Objectives}{}% 1
 \BOOKMARK [2][-]{subsection.1.1}{Proposal}{section.1}% 2
 \BOOKMARK [2][-]{subsection.1.2}{Concept}{section.1}% 3
 \BOOKMARK [2][-]{subsection.1.3}{Project Requirements}{section.1}% 4
@@ -15,23 +15,24 @@
 \BOOKMARK [3][-]{subsubsection.2.3.5}{Security systems}{subsection.2.3}% 15
 \BOOKMARK [3][-]{subsubsection.2.3.6}{Front-end and Styling frameworks}{subsection.2.3}% 16
 \BOOKMARK [3][-]{subsubsection.2.3.7}{Application architecture and micro-services}{subsection.2.3}% 17
-\BOOKMARK [1][-]{section.3}{Application Implementation}{}% 18
+\BOOKMARK [1][-]{section.3}{Case study: Online cash register}{}% 18
 \BOOKMARK [2][-]{subsection.3.1}{Case study summary}{section.3}% 19
-\BOOKMARK [2][-]{subsection.3.2}{Development Process}{section.3}% 20
-\BOOKMARK [1][-]{section.4}{Case study: Online cash register}{}% 21
-\BOOKMARK [2][-]{subsection.4.1}{Introduction}{section.4}% 22
-\BOOKMARK [2][-]{subsection.4.2}{Existing systems}{section.4}% 23
-\BOOKMARK [2][-]{subsection.4.3}{Use Cases}{section.4}% 24
-\BOOKMARK [2][-]{subsection.4.4}{Must-haves and nice-to haves}{section.4}% 25
-\BOOKMARK [2][-]{subsection.4.5}{Design Choices}{section.4}% 26
-\BOOKMARK [3][-]{subsubsection.4.5.1}{Client}{subsection.4.5}% 27
-\BOOKMARK [3][-]{subsubsection.4.5.2}{Employee}{subsection.4.5}% 28
-\BOOKMARK [3][-]{subsubsection.4.5.3}{Manager}{subsection.4.5}% 29
-\BOOKMARK [1][-]{section.5}{Results}{}% 30
-\BOOKMARK [2][-]{subsection.5.1}{Final Prototype}{section.5}% 31
-\BOOKMARK [2][-]{subsection.5.2}{Possible Improvements}{section.5}% 32
-\BOOKMARK [1][-]{section.6}{Conclusion}{}% 33
-\BOOKMARK [1][-]{section.7}{References}{}% 34
-\BOOKMARK [1][-]{section.8}{Appendix}{}% 35
-\BOOKMARK [2][-]{subsection.8.1}{List of technologies used}{section.8}% 36
-\BOOKMARK [2][-]{subsection.8.2}{Problems and their solutions}{section.8}% 37
+\BOOKMARK [2][-]{subsection.3.2}{Introduction}{section.3}% 20
+\BOOKMARK [2][-]{subsection.3.3}{Existing systems}{section.3}% 21
+\BOOKMARK [2][-]{subsection.3.4}{Use Cases}{section.3}% 22
+\BOOKMARK [2][-]{subsection.3.5}{Must-haves and nice-to haves}{section.3}% 23
+\BOOKMARK [2][-]{subsection.3.6}{Design Choices}{section.3}% 24
+\BOOKMARK [3][-]{subsubsection.3.6.1}{Client}{subsection.3.6}% 25
+\BOOKMARK [3][-]{subsubsection.3.6.2}{Employee}{subsection.3.6}% 26
+\BOOKMARK [3][-]{subsubsection.3.6.3}{Manager}{subsection.3.6}% 27
+\BOOKMARK [1][-]{section.4}{Application Implementation}{}% 28
+\BOOKMARK [2][-]{subsection.4.1}{Development Process}{section.4}% 29
+\BOOKMARK [1][-]{section.5}{Conclusion}{}% 30
+\BOOKMARK [2][-]{subsection.5.1}{Results}{section.5}% 31
+\BOOKMARK [3][-]{subsubsection.5.1.1}{Final Prototype}{subsection.5.1}% 32
+\BOOKMARK [3][-]{subsubsection.5.1.2}{Possible Improvements}{subsection.5.1}% 33
+\BOOKMARK [2][-]{subsection.5.2}{Closing Statements}{section.5}% 34
+\BOOKMARK [1][-]{section.6}{References}{}% 35
+\BOOKMARK [1][-]{section.7}{Appendix}{}% 36
+\BOOKMARK [2][-]{subsection.7.1}{List of technologies used}{section.7}% 37
+\BOOKMARK [2][-]{subsection.7.2}{Problems and their solutions}{section.7}% 38

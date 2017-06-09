@@ -14,6 +14,13 @@
 \newblock \url{https://www.mongodb.com/compare/mongodb-mysql}.
 \newblock (Accessed on 15/05/2017).
 
+\bibitem[Andrejtschik, 2016]{javaSecurityComparison84:online}
+Andrejtschik, J. (2016).
+\newblock Comparison: Java ee security vs. apache shiro vs. spring security.
+\newblock
+  \url{http://blog.novatec-gmbh.de/java-ee-security-framework-comparison/}.
+\newblock (Accessed on 26/05/2017).
+
 \bibitem[Badola, 2015]{MicroservicesProandCons72:online}
 Badola, V. (2015).
 \newblock Microservices architecture: advantages and drawbacks.
