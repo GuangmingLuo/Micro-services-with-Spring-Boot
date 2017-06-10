@@ -1,19 +1,5 @@
 \begin{thebibliography}{}
 
-\bibitem[Com, 2015]{ComponentAnnotationDifferences34:online}
- (2015).
-\newblock Difference between spring @component, @service, @repository,
-  @controller.
-\newblock
-  \url{http://latest-tutorial.com/2015/01/19/difference-spring-component-service-repository-controller/#ixzz3PFFZtOsj}.
-\newblock (Accessed on 17/05/2017).
-
-\bibitem[Mon, 2017]{MongodbVsMySQL92:online}
- (2017).
-\newblock Mongodb and mysql compared.
-\newblock \url{https://www.mongodb.com/compare/mongodb-mysql}.
-\newblock (Accessed on 15/05/2017).
-
 \bibitem[Andrejtschik, 2016]{javaSecurityComparison84:online}
 Andrejtschik, J. (2016).
 \newblock Comparison: Java ee security vs. apache shiro vs. spring security.
@@ -91,6 +77,14 @@ Hoeller, J. (2017).
   \url{http://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/stereotype/Service.html}.
 \newblock (Accessed on 17/05/2017).
 
+\bibitem[Latest-tutorial, 2015]{ComponentAnnotationDifferences34:online}
+Latest-tutorial (2015).
+\newblock Difference between spring @component, @service, @repository,
+  @controller.
+\newblock
+  \url{http://latest-tutorial.com/2015/01/19/difference-spring-component-service-repository-controller/#ixzz3PFFZtOsj}.
+\newblock (Accessed on 17/05/2017).
+
 \bibitem[Maple, 2016]{JavaEELandscape73:online}
 Maple, S. (2016).
 \newblock Java tools and technologies landscape report 2016.
@@ -109,6 +103,12 @@ Mehta, M. (2015).
   found when comparing these frameworks state the exact same points. We're
   sceptical of this source but our personal experience seems to confirm the
   aspects we discuss in the thesis }.
+
+\bibitem[MongoDB, 2017]{MongodbVsMySQL92:online}
+MongoDB (2017).
+\newblock Mongodb and mysql compared.
+\newblock \url{https://www.mongodb.com/compare/mongodb-mysql}.
+\newblock (Accessed on 15/05/2017).
 
 \bibitem[Narumoto, 2017]{sharding93:online}
 Narumoto, M. (2017).

@@ -6,17 +6,16 @@
 \contentsline {subsubsection}{\numberline {1.3.1}Constraints}{5}{subsubsection.1.3.1}
 \contentsline {subsubsection}{\numberline {1.3.2}Design focus}{5}{subsubsection.1.3.2}
 \contentsline {section}{\numberline {2}Research and Methodology}{6}{section.2}
-\contentsline {subsection}{\numberline {2.1}Approach}{6}{subsection.2.1}
-\contentsline {subsection}{\numberline {2.2}Java Enterprise Landscape}{6}{subsection.2.2}
-\contentsline {subsection}{\numberline {2.3}Case study summary}{8}{subsection.2.3}
-\contentsline {subsection}{\numberline {2.4}Comparison of technologies}{8}{subsection.2.4}
-\contentsline {subsubsection}{\numberline {2.4.1}IDE's and build tools}{8}{subsubsection.2.4.1}
-\contentsline {subsubsection}{\numberline {2.4.2}General framework}{9}{subsubsection.2.4.2}
-\contentsline {subsubsection}{\numberline {2.4.3}Persistence providers}{10}{subsubsection.2.4.3}
-\contentsline {subsubsection}{\numberline {2.4.4}Object relational mapping tools}{11}{subsubsection.2.4.4}
-\contentsline {subsubsection}{\numberline {2.4.5}Security systems}{11}{subsubsection.2.4.5}
-\contentsline {subsubsection}{\numberline {2.4.6}Front-end and Styling frameworks}{12}{subsubsection.2.4.6}
-\contentsline {subsubsection}{\numberline {2.4.7}Application architecture and micro-services}{13}{subsubsection.2.4.7}
+\contentsline {subsection}{\numberline {2.1}Java Enterprise Landscape}{6}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}Case study summary}{8}{subsection.2.2}
+\contentsline {subsection}{\numberline {2.3}Comparison of technologies}{8}{subsection.2.3}
+\contentsline {subsubsection}{\numberline {2.3.1}IDE's and build tools}{8}{subsubsection.2.3.1}
+\contentsline {subsubsection}{\numberline {2.3.2}General framework}{9}{subsubsection.2.3.2}
+\contentsline {subsubsection}{\numberline {2.3.3}Persistence providers}{10}{subsubsection.2.3.3}
+\contentsline {subsubsection}{\numberline {2.3.4}Object relational mapping tools}{11}{subsubsection.2.3.4}
+\contentsline {subsubsection}{\numberline {2.3.5}Security systems}{11}{subsubsection.2.3.5}
+\contentsline {subsubsection}{\numberline {2.3.6}Front-end and Styling frameworks}{12}{subsubsection.2.3.6}
+\contentsline {subsubsection}{\numberline {2.3.7}Application architecture and micro-services}{13}{subsubsection.2.3.7}
 \contentsline {section}{\numberline {3}Case study: Online cash register}{14}{section.3}
 \contentsline {subsection}{\numberline {3.1}Introduction}{14}{subsection.3.1}
 \contentsline {subsection}{\numberline {3.2}Existing systems}{14}{subsection.3.2}
@@ -34,6 +33,9 @@
 \contentsline {subsubsection}{\numberline {3.5.3}Manager}{18}{subsubsection.3.5.3}
 \contentsline {section}{\numberline {4}Application Implementation}{18}{section.4}
 \contentsline {subsection}{\numberline {4.1}Development Process}{18}{subsection.4.1}
+\contentsline {subsubsection}{\numberline {4.1.1}Monolithic Application \& Services}{18}{subsubsection.4.1.1}
+\contentsline {subsubsection}{\numberline {4.1.2}REST \& Micro-services}{21}{subsubsection.4.1.2}
+\contentsline {subsubsection}{\numberline {4.1.3}API Gateway \& Discovery}{22}{subsubsection.4.1.3}
 \contentsline {section}{\numberline {5}Conclusion}{23}{section.5}
 \contentsline {subsection}{\numberline {5.1}Results}{23}{subsection.5.1}
 \contentsline {subsubsection}{\numberline {5.1.1}Final Prototype}{23}{subsubsection.5.1.1}
