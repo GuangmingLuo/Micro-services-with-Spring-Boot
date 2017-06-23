@@ -58,6 +58,11 @@ function run-OcrRest{
 	invoke-expression 'cmd /c start powershell -Command {$Host.UI.RawUI.WindowTitle = "MongoDB-27011-Rest";cd ".\MongoDB";.\mongo1.bat}'
 	invoke-expression 'cmd /c start powershell -Command {$Host.UI.RawUI.WindowTitle = "OcrRest";cd ".\OcrRest\build\libs";java -jar OcrRest-0.0.1-SNAPSHOT.jar}'
 }
+function run-OcrRest2{
+	$cmd = "Write-Host ' :: running OcrRest'"
+	invoke-expression 'cmd /c start powershell -Command {$Host.UI.RawUI.WindowTitle = "OcrRest";cd ".\OcrRest\build\libs";java -jar OcrRest-0.0.1-SNAPSHOT.jar 91 8091;pause}'
+	pause
+}
 function run-OcrMenu{
 	$cmd = "Write-Host ' :: running OcrMenu'"
 	invoke-expression 'cmd /c start powershell -Command {$Host.UI.RawUI.WindowTitle = "MongoDB-27012-Menu";cd ".\MongoDB";.\mongo2.bat}'
@@ -284,11 +289,13 @@ Do{
 		}
 		"run eureka" {run-OcrEurekaServer}
 		"run food" {run-OcrFood}
+		"run food2" {run-OcrFood2}
 		"run gateway" {run-OcrGateway}
 		"run user" {run-OcrUser}
 		"run order" {run-OcrOrder}
 		"run menu" {run-OcrMenu}
 		"run rest" {run-OcrRest}
+		"run rest2" {run-OcrRest2}
 		"run client" {run-OcrClient}
 		"run all" {run-All}
 
