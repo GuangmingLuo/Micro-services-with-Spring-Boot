@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<body>
+
+<div th:fragment="menu">
+    <div class="mdl-grid">
+        <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
+        <div class="demo-content mdl-color--white mdl-shadow--4dp content mdl-color-text--grey-800 mdl-cell mdl-cell--8-col">
+
+            <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+                <div class="mdl-tabs__tab-bar">
+                    <a th:each="menu : ${menus}" th:href="'#menu'+${menu.id}" href="#starks-panel" class="mdl-tabs__tab is-active"><span th:text="${menu.name}"></span></a>
+                </div>
+
+                <div th:each="menu : ${menus}" class="mdl-tabs__panel" th:id="menu+${menu.id}">
+                    <table class="fullwidth mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+                        <thead>
+                        <tr class="fullwidth">
+                            <th class="mdl-data-table__cell--non-numeric">Delete</th>
+                            <th class="mdl-data-table__cell--non-numeric" >Name</th>
+                            <th class="mdl-data-table__cell--non-numeric">Price</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="food:${menu.foods}">
+                            <td class="mdl-data-table__cell--non-numeric">
+                                <!-- FAB button with ripple , class "mdl-js-ripple-effect"-->
+                                <button th:onclick="'deleteFood('+${food.id}+')'" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect">
+                                    <i class="material-icons">delete</i>
+                                </button>
+                            </td>
+                            <td class="mdl-data-table__cell--non-numeric" th:text="${food.name}">Acrylic</td>
+                            <td class="mdl-data-table__cell--non-numeric" th:text="${'$'+food.price}">$2.90</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <th:block th:include="fragments/menuEdit :: addmenuitem"></th:block>
+                </div>
+
+            </div>
+            <th:block th:include="fragments/menuEdit :: addmenu"></th:block>
+            <a  th:href="@{/restaurant/name/}" href="">Back to Menu Overview</a>
+            <br/><br/>
+        </div>
+    </div>
+    <script>
+        function deleteFood(id) {
+            $.ajax({
+                url:"/restaurant/deleteFood/"+id,
+                type:"post",
+            });
+            window.location.reload(true);
+        }
+    </script>
+</div>
+
+    <div th:fragment="addmenuitem">
+        <form action="#" th:action="@{/addMenuItem}" th:object="${food}" method="post">
+            <br/>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                <input class="mdl-textfield__input" type="text" id="name" name="name"/>
+                <label class="mdl-textfield__label" for="name">Name...</label>
+            </div>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                <input class="mdl-textfield__input" type="text" id="price" name="price"/>
+                <label class="mdl-textfield__label" for="price">Price...</label>
+            </div>
+            <!--<div class="mdl-textfield mdl-js-textfield mdl-textfield&#45;&#45;floating-label">-->
+                <!--<input class="mdl-textfield__input" type="file" id="image" name="image"/>-->
+                <!--<label class="mdl-textfield__label" for="image">Image...</label>-->
+            <!--</div>-->
+            <input type="hidden"  id = "menuId" name="menuId" th:value="${menu.id}"/>
+            <button class="mdl-button mdl-js-button mdl-button" type="submit">Add menu item</button>
+        </form>
+    </div>
+
+    <div th:fragment="addmenu">
+        <form action="#" th:action="@{/addMenu}" th:object="${menu}" method="post">
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                <input class="mdl-textfield__input" type="text" id="name" name="name"/>
+                <label class="mdl-textfield__label" for="name">Name...</label>
+            </div>
+            <button class="mdl-button mdl-js-button mdl-button" type="submit">Add a new category</button>
+        </form>
+    </div>
+
+</body>
+</html>

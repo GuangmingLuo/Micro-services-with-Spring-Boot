@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <title>Getting Started: Order Overview</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <th:block th:include="fragments/include :: include"></th:block>
+</head>
+<body>
+<div class="mdl-layout mdl-layout--fixed-header mdl-js-layout mdl-color--grey-100 is-upgraded">
+    <th:block th:include="fragments/navbar :: navbar">test</th:block>
+    <main class="mdl-layout__content">
+        <div class="mdl-grid">
+            <div class="mdl-cell mdl-cell--3-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
+            <div class="mdl-cell mdl-cell--7-col">
+                <div style="text-align: center;margin: 5% 1%">
+                    <table class=" mdl-shadow--2dp mdl-cell mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+                        <thead>
+                        <tr>
+                            <th class="mdl-data-table__cell--non-numeric" th:text="'Restaurant name: '+${restaurantName}"> </th>
+                        </tr>
+                        <tr>
+                            <th class="mdl-data-table__cell--non-numeric" th:text="'Table ID: '+${tableId}"> </th>
+                        </tr>
+                        <tr>
+                            <th class="mdl-data-table__cell--non-numeric" th:text="'Total Price: '+${price}"> </th>
+                        </tr>
+                        <tr>
+                            <th class="mdl-data-table__cell--non-numeric">My Order Overview</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <th class="mdl-data-table__cell--non-numeric" >Order Content</th>
+                            <th class="mdl-data-table__cell--non-numeric" >Price</th>
+                            <th class="mdl-data-table__cell--non-numeric" >Comments</th>
+                            <th class="mdl-data-table__cell--non-numeric" >Status</th>
+                        </tr>
+                        <tr th:each="order:${orders}">
+                            <th class="mdl-data-table__cell--non-numeric" th:text="${order.content}"></th>
+                            <th class="mdl-data-table__cell--non-numeric" th:text="${order.totalPrice}"></th>
+                            <th class="mdl-data-table__cell--non-numeric" th:text="${order.comments}"></th>
+                            <th class="mdl-data-table__cell--non-numeric" th:text="${order.status}"  ></th>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+</body>
+</html>

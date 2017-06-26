@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<body>
+<div th:fragment="navbar">
+    <!-- Always shows a header, even in smaller screens. -->
+    <header class="mdl-layout__header">
+        <div class="mdl-layout__header-row">
+            <!-- Title -->
+            <span th:if="${restaurantName} == null" class="mdl-layout-title">Online Cash Register</span>
+            <span th:if="${restaurantName}" th:text="${restaurantName}" class="mdl-layout-title">Online Cash Register</span>
+            <!-- Add spacer, to align navigation to the right -->
+            <div class="mdl-layout-spacer"></div>
+            <!-- Navigation. We hide it in small screens. -->
+            <nav class="mdl-navigation mdl-layout--large-screen-only">
+                <a th:href="@{/}" class="mdl-navigation__link" href="#">Home</a>
+                <a sec:authorize="isAuthenticated()" th:href="@{/restaurant/name}" class="mdl-navigation__link" href="">Restaurant</a>
+                <a sec:authorize="hasAuthority('ADMIN')" th:href="@{/admin/registration}" class="mdl-navigation__link" href="">Admin</a>
+                <a sec:authorize="hasAuthority('MANAGER')" th:href="@{/employees}" class="mdl-navigation__link" href="">Employees</a>
+                <a sec:authorize="hasAuthority('MANAGER')" th:href="@{/restaurant/orderOverview}" class="mdl-navigation__link" href="">Order Overview</a>
+                <a sec:authorize="hasAuthority('EMPLOYEE')" th:href="@{/restaurant/orderOverview}" class="mdl-navigation__link" href="">Order Overview</a>
+                <div sec:authorize="isAuthenticated()" class="material-icons mdl-badge mdl-badge--overlap">account_box</div>
+                <a sec:authorize="isAuthenticated()" style="text-decoration:none" href="/logout" sec:authentication="name" id="account">Bob</a>
+                <div sec:authorize="hasAuthority('ADMIN')">
+                    <div class="mdl-tooltip mdl-tooltip--large" for="account">Logout</div>
+                </div>
+                <div sec:authorize="hasAuthority('MANAGER')" class="mdl-dropdown">
+                    <button id="menu-lower-right"
+                            class="mdl-button mdl-js-button mdl-button--icon">
+                        <i class="material-icons">more_vert</i>
+                    </button>
+                    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
+                        for="menu-lower-right">
+                        <li class="mdl-menu__item" style="text-align: center"><a href="/account">Account</a></li>
+                        <li class="mdl-menu__item" style="text-align: center"><a href="/logout">Logout</a></li>
+                    </ul>
+                </div>
+
+                <a sec:authorize="!isAuthenticated()" th:href="@{/login}" class="mdl-navigation__link" href="">Login</a>
+            </nav>
+        </div>
+    </header>
+    <div class="mdl-layout__drawer">
+        <span class="mdl-layout-title">Navigation</span>
+        <nav class="mdl-navigation">
+            <a th:href="@{/}" class="mdl-navigation__link" href="#">Home</a>
+            <a  sec:authorize="!isAuthenticated()" th:href="@{/login}" class="mdl-navigation__link" href="">Login</a>
+            <a sec:authorize="isAuthenticated()" th:href="@{/restaurant/name}" class="mdl-navigation__link" href="">Restaurant</a>
+            <a sec:authorize="hasAuthority('ADMIN')" th:href="@{/admin/registration}" class="mdl-navigation__link" href="">Admin</a>
+            <a sec:authorize="hasAuthority('MANAGER')" th:href="@{/employees}" class="mdl-navigation__link" href="">Employees</a>
+            <a sec:authorize="hasAuthority('MANAGER')" th:href="@{/restaurant/orderOverview}" class="mdl-navigation__link" href="">Order Overview</a>
+            <a sec:authorize="hasAuthority('EMPLOYEE')" th:href="@{/restaurant/orderOverview}" class="mdl-navigation__link" href="">Order Overview</a>
+            <a sec:authorize="isAuthenticated()" th:href="@{/logout}" class="mdl-navigation__link" href="">Logout</a>
+        </nav>
+    </div>
+</div>
+
+</body>
+</html>

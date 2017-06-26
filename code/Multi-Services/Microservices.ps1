@@ -91,15 +91,12 @@ function run-OcrClient{
 
 function run-All{
 	$cmd = "Write-Host ' :: running all modules'"
-	run-OcrEurekaServer
-	Start-Sleep -s 3
 	run-OcrFood
 	run-OcrRest
 	run-OcrMenu
 	run-OcrOrder
 	run-OcrUser
 	run-OcrGateway
-	run-OcrClient
 }
 
 
