@@ -1,0 +1,23 @@
+Steps:
+
+Start UwAmp
+run Microservices.ps1
+
+Type:
+	run eureka (wait until its completed)
+	run all
+
+Go to http://localhost:8761/
+
+Type: 
+	run client
+	run rest2
+
+#Eureka features#
+
+Shut down OcrFood
+Shut down rest2
+
+Type:
+	kill all
+	kill all
