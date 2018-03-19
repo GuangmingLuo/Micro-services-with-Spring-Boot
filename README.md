@@ -25,4 +25,4 @@
 
 ### Who do I talk to? ###
 
-* Contact us at lennart.cockx@student.kuleuven.be or guangming.luo@student.kuleuven.be
+* Contact us at lennart.cockx@student.kuleuven.be or guangmingluo1994@gmail.com
